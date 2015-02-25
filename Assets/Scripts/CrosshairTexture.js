@@ -1,0 +1,17 @@
+﻿var CrosshairTexture : Texture2D;
+var position1 : Rect;
+var position2 : Rect;
+static var OriginalOn = true;
+
+function Start(){
+	position1 = Rect((Screen.width - CrosshairTexture.width)/4f, (Screen.height - CrosshairTexture.height)/2f, CrosshairTexture.width, CrosshairTexture.height);
+	position2 = Rect((Screen.width - CrosshairTexture.width/2f)*3f/4f, (Screen.height - CrosshairTexture.height)/2f, CrosshairTexture.width, CrosshairTexture.height);
+}
+
+function OnGUI()
+{
+	if(OriginalOn == true){
+		GUI.DrawTexture(position1, CrosshairTexture);
+		GUI.DrawTexture(position2, CrosshairTexture);
+	}
+}
