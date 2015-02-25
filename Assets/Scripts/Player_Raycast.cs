@@ -18,6 +18,7 @@ public class Player_Raycast : MonoBehaviour {
 
 					Rigidbody rigidbody = hitInfo.transform.GetComponent<Rigidbody>();
 					rigidbody.useGravity = true;
+					rigidbody.freezeRotation = false;
 					rigidbody.AddForce( bulletMass * bulletSpeed * transform.forward, ForceMode.Impulse);
 				}
 			}

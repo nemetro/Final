@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-using System.Collections.Generic;
+
 
 [RequireComponent (typeof (Rigidbody))]
 
@@ -22,9 +22,10 @@ public class Enemy : MonoBehaviour {
 
 	protected virtual void Start(){
 		playerGO = GameObject.FindGameObjectWithTag ("Player");
+		rigidbody.useGravity = true;
 	}
 
-	protected virtual void Update(){
+	protected virtual void FixedUpdate(){
 		//enemy fell off platform
 		if(transform.position.y < 4){
 			Destroy(this.gameObject);
@@ -35,6 +36,8 @@ public class Enemy : MonoBehaviour {
 			stunTimer -= Time.deltaTime;
 			return;
 		}
+
+		rigidbody.freezeRotation = true;
 
 		if (PlayerInRange()) {
 			if (IsOnGround ()) {
@@ -50,7 +53,7 @@ public class Enemy : MonoBehaviour {
 	}
 
 	protected void OnCollisionEnter(Collision other){
-		print ("enemy collided");
+		
 		if (other.transform.tag == "Player") {
 			audio.PlayOneShot (damagePlayerNoise);
 			print ("Hurting player!");
@@ -62,6 +65,7 @@ public class Enemy : MonoBehaviour {
 	}
 
 	protected void OnCollisionStay(Collision other){
+		print ("touching object");
 		touchingObject = true;
 	}
 
@@ -88,7 +92,8 @@ public class Enemy : MonoBehaviour {
 	}
 
 	protected virtual void MoveInAir(){
-		MoveOnGround (); //by default move the same way if in air or not in air
+		LookAtPlayer();
+		rigidbody.useGravity = true;
 	}
 
 	protected virtual void LookAtPlayer(){
@@ -100,7 +105,15 @@ public class Enemy : MonoBehaviour {
 	}
 
 	protected virtual bool IsOnGround(){
-		Vector3 down = transform.up * -1;
-		return Physics.Raycast (transform.position, down, 0.2f) && touchingObject;
+		Debug.DrawRay (transform.position, Vector3.down * (collider.bounds.extents.y + 0.2f), Color.red);
+		return Physics.Raycast (transform.position, Vector3.down, collider.bounds.extents.y+0.2f) && touchingObject;
 	}
+
+/*	protected virtual void OnContactPlayer(){
+		audio.PlayOneShot (damagePlayerNoise);
+		print ("Hurting player!");
+		Player.health -= damage;
+	}*/
+
+
 }

@@ -5130,6 +5130,7 @@ MonoBehaviour:
   hurtNoise: {fileID: 0}
   damagePlayerNoise: {fileID: 0}
   movementForce: 45
+  jumpForce: 100
   jumpWaitTime: 1
   airDashWaitTime: 3
 --- !u!114 &1270727307
