@@ -8,8 +8,8 @@ public class UI : MonoBehaviour {
 	private Text health2;	
 	private Text playerl;
 	private Text playerr;
-	public Player playerL;
-	public Player playerR;
+	public Player playerL = null;
+	public Player playerR = null;
 
 	// Use this for initialization
 	void Start () {
@@ -32,27 +32,30 @@ public class UI : MonoBehaviour {
 		}
 
 		//life
-		string newhealth1 = "Player 1: ";
-		
-		for(int i = 0; i<playerL.health; i++){
-			newhealth1 += '-';
+		if(playerL != null){
+			string newhealth1 = "Player 1: ";
+			
+			for(int i = 0; i<playerL.health; i++){
+				newhealth1 += '-';
+			}
+			health1.text = newhealth1;
+
+			if(playerL.health < playerL.MAXHEALTH/3)
+				health1.color = Color.red;
+			else health1.color = Color.white;
 		}
-		health1.text = newhealth1;
-
-		if(playerL.health < playerL.MAXHEALTH/3)
-			health1.color = Color.red;
-		else health1.color = Color.white;
-
-		string newhealth2 = "Player 2: ";
 		
-		for(int i = 0; i<playerR.health; i++){
-			newhealth2 += '-';
+		if(playerR != null){
+			string newhealth2 = "Player 2: ";
+			
+			for(int i = 0; i<playerR.health; i++){
+				newhealth2 += '-';
+			}
+			health2.text = newhealth2;
+			
+			if(playerR.health < playerR.MAXHEALTH/3)
+				health2.color = Color.red;
+			else health2.color = Color.white;
 		}
-		health2.text = newhealth2;
-		
-		if(playerR.health < playerR.MAXHEALTH/3)
-			health2.color = Color.red;
-		else health2.color = Color.white;
-
 	}
 }
