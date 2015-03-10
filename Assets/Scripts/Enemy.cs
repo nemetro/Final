@@ -1,7 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+<<<<<<< HEAD
+=======
 
+>>>>>>> master
 [RequireComponent (typeof (Rigidbody))]
 
 public class Enemy : MonoBehaviour {
@@ -22,10 +25,16 @@ public class Enemy : MonoBehaviour {
 
 	protected virtual void Start(){
 		playerGO = GameObject.FindGameObjectWithTag ("Player");
+<<<<<<< HEAD
+	}
+
+	protected virtual void Update(){
+=======
 		rigidbody.useGravity = true;
 	}
 
 	protected virtual void FixedUpdate(){
+>>>>>>> master
 		//enemy fell off platform
 		if(transform.position.y < 4){
 			Destroy(this.gameObject);
@@ -37,8 +46,11 @@ public class Enemy : MonoBehaviour {
 			return;
 		}
 
+<<<<<<< HEAD
+=======
 		rigidbody.freezeRotation = true;
 
+>>>>>>> master
 		if (PlayerInRange()) {
 			if (IsOnGround ()) {
 				MoveOnGround ();
@@ -53,6 +65,11 @@ public class Enemy : MonoBehaviour {
 	}
 
 	protected void OnCollisionEnter(Collision other){
+<<<<<<< HEAD
+		print ("enemy collided");
+		if (other.transform.tag == "Player") {
+			OnContactPlayer ();
+=======
 		
 		if (other.transform.tag == "Player") {
 			audio.PlayOneShot (damagePlayerNoise);
@@ -61,11 +78,15 @@ public class Enemy : MonoBehaviour {
 				if(other.gameObject == player.gameObject)
 					player.health -= damage;
 			}
+>>>>>>> master
 		}
 	}
 
 	protected void OnCollisionStay(Collision other){
+<<<<<<< HEAD
+=======
 		print ("touching object");
+>>>>>>> master
 		touchingObject = true;
 	}
 
@@ -92,8 +113,12 @@ public class Enemy : MonoBehaviour {
 	}
 
 	protected virtual void MoveInAir(){
+<<<<<<< HEAD
+		MoveOnGround (); //by default move the same way if in air or not in air
+=======
 		LookAtPlayer();
 		rigidbody.useGravity = true;
+>>>>>>> master
 	}
 
 	protected virtual void LookAtPlayer(){
@@ -105,6 +130,17 @@ public class Enemy : MonoBehaviour {
 	}
 
 	protected virtual bool IsOnGround(){
+<<<<<<< HEAD
+		Vector3 down = transform.up * -1;
+		return Physics.Raycast (transform.position, down, 0.2f) && touchingObject;
+	}
+
+	protected virtual void OnContactPlayer(){
+		audio.PlayOneShot (damagePlayerNoise);
+		print ("Hurting player!");
+		Player.health -= damage;
+	}
+=======
 		Debug.DrawRay (transform.position, Vector3.down * (collider.bounds.extents.y + 0.2f), Color.red);
 		return Physics.Raycast (transform.position, Vector3.down, collider.bounds.extents.y+0.2f) && touchingObject;
 	}
@@ -114,6 +150,7 @@ public class Enemy : MonoBehaviour {
 		print ("Hurting player!");
 		Player.health -= damage;
 	}*/
+>>>>>>> master
 
 
 }

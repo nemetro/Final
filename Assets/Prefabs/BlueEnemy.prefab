@@ -95,7 +95,11 @@ AudioSource:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 187210}
+<<<<<<< HEAD
+  m_Enabled: 0
+=======
   m_Enabled: 1
+>>>>>>> master
   serializedVersion: 3
   m_audioClip: {fileID: 8300000, guid: 21142b3b5c4514bcc944cc22e5f6b87a, type: 3}
   m_PlayOnAwake: 1
@@ -164,7 +168,11 @@ MonoBehaviour:
   damage: 2
   hurtNoise: {fileID: 8300000, guid: 807629372e7ce4a26bc310cfb392be15, type: 3}
   damagePlayerNoise: {fileID: 8300000, guid: 807629372e7ce4a26bc310cfb392be15, type: 3}
+<<<<<<< HEAD
+  movementForce: 45
+=======
   hoverForce: 45
+>>>>>>> master
 --- !u!114 &11487212
 MonoBehaviour:
   m_ObjectHideFlags: 1
