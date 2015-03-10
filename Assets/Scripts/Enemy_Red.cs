@@ -9,8 +9,13 @@ public class Enemy_Red : Enemy {
 	protected bool canJump = false;
 	protected float jumpTimer = 0; 
 	
+<<<<<<< HEAD
 	protected override void Update(){
 		base.Update ();
+=======
+	protected override void FixedUpdate(){
+		base.FixedUpdate ();
+>>>>>>> master
 		
 		if (jumpTimer > 0) {
 			jumpTimer -= Time.deltaTime;
@@ -26,4 +31,12 @@ public class Enemy_Red : Enemy {
 		}
 		//moving on ground
 	}
+<<<<<<< HEAD
+=======
+
+	protected override void MoveInAir(){
+		base.MoveOnGround ();
+		base.MoveInAir ();
+	}
+>>>>>>> master
 }

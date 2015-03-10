@@ -13,6 +13,7 @@ GameObject:
   - 23: {fileID: 2345532}
   - 114: {fileID: 11445532}
   m_Layer: 10
+<<<<<<< HEAD
   m_Name: temp5p
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -36,6 +37,9 @@ GameObject:
   - 114: {fileID: 11445538}
   m_Layer: 0
   m_Name: Purple5
+=======
+  m_Name: temp5g
+>>>>>>> master
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -459,6 +463,10 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 445578}
+<<<<<<< HEAD
+=======
+  - 114: {fileID: 11498962}
+>>>>>>> master
   m_Layer: 0
   m_Name: ProtoLevel
   m_TagString: Untagged
@@ -788,7 +796,10 @@ GameObject:
   - 33: {fileID: 3345610}
   - 65: {fileID: 6545588}
   - 23: {fileID: 2345600}
+<<<<<<< HEAD
   - 114: {fileID: 11445616}
+=======
+>>>>>>> master
   m_Layer: 0
   m_Name: floor1
   m_TagString: Untagged
@@ -1166,6 +1177,31 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+<<<<<<< HEAD
+=======
+--- !u!1 &198962
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 498962}
+  - 33: {fileID: 3398962}
+  - 65: {fileID: 6598962}
+  - 23: {fileID: 2398962}
+  - 114: {fileID: 11498968}
+  - 54: {fileID: 5498962}
+  - 114: {fileID: 11498966}
+  - 114: {fileID: 11498964}
+  m_Layer: 10
+  m_Name: GreenEnemy
+  m_TagString: Green_Enemy
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+>>>>>>> master
 --- !u!4 &445532
 Transform:
   m_ObjectHideFlags: 1
@@ -1178,6 +1214,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 445578}
   m_RootOrder: 58
+<<<<<<< HEAD
 --- !u!4 &445534
 Transform:
   m_ObjectHideFlags: 1
@@ -1190,6 +1227,8 @@ Transform:
   m_Children: []
   m_Father: {fileID: 445578}
   m_RootOrder: 55
+=======
+>>>>>>> master
 --- !u!4 &445536
 Transform:
   m_ObjectHideFlags: 1
@@ -1507,7 +1546,11 @@ Transform:
   - {fileID: 445540}
   - {fileID: 445538}
   - {fileID: 445536}
+<<<<<<< HEAD
   - {fileID: 445534}
+=======
+  - {fileID: 498962}
+>>>>>>> master
   - {fileID: 445570}
   - {fileID: 445550}
   - {fileID: 445532}
@@ -1945,6 +1988,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 445578}
   m_RootOrder: 15
+<<<<<<< HEAD
 --- !u!23 &2345532
 Renderer:
   m_ObjectHideFlags: 1
@@ -1966,18 +2010,41 @@ Renderer:
   m_SortingLayerID: 0
   m_SortingOrder: 0
 --- !u!23 &2345534
+=======
+--- !u!4 &498962
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 198962}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 34.8600006, y: 25.2700005, z: 74.2099991}
+  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_Children: []
+  m_Father: {fileID: 445578}
+  m_RootOrder: 55
+--- !u!23 &2345532
+>>>>>>> master
 Renderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
+<<<<<<< HEAD
   m_GameObject: {fileID: 145534}
+=======
+  m_GameObject: {fileID: 145532}
+>>>>>>> master
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
+<<<<<<< HEAD
   - {fileID: 2100000, guid: 58d473370812f470aaebfc9e95a868a8, type: 2}
+=======
+  - {fileID: 2100000, guid: d38f470006a0642419974ca9aea9637f, type: 2}
+>>>>>>> master
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -2985,6 +3052,7 @@ Renderer:
   m_ScaleInLightmap: 1
   m_SortingLayerID: 0
   m_SortingOrder: 0
+<<<<<<< HEAD
 --- !u!33 &3345532
 MeshFilter:
   m_ObjectHideFlags: 1
@@ -2993,12 +3061,40 @@ MeshFilter:
   m_GameObject: {fileID: 145532}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!33 &3345534
+=======
+--- !u!23 &2398962
+Renderer:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 198962}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_LightmapIndex: 255
+  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
+  m_Materials:
+  - {fileID: 2100000, guid: 6d55c9dfa3bde468fb5332ab209f412a, type: 2}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 0
+  m_LightProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+--- !u!33 &3345532
+>>>>>>> master
 MeshFilter:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
+<<<<<<< HEAD
   m_GameObject: {fileID: 145534}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+=======
+  m_GameObject: {fileID: 145532}
+  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+>>>>>>> master
 --- !u!33 &3345536
 MeshFilter:
   m_ObjectHideFlags: 1
@@ -3391,6 +3487,7 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 145650}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+<<<<<<< HEAD
 --- !u!54 &5445532
 Rigidbody:
   m_ObjectHideFlags: 1
@@ -3406,6 +3503,15 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+=======
+--- !u!33 &3398962
+MeshFilter:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 198962}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+>>>>>>> master
 --- !u!54 &5445534
 Rigidbody:
   m_ObjectHideFlags: 1
@@ -3661,6 +3767,24 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 2
+<<<<<<< HEAD
+=======
+--- !u!54 &5498962
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 198962}
+  serializedVersion: 2
+  m_Mass: 300
+  m_Drag: 0
+  m_AngularDrag: .0500000007
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+>>>>>>> master
 --- !u!64 &6445532
 MeshCollider:
   m_ObjectHideFlags: 1
@@ -3752,6 +3876,7 @@ MeshCollider:
   m_SmoothSphereCollisions: 0
   m_Convex: 0
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+<<<<<<< HEAD
 --- !u!65 &6545532
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -3764,6 +3889,8 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+=======
+>>>>>>> master
 --- !u!65 &6545534
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -4280,6 +4407,21 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD
+=======
+--- !u!65 &6598962
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 198962}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+>>>>>>> master
 --- !u!82 &8245532
 AudioSource:
   m_ObjectHideFlags: 1
@@ -5313,13 +5455,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dependants:
+<<<<<<< HEAD
   - {fileID: 145534}
+=======
+  - {fileID: 198962}
+>>>>>>> master
   done: 0
   built: 0
   type: 2
   buildTemp: {fileID: 145532}
   buildPref: {fileID: 0}
   pushEnemy: 0
+<<<<<<< HEAD
 --- !u!114 &11445534
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5367,6 +5514,8 @@ MonoBehaviour:
   damage: 2
   hurtNoise: {fileID: 0}
   damagePlayerNoise: {fileID: 0}
+=======
+>>>>>>> master
 --- !u!114 &11445540
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5403,6 +5552,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 145546}
   m_Enabled: 1
   m_EditorHideFlags: 0
+<<<<<<< HEAD
   m_Script: {fileID: 11500000, guid: f0bd322c1e5ef477e8342ebcfab0efed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
@@ -5410,10 +5560,21 @@ MonoBehaviour:
   attackRange: 25
   movementSpeed: 5
   stunTimer: 1
+=======
+  m_Script: {fileID: 11500000, guid: c87e066a91c7e42cbb4f35008bda7123, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackRange: 25
+  movementSpeed: 5
+>>>>>>> master
   maxStunTime: 1
   damage: 2
   hurtNoise: {fileID: 8300000, guid: 807629372e7ce4a26bc310cfb392be15, type: 3}
   damagePlayerNoise: {fileID: 8300000, guid: 807629372e7ce4a26bc310cfb392be15, type: 3}
+<<<<<<< HEAD
+=======
+  movementForce: 45
+>>>>>>> master
 --- !u!114 &11445546
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5471,6 +5632,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 145552}
   m_Enabled: 1
   m_EditorHideFlags: 0
+<<<<<<< HEAD
   m_Script: {fileID: 11500000, guid: f0bd322c1e5ef477e8342ebcfab0efed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
@@ -5482,6 +5644,21 @@ MonoBehaviour:
   damage: 2
   hurtNoise: {fileID: 8300000, guid: 2a2047635e598483f9c0c787cb302922, type: 3}
   damagePlayerNoise: {fileID: 8300000, guid: 807629372e7ce4a26bc310cfb392be15, type: 3}
+=======
+  m_Script: {fileID: 11500000, guid: 043a66c5908354ac295d14a11e8bf215, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackRange: 25
+  movementSpeed: 5
+  maxStunTime: 1
+  damage: 2
+  hurtNoise: {fileID: 8300000, guid: 2a2047635e598483f9c0c787cb302922, type: 3}
+  damagePlayerNoise: {fileID: 8300000, guid: 807629372e7ce4a26bc310cfb392be15, type: 3}
+  movementForce: 10
+  jumpWaitTimeMin: 1
+  jumpWaitTimeMax: 2
+  jumpForce: 250
+>>>>>>> master
 --- !u!114 &11445554
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5518,6 +5695,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 145554}
   m_Enabled: 1
   m_EditorHideFlags: 0
+<<<<<<< HEAD
   m_Script: {fileID: 11500000, guid: f0bd322c1e5ef477e8342ebcfab0efed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
@@ -5529,6 +5707,21 @@ MonoBehaviour:
   damage: 2
   hurtNoise: {fileID: 8300000, guid: 2a2047635e598483f9c0c787cb302922, type: 3}
   damagePlayerNoise: {fileID: 8300000, guid: 807629372e7ce4a26bc310cfb392be15, type: 3}
+=======
+  m_Script: {fileID: 11500000, guid: 043a66c5908354ac295d14a11e8bf215, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackRange: 25
+  movementSpeed: 5
+  maxStunTime: 1
+  damage: 2
+  hurtNoise: {fileID: 8300000, guid: 2a2047635e598483f9c0c787cb302922, type: 3}
+  damagePlayerNoise: {fileID: 8300000, guid: 807629372e7ce4a26bc310cfb392be15, type: 3}
+  movementForce: 10
+  jumpWaitTimeMin: 1
+  jumpWaitTimeMax: 2
+  jumpForce: 250
+>>>>>>> master
 --- !u!114 &11445560
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5565,6 +5758,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 145560}
   m_Enabled: 1
   m_EditorHideFlags: 0
+<<<<<<< HEAD
   m_Script: {fileID: 11500000, guid: f0bd322c1e5ef477e8342ebcfab0efed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
@@ -5572,10 +5766,21 @@ MonoBehaviour:
   attackRange: 25
   movementSpeed: 5
   stunTimer: 1
+=======
+  m_Script: {fileID: 11500000, guid: c87e066a91c7e42cbb4f35008bda7123, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackRange: 25
+  movementSpeed: 5
+>>>>>>> master
   maxStunTime: 1
   damage: 2
   hurtNoise: {fileID: 8300000, guid: 807629372e7ce4a26bc310cfb392be15, type: 3}
   damagePlayerNoise: {fileID: 8300000, guid: 807629372e7ce4a26bc310cfb392be15, type: 3}
+<<<<<<< HEAD
+=======
+  movementForce: 45
+>>>>>>> master
 --- !u!114 &11445566
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5612,6 +5817,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 145562}
   m_Enabled: 1
   m_EditorHideFlags: 0
+<<<<<<< HEAD
   m_Script: {fileID: 11500000, guid: f0bd322c1e5ef477e8342ebcfab0efed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
@@ -5619,10 +5825,21 @@ MonoBehaviour:
   attackRange: 25
   movementSpeed: 5
   stunTimer: 1
+=======
+  m_Script: {fileID: 11500000, guid: c87e066a91c7e42cbb4f35008bda7123, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackRange: 25
+  movementSpeed: 5
+>>>>>>> master
   maxStunTime: 1
   damage: 2
   hurtNoise: {fileID: 8300000, guid: 807629372e7ce4a26bc310cfb392be15, type: 3}
   damagePlayerNoise: {fileID: 8300000, guid: 807629372e7ce4a26bc310cfb392be15, type: 3}
+<<<<<<< HEAD
+=======
+  movementForce: 45
+>>>>>>> master
 --- !u!114 &11445572
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5659,6 +5876,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 145568}
   m_Enabled: 1
   m_EditorHideFlags: 0
+<<<<<<< HEAD
   m_Script: {fileID: 11500000, guid: f0bd322c1e5ef477e8342ebcfab0efed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
@@ -5670,6 +5888,21 @@ MonoBehaviour:
   damage: 2
   hurtNoise: {fileID: 8300000, guid: 2a2047635e598483f9c0c787cb302922, type: 3}
   damagePlayerNoise: {fileID: 8300000, guid: 807629372e7ce4a26bc310cfb392be15, type: 3}
+=======
+  m_Script: {fileID: 11500000, guid: 043a66c5908354ac295d14a11e8bf215, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackRange: 25
+  movementSpeed: 5
+  maxStunTime: 1
+  damage: 2
+  hurtNoise: {fileID: 8300000, guid: 2a2047635e598483f9c0c787cb302922, type: 3}
+  damagePlayerNoise: {fileID: 8300000, guid: 807629372e7ce4a26bc310cfb392be15, type: 3}
+  movementForce: 10
+  jumpWaitTimeMin: 1
+  jumpWaitTimeMax: 2
+  jumpForce: 250
+>>>>>>> master
 --- !u!114 &11445578
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5721,6 +5954,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 145580}
   m_Enabled: 1
   m_EditorHideFlags: 0
+<<<<<<< HEAD
   m_Script: {fileID: 11500000, guid: f0bd322c1e5ef477e8342ebcfab0efed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
@@ -5732,6 +5966,21 @@ MonoBehaviour:
   damage: 2
   hurtNoise: {fileID: 8300000, guid: 2a2047635e598483f9c0c787cb302922, type: 3}
   damagePlayerNoise: {fileID: 8300000, guid: 807629372e7ce4a26bc310cfb392be15, type: 3}
+=======
+  m_Script: {fileID: 11500000, guid: 043a66c5908354ac295d14a11e8bf215, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackRange: 25
+  movementSpeed: 5
+  maxStunTime: 1
+  damage: 2
+  hurtNoise: {fileID: 8300000, guid: 2a2047635e598483f9c0c787cb302922, type: 3}
+  damagePlayerNoise: {fileID: 8300000, guid: 807629372e7ce4a26bc310cfb392be15, type: 3}
+  movementForce: 10
+  jumpWaitTimeMin: 1
+  jumpWaitTimeMax: 2
+  jumpForce: 250
+>>>>>>> master
 --- !u!114 &11445584
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5768,6 +6017,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 145582}
   m_Enabled: 1
   m_EditorHideFlags: 0
+<<<<<<< HEAD
   m_Script: {fileID: 11500000, guid: f0bd322c1e5ef477e8342ebcfab0efed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
@@ -5779,6 +6029,21 @@ MonoBehaviour:
   damage: 2
   hurtNoise: {fileID: 8300000, guid: 2a2047635e598483f9c0c787cb302922, type: 3}
   damagePlayerNoise: {fileID: 8300000, guid: 807629372e7ce4a26bc310cfb392be15, type: 3}
+=======
+  m_Script: {fileID: 11500000, guid: 043a66c5908354ac295d14a11e8bf215, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackRange: 0
+  movementSpeed: 0
+  maxStunTime: 1
+  damage: 2
+  hurtNoise: {fileID: 8300000, guid: 2a2047635e598483f9c0c787cb302922, type: 3}
+  damagePlayerNoise: {fileID: 8300000, guid: 807629372e7ce4a26bc310cfb392be15, type: 3}
+  movementForce: 10
+  jumpWaitTimeMin: 1
+  jumpWaitTimeMax: 2
+  jumpForce: 250
+>>>>>>> master
 --- !u!114 &11445590
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5815,6 +6080,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 145584}
   m_Enabled: 1
   m_EditorHideFlags: 0
+<<<<<<< HEAD
   m_Script: {fileID: 11500000, guid: f0bd322c1e5ef477e8342ebcfab0efed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
@@ -5822,10 +6088,21 @@ MonoBehaviour:
   attackRange: 25
   movementSpeed: 5
   stunTimer: 1
+=======
+  m_Script: {fileID: 11500000, guid: c87e066a91c7e42cbb4f35008bda7123, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackRange: 25
+  movementSpeed: 5
+>>>>>>> master
   maxStunTime: 1
   damage: 2
   hurtNoise: {fileID: 8300000, guid: 807629372e7ce4a26bc310cfb392be15, type: 3}
   damagePlayerNoise: {fileID: 8300000, guid: 807629372e7ce4a26bc310cfb392be15, type: 3}
+<<<<<<< HEAD
+=======
+  movementForce: 45
+>>>>>>> master
 --- !u!114 &11445596
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5900,8 +6177,13 @@ MonoBehaviour:
   movementSpeed: 0
   maxStunTime: 1
   damage: 2
+<<<<<<< HEAD
   hurtNoise: {fileID: 0}
   damagePlayerNoise: {fileID: 0}
+=======
+  hurtNoise: {fileID: 8300000, guid: 807629372e7ce4a26bc310cfb392be15, type: 3}
+  damagePlayerNoise: {fileID: 8300000, guid: 807629372e7ce4a26bc310cfb392be15, type: 3}
+>>>>>>> master
   movementForce: 45
 --- !u!114 &11445606
 MonoBehaviour:
@@ -5939,6 +6221,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 145610}
   m_Enabled: 1
   m_EditorHideFlags: 0
+<<<<<<< HEAD
   m_Script: {fileID: 11500000, guid: f0bd322c1e5ef477e8342ebcfab0efed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
@@ -5946,10 +6229,21 @@ MonoBehaviour:
   attackRange: 25
   movementSpeed: 5
   stunTimer: 1
+=======
+  m_Script: {fileID: 11500000, guid: c87e066a91c7e42cbb4f35008bda7123, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackRange: 25
+  movementSpeed: 5
+>>>>>>> master
   maxStunTime: 1
   damage: 2
   hurtNoise: {fileID: 8300000, guid: 807629372e7ce4a26bc310cfb392be15, type: 3}
   damagePlayerNoise: {fileID: 8300000, guid: 807629372e7ce4a26bc310cfb392be15, type: 3}
+<<<<<<< HEAD
+=======
+  movementForce: 45
+>>>>>>> master
 --- !u!114 &11445612
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5978,6 +6272,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   impactForceThreshold: 15
+<<<<<<< HEAD
 --- !u!114 &11445616
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5998,6 +6293,8 @@ MonoBehaviour:
   - {fileID: 145536}
   player: {fileID: 0}
   spawnNum: 0
+=======
+>>>>>>> master
 --- !u!114 &11445618
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6006,6 +6303,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 145614}
   m_Enabled: 1
   m_EditorHideFlags: 0
+<<<<<<< HEAD
   m_Script: {fileID: 11500000, guid: f0bd322c1e5ef477e8342ebcfab0efed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
@@ -6017,6 +6315,21 @@ MonoBehaviour:
   damage: 2
   hurtNoise: {fileID: 8300000, guid: 2a2047635e598483f9c0c787cb302922, type: 3}
   damagePlayerNoise: {fileID: 8300000, guid: 807629372e7ce4a26bc310cfb392be15, type: 3}
+=======
+  m_Script: {fileID: 11500000, guid: 043a66c5908354ac295d14a11e8bf215, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackRange: 25
+  movementSpeed: 5
+  maxStunTime: 1
+  damage: 2
+  hurtNoise: {fileID: 8300000, guid: 2a2047635e598483f9c0c787cb302922, type: 3}
+  damagePlayerNoise: {fileID: 8300000, guid: 807629372e7ce4a26bc310cfb392be15, type: 3}
+  movementForce: 10
+  jumpWaitTimeMin: 1
+  jumpWaitTimeMax: 2
+  jumpForce: 250
+>>>>>>> master
 --- !u!114 &11445620
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6099,6 +6412,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 145626}
   m_Enabled: 1
   m_EditorHideFlags: 0
+<<<<<<< HEAD
   m_Script: {fileID: 11500000, guid: f0bd322c1e5ef477e8342ebcfab0efed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
@@ -6110,6 +6424,21 @@ MonoBehaviour:
   damage: 2
   hurtNoise: {fileID: 8300000, guid: 2a2047635e598483f9c0c787cb302922, type: 3}
   damagePlayerNoise: {fileID: 8300000, guid: 807629372e7ce4a26bc310cfb392be15, type: 3}
+=======
+  m_Script: {fileID: 11500000, guid: 043a66c5908354ac295d14a11e8bf215, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackRange: 25
+  movementSpeed: 5
+  maxStunTime: 1
+  damage: 2
+  hurtNoise: {fileID: 8300000, guid: 2a2047635e598483f9c0c787cb302922, type: 3}
+  damagePlayerNoise: {fileID: 8300000, guid: 807629372e7ce4a26bc310cfb392be15, type: 3}
+  movementForce: 10
+  jumpWaitTimeMin: 1
+  jumpWaitTimeMax: 2
+  jumpForce: 250
+>>>>>>> master
 --- !u!114 &11445632
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6146,6 +6475,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 145628}
   m_Enabled: 1
   m_EditorHideFlags: 0
+<<<<<<< HEAD
   m_Script: {fileID: 11500000, guid: f0bd322c1e5ef477e8342ebcfab0efed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
@@ -6157,6 +6487,21 @@ MonoBehaviour:
   damage: 2
   hurtNoise: {fileID: 8300000, guid: 2a2047635e598483f9c0c787cb302922, type: 3}
   damagePlayerNoise: {fileID: 8300000, guid: 807629372e7ce4a26bc310cfb392be15, type: 3}
+=======
+  m_Script: {fileID: 11500000, guid: 043a66c5908354ac295d14a11e8bf215, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackRange: 25
+  movementSpeed: 5
+  maxStunTime: 1
+  damage: 2
+  hurtNoise: {fileID: 8300000, guid: 2a2047635e598483f9c0c787cb302922, type: 3}
+  damagePlayerNoise: {fileID: 8300000, guid: 807629372e7ce4a26bc310cfb392be15, type: 3}
+  movementForce: 10
+  jumpWaitTimeMin: 1
+  jumpWaitTimeMax: 2
+  jumpForce: 250
+>>>>>>> master
 --- !u!114 &11445638
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6235,6 +6580,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 145644}
   m_Enabled: 1
   m_EditorHideFlags: 0
+<<<<<<< HEAD
   m_Script: {fileID: 11500000, guid: f0bd322c1e5ef477e8342ebcfab0efed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
@@ -6242,10 +6588,21 @@ MonoBehaviour:
   attackRange: 25
   movementSpeed: 5
   stunTimer: 1
+=======
+  m_Script: {fileID: 11500000, guid: c87e066a91c7e42cbb4f35008bda7123, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackRange: 25
+  movementSpeed: 5
+>>>>>>> master
   maxStunTime: 1
   damage: 2
   hurtNoise: {fileID: 8300000, guid: 807629372e7ce4a26bc310cfb392be15, type: 3}
   damagePlayerNoise: {fileID: 8300000, guid: 807629372e7ce4a26bc310cfb392be15, type: 3}
+<<<<<<< HEAD
+=======
+  movementForce: 45
+>>>>>>> master
 --- !u!114 &11445648
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6282,6 +6639,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 145648}
   m_Enabled: 1
   m_EditorHideFlags: 0
+<<<<<<< HEAD
   m_Script: {fileID: 11500000, guid: f0bd322c1e5ef477e8342ebcfab0efed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
@@ -6293,6 +6651,21 @@ MonoBehaviour:
   damage: 2
   hurtNoise: {fileID: 8300000, guid: 2a2047635e598483f9c0c787cb302922, type: 3}
   damagePlayerNoise: {fileID: 8300000, guid: 807629372e7ce4a26bc310cfb392be15, type: 3}
+=======
+  m_Script: {fileID: 11500000, guid: 043a66c5908354ac295d14a11e8bf215, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackRange: 0
+  movementSpeed: 0
+  maxStunTime: 1
+  damage: 2
+  hurtNoise: {fileID: 8300000, guid: 2a2047635e598483f9c0c787cb302922, type: 3}
+  damagePlayerNoise: {fileID: 8300000, guid: 807629372e7ce4a26bc310cfb392be15, type: 3}
+  movementForce: 10
+  jumpWaitTimeMin: 1
+  jumpWaitTimeMax: 2
+  jumpForce: 250
+>>>>>>> master
 --- !u!114 &11445654
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6321,6 +6694,76 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   impactForceThreshold: 10
+<<<<<<< HEAD
+=======
+--- !u!114 &11498962
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 145578}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d647e338bc4b48a18a91581d693980d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnSpots:
+  - {fileID: 145646}
+  - {fileID: 145600}
+  - {fileID: 145598}
+  - {fileID: 145606}
+  - {fileID: 145590}
+  - {fileID: 145536}
+  spawnNum: 5
+--- !u!114 &11498964
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 198962}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb646e960ab3a487d86591f3d865e3bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackRange: 0
+  movementSpeed: 0
+  maxStunTime: 1
+  damage: 2
+  hurtNoise: {fileID: 0}
+  damagePlayerNoise: {fileID: 0}
+  movementForce: 45
+  jumpWaitTime: 1
+  airDashWaitTime: 3
+--- !u!114 &11498966
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 198962}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 2061952440, guid: f655bb0c7d39612409a173f95e9016c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  immediate: 1
+  shards:
+    min: 2
+    max: 2
+  shardsPerFrame: 2
+--- !u!114 &11498968
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 198962}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1836541618, guid: f655bb0c7d39612409a173f95e9016c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  impactForceThreshold: 10
+>>>>>>> master
 --- !u!136 &13645532
 CapsuleCollider:
   m_ObjectHideFlags: 1

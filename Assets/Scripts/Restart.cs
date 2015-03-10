@@ -7,7 +7,11 @@ public class Restart : MonoBehaviour {
 
 	void Update(){
 		if(Input.anyKey){
+<<<<<<< HEAD
 			Application.LoadLevel (startLevel);
+=======
+//			Application.LoadLevel (startLevel);
+>>>>>>> master
 		}
 	}
 }
