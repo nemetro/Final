@@ -12,8 +12,9 @@ TagManager:
   - Indestructible
   - Red_Bullet
   - Blue_Bullet
-  - 
+  - Melee
   - Wall
+  - Gun
   - 
   Builtin Layer 0: Default
   Builtin Layer 1: TransparentFX

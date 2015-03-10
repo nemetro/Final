@@ -28,6 +28,9 @@ public class Hints : MonoBehaviour {
 		if(other.gameObject.name == "Hint1"){
 			HintText.text = "Shoot the blue box with the blue gun! Press Q to swap weapons.";
 		}
+		if(other.gameObject.name == "Hint3") {
+			HintText.text = "Some objects can't be destroyed... try using right click and pushing them!";
+		}
 	}
 
 	void OnTriggerExit(Collider other) {

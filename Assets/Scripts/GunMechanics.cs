@@ -7,7 +7,7 @@ public class GunMechanics : MonoBehaviour {
 	public GameObject blueBullet;
 	public GameObject redBullet;
 	public float bulletSpeed;
-
+	public bool usingGun;
 
 	public int currentColor;
 	//public GameObject redBullet;
@@ -16,6 +16,7 @@ public class GunMechanics : MonoBehaviour {
 	void Start () {
 		renderer.material.SetColor("_Color", Color.blue);
 		currentColor = 0;
+		usingGun = false;
 	}
 	
 	// Update is called once per frame
