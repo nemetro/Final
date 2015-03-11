@@ -70,7 +70,7 @@ public class WeaponMechanics : MonoBehaviour {
 
 			if(Input.GetMouseButtonDown(0)){ 
 				Vector3 pos = gun.transform.position + gun.transform.forward;
-				pos = new Vector3(pos.x, pos.y + .3f, pos.z);
+				pos = new Vector3(pos.x, pos.y, pos.z);
 				bullet = (GameObject)Instantiate(blueBullet, pos, transform.rotation);
 				bullet.rigidbody.AddForce(gun.transform.forward*40, ForceMode.VelocityChange);
 
