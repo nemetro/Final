@@ -3,19 +3,18 @@
 --- !u!78 &1
 TagManager:
   tags:
-  - Kill
-  - Blue
-  - Red
-  - Green_Enemy
-  - Blue_Enemy
-  - Red_Enemy
-  - Indestructible
-  - Red_Bullet
-  - Blue_Bullet
+  - AlarmLight
+  - Enemy
+  - MainLight
+  - Fader
+  - WayPoint
+  - Siren
   - 
-  - Wall
+  - Alarm
+  - 
   - Melee
   - Gun
+  - Blue_Bullet
   - 
   Builtin Layer 0: Default
   Builtin Layer 1: TransparentFX
@@ -25,11 +24,11 @@ TagManager:
   Builtin Layer 5: UI
   Builtin Layer 6: 
   Builtin Layer 7: 
-  User Layer 8: Blue
-  User Layer 9: Red
-  User Layer 10: Green
-  User Layer 11: Player
-  User Layer 12: Respawner
+  User Layer 8: PlayArea
+  User Layer 9: Extents
+  User Layer 10: Player
+  User Layer 11: 
+  User Layer 12: 
   User Layer 13: 
   User Layer 14: 
   User Layer 15: 
