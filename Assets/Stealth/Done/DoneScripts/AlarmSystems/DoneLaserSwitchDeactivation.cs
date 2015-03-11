@@ -5,7 +5,7 @@ public class ModifiedDoneLaserSwitchDeactivation : MonoBehaviour
 {
 	public GameObject laser;				// Reference to the laser that can we turned off at this switch.
 	public Material unlockedMat;		 	// The screen's material to show the laser has been unloacked.
-	
+
 	
 	private GameObject player;				// Reference to the player.
 	
