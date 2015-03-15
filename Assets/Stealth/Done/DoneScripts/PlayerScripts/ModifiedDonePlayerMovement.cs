@@ -6,6 +6,7 @@ public class ModifiedDonePlayerMovement : MonoBehaviour
 	public AudioClip shoutingClip;		// Audio clip of the player shouting.
 	public float turnSmoothing = 15f;	// A smoothing value for turning the player.
 	public float speedDampTime = 0.1f;	// The damping for the speed parameter
+	public float moveSidewaysSpeed = 3f;
 	public AnimationClip walk;
 	public AnimationClip run;
 	
@@ -18,7 +19,7 @@ public class ModifiedDonePlayerMovement : MonoBehaviour
 		// Setting up the references.
 		anim = GetComponent<Animator>();
 		hash = GameObject.FindGameObjectWithTag(DoneTags.gameController).GetComponent<DoneHashIDs>();
-		
+
 		// Set the weight of the shouting layer to 1.
 		anim.SetLayerWeight(1, 1f);
 	}
@@ -51,41 +52,24 @@ public class ModifiedDonePlayerMovement : MonoBehaviour
 	{
 		// Set the sneaking parameter to the sneak input.
 		anim.SetBool(hash.sneakingBool, sneaking);
-		
+
 		// If there is some axis input...
-		if(horizontal != 0f || vertical != 0f)
-		{
-			if(vertical >  0f){ //forward
-				anim.speed = Mathf.Abs (anim.speed);
-			} else { //backward
-				anim.speed = Mathf.Abs (anim.speed) * -1.0f;
-			}
-			// ... set the players rotation and set the speed parameter to 5.5f.
-//			Rotating(horizontal, vertical);
-			anim.SetFloat(hash.speedFloat, 5.5f, speedDampTime, Time.deltaTime);
+		if (horizontal != 0f) {
+			transform.position = transform.position + horizontal * moveSidewaysSpeed * Time.deltaTime * transform.right;
 		}
-		else
+
+
+		if (vertical != 0f) {// controls running
+			anim.speed = vertical;
+
+			//set the speed parameter to 5.5f.
+			anim.SetFloat (hash.speedFloat, 5.5f, speedDampTime, Time.deltaTime);
+		} else {
 			// Otherwise set the speed parameter to 0.
-			anim.SetFloat(hash.speedFloat, 0);
+			anim.SetFloat (hash.speedFloat, 0.0f, speedDampTime, Time.deltaTime);
+		}
 	}
-	
-	
-	void Rotating (float horizontal, float vertical)
-	{
-		// Create a new vector of the horizontal and vertical inputs.
-		Vector3 targetDirection = new Vector3(horizontal, 0f, vertical);
-		targetDirection = transform.TransformDirection (targetDirection); //move relative to transform not to world
-		
-		// Create a rotation based on this new vector assuming that up is the global y axis.
-		Quaternion targetRotation = Quaternion.LookRotation(targetDirection, Vector3.up);
-		
-		// Create a rotation that is an increment closer to the target rotation from the player's rotation.
-		Quaternion newRotation = Quaternion.Lerp(rigidbody.rotation, targetRotation, turnSmoothing * Time.deltaTime);
-		
-		// Change the players rotation to this new rotation.
-		rigidbody.MoveRotation(newRotation);
-	}
-	
+
 	
 	void AudioManagement (bool shout)
 	{
