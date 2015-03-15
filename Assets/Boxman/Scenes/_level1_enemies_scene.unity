@@ -33282,6 +33282,8 @@ MonoBehaviour:
   shoutingClip: {fileID: 8300000, guid: f2e0ffd43812bf642a502c434b572c75, type: 3}
   turnSmoothing: 15
   speedDampTime: .100000001
+  walk: {fileID: 7400000, guid: b1a5e04ae51004842aba06704a6c2903, type: 3}
+  run: {fileID: 7400000, guid: 1cb8ed3cbba15f0479fbae54e0a963df, type: 3}
 --- !u!114 &1220521115
 MonoBehaviour:
   m_ObjectHideFlags: 0

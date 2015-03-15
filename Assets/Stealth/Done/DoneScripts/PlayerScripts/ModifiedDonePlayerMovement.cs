@@ -6,7 +6,8 @@ public class ModifiedDonePlayerMovement : MonoBehaviour
 	public AudioClip shoutingClip;		// Audio clip of the player shouting.
 	public float turnSmoothing = 15f;	// A smoothing value for turning the player.
 	public float speedDampTime = 0.1f;	// The damping for the speed parameter
-	
+	public AnimationClip walk;
+	public AnimationClip run;
 	
 	private Animator anim;				// Reference to the animator component.
 	private DoneHashIDs hash;			// Reference to the HashIDs.
@@ -54,6 +55,11 @@ public class ModifiedDonePlayerMovement : MonoBehaviour
 		// If there is some axis input...
 		if(horizontal != 0f || vertical != 0f)
 		{
+			if(vertical >  0f){ //forward
+				anim.speed = Mathf.Abs (anim.speed);
+			} else { //backward
+				anim.speed = Mathf.Abs (anim.speed) * -1.0f;
+			}
 			// ... set the players rotation and set the speed parameter to 5.5f.
 //			Rotating(horizontal, vertical);
 			anim.SetFloat(hash.speedFloat, 5.5f, speedDampTime, Time.deltaTime);
