@@ -3,10 +3,10 @@ using System.Collections;
 
 public class ModifiedDonePlayerHealth : MonoBehaviour
 {
-    public float health = 100f;							// How much health the player has left.
+    public float health = 50f;							// How much health the player has left.
 	public float resetAfterDeathTime = 5f;				// How much time from the player dying to the level reseting.
 	public AudioClip deathClip;							// The sound effect of the player dying.
-	
+	private Player player;
 	
 	private Animator anim;								// Reference to the animator component.
 	private ModifiedDonePlayerMovement playerMovement;			// Reference to the player movement script.
@@ -20,6 +20,7 @@ public class ModifiedDonePlayerHealth : MonoBehaviour
 	void Awake ()
 	{
 		// Setting up the references.
+		player = GetComponent<Player>();
 		anim = GetComponent<Animator>();
 		playerMovement = GetComponent<ModifiedDonePlayerMovement>();
 		hash = GameObject.FindGameObjectWithTag(DoneTags.gameController).GetComponent<DoneHashIDs>();
@@ -34,15 +35,17 @@ public class ModifiedDonePlayerHealth : MonoBehaviour
 		if(health <= 0f)
 		{
 			// ... and if the player is not yet dead...
-			if(!playerDead)
-				// ... call the PlayerDying function.
-				PlayerDying();
-			else
-			{
-				// Otherwise, if the player is dead, call the PlayerDead and LevelReset functions.
-				PlayerDead();
-				LevelReset();
-			}
+//			if(!playerDead)
+//				// ... call the PlayerDying function.
+//				PlayerDying();
+//			else
+//			{
+//				// Otherwise, if the player is dead, call the PlayerDead and LevelReset functions.
+//				PlayerDead();
+//				LevelReset();
+//			}
+//TODO
+			health = player.MAXHEALTH;
 		}
 	}
 	
@@ -68,8 +71,8 @@ public class ModifiedDonePlayerHealth : MonoBehaviour
 		
 		// Disable the movement.
 		anim.SetFloat(hash.speedFloat, 0f);
-		playerMovement.enabled = false;
-		
+//		playerMovement.enabled = false;
+		//TODO
 		// Reset the player sighting to turn off the alarms.
 		lastPlayerSighting.position = lastPlayerSighting.resetPosition;
 		
@@ -84,9 +87,10 @@ public class ModifiedDonePlayerHealth : MonoBehaviour
 		timer += Time.deltaTime;
 		
 		//If the timer is greater than or equal to the time before the level resets...
-		if(timer >= resetAfterDeathTime)
-			// ... reset the level.
-			sceneFadeInOut.EndScene();
+//		if(timer >= resetAfterDeathTime)
+//			// ... reset the level.
+//			sceneFadeInOut.EndScene();
+		//TODO comment for player to work
 	}
 	
 	
@@ -94,5 +98,6 @@ public class ModifiedDonePlayerHealth : MonoBehaviour
     {
 		// Decrement the player's health by amount.
         health -= amount;
+        player.health = (int)health;
     }
 }

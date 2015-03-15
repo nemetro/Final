@@ -3,8 +3,8 @@ using System.Collections;
 
 public class ModifiedDoneEnemyShooting : MonoBehaviour
 {
-	public float maximumDamage = 120f;					// The maximum potential damage per shot.
-	public float minimumDamage = 45f;					// The minimum potential damage per shot.
+	public float maximumDamage = 10f;					// The maximum potential damage per shot.
+	public float minimumDamage = 5f;					// The minimum potential damage per shot.
 	public AudioClip shotClip;							// An audio clip to play when a shot happens.
 	public float flashIntensity = 3f;					// The intensity of the light when the shot happens.
 	public float fadeSpeed = 10f;						// How fast the light will fade after the shot.

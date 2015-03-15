@@ -6,6 +6,8 @@ public class Level : MonoBehaviour {
 
 	public List<GameObject> spawnSpots = new List<GameObject>();
 	public static List<Player> players = new List<Player>();
+	private float timer1, timer2, timer3, timer4;
+	public float resetAfterDeathTime = 5f;
 	private Vector3 curSpawn;
 	private bool onstart = true;
 	public int spawnNum = 0;
@@ -31,14 +33,16 @@ public class Level : MonoBehaviour {
 		}
 
 		foreach(Player player in players){
-			if(player.health <= 0 || Input.GetKeyUp(KeyCode.R)){
+			if(player.health <= 0 || Input.GetKeyUp(KeyCode.R))
+			{
 				print ("move to " + curSpawn);
 				player.GetComponent<Rigidbody>().velocity = Vector3.zero;
 				player.transform.position = curSpawn;
 				player.health = player.MAXHEALTH;
 			}
 			foreach(GameObject ss in spawnSpots){
-				if(player.transform.position.z > ss.transform.position.z){
+				if(player.transform.position.z > ss.transform.position.z)
+				{
 					curSpawn = ss.transform.position;
 				}
 			}

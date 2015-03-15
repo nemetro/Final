@@ -66,8 +66,9 @@ public class DoneSceneFadeInOut : MonoBehaviour
 		FadeToBlack();
 		
 		// If the screen is almost black...
-		if(guiTexture.color.a >= 0.95f)
-			// ... reload the level.
-			Application.LoadLevel(0);
+//		if(guiTexture.color.a >= 0.95f)
+//			// ... reload the level.
+//			Application.LoadLevel(0);
+			//TODO comment out for Player to work
 	}
 }
