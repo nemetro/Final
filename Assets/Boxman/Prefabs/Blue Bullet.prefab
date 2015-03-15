@@ -98,6 +98,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lifeTime: 1
+  paintSplatter: {fileID: 165626, guid: 5c5a1868ef70c4f4cbc9167457455baa, type: 2}
+  floatInFrontOfWall: .00100000005
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
