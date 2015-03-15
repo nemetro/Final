@@ -29452,7 +29452,6 @@ GameObject:
   - 92: {fileID: 1113619702}
   - 124: {fileID: 1113619701}
   - 114: {fileID: 1113619700}
-  - 81: {fileID: 1113619699}
   - 114: {fileID: 1113619698}
   - 82: {fileID: 1113619697}
   - 114: {fileID: 1113619696}
@@ -29581,14 +29580,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletMass: 10
   bulletSpeed: 300
---- !u!81 &1113619699
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 8100000, guid: 9d4133d5d30b644bd87802a347eaccbe,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1113619694}
-  m_Enabled: 1
 --- !u!114 &1113619700
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -33282,6 +33273,9 @@ MonoBehaviour:
   shoutingClip: {fileID: 8300000, guid: f2e0ffd43812bf642a502c434b572c75, type: 3}
   turnSmoothing: 15
   speedDampTime: .100000001
+  moveSidewaysSpeed: 3
+  walk: {fileID: 7400000, guid: b1a5e04ae51004842aba06704a6c2903, type: 3}
+  run: {fileID: 7400000, guid: 1cb8ed3cbba15f0479fbae54e0a963df, type: 3}
 --- !u!114 &1220521115
 MonoBehaviour:
   m_ObjectHideFlags: 0
