@@ -99,6 +99,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb646e960ab3a487d86591f3d865e3bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attackRange: 0
+  movementSpeed: 0
+  maxStunTime: 1
+  damage: 2
+  hurtNoise: {fileID: 0}
+  damagePlayerNoise: {fileID: 0}
+  movementForce: 45
+  jumpForce: 100
+  jumpWaitTime: 1
+  airDashWaitTime: 3
 --- !u!114 &11442540
 MonoBehaviour:
   m_ObjectHideFlags: 1

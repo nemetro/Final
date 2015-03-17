@@ -6284,6 +6284,7 @@ MonoBehaviour:
   - {fileID: 145606}
   - {fileID: 145590}
   - {fileID: 145536}
+  resetAfterDeathTime: 5
   spawnNum: 5
 --- !u!114 &11498964
 MonoBehaviour:
@@ -6303,6 +6304,7 @@ MonoBehaviour:
   hurtNoise: {fileID: 0}
   damagePlayerNoise: {fileID: 0}
   movementForce: 45
+  jumpForce: 100
   jumpWaitTime: 1
   airDashWaitTime: 3
 --- !u!114 &11498966

@@ -219,7 +219,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 570b436a95cbb4bb6a42069df8fa1060, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scale: 1
+  splitSetting: 0
 --- !u!114 &11463606
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -252,8 +252,8 @@ MonoBehaviour:
   m_Script: {fileID: 1301386320, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ignoreReversedGraphics: 1
-  blockingObjects: 0
+  m_IgnoreReversedGraphics: 1
+  m_BlockingObjects: 0
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -301,6 +301,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  resetAfterDeathTime: 5
   spawnNum: 0
 --- !u!114 &11475208
 MonoBehaviour:
