@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using InControl;
 
 [RequireComponent (typeof (Animator))]
 
@@ -14,6 +15,7 @@ public class PlayerAnimationMovement : MonoBehaviour
 	public AnimationClip run;
 	public GameObject footprint;
 	public int maxNumPaintSteps = 10;
+	public InputDevice controller;
 	
 	private Animator anim;				// Reference to the animator component.
 	private AnimatorHashIDs hash;			// Reference to the HashIDs.
@@ -33,8 +35,8 @@ public class PlayerAnimationMovement : MonoBehaviour
 	void FixedUpdate ()
 	{
 		// Cache the inputs.
-		float h = Input.GetAxis("Horizontal");
-		float v = Input.GetAxis("Vertical");
+		float h = controller.LeftStickX;//Input.GetAxis("Horizontal");
+		float v = controller.LeftStickY;//Input.GetAxis("Vertical");
 		bool sneak = Input.GetButton("Sneak");
 		
 		MovementManagement(h, v, sneak);

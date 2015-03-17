@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using InControl;
 
 public class WeaponMechanics : MonoBehaviour {
 
@@ -9,6 +10,8 @@ public class WeaponMechanics : MonoBehaviour {
 	public bool usingGun;
 	public float attackCooldown;
 	public bool justAttacked;
+	public InputDevice controller;
+	
 
 	// Use this for initialization
 	void Start () {
@@ -37,7 +40,8 @@ public class WeaponMechanics : MonoBehaviour {
 			usingGun = false;
 		}
 
-		if(Input.GetKeyDown("q")) {
+//		if(Input.GetKeyDown("q")) {
+		if(controller.Action3.WasPressed){
 			if(usingGun) {
 				usingGun = false;
 			} else if(!usingGun) {
@@ -49,7 +53,7 @@ public class WeaponMechanics : MonoBehaviour {
 
 		//Melee weapon
 		if(usingGun == false) {
-			if (Input.GetMouseButtonDown(0) && attackCooldown <= 0) {
+			if (controller.LeftTrigger.WasPressed && attackCooldown <= 0) {
 				attackCooldown = .8f;
 				machete.transform.Rotate(0,90,0);
 				justAttacked = true;
@@ -66,7 +70,7 @@ public class WeaponMechanics : MonoBehaviour {
 		if(usingGun) {
 			GameObject bullet = null;
 
-			if(Input.GetMouseButtonDown(0)){ 
+			if(controller.LeftTrigger.WasPressed){ 
 				Vector3 pos = gun.transform.position + gun.transform.forward;
 				pos = new Vector3(pos.x, pos.y, pos.z);
 				bullet = (GameObject)Instantiate(blueBullet, pos, transform.rotation);
