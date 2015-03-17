@@ -8,9 +8,9 @@ public class Bullet : MonoBehaviour {
 	public GameObject splatter;
 
 	void OnCollisionEnter(Collision other){
-		rigidbody.useGravity = true;
 
-		if (other.transform.tag == "Enemy") {
+
+		if (other.transform.tag == "Enemy" && rigidbody.useGravity == false) {
 			//paint splatter effect
 			RaycastHit hitInfo;
 			if(Physics.Raycast(transform.position, Vector3.down, out hitInfo)){ //if raycast hits something
@@ -23,6 +23,7 @@ public class Bullet : MonoBehaviour {
 			GameObject.Destroy(other.gameObject);
 			Instantiate(ragdoll, pos, rotation);
 		}
+		rigidbody.useGravity = true;
 	}
 
 	void Update(){

@@ -6,15 +6,18 @@ using System.Collections;
 public class PlayerAnimationMovement : MonoBehaviour
 {
 	public AudioClip shoutingClip;		// Audio clip of the player shouting.
+	public AudioClip stepInPaintClip;
 	public float turnSmoothing = 15f;	// A smoothing value for turning the player.
 	public float speedDampTime = 0.1f;	// The damping for the speed parameter
 	public float moveSidewaysSpeed = 3f;
 	public AnimationClip walk;
 	public AnimationClip run;
+	public GameObject footprint;
+	public int maxNumPaintSteps = 10;
 	
 	private Animator anim;				// Reference to the animator component.
 	private AnimatorHashIDs hash;			// Reference to the HashIDs.
-	
+	private int paintSteps = 0;
 	
 	void Awake ()
 	{
@@ -35,6 +38,18 @@ public class PlayerAnimationMovement : MonoBehaviour
 		bool sneak = Input.GetButton("Sneak");
 		
 		MovementManagement(h, v, sneak);
+
+		if (WalkingOnPaint ()) {
+			if(paintSteps != maxNumPaintSteps){
+				audio.PlayOneShot(stepInPaintClip);
+			}
+			paintSteps = maxNumPaintSteps;
+		} else if (paintSteps != 0){ //if not walking on paint and we have paint on our feet
+			RaycastHit hitInfo;
+			if(Physics.Raycast(transform.position + transform.up, transform.up * -1, out hitInfo)){
+				Instantiate(footprint, hitInfo.point + hitInfo.normal * 0.001f, Quaternion.FromToRotation(Vector3.up, hitInfo.normal));
+			}
+		}
 	}
 	
 	
@@ -91,5 +106,10 @@ public class PlayerAnimationMovement : MonoBehaviour
 		if(shout)
 			// ... play the shouting clip where we are.
 			AudioSource.PlayClipAtPoint(shoutingClip, transform.position);
+	}
+
+	bool WalkingOnPaint(){
+		RaycastHit hitInfo;
+		return Physics.Raycast (transform.position + transform.up, transform.up * -1, out hitInfo) && hitInfo.transform.tag == "Paint";
 	}
 }
