@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Melee_Weapon : MonoBehaviour {
+public class MeleeWeapon : MonoBehaviour {
 	public GameObject ragdoll;
 	public GameObject splatter;
 
