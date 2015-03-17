@@ -98,6 +98,7 @@ public class PlayerHealth : MonoBehaviour
     {
 		// Decrement the player's health by amount.
         health -= amount;
+        print (player.gameObject.name);
         player.health = (int)health;
     }
 }
