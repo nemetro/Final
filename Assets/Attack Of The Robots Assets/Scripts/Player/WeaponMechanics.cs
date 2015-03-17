@@ -14,8 +14,6 @@ public class WeaponMechanics : MonoBehaviour {
 	void Start () {
 		attackCooldown = 0;
 		usingGun = false;
-		machete = GameObject.FindGameObjectWithTag ("Melee");
-		gun = GameObject.FindGameObjectWithTag ("Gun");
 		justAttacked = false;
 		machete.collider.enabled = false;
 	}
