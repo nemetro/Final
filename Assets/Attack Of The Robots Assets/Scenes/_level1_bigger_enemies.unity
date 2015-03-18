@@ -9735,7 +9735,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 198342, guid: b0b7d257f08064f7782a2a86afc9e5ad, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 11498452, guid: b0b7d257f08064f7782a2a86afc9e5ad, type: 2}
       propertyPath: axes
@@ -48854,7 +48854,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 570b436a95cbb4bb6a42069df8fa1060, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  splitSetting: 1
+  splitSetting: 0
 --- !u!114 &1214837045
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -57326,7 +57326,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1398778366
 Transform:
   m_ObjectHideFlags: 0
