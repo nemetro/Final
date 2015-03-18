@@ -16,10 +16,12 @@ public class PlayerAnimationMovement : MonoBehaviour
 	public GameObject footprint;
 	public int maxNumPaintSteps = 10;
 	public InputDevice controller;
+	public bool walkingOnPaint = false;
 	
 	private Animator anim;				// Reference to the animator component.
 	private AnimatorHashIDs hash;			// Reference to the HashIDs.
 	private int paintSteps = 0;
+	private float stepTimer = 0.2f;
 	
 	void Awake ()
 	{
@@ -40,18 +42,27 @@ public class PlayerAnimationMovement : MonoBehaviour
 		bool sneak = Input.GetButton("Sneak");
 		
 		MovementManagement(h, v, sneak);
-
-		if (WalkingOnPaint ()) {
+		bool moving = h != 0 || v != 0;
+		if (walkingOnPaint && moving) {
 			if(paintSteps != maxNumPaintSteps){
 				audio.PlayOneShot(stepInPaintClip);
 			}
 			paintSteps = maxNumPaintSteps;
-		} else if (paintSteps != 0){ //if not walking on paint and we have paint on our feet
+		}
+
+		if (!walkingOnPaint && paintSteps != 0 && stepTimer < 0f && moving){ //if not walking on paint and we have paint on our feet
 			RaycastHit hitInfo;
 			if(Physics.Raycast(transform.position + transform.up, transform.up * -1, out hitInfo)){
 				Instantiate(footprint, hitInfo.point + hitInfo.normal * 0.001f, Quaternion.FromToRotation(Vector3.up, hitInfo.normal));
+				paintSteps--;
+				stepTimer = 0.2f;
 			}
 		}
+
+		if (stepTimer > 0f) {
+			stepTimer -= Time.fixedDeltaTime;
+		}
+		walkingOnPaint = false;
 	}
 	
 	
@@ -108,10 +119,5 @@ public class PlayerAnimationMovement : MonoBehaviour
 		if(shout)
 			// ... play the shouting clip where we are.
 			AudioSource.PlayClipAtPoint(shoutingClip, transform.position);
-	}
-
-	bool WalkingOnPaint(){
-		RaycastHit hitInfo;
-		return Physics.Raycast (transform.position + transform.up, transform.up * -1, out hitInfo) && hitInfo.transform.tag == "Paint";
 	}
 }
