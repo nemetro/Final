@@ -3,9 +3,7 @@ using System.Collections;
 
 public class NextLevel : MonoBehaviour {
 
-	void Update(){
-		if(Input.anyKey){
-			Application.LoadLevel (Application.loadedLevel + 1);
-		}
+	public void Next(){
+		Application.LoadLevel (Application.loadedLevel + 1);
 	}
 }

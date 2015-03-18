@@ -60,8 +60,11 @@ public class EnemyDetectPlayer: MonoBehaviour
 	void OnTriggerStay (Collider other)
 	{
 		// If the player has entered the trigger sphere...
-		if(other.gameObject == player)
+		if(other.gameObject == player || other.gameObject.tag == "Footprint")
 		{
+			if(other.gameObject.tag == "Footprint" && other.gameObject.GetComponent<FootprintDirection>().hasBeenSeen){
+				return;
+			}
 			// By default the player is not in sight.
 			playerInSight = false;
 			
@@ -75,8 +78,7 @@ public class EnemyDetectPlayer: MonoBehaviour
 				RaycastHit hit;
 				
 				// ... and if a raycast towards the player from the gun and the head hits something...
-
-				if(Physics.Raycast(gun.transform.position + transform.up, direction.normalized, out hit, col.radius) && Physics.Raycast(transform.position + transform.up, direction.normalized, out hit, col.radius))
+				if(other.gameObject == player && Physics.Raycast(gun.transform.position + transform.up, direction.normalized, out hit, col.radius) && Physics.Raycast(transform.position + transform.up, direction.normalized, out hit, col.radius))
 				{
 					// ... and if the raycast hits the player...
 					if(hit.collider.gameObject == player)
@@ -87,6 +89,12 @@ public class EnemyDetectPlayer: MonoBehaviour
 						// Set the last global sighting is the players current position.
 						lastPlayerSighting.position = player.transform.position;
 					}
+				} else if (other.gameObject.tag == "Footprint"){
+					FootprintDirection footDir = other.gameObject.GetComponent<FootprintDirection>();
+					if(footDir.hasBeenSeen == false && footDir.nextFootprintPos != Vector3.zero){
+						personalLastSighting = footDir.nextFootprintPos;
+					}
+					footDir.hasBeenSeen = true;
 				}
 			}
 			

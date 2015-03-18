@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using InControl;
 
 [RequireComponent (typeof (Animator))]
 
@@ -13,12 +14,16 @@ public class PlayerAnimationMovement : MonoBehaviour
 	public AnimationClip walk;
 	public AnimationClip run;
 	public GameObject footprint;
-	public int maxNumPaintSteps = 10;
+	public int maxNumPaintSteps = 30;
+	public InputDevice controller;
+	public bool walkingOnPaint = false;
 	
 	private Animator anim;				// Reference to the animator component.
 	private AnimatorHashIDs hash;			// Reference to the HashIDs.
 	private int paintSteps = 0;
-	
+	private float stepTimer = 0.2f;
+	private FootprintDirection lastFootprint;
+
 	void Awake ()
 	{
 		// Setting up the references.
@@ -27,29 +32,48 @@ public class PlayerAnimationMovement : MonoBehaviour
 
 		// Set the weight of the shouting layer to 1.
 		anim.SetLayerWeight(1, 1f);
+		maxNumPaintSteps = 30;
 	}
 	
 	
 	void FixedUpdate ()
 	{
 		// Cache the inputs.
-		float h = Input.GetAxis("Horizontal");
-		float v = Input.GetAxis("Vertical");
+		float h = controller.LeftStickX;//Input.GetAxis("Horizontal");
+		float v = controller.LeftStickY;//Input.GetAxis("Vertical");
 		bool sneak = Input.GetButton("Sneak");
 		
 		MovementManagement(h, v, sneak);
-
-		if (WalkingOnPaint ()) {
+		bool moving = h != 0 || v != 0;
+		if (walkingOnPaint && moving) {
 			if(paintSteps != maxNumPaintSteps){
 				audio.PlayOneShot(stepInPaintClip);
 			}
 			paintSteps = maxNumPaintSteps;
-		} else if (paintSteps != 0){ //if not walking on paint and we have paint on our feet
+		}
+
+		if (!walkingOnPaint && paintSteps != 0 && stepTimer < 0f && moving){ //if not walking on paint and we have paint on our feet
 			RaycastHit hitInfo;
 			if(Physics.Raycast(transform.position + transform.up, transform.up * -1, out hitInfo)){
-				Instantiate(footprint, hitInfo.point + hitInfo.normal * 0.001f, Quaternion.FromToRotation(Vector3.up, hitInfo.normal));
+				GameObject ftprint = (GameObject)Instantiate(footprint, hitInfo.point + hitInfo.normal * 0.001f, transform.rotation);
+				ftprint.transform.forward = -1*transform.forward;
+				if(lastFootprint != null){
+					lastFootprint.nextFootprintPos = hitInfo.point;
+				}
+				lastFootprint = ftprint.GetComponent<FootprintDirection>();
+				paintSteps--;
+				stepTimer = 0.2f;
 			}
 		}
+
+		if (paintSteps == 0) { //start a new trail
+			lastFootprint = null;
+		}
+
+		if (stepTimer > 0f) {
+			stepTimer -= Time.fixedDeltaTime;
+		}
+		walkingOnPaint = false;
 	}
 	
 	
@@ -77,7 +101,7 @@ public class PlayerAnimationMovement : MonoBehaviour
 
 
 		if (vertical != 0f) {// controls running
-			anim.speed = vertical;
+			anim.speed = 1;
 
 			//set the speed parameter to 5.5f.
 			anim.SetFloat (hash.speedFloat, 5.5f, speedDampTime, Time.deltaTime);
@@ -106,10 +130,5 @@ public class PlayerAnimationMovement : MonoBehaviour
 		if(shout)
 			// ... play the shouting clip where we are.
 			AudioSource.PlayClipAtPoint(shoutingClip, transform.position);
-	}
-
-	bool WalkingOnPaint(){
-		RaycastHit hitInfo;
-		return Physics.Raycast (transform.position + transform.up, transform.up * -1, out hitInfo) && hitInfo.transform.tag == "Paint";
 	}
 }

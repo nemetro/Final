@@ -13,4 +13,10 @@ public class PaintSplatter : MonoBehaviour {
 			this.enabled = false; //once the timer is done turn off this script
 		}
 	}
+
+	void OnTriggerStay(Collider other) {
+		if(other.tag == "Player"){
+			other.gameObject.GetComponent<PlayerAnimationMovement>().walkingOnPaint = true;
+		}
+	}
 }
