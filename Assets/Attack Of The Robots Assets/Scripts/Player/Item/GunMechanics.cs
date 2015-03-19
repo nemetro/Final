@@ -14,7 +14,7 @@ public class GunMechanics : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		renderer.material.SetColor("_Color", Color.blue);
+		GetComponent<Renderer>().material.SetColor("_Color", Color.blue);
 		currentColor = 0;
 	}
 	
@@ -22,10 +22,10 @@ public class GunMechanics : MonoBehaviour {
 	void Update () {
 		if(Input.GetKeyDown ("q")) {
 			if(currentColor == 0) {
-				renderer.material.SetColor("_Color", Color.red);
+				GetComponent<Renderer>().material.SetColor("_Color", Color.red);
 				currentColor = 1;
 			} else {
-				renderer.material.SetColor("_Color", Color.blue);
+				GetComponent<Renderer>().material.SetColor("_Color", Color.blue);
 				currentColor = 0;
 			}
 		}
@@ -52,7 +52,7 @@ public class GunMechanics : MonoBehaviour {
 
 
 			}
-			bullet.rigidbody.AddForce(transform.forward*bulletSpeed, ForceMode.VelocityChange);
+			bullet.GetComponent<Rigidbody>().AddForce(transform.forward*bulletSpeed, ForceMode.VelocityChange);
 
 			/*
 			Vector3 pos = new Vector3 (this.transform.position.x, this.transform.position.y, this.transform.position.z + .5f);

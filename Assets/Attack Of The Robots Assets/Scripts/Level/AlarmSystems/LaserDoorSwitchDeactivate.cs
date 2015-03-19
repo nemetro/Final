@@ -35,7 +35,7 @@ public class LaserDoorSwitchDeactivate : MonoBehaviour
 		laser.SetActive(false);
 		
 		// Store the renderer component of the screen.
-		Renderer screen = transform.Find("prop_switchUnit_screen_001").renderer;
+		Renderer screen = transform.Find("prop_switchUnit_screen_001").GetComponent<Renderer>();
 		
 		// Change the material of the screen to the unlocked material.
 		screen.material = unlockedMat;
@@ -44,6 +44,6 @@ public class LaserDoorSwitchDeactivate : MonoBehaviour
 		lastPlayerSighting.position = player.transform.position;
 
 		// Play switch deactivation audio clip.
-		audio.Play();
+		GetComponent<AudioSource>().Play();
 	}
 }

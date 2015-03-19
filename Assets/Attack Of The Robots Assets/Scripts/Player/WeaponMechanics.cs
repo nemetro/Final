@@ -18,7 +18,7 @@ public class WeaponMechanics : MonoBehaviour {
 		attackCooldown = 0;
 		usingGun = false;
 		justAttacked = false;
-		machete.collider.enabled = false;
+		machete.GetComponent<Collider>().enabled = false;
 	}
 	
 	// Update is called once per frame
@@ -57,12 +57,12 @@ public class WeaponMechanics : MonoBehaviour {
 				attackCooldown = .8f;
 				machete.transform.Rotate(0,90,0);
 				justAttacked = true;
-				machete.collider.enabled = true;
+				machete.GetComponent<Collider>().enabled = true;
 			}
 			if(attackCooldown <= .5f && justAttacked) {
 				machete.transform.Rotate(0,-90,0);
 				justAttacked = false;
-				machete.collider.enabled = false;
+				machete.GetComponent<Collider>().enabled = false;
 			}
 		}
 
@@ -74,7 +74,7 @@ public class WeaponMechanics : MonoBehaviour {
 				Vector3 pos = gun.transform.position + gun.transform.forward;
 				pos = new Vector3(pos.x, pos.y, pos.z);
 				bullet = (GameObject)Instantiate(blueBullet, pos, transform.rotation);
-				bullet.rigidbody.AddForce(gun.transform.forward*40, ForceMode.VelocityChange);
+				bullet.GetComponent<Rigidbody>().AddForce(gun.transform.forward*40, ForceMode.VelocityChange);
 
 			}
 		}

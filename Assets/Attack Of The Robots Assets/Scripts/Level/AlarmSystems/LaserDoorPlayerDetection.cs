@@ -19,13 +19,13 @@ public class LaserDoorPlayerDetection : MonoBehaviour
     void OnTriggerStay(Collider other)
     {
 		// If the beam is on...
-        if (renderer.enabled) {
+        if (GetComponent<Renderer>().enabled) {
 			// ... and if the colliding gameobject is the player...
 			if (other.gameObject == player){
 				// ... set the last global sighting of the player to the colliding object's position.
 				player.GetComponent<PlayerHealth>().TakeDamage(120);
 //				lastPlayerSighting.position = other.transform.position; //turn on the alarm
-				audio.PlayOneShot (hurtPlayerSound);
+				GetComponent<AudioSource>().PlayOneShot (hurtPlayerSound);
 			}
 		}
     }

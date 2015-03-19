@@ -47,7 +47,7 @@ public class PlayerAnimationMovement : MonoBehaviour
 		bool moving = h != 0 || v != 0;
 		if (walkingOnPaint && moving) {
 			if(paintSteps != maxNumPaintSteps){
-				audio.PlayOneShot(stepInPaintClip);
+				GetComponent<AudioSource>().PlayOneShot(stepInPaintClip);
 			}
 			paintSteps = maxNumPaintSteps;
 		}
@@ -118,13 +118,13 @@ public class PlayerAnimationMovement : MonoBehaviour
 		if(anim.GetCurrentAnimatorStateInfo(0).nameHash == hash.locomotionState)
 		{
 			// ... and if the footsteps are not playing...
-			if(!audio.isPlaying)
+			if(!GetComponent<AudioSource>().isPlaying)
 				// ... play them.
-				audio.Play();
+				GetComponent<AudioSource>().Play();
 		}
 		else
 			// Otherwise stop the footsteps.
-			audio.Stop();
+			GetComponent<AudioSource>().Stop();
 		
 		// If the shout input has been pressed...
 		if(shout)

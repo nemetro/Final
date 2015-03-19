@@ -23,10 +23,10 @@ public class GlobalLastPlayerSighting : MonoBehaviour
 		alarm = GameObject.FindGameObjectWithTag(InGameTags.alarm).GetComponent<AlarmRedLight>();
 		
 		// Setup the reference to the main directional light in the scene.
-		mainLight = GameObject.FindGameObjectWithTag(InGameTags.mainLight).light;
+		mainLight = GameObject.FindGameObjectWithTag(InGameTags.mainLight).GetComponent<Light>();
 		
 		// Setup the reference to the additonal audio source.
-		panicAudio = transform.FindChild("secondaryMusic").audio;
+		panicAudio = transform.FindChild("secondaryMusic").GetComponent<AudioSource>();
 		
 		// Find an array of the siren gameobjects.
 		GameObject[] sirenGameObjects = GameObject.FindGameObjectsWithTag(InGameTags.siren);
@@ -37,7 +37,7 @@ public class GlobalLastPlayerSighting : MonoBehaviour
 		// For all the sirens allocate the audio source of the gameobjects.
 		for(int i = 0; i < sirens.Length; i++)
 		{
-			sirens[i] = sirenGameObjects[i].audio;
+			sirens[i] = sirenGameObjects[i].GetComponent<AudioSource>();
 		}
 	}
 	
@@ -88,7 +88,7 @@ public class GlobalLastPlayerSighting : MonoBehaviour
 		if(position != resetPosition)
 		{
 			// ... fade out the normal music...
-			audio.volume = Mathf.Lerp(audio.volume, 0f, musicFadeSpeed * Time.deltaTime);
+			GetComponent<AudioSource>().volume = Mathf.Lerp(GetComponent<AudioSource>().volume, 0f, musicFadeSpeed * Time.deltaTime);
 			
 			// ... and fade in the panic music.
 			panicAudio.volume = Mathf.Lerp(panicAudio.volume, 0.8f, musicFadeSpeed * Time.deltaTime);
@@ -96,7 +96,7 @@ public class GlobalLastPlayerSighting : MonoBehaviour
 		else
 		{
 			// Otherwise fade in the normal music and fade out the panic music.
-			audio.volume = Mathf.Lerp(audio.volume, 0.8f, musicFadeSpeed * Time.deltaTime);
+			GetComponent<AudioSource>().volume = Mathf.Lerp(GetComponent<AudioSource>().volume, 0.8f, musicFadeSpeed * Time.deltaTime);
 			panicAudio.volume = Mathf.Lerp(panicAudio.volume, 0f, musicFadeSpeed * Time.deltaTime);
 		}
 	}

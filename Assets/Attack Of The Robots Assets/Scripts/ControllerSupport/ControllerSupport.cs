@@ -46,12 +46,12 @@ public class ControllerSupport : MonoBehaviour {
 		if (Input.GetAxis("Red") == 1)
 		{
 			GameObject inst = (GameObject)Instantiate(redBull);
-			inst.rigidbody.velocity = speed;
+			inst.GetComponent<Rigidbody>().velocity = speed;
 		}
 		if (Input.GetAxis("Blue") == 1)
 		{
 			GameObject inst = (GameObject) Instantiate(blueBull);
-			inst.rigidbody.velocity = speed;
+			inst.GetComponent<Rigidbody>().velocity = speed;
 		}
 	}
 	

@@ -25,7 +25,7 @@ public class EnemyShootingRaycast: MonoBehaviour
 		// Setting up the references.
 		anim = GetComponent<Animator>();
 		laserShotLine = GetComponentInChildren<LineRenderer>();
-		laserShotLight = laserShotLine.gameObject.light;
+		laserShotLight = laserShotLine.gameObject.GetComponent<Light>();
 		col = GetComponent<SphereCollider>();
 		player = GameObject.FindGameObjectWithTag(InGameTags.player).transform;
 		playerHealth = player.gameObject.GetComponent<PlayerHealth>();

@@ -10,7 +10,7 @@ public class Bullet : MonoBehaviour {
 	void OnCollisionEnter(Collision other){
 
 
-		if (other.transform.tag == "Enemy" && rigidbody.useGravity == false) {
+		if (other.transform.tag == "Enemy" && GetComponent<Rigidbody>().useGravity == false) {
 			//paint splatter effect
 			RaycastHit hitInfo;
 			if(Physics.Raycast(transform.position, Vector3.down, out hitInfo)){ //if raycast hits something
@@ -23,11 +23,11 @@ public class Bullet : MonoBehaviour {
 			GameObject.Destroy(other.gameObject);
 			Instantiate(ragdoll, pos, rotation);
 		}
-		rigidbody.useGravity = true;
+		GetComponent<Rigidbody>().useGravity = true;
 	}
 
 	void Update(){
-		if (rigidbody.useGravity) {
+		if (GetComponent<Rigidbody>().useGravity) {
 			lifeTime -= Time.deltaTime;
 		}
 

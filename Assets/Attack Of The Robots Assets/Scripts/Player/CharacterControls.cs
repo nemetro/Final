@@ -18,12 +18,12 @@ public class CharacterControls : MonoBehaviour {
 	public bool grounded = false;
 		
 	void Start ()	{
-		rigidbody.velocity = Vector3.zero;
+		GetComponent<Rigidbody>().velocity = Vector3.zero;
 	}
 	
 	void Awake () {
-		rigidbody.freezeRotation = true;
-		rigidbody.useGravity = false;
+		GetComponent<Rigidbody>().freezeRotation = true;
+		GetComponent<Rigidbody>().useGravity = false;
 		gravity = new Vector3 (0, -1, 0); //default down
 	}
 	
@@ -33,23 +33,23 @@ public class CharacterControls : MonoBehaviour {
 		}
 
 		if(Input.GetAxis ("Horizontal") != 0 || Input.GetAxis ("Vertical") != 0){
-			rigidbody.AddForce (getMovementForce ()*100, ForceMode.Acceleration);
+			GetComponent<Rigidbody>().AddForce (getMovementForce ()*100, ForceMode.Acceleration);
 		}
 
 		if (grounded && Input.GetButton ("Jump") && jumpTimer <= 0.0f) {
-			rigidbody.AddForce(getJumpForce(), ForceMode.Impulse);
+			GetComponent<Rigidbody>().AddForce(getJumpForce(), ForceMode.Impulse);
 			jumpTimer = jumpWait;
 		}
 
 		// We apply gravity manually for more tuning control
-		rigidbody.AddForce (gravity * gravityMagnitude * rigidbody.mass, ForceMode.Acceleration);
+		GetComponent<Rigidbody>().AddForce (gravity * gravityMagnitude * GetComponent<Rigidbody>().mass, ForceMode.Acceleration);
 
 		grounded = false;
 	}
 
 	public Vector3 getMovementForce(){
 		// Calculate how fast we should be moving
-		Vector3 currentLocalVelocity = transform.InverseTransformDirection (rigidbody.velocity); //to local coorinates
+		Vector3 currentLocalVelocity = transform.InverseTransformDirection (GetComponent<Rigidbody>().velocity); //to local coorinates
 		Vector3 localTargetVelocity = new Vector3 (Input.GetAxis ("Horizontal"), 0, Input.GetAxis ("Vertical")); //local coordinates
 		localTargetVelocity *= speed;
 

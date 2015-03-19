@@ -12,12 +12,15 @@ public class Level : MonoBehaviour {
 	private bool onstart = true;
 	public int spawnNum = 0;
 
+	private GlobalLastPlayerSighting lastPlayerSighting;	// Reference to last global sighting of the player.
+
 	void Start(){
 		curSpawn = new Vector3(spawnSpots[spawnNum].transform.position.x,
 		                       spawnSpots[spawnNum].transform.position.y,
 		                       spawnSpots[spawnNum].transform.position.z);
 		foreach(Player player in players)
 			player.transform.position = curSpawn;
+		lastPlayerSighting = GameObject.FindGameObjectWithTag(InGameTags.gameController).GetComponent<GlobalLastPlayerSighting>();
 	}
 
 	// Update is called once per frame
@@ -39,6 +42,8 @@ public class Level : MonoBehaviour {
 				player.GetComponent<Rigidbody>().velocity = Vector3.zero;
 				player.transform.position = curSpawn;
 				player.health = player.MAXHEALTH;
+				//Reset the alarm status
+				lastPlayerSighting.position = lastPlayerSighting.resetPosition;
 			}
 			foreach(GameObject ss in spawnSpots){
 				if(player.transform.position.z > ss.transform.position.z)
