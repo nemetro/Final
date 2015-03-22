@@ -11,6 +11,10 @@ public class AssignControllers : MonoBehaviour {
 
 	void Awake()
 	{
+		if (GameObject.Find("PlayerAssign") == null)
+		{
+			return;
+		}
 		controllers = GameObject.Find("PlayerAssign").GetComponent<GetControllers>().players;
 		numPlayers = GameObject.Find("PlayerAssign").GetComponent<GetControllers>().numPlayers;
 		for (int cur_player = 0; cur_player < numPlayers; cur_player++)

@@ -39,6 +39,11 @@ public class PlayerAnimationMovement : MonoBehaviour
 	void FixedUpdate ()
 	{
 		// Cache the inputs.
+		if (controller == null)
+		{
+			controller = InputManager.Devices[0];
+		}
+		
 		float h = controller.LeftStickX;//Input.GetAxis("Horizontal");
 		float v = controller.LeftStickY;//Input.GetAxis("Vertical");
 		bool sneak = Input.GetButton("Sneak");
