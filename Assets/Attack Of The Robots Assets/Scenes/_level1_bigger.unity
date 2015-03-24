@@ -86,7 +86,7 @@ NavMeshSettings:
     minRegionArea: 2
     cellSize: .100000001
     manualCellSize: 0
-  m_NavMeshData: {fileID: 0}
+  m_NavMeshData: {fileID: 23800000, guid: c4c66023bf4134955b4bf6e385e3c0f5, type: 2}
 --- !u!1001 &67278356
 Prefab:
   m_ObjectHideFlags: 0
@@ -172,6 +172,34 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 11427572, guid: 7195101d2ec1e4a2e951c6380c85c16a, type: 2}
+      propertyPath: players.Array.data[0]
+      value: 
+      objectReference: {fileID: 495091171}
+    - target: {fileID: 11427572, guid: 7195101d2ec1e4a2e951c6380c85c16a, type: 2}
+      propertyPath: players.Array.data[1]
+      value: 
+      objectReference: {fileID: 1398778365}
+    - target: {fileID: 11427572, guid: 7195101d2ec1e4a2e951c6380c85c16a, type: 2}
+      propertyPath: players.Array.data[2]
+      value: 
+      objectReference: {fileID: 112281517}
+    - target: {fileID: 11427572, guid: 7195101d2ec1e4a2e951c6380c85c16a, type: 2}
+      propertyPath: players.Array.data[3]
+      value: 
+      objectReference: {fileID: 1558340431}
+    - target: {fileID: 156838, guid: 7195101d2ec1e4a2e951c6380c85c16a, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11444752, guid: 7195101d2ec1e4a2e951c6380c85c16a, type: 2}
+      propertyPath: ragdoll
+      value: 
+      objectReference: {fileID: 104168, guid: c10c863746efd4ef6a67696f80c848ff, type: 2}
+    - target: {fileID: 11444752, guid: 7195101d2ec1e4a2e951c6380c85c16a, type: 2}
+      propertyPath: splatter
+      value: 
+      objectReference: {fileID: 165626, guid: 5c5a1868ef70c4f4cbc9167457455baa, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7195101d2ec1e4a2e951c6380c85c16a, type: 2}
   m_IsPrefabParent: 0
@@ -396,6 +424,26 @@ Prefab:
       propertyPath: sensitivityY
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 11498450, guid: b0b7d257f08064f7782a2a86afc9e5ad, type: 2}
+      propertyPath: bulletHole
+      value: 
+      objectReference: {fileID: 165626, guid: 5df157a9a4ca142bb9a8b9ec13bec6aa, type: 2}
+    - target: {fileID: 11498450, guid: b0b7d257f08064f7782a2a86afc9e5ad, type: 2}
+      propertyPath: gunShotSound
+      value: 
+      objectReference: {fileID: 8300000, guid: cff8ff28bdf004927a2a6e0eae039eaa, type: 3}
+    - target: {fileID: 11498450, guid: b0b7d257f08064f7782a2a86afc9e5ad, type: 2}
+      propertyPath: reloadSound
+      value: 
+      objectReference: {fileID: 8300000, guid: f8743525c85944c9daacd7561edd5986, type: 3}
+    - target: {fileID: 11498450, guid: b0b7d257f08064f7782a2a86afc9e5ad, type: 2}
+      propertyPath: dryFireSound
+      value: 
+      objectReference: {fileID: 8300000, guid: ac3e27ed3b946440da878df8ba45b6db, type: 3}
+    - target: {fileID: 11498450, guid: b0b7d257f08064f7782a2a86afc9e5ad, type: 2}
+      propertyPath: usingGun
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b0b7d257f08064f7782a2a86afc9e5ad, type: 2}
   m_IsPrefabParent: 0
@@ -445,26 +493,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 9
---- !u!1 &1214837041
-GameObject:
-  m_PrefabParentObject: {fileID: 134640, guid: 7195101d2ec1e4a2e951c6380c85c16a, type: 2}
-  m_PrefabInternal: {fileID: 238011219}
---- !u!114 &1214837048
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1214837041}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: daeb8559b921c4c9da1e0582ec7dc43e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  players:
-  - {fileID: 495091171}
-  - {fileID: 1398778365}
-  - {fileID: 112281517}
-  - {fileID: 1558340431}
 --- !u!1 &1398778365
 GameObject:
   m_PrefabParentObject: {fileID: 198342, guid: b0b7d257f08064f7782a2a86afc9e5ad, type: 2}
