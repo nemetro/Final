@@ -6,7 +6,9 @@ public class WeaponMechanics : MonoBehaviour {
 
 	public GameObject gun;
 	public GameObject machete;
-	public GameObject blueBullet;
+//	public GameObject blueBullet;
+	public GameObject bulletHole;
+	public AudioClip gunShotSound;
 	public bool usingGun;
 	public float attackCooldown;
 	public bool justAttacked;
