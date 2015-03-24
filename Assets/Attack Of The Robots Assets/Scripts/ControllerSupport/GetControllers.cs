@@ -1,21 +1,22 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 using InControl;
 
 public class GetControllers : MonoBehaviour {
 
 	public InputDevice[] players = new InputDevice[4];
 	
-	//InputDevice controller0, controller1, controller2, controller3;
-	//InputDevice[] controllers;
 	public int numPlayers;
 	bool assigned = false;
 	int cur_player;	
+	GameObject prompt;
 
 	void Awake()
 	{
 		DontDestroyOnLoad(this);
+		prompt = GameObject.Find("UserPrompt");
 	}
 
 	// Update is called once per frame
@@ -23,52 +24,14 @@ public class GetControllers : MonoBehaviour {
 	{	
 		if (numPlayers != 0 && !assigned & cur_player < numPlayers)
 		{
-			//print (numPlayers);
-			
-			for (int i = 0; i < numPlayers; i++)
+			prompt.GetComponent<Text>().text = "Press button on controller for player " + cur_player;
+			InputDevice controller = getNextController();
+			if (controller != null)
 			{
-				/*if (players[i].GetComponent<CharacterControls>().controller == null)
-				{
-					cur_player = i;
-					i = numPlayers;
-				}*/
-				/*if (players[i] == null)
-				{
-					cur_player = i;
-				}*/
+				players[cur_player] = controller;				
+				cur_player++;
+				prompt.GetComponent<Text>().text = "";
 			}
-			
-			/*else
-			{*/
-				print ("Press button on controller for player " + cur_player);
-				InputDevice controller = getNextController();
-				if (controller != null)
-				{
-					players[cur_player] = controller;				
-					cur_player++;
-				}
-			
-/*				if (controller != null)
-				{
-					players[cur_player].GetComponentInChildren<GunMechanics>().controller = controller;
-					players[cur_player].GetComponentInChildren<GunMechanics>().enabled = true;
-					players[cur_player].GetComponent<CharacterControls>().controller = controller;
-					players[cur_player].GetComponent<CharacterControls>().enabled = true;
-					MouseLook[] look = players[cur_player].GetComponentsInChildren<MouseLook>();
-					foreach (MouseLook member in look)
-					{
-						member.controller = controller;
-						member.enabled = true;
-					}
-					players[cur_player].GetComponentInChildren<Player_Raycast>().controller = controller;
-					players[cur_player].GetComponentInChildren<Player_Raycast>().enabled = true;				
-					print (cur_player + " assigned!");
-					if (cur_player == numPlayers)
-					{
-						assigned = true;
-					}
-				}*/
-			//}
 		}
 
 	}
@@ -89,7 +52,7 @@ public class GetControllers : MonoBehaviour {
 	{
 		if (num > InputManager.Devices.Count)
 		{
-				print ("Not enough devices are attached for number of players!");
+			prompt.GetComponent<Text>().text = "Not enough devices are attached for number of players!";
 				return;
 		}
 		else

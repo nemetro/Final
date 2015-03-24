@@ -23,6 +23,11 @@ public class WeaponMechanics : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+	
+		if (controller == null)
+		{
+			controller = InputManager.Devices[0];
+		}
 		attackCooldown -= Time.deltaTime;
 
 		if(usingGun) {
