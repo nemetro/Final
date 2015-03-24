@@ -35,6 +35,10 @@ public class MouseLookController : MonoBehaviour {
 
 	void Update ()
 	{
+		if (controller == null)
+		{
+			controller = InputManager.Devices[0];
+		}
 		if (axes == RotationAxes.MouseXAndY)
 		{
 			float rotationX = transform.localEulerAngles.y + controller.RightStickX * sensitivityX;
