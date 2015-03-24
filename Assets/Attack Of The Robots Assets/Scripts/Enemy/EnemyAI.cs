@@ -63,9 +63,10 @@ public class EnemyAI : MonoBehaviour
 		Vector3 sightingDeltaPos = enemySight.personalLastSighting - transform.position;
 		
 		// If the the last personal sighting of the player is not close...
-		if(sightingDeltaPos.sqrMagnitude > 4f)
+		if (sightingDeltaPos.sqrMagnitude > 4f) {
 			// ... set the destination for the NavMeshAgent to the last personal sighting of the player.
 			nav.destination = enemySight.personalLastSighting;
+		}
 		
 		// Set the appropriate speed for the NavMeshAgent.
 		nav.speed = chaseSpeed;
@@ -97,16 +98,14 @@ public class EnemyAI : MonoBehaviour
 		nav.speed = patrolSpeed;
 		
 		// If near the next waypoint or there is no destination...
-		if(nav.destination == lastPlayerSighting.resetPosition || nav.remainingDistance < nav.stoppingDistance)
-		{
+		if (nav.destination == lastPlayerSighting.resetPosition || nav.remainingDistance < nav.stoppingDistance) {
 			// ... increment the timer.
 			patrolTimer += Time.deltaTime;
 			
 			// If the timer exceeds the wait time...
-			if(patrolTimer >= patrolWaitTime)
-			{
+			if (patrolTimer >= patrolWaitTime) {
 				// ... increment the wayPointIndex.
-				if(wayPointIndex == patrolWayPoints.Length - 1)
+				if (wayPointIndex == patrolWayPoints.Length - 1)
 					wayPointIndex = 0;
 				else
 					wayPointIndex++;
@@ -114,12 +113,16 @@ public class EnemyAI : MonoBehaviour
 				// Reset the timer.
 				patrolTimer = 0;
 			}
-		}
-		else
+		} else {
 			// If not near a destination, reset the timer.
 			patrolTimer = 0;
-		
+		}
+
 		// Set the destination to the patrolWayPoint.
-		nav.destination = patrolWayPoints[wayPointIndex].position;
+		if (patrolWayPoints.Length > 0) {
+			nav.destination = patrolWayPoints [wayPointIndex].position;
+		} else {
+			nav.destination = transform.position;
+		}
 	}
 }
