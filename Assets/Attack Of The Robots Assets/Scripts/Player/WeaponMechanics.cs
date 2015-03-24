@@ -1,11 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
 using InControl;
-
+//NEW ONE
 public class WeaponMechanics : MonoBehaviour {
 
 	public GameObject gun;
-	public GameObject machete;
+	public GameObject crowbar;
 	public GameObject bulletHole;
 
 	public AudioClip gunShotSound;
@@ -28,7 +28,7 @@ public class WeaponMechanics : MonoBehaviour {
 		attackCooldown = 0;
 		usingGun = false;
 		justAttacked = false;
-		machete.GetComponent<Collider>().enabled = false;
+		crowbar.GetComponent<Collider>().enabled = false;
 	}
 	
 	// Update is called once per frame
@@ -41,11 +41,11 @@ public class WeaponMechanics : MonoBehaviour {
 		attackCooldown -= Time.deltaTime;
 
 		if(usingGun) {
-			machete.SetActive(false);
+			crowbar.SetActive(false);
 			gun.SetActive(true);
 		} else {
 			gun.SetActive(false);
-			machete.SetActive(true);
+			crowbar.SetActive(true);
 		}
 
 		if(Input.GetKeyDown ("1")) {
@@ -68,17 +68,20 @@ public class WeaponMechanics : MonoBehaviour {
 		//TODO can probably make this modular later (class based with just a call to an attack() function.
 		//Melee weapon
 		if(usingGun == false) {
-			if (controller.LeftTrigger.WasPressed && attackCooldown <= 0) {
-				attackCooldown = 0.8f;
-				machete.transform.Rotate(0,90,0);
-				justAttacked = true;
-				machete.GetComponent<Collider>().enabled = true;
+			if(Input.GetMouseButtonDown (0)) {
+				crowbar.GetComponent<Animation>().Play("Take 001");
 			}
-			if(attackCooldown <= 0.5f && justAttacked) {
-				machete.transform.Rotate(0,-90,0);
-				justAttacked = false;
-				machete.GetComponent<Collider>().enabled = false;
-			}
+//			if (controller.LeftTrigger.WasPressed && attackCooldown <= 0) {
+//				attackCooldown = 0.8f;
+//				crowbar.transform.Rotate(0,90,0);
+//				justAttacked = true;
+//				crowbar.GetComponent<Collider>().enabled = true;
+//			}
+//			if(attackCooldown <= 0.5f && justAttacked) {
+//				crowbar.transform.Rotate(0,-90,0);
+//				justAttacked = false;
+//				crowbar.GetComponent<Collider>().enabled = false;
+//			}
 		}
 
 		//gun
