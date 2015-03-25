@@ -106,7 +106,11 @@ public class PlayerAnimationMovement : MonoBehaviour
 
 
 		if (vertical != 0f) {// controls running
-			anim.speed = 1;
+			if(Input.GetKey(KeyCode.Space)) {
+				anim.speed = 1.5f;
+			} else {
+				anim.speed = 1;
+			}
 
 			//set the speed parameter to 5.5f.
 			anim.SetFloat (hash.speedFloat, 5.5f, speedDampTime, Time.deltaTime);
