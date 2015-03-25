@@ -15,6 +15,7 @@ public class Level : MonoBehaviour {
 	private GlobalLastPlayerSighting lastPlayerSighting;	// Reference to last global sighting of the player.
 
 	void Start(){
+		print ("Spawn " + spawnSpots[0]);
 		curSpawn = new Vector3(spawnSpots[spawnNum].transform.position.x,
 		                       spawnSpots[spawnNum].transform.position.y,
 		                       spawnSpots[spawnNum].transform.position.z);
