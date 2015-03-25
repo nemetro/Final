@@ -17,11 +17,15 @@ public class WeaponMechanics : MonoBehaviour {
 	public float timeBetweenShots = 0.75f;
 	public float reloadTime = 2.0f;
 	public int maxBulletsInClip = 6;
+	public float vertRecoilDistance = 0.1f;
+	public float horzRecoilDistance = 0.1f;
 
 	private int bulletsInClip = 6;
 	private float attackCooldown;
 	private bool justAttacked;
 	private bool usingGun;
+	private Vector3 gunStartLoc;
+	private Quaternion gunStartRot;
 
 	// Use this for initialization
 	void Start () {
@@ -29,10 +33,12 @@ public class WeaponMechanics : MonoBehaviour {
 		usingGun = false;
 		justAttacked = false;
 		crowbar.GetComponent<Collider>().enabled = false;
+		gunStartLoc = gun.transform.localPosition;
+		gunStartRot = gun.transform.localRotation;
 	}
-	
+
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
 	
 		if (controller == null)
 		{
@@ -96,11 +102,19 @@ public class WeaponMechanics : MonoBehaviour {
 				GetComponent<AudioSource>().PlayOneShot(dryFireSound);
 			}
 			//TODO make this use controller
-			if(bulletsInClip < maxBulletsInClip && attackCooldown <= 0 && Input.GetKeyDown(KeyCode.R)){
+			if(bulletsInClip < maxBulletsInClip && attackCooldown <= 0 && Input.GetKeyDown(KeyCode.T)){
 				attackCooldown = reloadTime;
 				GetComponent<AudioSource>().PlayOneShot(reloadSound);
 				bulletsInClip = maxBulletsInClip;
 			}
+		}
+
+		if (gun.transform.localPosition != gunStartLoc) {
+			gun.transform.localPosition = Vector3.Lerp(gun.transform.localPosition, gunStartLoc, 5 * Time.fixedDeltaTime); 
+		}
+		
+		if (gun.transform.localRotation != gunStartRot) {
+			gun.transform.localRotation = Quaternion.Lerp(gun.transform.localRotation, gunStartRot, 5 * Time.fixedDeltaTime);
 		}
 	}
 
@@ -117,5 +131,11 @@ public class WeaponMechanics : MonoBehaviour {
 				hitInfo.transform.GetComponent<EnemyHealth>().ApplyDamage(gunDamage);
 			}
 		}
+		AnimateGunRecoil ();
+	}
+
+	void AnimateGunRecoil(){
+		gun.transform.localPosition = gun.transform.localPosition + new Vector3(0, vertRecoilDistance, -1*horzRecoilDistance);
+		gun.transform.localRotation = Quaternion.Euler(new Vector3(-50, 0 , 0));
 	}
 }
