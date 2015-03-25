@@ -16,4 +16,4 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Attack Of The Robots Assets/Scenes/Development/_level1_bigger_enemies.unity
   - enabled: 1
-    path: Assets/Attack Of The Robots Assets/Scenes/Development/_level0_enemies.unity
+    path: Assets/Attack Of The Robots Assets/Scenes/Development/_level0.unity
