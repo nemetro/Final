@@ -108,8 +108,10 @@ public class PlayerAnimationMovement : MonoBehaviour
 		if (vertical != 0f) {// controls running
 			if(Input.GetKey(KeyCode.Space)) {
 				anim.speed = 1.5f;
+				GetComponent<AudioSource>().pitch = 1.25f;
 			} else {
 				anim.speed = 1;
+				GetComponent<AudioSource>().pitch = 1;
 			}
 
 			//set the speed parameter to 5.5f.
