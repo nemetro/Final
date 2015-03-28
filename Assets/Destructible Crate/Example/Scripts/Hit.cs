@@ -5,10 +5,10 @@ public class Hit : MonoBehaviour {
 
 	public GameObject DestroyedObject;
 
-
+	public float hitForce = 1f;
 	
 	void OnCollisionEnter( Collision collision ) {
-		if( collision.impactForceSum.magnitude > 25f) {
+		if( collision.impactForceSum.magnitude > hitForce) {
 		DestroyIt();
 		}
 	}
