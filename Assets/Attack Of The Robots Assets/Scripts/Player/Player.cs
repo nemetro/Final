@@ -11,7 +11,7 @@ public class Player : MonoBehaviour {
 	void Start () {
 		
 		Screen.lockCursor = true;
-		health = 0;
+		health = MAXHEALTH;
 		Level.players.Add(this);
 	}
 	
