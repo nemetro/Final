@@ -19,8 +19,9 @@ public class Level : MonoBehaviour {
 		curSpawn = new Vector3(spawnSpots[spawnNum].transform.position.x,
 		                       spawnSpots[spawnNum].transform.position.y,
 		                       spawnSpots[spawnNum].transform.position.z);
-		foreach(Player player in players)
-			player.transform.position = curSpawn;
+//		foreach(Player player in players){
+//			player.transform.position = curSpawn;
+//		}
 		lastPlayerSighting = GameObject.FindGameObjectWithTag(InGameTags.gameController).GetComponent<GlobalLastPlayerSighting>();
 	}
 
@@ -37,7 +38,7 @@ public class Level : MonoBehaviour {
 		}
 
 		foreach(Player player in players){
-			if(player.health <= 0 || Input.GetKeyUp(KeyCode.R))
+			if(player.health <= 0 /*|| Input.GetKeyUp(KeyCode.R)*/)
 			{
 				print ("move to " + curSpawn);
 				player.GetComponent<Rigidbody>().velocity = Vector3.zero;
