@@ -9,8 +9,10 @@ public class UI : MonoBehaviour {
 	public split splitSetting = split.horizontal;
 
 	private bool init = false;
+	private int MaxHealth;
 	
 	private List<Text> healthTxts = new List<Text>();
+	private List<Text> ammoTxts = new List<Text>();
 	private List<RawImage> crossImgs = new List<RawImage>();
 	
 	private List<Rect> cameraRects = new List<Rect>();
@@ -22,14 +24,23 @@ public class UI : MonoBehaviour {
 	private List<Vector2> healthMins = new List<Vector2>();
 	private List<Vector2> healthMaxs = new List<Vector2>();
 	
+	private List<Vector2> ammoMins = new List<Vector2>();
+	private List<Vector2> ammoMaxs = new List<Vector2>();
+	
 
 	void Start () {
 		init = false;
+		
 		for(int i=0; i<4; i++){
 			Text tempH = transform.Find("Health"+i.ToString()).gameObject.GetComponent<Text>();
 			print (tempH.name);
 			if(tempH != null)
 				healthTxts.Add(tempH);
+				
+			Text tempA = transform.Find("Ammo"+i.ToString()).gameObject.GetComponent<Text>();
+			print (tempA.name);
+			if(tempA != null)
+				ammoTxts.Add(tempA);
 
 			RawImage tempC = transform.Find("Crosshair"+i.ToString()).gameObject.GetComponent<RawImage>();
 			if(tempC != null)
@@ -40,6 +51,11 @@ public class UI : MonoBehaviour {
 
 	void Update () {
 		int p=0;
+		
+		if(init == false){
+			MaxHealth = Level.players[0].MAXHEALTH;
+		}
+		
 		foreach(Player player in Level.players){
 			
 			string newhealth = "";//"Player " + (p+1).ToString() + ": ";
@@ -50,12 +66,22 @@ public class UI : MonoBehaviour {
 			
 			healthTxts[p].text = newhealth;
 
-			if(player.health < player.MAXHEALTH/3)
+			if(player.health < MaxHealth/3)
 				healthTxts[p].color = Color.red;
 			else healthTxts[p].color = Color.white;
 			
+			string newammo = "Gnade\n" 
+								+ player.weaponScript.bulletsInClip.ToString() 
+								+ " | " 
+								+ player.weaponScript.numBullets.ToString();
+			
+			ammoTxts[p].text = newammo;
+			
 			p++;
 		}
+		
+		if(p == 4 && init == false)
+			init = true;
 		
 		if(p == 4 || init)
 			return;
@@ -65,8 +91,12 @@ public class UI : MonoBehaviour {
 		Vector2 tempXMin = new Vector2(0f,0f);
 		Vector2 tempXMax = new Vector2(1f,1f);
 		Vector3 tempXScale = new Vector3(0.09f, 0.16f, 1f);
+		
 		Vector2 tempHMin = new Vector2(0.25f,0.9f);
 		Vector2 tempHMax = new Vector2(0.75f,1f);
+		
+		Vector2 tempAMin = new Vector2(0f, 0f);
+		Vector2 tempAMax = new Vector2(1f, 0.05f);
 		
 		switch(p){
 		case 1:
@@ -80,6 +110,9 @@ public class UI : MonoBehaviour {
 			//health
 			healthMins.Add(tempHMin);
 			healthMaxs.Add(tempHMax);
+			//Ammo
+			ammoMins.Add(tempAMin);
+			ammoMaxs.Add(tempAMax);
 			break;
 		case 2:
 			print("2 Players");
@@ -115,6 +148,16 @@ public class UI : MonoBehaviour {
 				tempHMax = new Vector2(1f,1f);
 				healthMins.Add(tempHMin);
 				healthMaxs.Add(tempHMax);
+				
+				//Ammo1
+				tempAMax = new Vector2(0.5f, 0.05f);
+				ammoMins.Add(tempAMin);
+				ammoMaxs.Add(tempAMax);
+				//Ammo2
+				tempAMin = new Vector2(0.5f, 0f);
+				tempAMax = new Vector2(1f, 0.05f);
+				ammoMins.Add(tempAMin);
+				ammoMaxs.Add(tempAMax);
 			}
 			//horizontal split
 			else{
@@ -149,6 +192,17 @@ public class UI : MonoBehaviour {
 				tempHMax = new Vector2(0.75f,0.5f);
 				healthMins.Add(tempHMin);
 				healthMaxs.Add(tempHMax);
+				
+				//Ammo1
+				tempAMin = new Vector2(0f, 0.5f);
+				tempAMax = new Vector2(1f, 0.55f);
+				ammoMins.Add(tempAMin);
+				ammoMaxs.Add(tempAMax);
+				//Ammo2
+				tempAMin = new Vector2(0f, 0f);
+				tempAMax = new Vector2(1f, 0.05f);
+				ammoMins.Add(tempAMin);
+				ammoMaxs.Add(tempAMax);
 			}
 			break;
 		case 3:
@@ -201,6 +255,22 @@ public class UI : MonoBehaviour {
 				tempHMax = new Vector2(1f,0.5f);
 				healthMins.Add(tempHMin);
 				healthMaxs.Add(tempHMax);
+				
+				//Ammo1
+				tempAMin = new Vector2(0f, 0f);
+				tempAMax = new Vector2(0.5f, 0.05f);
+				ammoMins.Add(tempAMin);
+				ammoMaxs.Add(tempAMax);
+				//Ammo2
+				tempAMin = new Vector2(0.5f, 0.5f);
+				tempAMax = new Vector2(1f, 0.55f);
+				ammoMins.Add(tempAMin);
+				ammoMaxs.Add(tempAMax);
+				//Ammo3
+				tempAMin = new Vector2(0.5f, 0f);
+				tempAMax = new Vector2(1f, 0.05f);
+				ammoMins.Add(tempAMin);
+				ammoMaxs.Add(tempAMax);
 			}
 			//horizontal split
 			else{
@@ -251,6 +321,22 @@ public class UI : MonoBehaviour {
 				tempHMax = new Vector2(1f,0.5f);
 				healthMins.Add(tempHMin);
 				healthMaxs.Add(tempHMax);
+				
+				//Ammo1
+				tempAMin = new Vector2(0f, 0.5f);
+				tempAMax = new Vector2(1f, 0.55f);
+				ammoMins.Add(tempAMin);
+				ammoMaxs.Add(tempAMax);
+				//Ammo2
+				tempAMin = new Vector2(0f, 0f);
+				tempAMax = new Vector2(0.5f, 0.05f);
+				ammoMins.Add(tempAMin);
+				ammoMaxs.Add(tempAMax);
+				//Ammo3
+				tempAMin = new Vector2(0.5f, 0f);
+				tempAMax = new Vector2(1f, 0.05f);
+				ammoMins.Add(tempAMin);
+				ammoMaxs.Add(tempAMax);
 			}
 			break;
 		default:
@@ -275,11 +361,16 @@ public class UI : MonoBehaviour {
 			healthTxts[n].rectTransform.anchorMin = healthMins[n];
 			healthTxts[n].rectTransform.anchorMax = healthMaxs[n];
 			
+			//ammo
+			ammoTxts[n].rectTransform.anchorMin = ammoMins[n];
+			ammoTxts[n].rectTransform.anchorMax = ammoMaxs[n];
+			
 			n++;
 		}
 		for(int i=p; i<4; i++){
 			crossImgs[i].enabled = false;
 			healthTxts[i].text = "";
+			ammoTxts[i].text = "";
 		}
 		
 		init = true;

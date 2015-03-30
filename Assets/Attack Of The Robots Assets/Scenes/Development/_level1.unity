@@ -1584,8 +1584,11 @@ MonoBehaviour:
   timeBetweenShots: .75
   reloadTime: 2
   maxBulletsInClip: 6
+  maxBullets: 18
+  numBullets: 18
   vertRecoilDistance: .100000001
   horzRecoilDistance: .100000001
+  bulletsInClip: 6
 --- !u!114 &65320030
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1602,6 +1605,7 @@ MonoBehaviour:
   num: 0
   MAXHEALTH: 20
   cam: {fileID: 138451653}
+  weaponScript: {fileID: 0}
 --- !u!114 &65320031
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15407,7 +15411,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 710542742}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.02999997, y: .340000004, z: 1.50999999}
+  m_LocalPosition: {x: 2.5150001, y: .340000004, z: 1.097}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1396848262}
@@ -15441,8 +15445,11 @@ MonoBehaviour:
   timeBetweenShots: .75
   reloadTime: 2
   maxBulletsInClip: 6
+  maxBullets: 18
+  numBullets: 18
   vertRecoilDistance: .100000001
   horzRecoilDistance: .100000001
+  bulletsInClip: 6
 --- !u!114 &710542745
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15459,6 +15466,7 @@ MonoBehaviour:
   num: 0
   MAXHEALTH: 20
   cam: {fileID: 1396848263}
+  weaponScript: {fileID: 0}
 --- !u!114 &710542746
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27728,10 +27736,6 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 11403644, guid: d0a6ecfc15e384935a143360b5858ab9, type: 2}
-      propertyPath: players.Array.size
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 22412164, guid: d0a6ecfc15e384935a143360b5858ab9, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -27808,21 +27812,9 @@ Prefab:
       propertyPath: spawnSpots.Array.data[0]
       value: 
       objectReference: {fileID: 706137356}
-    - target: {fileID: 11403644, guid: d0a6ecfc15e384935a143360b5858ab9, type: 2}
-      propertyPath: players.Array.data[0]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 116888, guid: d0a6ecfc15e384935a143360b5858ab9, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 11403644, guid: d0a6ecfc15e384935a143360b5858ab9, type: 2}
-      propertyPath: players.Array.data[1]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 11403644, guid: d0a6ecfc15e384935a143360b5858ab9, type: 2}
-      propertyPath: players.Array.data[2]
-      value: 
+    - target: {fileID: 11404228, guid: d0a6ecfc15e384935a143360b5858ab9, type: 2}
+      propertyPath: splitSetting
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d0a6ecfc15e384935a143360b5858ab9, type: 2}
@@ -28175,7 +28167,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1327417171
 Transform:
   m_ObjectHideFlags: 0
@@ -28183,7 +28175,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1327417170}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.02999997, y: .340000004, z: 2.8900001}
+  m_LocalPosition: {x: 3.41599989, y: .340000004, z: 2.8900001}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 827998411}
@@ -28217,8 +28209,11 @@ MonoBehaviour:
   timeBetweenShots: .75
   reloadTime: 2
   maxBulletsInClip: 6
+  maxBullets: 18
+  numBullets: 18
   vertRecoilDistance: .100000001
   horzRecoilDistance: .100000001
+  bulletsInClip: 6
 --- !u!114 &1327417173
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28235,6 +28230,7 @@ MonoBehaviour:
   num: 0
   MAXHEALTH: 20
   cam: {fileID: 827998417}
+  weaponScript: {fileID: 0}
 --- !u!114 &1327417174
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29066,7 +29062,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1354989496
 Transform:
   m_ObjectHideFlags: 0
@@ -29074,7 +29070,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1354989495}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -.140000001, y: .340000004, z: 1.50999999}
+  m_LocalPosition: {x: 1.796, y: .340000004, z: 1.24899995}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2014317864}
@@ -29108,8 +29104,11 @@ MonoBehaviour:
   timeBetweenShots: .75
   reloadTime: 2
   maxBulletsInClip: 6
+  maxBullets: 18
+  numBullets: 18
   vertRecoilDistance: .100000001
   horzRecoilDistance: .100000001
+  bulletsInClip: 6
 --- !u!114 &1354989498
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29126,6 +29125,7 @@ MonoBehaviour:
   num: 0
   MAXHEALTH: 20
   cam: {fileID: 2014317870}
+  weaponScript: {fileID: 0}
 --- !u!114 &1354989499
 MonoBehaviour:
   m_ObjectHideFlags: 0
