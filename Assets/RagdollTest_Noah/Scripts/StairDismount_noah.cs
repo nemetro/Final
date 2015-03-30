@@ -14,17 +14,17 @@ public class StairDismount_noah: MonoBehaviour {
 	void Start () {
 	
 		//Get all the rigid bodies that belong to the ragdoll
-		Rigidbody[] rigidBodies=GetComponentsInChildren<Rigidbody>();
-		
-		//Add the RagdollPartScript to all the gameobjects that also have the a rigid body
-		foreach (Rigidbody body in rigidBodies)
-		{
-			RagdollPartScript_noah rps=body.gameObject.AddComponent<RagdollPartScript_noah>();
-			
-			//Set the scripts mainScript reference so that it can access
-			//the score and scoreTextTemplate member variables above
-			rps.mainScript=this;
-		}
+//		Rigidbody[] rigidBodies=GetComponentsInChildren<Rigidbody>();
+//		
+//		//Add the RagdollPartScript to all the gameobjects that also have the a rigid body
+//		foreach (Rigidbody body in rigidBodies)
+//		{
+//			RagdollPartScript_noah rps=body.gameObject.AddComponent<RagdollPartScript_noah>();
+//			
+//			//Set the scripts mainScript reference so that it can access
+//			//the score and scoreTextTemplate member variables above
+//			rps.mainScript=this;
+//		}
 	}
 	
 	// Update is called once per frame
@@ -43,7 +43,7 @@ public class StairDismount_noah: MonoBehaviour {
 				if (hit.rigidbody!=null)
 				{
 					//find the RagdollHelper component and activate ragdolling
-					RagdollHelper_noah helper=GetComponent<RagdollHelper_noah>();
+					RagdollHelper_noah helper=hit.transform.root.GetComponent<RagdollHelper_noah>();
 					helper.ragdolled=true;
 					
 					//set the impact target to whatever the ray hit

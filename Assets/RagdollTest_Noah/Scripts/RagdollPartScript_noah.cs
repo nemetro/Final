@@ -4,7 +4,7 @@ using System.Collections;
 public class RagdollPartScript_noah : MonoBehaviour {
 	//Declare a reference to the main script (of type StairDismount).
 	//This will be set by the code that adds this script to all ragdoll parts
-	public StairDismount_noah mainScript;
+	public RagdollHelper_noah mainScript;
 	// Use this for initialization
 	void Start () {
 	
@@ -21,19 +21,6 @@ public class RagdollPartScript_noah : MonoBehaviour {
 				//compute score
 				int score=100*Mathf.RoundToInt(collision.relativeVelocity.magnitude);
 				print (gameObject.name + " collided with " + collision.gameObject.name + ", giving score " + score);
-				
-				//increase the main script's score variable (see StairDismount.cs)
-				mainScript.score += score;
-				
-				//Instantiate a text object
-				GameObject scoreText=Instantiate(mainScript.scoreTextTemplate) as GameObject;
-				
-				//Update the text to show the score
-				scoreText.GetComponent<TextMesh>().text=score.ToString();
-				
-				//position the text 1m above this ragdoll part
-				scoreText.transform.position=transform.position;
-				scoreText.transform.Translate(0,1,0);
 			}
 		}
 	}

@@ -127,8 +127,16 @@ public class WeaponMechanics : MonoBehaviour {
 			}
 
 			if (hitInfo.transform.tag == "Enemy"){
-				print ("Hit enemy");
-				hitInfo.transform.GetComponent<EnemyHealth>().ApplyDamage(gunDamage);
+				print ("Hit enemy apply damage: " + gunDamage);
+				if(hitInfo.transform.name.ToLower().Contains("head")){
+					print ("headshot!");
+					hitInfo.transform.root.GetComponent<EnemyHealth>().ApplyDamage(2*gunDamage);
+				} else {
+					print ("bodyshot!");
+					hitInfo.transform.root.GetComponent<EnemyHealth>().ApplyDamage(gunDamage);
+				}
+
+				hitInfo.transform.root.GetComponent<EnemyHealth>().ApplyForce(hitInfo.rigidbody, 4*gun.transform.forward);
 			}
 		}
 		AnimateGunRecoil ();
