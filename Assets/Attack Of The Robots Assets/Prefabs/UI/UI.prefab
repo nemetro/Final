@@ -29,7 +29,6 @@ GameObject:
   - 114: {fileID: 11481246}
   - 114: {fileID: 11413882}
   - 114: {fileID: 11404228}
-  - 114: {fileID: 11439316}
   - 114: {fileID: 11403644}
   m_Layer: 5
   m_Name: UI
@@ -249,7 +248,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 570b436a95cbb4bb6a42069df8fa1060, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  splitSetting: 1
+  splitSetting: 0
 --- !u!114 &11412432
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -374,21 +373,6 @@ MonoBehaviour:
   m_Text: 'Gnade2
 
     Ammo2'
---- !u!114 &11439316
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 116888}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2d647e338bc4b48a18a91581d693980d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spawnSpots:
-  - {fileID: 0}
-  resetAfterDeathTime: 5
-  spawnNum: 0
 --- !u!114 &11449942
 MonoBehaviour:
   m_ObjectHideFlags: 1

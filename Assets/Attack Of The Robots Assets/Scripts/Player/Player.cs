@@ -10,7 +10,7 @@ public class Player : MonoBehaviour {
 	public WeaponMechanics weaponScript;
 
 	void Start () {
-		
+		DontDestroyOnLoad(this);
 		Screen.lockCursor = true;
 		health = MAXHEALTH;
 		Level.players.Add(this);

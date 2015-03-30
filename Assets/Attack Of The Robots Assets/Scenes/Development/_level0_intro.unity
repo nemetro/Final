@@ -2955,6 +2955,18 @@ Prefab:
       propertyPath: m_RootOrder
       value: 145
       objectReference: {fileID: 0}
+    - target: {fileID: 6481494, guid: 0f300995be5fe4f48aa4b43eeb9d8bda, type: 2}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6481494, guid: 0f300995be5fe4f48aa4b43eeb9d8bda, type: 2}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11455710, guid: 0f300995be5fe4f48aa4b43eeb9d8bda, type: 2}
+      propertyPath: nextLevel
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0f300995be5fe4f48aa4b43eeb9d8bda, type: 2}
   m_IsPrefabParent: 0
@@ -3260,7 +3272,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &381249259
 Transform:
   m_ObjectHideFlags: 0
@@ -3302,8 +3314,10 @@ MonoBehaviour:
   timeBetweenShots: .75
   reloadTime: 2
   maxBulletsInClip: 6
+  numBullets: 18
   vertRecoilDistance: .100000001
   horzRecoilDistance: .100000001
+  bulletsInClip: 6
 --- !u!114 &381249261
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3320,6 +3334,7 @@ MonoBehaviour:
   num: 0
   MAXHEALTH: 20
   cam: {fileID: 1571438065}
+  weaponScript: {fileID: 0}
 --- !u!114 &381249262
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3991,6 +4006,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 417833297}
+  - 114: {fileID: 417833298}
   m_Layer: 0
   m_Name: Level
   m_TagString: Untagged
@@ -4012,6 +4028,21 @@ Transform:
   - {fileID: 543695625}
   m_Father: {fileID: 0}
   m_RootOrder: 11
+--- !u!114 &417833298
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 417833296}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d647e338bc4b48a18a91581d693980d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnSpots:
+  - {fileID: 706137356}
+  resetAfterDeathTime: 5
+  spawnNum: 0
 --- !u!1001 &419560582
 Prefab:
   m_ObjectHideFlags: 0
@@ -7645,7 +7676,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 706137356}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 20, y: 3.38000011, z: 8.60999966}
+  m_LocalPosition: {x: 20, y: 0, z: 8.60999966}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 417833297}
@@ -9891,7 +9922,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &858298212
 Transform:
   m_ObjectHideFlags: 0
@@ -9933,8 +9964,10 @@ MonoBehaviour:
   timeBetweenShots: .75
   reloadTime: 2
   maxBulletsInClip: 6
+  numBullets: 18
   vertRecoilDistance: .100000001
   horzRecoilDistance: .100000001
+  bulletsInClip: 6
 --- !u!114 &858298214
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9951,6 +9984,7 @@ MonoBehaviour:
   num: 0
   MAXHEALTH: 20
   cam: {fileID: 629227805}
+  weaponScript: {fileID: 0}
 --- !u!114 &858298215
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12090,7 +12124,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1023274137
 Transform:
   m_ObjectHideFlags: 0
@@ -12098,7 +12132,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1023274136}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 18.5599995, y: 1.36000001, z: 8.47999954}
+  m_LocalPosition: {x: 18.6000004, y: 1.39999998, z: 52}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 618002539}
@@ -12132,8 +12166,10 @@ MonoBehaviour:
   timeBetweenShots: .75
   reloadTime: 2
   maxBulletsInClip: 6
+  numBullets: 18
   vertRecoilDistance: .100000001
   horzRecoilDistance: .100000001
+  bulletsInClip: 6
 --- !u!114 &1023274139
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12150,6 +12186,7 @@ MonoBehaviour:
   num: 0
   MAXHEALTH: 20
   cam: {fileID: 618002545}
+  weaponScript: {fileID: 0}
 --- !u!114 &1023274140
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12369,7 +12406,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1026321466
 Transform:
   m_ObjectHideFlags: 0
@@ -12411,8 +12448,10 @@ MonoBehaviour:
   timeBetweenShots: .75
   reloadTime: 2
   maxBulletsInClip: 6
+  numBullets: 18
   vertRecoilDistance: .100000001
   horzRecoilDistance: .100000001
+  bulletsInClip: 6
 --- !u!114 &1026321468
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12429,6 +12468,7 @@ MonoBehaviour:
   num: 0
   MAXHEALTH: 20
   cam: {fileID: 850447801}
+  weaponScript: {fileID: 0}
 --- !u!114 &1026321469
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15134,10 +15174,6 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 11403644, guid: d0a6ecfc15e384935a143360b5858ab9, type: 2}
-      propertyPath: players.Array.size
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 22412164, guid: d0a6ecfc15e384935a143360b5858ab9, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -15210,26 +15246,10 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 11439316, guid: d0a6ecfc15e384935a143360b5858ab9, type: 2}
-      propertyPath: spawnSpots.Array.data[0]
-      value: 
-      objectReference: {fileID: 706137356}
     - target: {fileID: 11403644, guid: d0a6ecfc15e384935a143360b5858ab9, type: 2}
       propertyPath: players.Array.data[0]
       value: 
       objectReference: {fileID: 1023274136}
-    - target: {fileID: 116888, guid: d0a6ecfc15e384935a143360b5858ab9, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 11403644, guid: d0a6ecfc15e384935a143360b5858ab9, type: 2}
-      propertyPath: players.Array.data[1]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 11403644, guid: d0a6ecfc15e384935a143360b5858ab9, type: 2}
-      propertyPath: players.Array.data[2]
-      value: 
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d0a6ecfc15e384935a143360b5858ab9, type: 2}
   m_IsPrefabParent: 0
@@ -16227,7 +16247,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1381237238
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16243,7 +16263,7 @@ MonoBehaviour:
   invertYAxis: 0
   enableXInput: 0
   useFixedUpdate: 0
-  dontDestroyOnLoad: 0
+  dontDestroyOnLoad: 1
   customProfiles:
   - KeyboardAndMouseProfile
 --- !u!4 &1381237239
