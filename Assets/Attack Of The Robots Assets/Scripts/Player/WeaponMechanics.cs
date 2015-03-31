@@ -21,6 +21,7 @@ public class WeaponMechanics : MonoBehaviour {
 	public int numBullets = 18;
 	public float vertRecoilDistance = 0.1f;
 	public float horzRecoilDistance = 0.1f;
+	public Camera playerCamera;
 
 	private int bulletsInClip = 6;
 	private float attackCooldown;
@@ -129,8 +130,19 @@ public class WeaponMechanics : MonoBehaviour {
 			}
 
 			if (hitInfo.transform.tag == "Enemy"){
-				print ("Hit enemy");
-				hitInfo.transform.GetComponent<EnemyHealth>().ApplyDamage(gunDamage);
+				print ("Hit enemy apply damage: " + gunDamage);
+				if(hitInfo.transform.name.ToLower().Contains("head")){
+					print ("headshot!");
+					hitInfo.transform.root.GetComponent<EnemyHealth>().ApplyDamage(2*gunDamage);
+				} else if(hitInfo.transform.name.ToLower().Contains("leg") || hitInfo.transform.name.ToLower().Contains("arm")){
+					print ("limbshot!");
+					hitInfo.transform.root.GetComponent<EnemyHealth>().ApplyDamage(gunDamage/2);
+				} else {
+					print ("bodyshot!");
+					hitInfo.transform.root.GetComponent<EnemyHealth>().ApplyDamage(gunDamage);
+				}
+
+				hitInfo.transform.root.GetComponent<EnemyHealth>().ApplyForce(hitInfo.rigidbody, 4*gun.transform.forward);
 			}
 		}
 		AnimateGunRecoil ();
