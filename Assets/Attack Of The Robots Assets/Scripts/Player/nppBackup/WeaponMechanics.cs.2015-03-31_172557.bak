@@ -7,7 +7,6 @@ public class WeaponMechanics : MonoBehaviour {
 	public GameObject gun;
 	public GameObject crowbar;
 	public GameObject bulletHole;
-	public GameObject grenade;
 
 	public AudioClip gunShotSound;
 	public AudioClip dryFireSound;
@@ -23,8 +22,6 @@ public class WeaponMechanics : MonoBehaviour {
 	public float vertRecoilDistance = 0.1f;
 	public float horzRecoilDistance = 0.1f;
 	public Camera playerCamera;
-	public int numGnades = 3;
-	public float throwForce = 12f;
 
 	public int bulletsInClip = 6;
 	private float attackCooldown;
@@ -65,16 +62,6 @@ public class WeaponMechanics : MonoBehaviour {
 		} 
 		if(Input.GetKeyDown("2")) {
 			usingGun = false;
-		}
-		
-		if (Input.GetKeyDown ("4") && numGnades > 0) {
-			GameObject createGrenade = null;
-			print("grenade");
-			print (transform.position);
-			Vector3 Holder = new Vector3(transform.position.x, transform.position.y + 1.8f, transform.position.z);
-			createGrenade = (GameObject)Instantiate(grenade, Holder + transform.forward, transform.rotation);
-			createGrenade.GetComponent<Rigidbody>().AddForce(Vector3.Normalize(transform.forward+transform.up*.6f)* throwForce, ForceMode.VelocityChange);
-			numGnades--;
 		}
 
 //		if(Input.GetKeyDown("q")) {
