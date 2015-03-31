@@ -7,6 +7,7 @@ public class WeaponMechanics : MonoBehaviour {
 	public GameObject gun;
 	public GameObject crowbar;
 	public GameObject bulletHole;
+	public GameObject grenade;
 
 	public AudioClip gunShotSound;
 	public AudioClip dryFireSound;
@@ -17,13 +18,12 @@ public class WeaponMechanics : MonoBehaviour {
 	public float timeBetweenShots = 0.75f;
 	public float reloadTime = 2.0f;
 	public int maxBulletsInClip = 6;
-	public int maxBullets = 18;
-	public int numBullets = 18;
 	public float vertRecoilDistance = 0.1f;
 	public float horzRecoilDistance = 0.1f;
-	public Camera playerCamera;
+	public float throwForce = 12f;
+	public int numGnades = 3;
 
-	public int bulletsInClip = 6;
+	private int bulletsInClip = 6;
 	private float attackCooldown;
 	private bool justAttacked;
 	private bool usingGun;
@@ -62,6 +62,15 @@ public class WeaponMechanics : MonoBehaviour {
 		} 
 		if(Input.GetKeyDown("2")) {
 			usingGun = false;
+		}
+		if (Input.GetKeyDown ("4") && numGnades > 0) {
+			GameObject createGrenade = null;
+			print("grenade");
+			print (transform.position);
+			Vector3 Holder = new Vector3(transform.position.x, transform.position.y + 1.8f, transform.position.z);
+			createGrenade = (GameObject)Instantiate(grenade, Holder + transform.forward, transform.rotation);
+			createGrenade.GetComponent<Rigidbody>().AddForce(Vector3.Normalize(transform.forward+transform.up*.6f)* throwForce, ForceMode.VelocityChange);
+			numGnades--;
 		}
 
 //		if(Input.GetKeyDown("q")) {
@@ -130,19 +139,8 @@ public class WeaponMechanics : MonoBehaviour {
 			}
 
 			if (hitInfo.transform.tag == "Enemy"){
-				print ("Hit enemy apply damage: " + gunDamage);
-				if(hitInfo.transform.name.ToLower().Contains("head")){
-					print ("headshot!");
-					hitInfo.transform.root.GetComponent<EnemyHealth>().ApplyDamage(2*gunDamage);
-				} else if(hitInfo.transform.name.ToLower().Contains("leg") || hitInfo.transform.name.ToLower().Contains("arm")){
-					print ("limbshot!");
-					hitInfo.transform.root.GetComponent<EnemyHealth>().ApplyDamage(gunDamage/2);
-				} else {
-					print ("bodyshot!");
-					hitInfo.transform.root.GetComponent<EnemyHealth>().ApplyDamage(gunDamage);
-				}
-
-				hitInfo.transform.root.GetComponent<EnemyHealth>().ApplyForce(hitInfo.rigidbody, 4*gun.transform.forward);
+				print ("Hit enemy");
+				hitInfo.transform.GetComponent<EnemyHealth>().ApplyDamage(gunDamage);
 			}
 		}
 		AnimateGunRecoil ();
