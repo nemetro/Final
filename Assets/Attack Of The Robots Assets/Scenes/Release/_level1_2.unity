@@ -1990,8 +1990,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 143874600}
-  m_LocalRotation: {x: -.212266669, y: .783696473, z: -.365443736, w: -.455207258}
-  m_LocalPosition: {x: 26.7999992, y: 3, z: -9.89999962}
+  m_LocalRotation: {x: -.433638602, y: .333755046, z: -.30157873, w: -.780778766}
+  m_LocalPosition: {x: 7.5999999, y: 3, z: 32}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -5038,6 +5038,7 @@ MonoBehaviour:
   gun: {fileID: 1559261908}
   crowbar: {fileID: 1805725296}
   bulletHole: {fileID: 165626, guid: 5df157a9a4ca142bb9a8b9ec13bec6aa, type: 2}
+  grenade: {fileID: 0}
   gunShotSound: {fileID: 8300000, guid: cff8ff28bdf004927a2a6e0eae039eaa, type: 3}
   dryFireSound: {fileID: 8300000, guid: ac3e27ed3b946440da878df8ba45b6db, type: 3}
   reloadSound: {fileID: 8300000, guid: f8743525c85944c9daacd7561edd5986, type: 3}
@@ -5045,8 +5046,14 @@ MonoBehaviour:
   timeBetweenShots: .75
   reloadTime: 2
   maxBulletsInClip: 6
+  maxBullets: 18
+  numBullets: 18
   vertRecoilDistance: .100000001
   horzRecoilDistance: .100000001
+  playerCamera: {fileID: 0}
+  numGnades: 3
+  throwForce: 12
+  bulletsInClip: 6
 --- !u!114 &323514970
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11583,6 +11590,7 @@ MonoBehaviour:
   gun: {fileID: 1709658895}
   crowbar: {fileID: 697711529}
   bulletHole: {fileID: 165626, guid: 5df157a9a4ca142bb9a8b9ec13bec6aa, type: 2}
+  grenade: {fileID: 0}
   gunShotSound: {fileID: 8300000, guid: cff8ff28bdf004927a2a6e0eae039eaa, type: 3}
   dryFireSound: {fileID: 8300000, guid: ac3e27ed3b946440da878df8ba45b6db, type: 3}
   reloadSound: {fileID: 8300000, guid: f8743525c85944c9daacd7561edd5986, type: 3}
@@ -11590,8 +11598,14 @@ MonoBehaviour:
   timeBetweenShots: .75
   reloadTime: 2
   maxBulletsInClip: 6
+  maxBullets: 18
+  numBullets: 18
   vertRecoilDistance: .100000001
   horzRecoilDistance: .100000001
+  playerCamera: {fileID: 0}
+  numGnades: 3
+  throwForce: 12
+  bulletsInClip: 6
 --- !u!114 &787176254
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13049,6 +13063,7 @@ MonoBehaviour:
   gun: {fileID: 1253545593}
   crowbar: {fileID: 184263028}
   bulletHole: {fileID: 165626, guid: 5df157a9a4ca142bb9a8b9ec13bec6aa, type: 2}
+  grenade: {fileID: 0}
   gunShotSound: {fileID: 8300000, guid: cff8ff28bdf004927a2a6e0eae039eaa, type: 3}
   dryFireSound: {fileID: 8300000, guid: ac3e27ed3b946440da878df8ba45b6db, type: 3}
   reloadSound: {fileID: 8300000, guid: f8743525c85944c9daacd7561edd5986, type: 3}
@@ -13056,8 +13071,14 @@ MonoBehaviour:
   timeBetweenShots: .75
   reloadTime: 2
   maxBulletsInClip: 6
+  maxBullets: 18
+  numBullets: 18
   vertRecoilDistance: .100000001
   horzRecoilDistance: .100000001
+  playerCamera: {fileID: 0}
+  numGnades: 3
+  throwForce: 12
+  bulletsInClip: 6
 --- !u!114 &886393165
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28295,6 +28316,7 @@ MonoBehaviour:
   gun: {fileID: 416607376}
   crowbar: {fileID: 468054953}
   bulletHole: {fileID: 165626, guid: 5df157a9a4ca142bb9a8b9ec13bec6aa, type: 2}
+  grenade: {fileID: 0}
   gunShotSound: {fileID: 8300000, guid: cff8ff28bdf004927a2a6e0eae039eaa, type: 3}
   dryFireSound: {fileID: 8300000, guid: ac3e27ed3b946440da878df8ba45b6db, type: 3}
   reloadSound: {fileID: 8300000, guid: f8743525c85944c9daacd7561edd5986, type: 3}
@@ -28302,8 +28324,14 @@ MonoBehaviour:
   timeBetweenShots: .75
   reloadTime: 2
   maxBulletsInClip: 6
+  maxBullets: 18
+  numBullets: 18
   vertRecoilDistance: .100000001
   horzRecoilDistance: .100000001
+  playerCamera: {fileID: 0}
+  numGnades: 3
+  throwForce: 12
+  bulletsInClip: 6
 --- !u!114 &2079578275
 MonoBehaviour:
   m_ObjectHideFlags: 0
