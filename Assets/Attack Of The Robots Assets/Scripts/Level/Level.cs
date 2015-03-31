@@ -19,9 +19,8 @@ public class Level : MonoBehaviour {
 		curSpawn = new Vector3(spawnSpots[spawnNum].transform.position.x,
 		                       spawnSpots[spawnNum].transform.position.y,
 		                       spawnSpots[spawnNum].transform.position.z);
-//		foreach(Player player in players){
-//			player.transform.position = curSpawn;
-//		}
+		foreach(Player player in players)
+			player.transform.position = curSpawn;
 		lastPlayerSighting = GameObject.FindGameObjectWithTag(InGameTags.gameController).GetComponent<GlobalLastPlayerSighting>();
 	}
 
@@ -34,12 +33,11 @@ public class Level : MonoBehaviour {
 				print ("SET PLAYER " + i);
 				player.num = i;
 				i++;
-				player.health = 0;
 			}
 		}
 
 		foreach(Player player in players){
-			if(player.health <= 0 /*|| Input.GetKeyUp(KeyCode.R)*/)
+			if(player.health <= 0 || Input.GetKeyUp(KeyCode.R))
 			{
 				print ("move to " + curSpawn);
 				player.GetComponent<Rigidbody>().velocity = Vector3.zero;
@@ -48,12 +46,12 @@ public class Level : MonoBehaviour {
 				//Reset the alarm status
 				lastPlayerSighting.position = lastPlayerSighting.resetPosition;
 			}
-//			foreach(GameObject ss in spawnSpots){
-//				if(player.transform.position.z > ss.transform.position.z)
-//				{
-//					curSpawn = ss.transform.position;
-//				}
-//			}
+			foreach(GameObject ss in spawnSpots){
+				if(player.transform.position.z > ss.transform.position.z)
+				{
+					curSpawn = ss.transform.position;
+				}
+			}
 		}
 	}
 }
