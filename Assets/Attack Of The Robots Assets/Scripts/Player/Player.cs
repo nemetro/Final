@@ -7,12 +7,14 @@ public class Player : MonoBehaviour {
 	public int num;
 	public int MAXHEALTH = 20;
 	public Camera cam;
+	public WeaponMechanics weaponScript;
 
 	void Start () {
-		
+		DontDestroyOnLoad(this);
 		Screen.lockCursor = true;
-		health = 0;
+		health = MAXHEALTH;
 		Level.players.Add(this);
+		weaponScript = this.GetComponent<WeaponMechanics>();
 	}
 	
 	void Update () {

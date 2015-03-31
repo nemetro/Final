@@ -2,14 +2,16 @@
 using System.Collections;
 
 public class EnemyHealth : MonoBehaviour {
-	public GameObject ragdoll;
 	public GameObject splatter;
 
+	private bool dead = false;
 	private int health = 100;
-
+	private Rigidbody impactTarget;
+	private Vector3 impact;
+	private float impactEndTime = 0;
 	// Update is called once per frame
 	void Update () {
-		if (health < 0) {
+		if (health < 0 && !dead) {
 			//paint splatter effect
 			RaycastHit hitInfo;
 			if(Physics.Raycast(transform.position, Vector3.down, out hitInfo)){ //if raycast hits something
@@ -17,13 +19,35 @@ public class EnemyHealth : MonoBehaviour {
 			}
 
 			//Ragdoll effect
-			Instantiate(ragdoll, transform.position, transform.rotation);
-			GameObject.Destroy(gameObject);
-			this.enabled = false;
+			RagdollHelper_noah helper=transform.root.GetComponent<RagdollHelper_noah>();//GetComponent<RagdollPartScript_noah>().mainScript;
+			helper.ragdolled=true;
+
+			//the impact will be reapplied for the next 250ms
+			//to make the connected objects follow even though the simulated body joints
+			//might stretch
+			impactEndTime=Time.time+0.25f;
+			dead = true;
+		}
+
+		//Check if we need to apply an impact
+		if (dead && Time.time<impactEndTime)
+		{
+			impactTarget.AddForce(impact,ForceMode.VelocityChange);
 		}
 	}
 
 	public void ApplyDamage(int damage){
 		health -= damage;
+	}
+
+	public void ApplyForce(Rigidbody target, Vector3 force){
+		if (target == null || dead) {
+			return;
+		}
+		//set the impact target to whatever the ray hit
+		impactTarget = target;
+		
+		//impact direction
+		impact = force;
 	}
 }
