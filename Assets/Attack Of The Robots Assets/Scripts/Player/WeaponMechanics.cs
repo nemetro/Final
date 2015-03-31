@@ -23,7 +23,7 @@ public class WeaponMechanics : MonoBehaviour {
 	public float horzRecoilDistance = 0.1f;
 	public Camera playerCamera;
 
-	private int bulletsInClip = 6;
+	public int bulletsInClip = 6;
 	private float attackCooldown;
 	private bool justAttacked;
 	private bool usingGun;
