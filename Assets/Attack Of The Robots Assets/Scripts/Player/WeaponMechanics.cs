@@ -132,6 +132,9 @@ public class WeaponMechanics : MonoBehaviour {
 				if(hitInfo.transform.name.ToLower().Contains("head")){
 					print ("headshot!");
 					hitInfo.transform.root.GetComponent<EnemyHealth>().ApplyDamage(2*gunDamage);
+				} else if(hitInfo.transform.name.ToLower().Contains("leg") || hitInfo.transform.name.ToLower().Contains("arm")){
+					print ("limbshot!");
+					hitInfo.transform.root.GetComponent<EnemyHealth>().ApplyDamage(gunDamage/2);
 				} else {
 					print ("bodyshot!");
 					hitInfo.transform.root.GetComponent<EnemyHealth>().ApplyDamage(gunDamage);
