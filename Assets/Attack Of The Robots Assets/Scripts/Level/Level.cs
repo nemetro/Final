@@ -34,6 +34,7 @@ public class Level : MonoBehaviour {
 				print ("SET PLAYER " + i);
 				player.num = i;
 				i++;
+				player.health = 0;
 			}
 		}
 
@@ -47,12 +48,12 @@ public class Level : MonoBehaviour {
 				//Reset the alarm status
 				lastPlayerSighting.position = lastPlayerSighting.resetPosition;
 			}
-			foreach(GameObject ss in spawnSpots){
-				if(player.transform.position.z > ss.transform.position.z)
-				{
-					curSpawn = ss.transform.position;
-				}
-			}
+//			foreach(GameObject ss in spawnSpots){
+//				if(player.transform.position.z > ss.transform.position.z)
+//				{
+//					curSpawn = ss.transform.position;
+//				}
+//			}
 		}
 	}
 }

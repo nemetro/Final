@@ -3,17 +3,23 @@ using System.Collections;
 
 public class Elevator : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
+	private float timer;
+	public float switchFloorTimer;
+	public int nextLevel;
+	private bool startElevator = false;
 	
+	void Update(){
+		if(startElevator){
+			timer += Time.deltaTime;
+		}
+		if(timer >= switchFloorTimer){
+			Application.LoadLevel (nextLevel);
+		}
+			
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
-	
+
 	void OnTriggerEnter(Collider other) {
-		print ("ok");
+		if(other.gameObject.tag == "Player")
+			startElevator = true;
 	}
 }
