@@ -5,7 +5,7 @@ public class EnemyHealth : MonoBehaviour {
 	public GameObject splatter;
 
 	private bool dead = false;
-	private int health = 100;
+	public int health = 100;
 	private Rigidbody impactTarget;
 	private Vector3 impact;
 	private float impactEndTime = 0;
