@@ -371,7 +371,7 @@ Transform:
   - {fileID: 1262752341}
   - {fileID: 1544760512}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 3
 --- !u!114 &12733309
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -394,10 +394,8 @@ MonoBehaviour:
   timeBetweenShots: .75
   reloadTime: 2
   maxBulletsInClip: 6
-  numBullets: 18
   vertRecoilDistance: .100000001
   horzRecoilDistance: .100000001
-  bulletsInClip: 6
 --- !u!114 &12733310
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1995,7 +1993,7 @@ Transform:
   - {fileID: 1695154664}
   - {fileID: 884121269}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 0
 --- !u!114 &94014684
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2018,10 +2016,8 @@ MonoBehaviour:
   timeBetweenShots: .75
   reloadTime: 2
   maxBulletsInClip: 6
-  numBullets: 18
   vertRecoilDistance: .100000001
   horzRecoilDistance: .100000001
-  bulletsInClip: 6
 --- !u!114 &94014685
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3063,7 +3059,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 6
   m_Type: 1
-  m_Color: {r: 1, g: .956862748, b: .839215696, a: 1}
+  m_Color: {r: .933333337, g: 1, b: 1, a: 1}
   m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
@@ -9077,7 +9073,7 @@ Transform:
   - {fileID: 1376169451}
   - {fileID: 1587402173}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
 --- !u!114 &515017257
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9100,10 +9096,8 @@ MonoBehaviour:
   timeBetweenShots: .75
   reloadTime: 2
   maxBulletsInClip: 6
-  numBullets: 18
   vertRecoilDistance: .100000001
   horzRecoilDistance: .100000001
-  bulletsInClip: 6
 --- !u!114 &515017258
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13855,7 +13849,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22412164, guid: d0a6ecfc15e384935a143360b5858ab9, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 22412164, guid: d0a6ecfc15e384935a143360b5858ab9, type: 2}
       propertyPath: m_AnchoredPosition.x
@@ -17007,7 +17001,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 496644, guid: e35196f0ca9604ebc831c6222bf7c842, type: 2}
       propertyPath: m_RootOrder
-      value: 10
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e35196f0ca9604ebc831c6222bf7c842, type: 2}
@@ -22520,7 +22514,7 @@ Transform:
   - {fileID: 1810442226}
   - {fileID: 1541442642}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
 --- !u!114 &1308490719
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22543,10 +22537,8 @@ MonoBehaviour:
   timeBetweenShots: .75
   reloadTime: 2
   maxBulletsInClip: 6
-  numBullets: 18
   vertRecoilDistance: .100000001
   horzRecoilDistance: .100000001
-  bulletsInClip: 6
 --- !u!114 &1308490720
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24105,7 +24097,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
 --- !u!1001 &1384853429
 Prefab:
   m_ObjectHideFlags: 0
@@ -30688,7 +30680,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 438160, guid: b700849d13c5144a191433f82815a156, type: 2}
       propertyPath: m_RootOrder
-      value: 9
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 10838160, guid: b700849d13c5144a191433f82815a156, type: 2}
       propertyPath: m_Intensity

@@ -9674,6 +9674,7 @@ MonoBehaviour:
   num: 0
   MAXHEALTH: 20
   cam: {fileID: 1823745721}
+  weaponScript: {fileID: 0}
 --- !u!114 &660238719
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12799,6 +12800,7 @@ MonoBehaviour:
   num: 0
   MAXHEALTH: 20
   cam: {fileID: 199681194}
+  weaponScript: {fileID: 0}
 --- !u!114 &899390828
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18510,6 +18512,7 @@ MonoBehaviour:
   num: 0
   MAXHEALTH: 20
   cam: {fileID: 1050397088}
+  weaponScript: {fileID: 0}
 --- !u!114 &1403000232
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23487,6 +23490,7 @@ MonoBehaviour:
   num: 0
   MAXHEALTH: 20
   cam: {fileID: 1449268386}
+  weaponScript: {fileID: 0}
 --- !u!114 &1739857393
 MonoBehaviour:
   m_ObjectHideFlags: 0
