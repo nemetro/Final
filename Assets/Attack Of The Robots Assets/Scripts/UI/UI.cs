@@ -71,12 +71,12 @@ public class UI : MonoBehaviour {
 				healthTxts[p].color = Color.red;
 			else healthTxts[p].color = Color.white;
 			
-//			string newammo = "Gnade\n" 
-//								+ player.weaponScript.bulletsInClip.ToString() 
-//								+ " | " 
-//								+ player.weaponScript.numBullets.ToString();
-//			
-//			ammoTxts[p].text = newammo;
+			string newammo = "Gnade\n" 
+								+ player.weaponScript.bulletsInClip.ToString() 
+								+ " | " 
+								+ player.weaponScript.numBullets.ToString();
+			
+			ammoTxts[p].text = newammo;
 			
 			p++;
 		}
