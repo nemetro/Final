@@ -2286,6 +2286,8 @@ GameObject:
   - 4: {fileID: 141939887}
   - 111: {fileID: 141939889}
   - 65: {fileID: 141939888}
+  - 120: {fileID: 141939891}
+  - 114: {fileID: 141939890}
   m_Layer: 0
   m_Name: Revolver
   m_TagString: Gun
@@ -2335,6 +2337,54 @@ Animation:
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
   m_CullingType: 0
+--- !u!114 &141939890
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 141939886}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31f7a51d2446d4541a20354957d31d4c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!120 &141939891
+LineRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 141939886}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_Materials:
+  - {fileID: 2100000, guid: 33afb640d63c443a0a79449c7c880264, type: 2}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 0
+  m_ReflectionProbeUsage: 1
+  m_ProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_ImportantGI: 0
+  m_AutoUVMaxDistance: .5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_Positions:
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 1}
+  m_Parameters:
+    startWidth: .00999999978
+    endWidth: .00999999978
+    m_StartColor:
+      serializedVersion: 2
+      rgba: 4278190335
+    m_EndColor:
+      serializedVersion: 2
+      rgba: 4278190335
+  m_UseWorldSpace: 1
 --- !u!1 &143874600
 GameObject:
   m_ObjectHideFlags: 0
@@ -15247,12 +15297,13 @@ MonoBehaviour:
   gunShotSound: {fileID: 8300000, guid: cff8ff28bdf004927a2a6e0eae039eaa, type: 3}
   dryFireSound: {fileID: 8300000, guid: ac3e27ed3b946440da878df8ba45b6db, type: 3}
   reloadSound: {fileID: 8300000, guid: f8743525c85944c9daacd7561edd5986, type: 3}
-  gunDamage: 60
+  gunDamage: 120
   timeBetweenShots: .75
   reloadTime: 2
   maxBulletsInClip: 6
   vertRecoilDistance: .100000001
   horzRecoilDistance: .100000001
+  playerCamera: {fileID: 618002545}
 --- !u!114 &1023274139
 MonoBehaviour:
   m_ObjectHideFlags: 0

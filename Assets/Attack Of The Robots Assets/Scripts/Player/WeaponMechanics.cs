@@ -19,6 +19,7 @@ public class WeaponMechanics : MonoBehaviour {
 	public int maxBulletsInClip = 6;
 	public float vertRecoilDistance = 0.1f;
 	public float horzRecoilDistance = 0.1f;
+	public Camera playerCamera;
 
 	private int bulletsInClip = 6;
 	private float attackCooldown;
