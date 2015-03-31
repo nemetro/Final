@@ -169,7 +169,9 @@ public class WeaponMechanics : MonoBehaviour {
 
 	void SwingCrowbar(){
 		RaycastHit hitInfo;
-		if (Physics.Raycast (playerCamera.transform.position, playerCamera.transform.forward, out hitInfo, crowbarRange)) { //if raycast hits something
+		Debug.DrawRay(playerCamera.transform.position, playerCamera.transform.forward*crowbarRange, Color.white, 3f);
+		LayerMask hittableLayer = LayerMask.GetMask ("Enemy", "Environment", "PlayArea");
+		if (Physics.Raycast (playerCamera.transform.position, playerCamera.transform.forward, out hitInfo, crowbarRange, hittableLayer)) { //if raycast hits something
 			GetComponent<AudioSource>().PlayOneShot(crowbarHitSound);
 
 			GameObject bulletHoleClone = (GameObject)Instantiate (bulletHole, hitInfo.point + hitInfo.normal * 0.001f, Quaternion.FromToRotation (Vector3.up, hitInfo.normal)); //TODO Layer mask
@@ -178,6 +180,7 @@ public class WeaponMechanics : MonoBehaviour {
 			}
 			
 			if (hitInfo.transform.tag == "Enemy") {
+				print ("hit enemy");
 				EnemyHealth enemyHealth = hitInfo.transform.root.GetComponent<EnemyHealth> ();
 
 				if (hitInfo.transform.name.ToLower ().Contains ("head")) {
@@ -190,8 +193,9 @@ public class WeaponMechanics : MonoBehaviour {
 					print ("bodyshot!");
 					enemyHealth.ApplyDamage (crowbarDamage);
 				}
-				
 				hitInfo.transform.root.GetComponent<EnemyHealth> ().ApplyForce (hitInfo.rigidbody, 4 * gun.transform.forward);
+			} else {
+				print ("did not hit enemy: " + hitInfo.transform.tag);
 			}
 		} else {
 			print ("missed with crowbar");

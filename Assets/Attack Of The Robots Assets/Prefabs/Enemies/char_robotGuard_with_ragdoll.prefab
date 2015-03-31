@@ -10,7 +10,7 @@ GameObject:
   - 4: {fileID: 428576}
   - 65: {fileID: 6527794}
   - 54: {fileID: 5416000}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: char_robotGuard_Hips
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -25,7 +25,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 493454}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: char_robotGuard_RightHandPinky3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40,7 +40,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 458082}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: char_robotGuard_RightHandThumb1
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -55,7 +55,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 417106}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: char_robotGuard_LeftToeBase
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -73,7 +73,7 @@ GameObject:
   - 136: {fileID: 13651662}
   - 54: {fileID: 5459382}
   - 144: {fileID: 14440062}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: char_robotGuard_RightUpLeg
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -88,7 +88,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 413948}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: char_robotGuard_LeftHandIndex2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -103,7 +103,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 437250}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: char_robotGuard_RightHandRing2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -118,7 +118,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 483558}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: char_robotGuard_RightHandPinky2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -133,7 +133,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 488860}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: char_robotGuard_LeftHandRing2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -151,7 +151,7 @@ GameObject:
   - 136: {fileID: 13699928}
   - 54: {fileID: 5452416}
   - 144: {fileID: 14449020}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: char_robotGuard_LeftUpLeg
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -168,7 +168,7 @@ GameObject:
   - 4: {fileID: 499098}
   - 33: {fileID: 3346398}
   - 23: {fileID: 2390352}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: char_robotGuard_helmet
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -183,7 +183,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 480638}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: char_robotGuard_LeftFoot
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -202,7 +202,7 @@ GameObject:
   - 54: {fileID: 5425070}
   - 144: {fileID: 14421644}
   - 136: {fileID: 13658504}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: char_robotGuard_Head
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -217,7 +217,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 433958}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: char_robotGuard_LeftHandRing1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -232,7 +232,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 437722}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: char_robotGuard_Neck
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -247,7 +247,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 466838}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: char_robotGuard_LeftHandRing3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -262,7 +262,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 477044}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: char_robotGuard_LeftHandThumb2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -277,7 +277,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 416936}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: char_robotGuard_LeftHandIndex1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -293,7 +293,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 400798}
   - 137: {fileID: 13743898}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: char_robotGuard_body
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -308,7 +308,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 419982}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: char_robotGuard_RightHandRing1
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -323,7 +323,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 473550}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: char_robotGuard_LeftHandPinky1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -338,7 +338,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 480196}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: char_robotGuard_RightHandPinky1
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -356,7 +356,7 @@ GameObject:
   - 136: {fileID: 13662726}
   - 54: {fileID: 5422176}
   - 144: {fileID: 14433224}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: char_robotGuard_RightLeg
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -371,7 +371,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 445300}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: char_robotGuard_RightHandRing3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -386,7 +386,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 475106}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: char_robotGuard_LeftHandMiddle2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -404,7 +404,7 @@ GameObject:
   - 136: {fileID: 13603910}
   - 54: {fileID: 5486508}
   - 144: {fileID: 14459518}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: char_robotGuard_RightShoulder
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -419,7 +419,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 414116}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: char_robotGuard_LeftForeArm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -434,7 +434,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 454558}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: char_robotGuard_LeftHand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -449,7 +449,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 468106}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: char_robotGuard_RightHandMiddle2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -464,7 +464,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 405156}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: char_robotGuard_RightHandIndex1
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -479,7 +479,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 431086}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: char_robotGuard_RightFoot
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -496,7 +496,7 @@ GameObject:
   - 4: {fileID: 419784}
   - 120: {fileID: 12051700}
   - 108: {fileID: 10873448}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: fx_laserShot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -514,7 +514,7 @@ GameObject:
   - 136: {fileID: 13638778}
   - 54: {fileID: 5449890}
   - 144: {fileID: 14489834}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: char_robotGuard_RightArm
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -529,7 +529,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 438964}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: char_robotGuard_RightHandThumb2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -544,7 +544,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 411022}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: char_robotGuard_RightHandIndex3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -559,7 +559,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 402372}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: char_robotGuard_RightForeArm
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -577,7 +577,7 @@ GameObject:
   - 136: {fileID: 13636698}
   - 54: {fileID: 5448050}
   - 144: {fileID: 14460164}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: char_robotGuard_LeftLeg
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -592,7 +592,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 452508}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: char_robotGuard_LeftHandIndex3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -607,7 +607,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 410262}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: char_robotGuard_RightHandMiddle1
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -622,7 +622,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 452106}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: char_robotGuard_RightHandMiddle3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -640,7 +640,7 @@ GameObject:
   - 136: {fileID: 13699088}
   - 54: {fileID: 5445272}
   - 144: {fileID: 14427448}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: char_robotGuard_LeftShoulder
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -655,7 +655,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 490608}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: char_robotGuard_LeftHandPinky3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -670,7 +670,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 440430}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: char_robotGuard_LeftHandMiddle1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -687,7 +687,7 @@ GameObject:
   - 4: {fileID: 405432}
   - 33: {fileID: 3333948}
   - 23: {fileID: 2349934}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: prop_sciFiGun_low
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -702,7 +702,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 421676}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: char_robotGuard_RightToeBase
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -717,7 +717,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 493988}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: char_robotGuard_LeftHandThumb1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -732,7 +732,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 489518}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: char_robotGuard_skeleton
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -750,7 +750,7 @@ GameObject:
   - 65: {fileID: 6524538}
   - 54: {fileID: 5466168}
   - 144: {fileID: 14430002}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: char_robotGuard_Spine
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -765,7 +765,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 481700}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: char_robotGuard_RightHand
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -780,7 +780,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 482888}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: char_robotGuard_LeftHandPinky2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -795,7 +795,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 475854}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: char_robotGuard_RightHandIndex2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -821,7 +821,7 @@ GameObject:
   - 114: {fileID: 11443882}
   - 114: {fileID: 11419232}
   - 82: {fileID: 8227398}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: char_robotGuard_with_ragdoll
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -836,7 +836,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 433412}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: char_robotGuard_LeftHandMiddle3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -854,7 +854,7 @@ GameObject:
   - 136: {fileID: 13673982}
   - 54: {fileID: 5419480}
   - 144: {fileID: 14490294}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: char_robotGuard_LeftArm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1060,7 +1060,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 195110}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 19.8148708, y: -1.07869692e-16, z: 14.9290094}
+  m_LocalPosition: {x: 19.6879444, y: -8.00485641e-17, z: 14.3025331}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 400798}
@@ -2004,6 +2004,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   splatter: {fileID: 165626, guid: 5c5a1868ef70c4f4cbc9167457455baa, type: 2}
+  health: 100
 --- !u!114 &11472632
 MonoBehaviour:
   m_ObjectHideFlags: 1
