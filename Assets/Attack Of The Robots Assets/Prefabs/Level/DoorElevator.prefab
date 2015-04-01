@@ -8,10 +8,8 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 471492}
-  - 33: {fileID: 3371904}
   - 65: {fileID: 6586682}
-  - 23: {fileID: 2341858}
-  - 111: {fileID: 11118534}
+  - 114: {fileID: 11461944}
   m_Layer: 0
   m_Name: DoorElevator
   m_TagString: Untagged
@@ -19,32 +17,33 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &166892
+--- !u!1 &188484
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
   m_Component:
-  - 4: {fileID: 404248}
-  - 65: {fileID: 6535576}
-  - 114: {fileID: 11483678}
+  - 4: {fileID: 466212}
+  - 33: {fileID: 3347398}
+  - 65: {fileID: 6527992}
+  - 23: {fileID: 2394118}
   m_Layer: 0
-  m_Name: Door Trigger
+  m_Name: ActualDoor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &404248
+--- !u!4 &466212
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 166892}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_GameObject: {fileID: 188484}
+  m_LocalRotation: {x: 0, y: -.707106709, z: 0, w: .707106829}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 3.75, z: .200000003}
   m_Children: []
   m_Father: {fileID: 471492}
   m_RootOrder: 0
@@ -55,18 +54,18 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 118994}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 17.9400005, y: 1.597, z: 5.52799988}
-  m_LocalScale: {x: 2, y: 3.75, z: .200000003}
+  m_LocalPosition: {x: 64.4999924, y: 1.875, z: -9.9999876}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 404248}
+  - {fileID: 466212}
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!23 &2341858
+--- !u!23 &2394118
 MeshRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 118994}
+  m_GameObject: {fileID: 188484}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -85,24 +84,24 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
---- !u!33 &3371904
+--- !u!33 &3347398
 MeshFilter:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 118994}
+  m_GameObject: {fileID: 188484}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!65 &6535576
+--- !u!65 &6527992
 BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 166892}
+  m_GameObject: {fileID: 188484}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2, y: 1, z: 15}
+  m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!65 &6586682
 BoxCollider:
@@ -111,40 +110,26 @@ BoxCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 118994}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 2, y: 4, z: 2}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!111 &11118534
-Animation:
+--- !u!114 &11461944
+MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 118994}
   m_Enabled: 1
-  serializedVersion: 3
-  m_Animation: {fileID: 7400000, guid: 2c80befe21be6f04e8cfc3fd9f2c5d62, type: 2}
-  m_Animations:
-  - {fileID: 7400000, guid: 2c80befe21be6f04e8cfc3fd9f2c5d62, type: 2}
-  - {fileID: 7400000, guid: 9edc856c46f65144f86d413180496e96, type: 2}
-  m_WrapMode: 0
-  m_PlayAutomatically: 0
-  m_AnimatePhysics: 0
-  m_CullingType: 0
---- !u!114 &11483678
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 166892}
-  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 91164d44bc19f8c47b51d60401e50cc1, type: 3}
+  m_Script: {fileID: 11500000, guid: cfe5f760c8b944a468f3aa1029b8493e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  doorClosed: 0
-  anim: {fileID: 0}
+  dist: 3.75
+  speed: .100000001
+  open: 0
+  door: {fileID: 188484}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
