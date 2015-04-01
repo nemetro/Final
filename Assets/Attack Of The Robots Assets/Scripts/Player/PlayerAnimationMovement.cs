@@ -118,8 +118,7 @@ public class PlayerAnimationMovement : MonoBehaviour
 			if(vertical > 0) {
 				anim.SetFloat (hash.speedFloat, 5.5f, speedDampTime, Time.deltaTime);
 			} else {
-				transform.position = transform.position +vertical * moveSidewaysSpeed * Time.deltaTime * transform.forward;
-
+				transform.position = transform.position + vertical * moveSidewaysSpeed * 2f * Time.deltaTime * transform.forward;
 			}
 		} else {
 			// Otherwise set the speed parameter to 0.
