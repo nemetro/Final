@@ -17,6 +17,7 @@ public class EnemyDetectPlayer: MonoBehaviour
 	private PlayerHealth playerHealth;				// Reference to the player's health script.
 	private AnimatorHashIDs hash;							// Reference to the HashIDs.
 	private Vector3 previousSighting;					// Where the player was sighted last frame.
+	private int numDetectedPlayers = 0;
 
 	
 	void Awake ()
@@ -40,29 +41,28 @@ public class EnemyDetectPlayer: MonoBehaviour
 	void Update ()
 	{
 		// If the last global sighting of the player has changed...
-		if(lastPlayerSighting.position != previousSighting)
-			// ... then update the personal sighting to be the same as the global sighting.
-			personalLastSighting = lastPlayerSighting.position;
+//		if (lastPlayerSighting.position != previousSighting) {
+//			// ... then update the personal sighting to be the same as the global sighting.
+//			personalLastSighting = lastPlayerSighting.position;
+//		}
 		
 		// Set the previous sighting to the be the sighting from this frame.
 		previousSighting = lastPlayerSighting.position;
 		
 		// If the player is alive...
-		if(playerHealth.health > 0f)
-			// ... set the animator parameter to whether the player is in sight or not.
-			anim.SetBool(hash.playerInSightBool, playerInSight);
-		else
-			// ... set the animator parameter to false.
-			anim.SetBool(hash.playerInSightBool, false);
+		if (playerHealth.health > 0f) {
+			anim.SetBool (hash.playerInSightBool, playerInSight); // ... set the animator parameter to whether the player is in sight or not.
+		} else {
+			anim.SetBool (hash.playerInSightBool, false);// ... set the animator parameter to false.
+		}
 	}
 	
 	
 	void OnTriggerStay (Collider other)
 	{
-		// If the player has entered the trigger sphere...
-		if(other.gameObject == player || other.gameObject.tag == "Footprint")
-		{
-			if(other.gameObject.tag == "Footprint" && other.gameObject.GetComponent<FootprintDirection>().hasBeenSeen){
+		// If a player or a footstep is in range
+		if(other.gameObject.tag == InGameTags.player || other.gameObject.tag == InGameTags.footprint){
+			if(other.gameObject.tag == InGameTags.footprint && other.gameObject.GetComponent<FootprintDirection>().hasBeenSeen){
 				return;
 			}
 			// By default the player is not in sight.
@@ -73,21 +73,16 @@ public class EnemyDetectPlayer: MonoBehaviour
 			float angle = Vector3.Angle(direction, transform.forward);
 			
 			// If the angle between forward and where the player is, is less than half the angle of view...
-			if(angle < fieldOfViewAngle * 0.5f)
-			{
+			if(angle < fieldOfViewAngle * 0.5f){
 				RaycastHit hit;
 				
 				// ... and if a raycast towards the player from the gun and the head hits something...
-				if(other.gameObject == player && Physics.Raycast(gun.transform.position + transform.up, direction.normalized, out hit, col.radius) && Physics.Raycast(transform.position + transform.up, direction.normalized, out hit, col.radius))
-				{
-					// ... and if the raycast hits the player...
-					if(hit.collider.gameObject == player)
-					{
-						// ... the player is in sight.
-						playerInSight = true;
-						
-						// Set the last global sighting is the players current position.
-						lastPlayerSighting.position = player.transform.position;
+				bool gunCanSeePlayer = Physics.Raycast(gun.transform.position + transform.up, direction.normalized, out hit, col.radius);
+				bool headCanSeePlayer = Physics.Raycast(transform.position + transform.up, direction.normalized, out hit, col.radius);
+				if(other.gameObject.tag == InGameTags.player && gunCanSeePlayer && headCanSeePlayer){
+					if(hit.collider.tag == InGameTags.player){ // ... and if the raycast hits the player...
+						playerInSight = true;// ... the player is in sight.
+						lastPlayerSighting.position = player.transform.position;// Set the last global sighting is the players current position.
 					}
 				} else if (other.gameObject.tag == "Footprint"){
 					FootprintDirection footDir = other.gameObject.GetComponent<FootprintDirection>();
@@ -102,24 +97,30 @@ public class EnemyDetectPlayer: MonoBehaviour
 			int playerLayerZeroStateHash = playerAnim.GetCurrentAnimatorStateInfo(0).nameHash;
 			int playerLayerOneStateHash = playerAnim.GetCurrentAnimatorStateInfo(1).nameHash;
 			
-			// If the player is running or is attracting attention...
-			if(playerLayerZeroStateHash == hash.locomotionState || playerLayerOneStateHash == hash.shoutState)
-			{
-				// ... and if the player is within hearing range...
-				if(CalculatePathLength(player.transform.position) <= col.radius)
+			// If the player is running
+			if(playerLayerZeroStateHash == hash.locomotionState){
+				if(CalculatePathLength(player.transform.position) <= col.radius){ // ... and if the player is within hearing range...
 					// ... set the last personal sighting of the player to the player's current position.
 					personalLastSighting = player.transform.position;
+				}
 			}
 		}
 	}
 	
-	
+	void OnTriggerEnter (Collider other)
+	{
+		if (other.gameObject.tag == InGameTags.player) {// If the player enters the trigger zone
+			numDetectedPlayers++; //increment number of players in the trigger zone
+			playerInSight = true; //a player is in trigger zone
+		}
+	}
+
 	void OnTriggerExit (Collider other)
 	{
-		// If the player leaves the trigger zone...
-		if(other.gameObject == player)
-			// ... the player is not in sight.
-			playerInSight = false;
+		if (other.gameObject.tag == InGameTags.player) {// If the player enters the trigger zone
+			numDetectedPlayers--; //increment number of players in the trigger zone
+			playerInSight = numDetectedPlayers > 0; //update players in sight.
+		}
 	}
 	
 	
@@ -127,8 +128,9 @@ public class EnemyDetectPlayer: MonoBehaviour
 	{
 		// Create a path and set it based on a target position.
 		NavMeshPath path = new NavMeshPath();
-		if(nav.enabled)
-			nav.CalculatePath(targetPosition, path);
+		if (nav.enabled) {
+			nav.CalculatePath (targetPosition, path);
+		}
 		
 		// Create an array of points which is the length of the number of corners in the path + 2.
 		Vector3 [] allWayPoints = new Vector3[path.corners.Length + 2];
@@ -140,8 +142,7 @@ public class EnemyDetectPlayer: MonoBehaviour
 		allWayPoints[allWayPoints.Length - 1] = targetPosition;
 		
 		// The points inbetween are the corners of the path.
-		for(int i = 0; i < path.corners.Length; i++)
-		{
+		for(int i = 0; i < path.corners.Length; i++){
 			allWayPoints[i + 1] = path.corners[i];
 		}
 		
@@ -149,11 +150,15 @@ public class EnemyDetectPlayer: MonoBehaviour
 		float pathLength = 0;
 		
 		// Increment the path length by an amount equal to the distance between each waypoint and the next.
-		for(int i = 0; i < allWayPoints.Length - 1; i++)
-		{
+		for(int i = 0; i < allWayPoints.Length - 1; i++){
 			pathLength += Vector3.Distance(allWayPoints[i], allWayPoints[i + 1]);
 		}
 		
 		return pathLength;
+	}
+
+	void SetTargetPlayer(GameObject p){
+		player = p;
+		playerHealth = p.GetComponent<PlayerHealth> ();
 	}
 }
