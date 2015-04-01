@@ -12,7 +12,7 @@ public class Spawner : MonoBehaviour {
 	public int totalSpawns;
 	
 	private int count = 0;
-	private float time = 0;
+	private float time = 0f;
 	private EnemyAI aiscript;
 	
 	void Start(){
@@ -25,23 +25,29 @@ public class Spawner : MonoBehaviour {
 		if(on == false || spawn == false)
 			return;
 		time += Time.deltaTime;
-		if(time >= spawnTime && count < totalSpawns){
+		if(time >= spawnTime){
 			GameObject robo = Instantiate(roboPref, this.transform.position, Quaternion.Euler(0,0,0)) as GameObject;
 			aiscript = robo.GetComponent<EnemyAI>();
 			aiscript.patrolWayPoints = wayPoints;
-			time = 0;
+			print ("reset");
+			time = 0f;
 			count++;
+			
+			if(count >= totalSpawns)
+				on = false;
 		}
 	}
 	
 	void OnTriggerStay (Collider other)
 	{
-		if(other.gameObject.tag == "Player")
+		if(other.gameObject.tag == "Player" && spawn == false){
 			spawn = true;
+			time = spawnTime;
+		}
 	}
 	void OnTriggerExit (Collider other)
 	{
-		if(other.gameObject.tag == "Player")
+		if(other.gameObject.tag == "Player" && spawn == true)
 			spawn = false;
 	}
 }
