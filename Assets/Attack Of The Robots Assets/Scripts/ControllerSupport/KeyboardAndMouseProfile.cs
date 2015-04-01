@@ -54,6 +54,12 @@ public class KeyboardAndMouseProfile : UnityInputDeviceProfile
 				Handle = "Grenades",
 				Target = InputControlType.LeftTrigger,
 				Source = MouseButton1
+			},
+			new InputControlMapping
+			{
+				Handle = "Action",
+				Target = InputControlType.Action1,
+				Source = KeyCodeButton( KeyCode.Z )
 			}
 		};
 		
