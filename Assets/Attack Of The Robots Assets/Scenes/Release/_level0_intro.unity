@@ -1117,11 +1117,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 498342, guid: b0b7d257f08064f7782a2a86afc9e5ad, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 198342, guid: b0b7d257f08064f7782a2a86afc9e5ad, type: 2}
       propertyPath: m_Name
       value: player_ethan4
+      objectReference: {fileID: 0}
+    - target: {fileID: 198342, guid: b0b7d257f08064f7782a2a86afc9e5ad, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b0b7d257f08064f7782a2a86afc9e5ad, type: 2}
@@ -1898,11 +1902,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 498342, guid: b0b7d257f08064f7782a2a86afc9e5ad, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 198342, guid: b0b7d257f08064f7782a2a86afc9e5ad, type: 2}
       propertyPath: m_Name
       value: player_ethan3
+      objectReference: {fileID: 0}
+    - target: {fileID: 198342, guid: b0b7d257f08064f7782a2a86afc9e5ad, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b0b7d257f08064f7782a2a86afc9e5ad, type: 2}
@@ -3296,11 +3304,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 498342, guid: b0b7d257f08064f7782a2a86afc9e5ad, type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 198342, guid: b0b7d257f08064f7782a2a86afc9e5ad, type: 2}
       propertyPath: m_Name
       value: player_ethan2
+      objectReference: {fileID: 0}
+    - target: {fileID: 198342, guid: b0b7d257f08064f7782a2a86afc9e5ad, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b0b7d257f08064f7782a2a86afc9e5ad, type: 2}
@@ -3850,16 +3862,52 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 498342, guid: b0b7d257f08064f7782a2a86afc9e5ad, type: 2}
       propertyPath: m_RootOrder
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 198342, guid: b0b7d257f08064f7782a2a86afc9e5ad, type: 2}
-      propertyPath: m_Name
-      value: player_ethan1
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 11498450, guid: b0b7d257f08064f7782a2a86afc9e5ad, type: 2}
       propertyPath: weapSnd
       value: 
       objectReference: {fileID: 1435394134}
+    - target: {fileID: 198342, guid: b0b7d257f08064f7782a2a86afc9e5ad, type: 2}
+      propertyPath: m_Name
+      value: player_ethan1
+      objectReference: {fileID: 0}
+    - target: {fileID: 117054, guid: b0b7d257f08064f7782a2a86afc9e5ad, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 198304, guid: b0b7d257f08064f7782a2a86afc9e5ad, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 198434, guid: b0b7d257f08064f7782a2a86afc9e5ad, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 198278, guid: b0b7d257f08064f7782a2a86afc9e5ad, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 198372, guid: b0b7d257f08064f7782a2a86afc9e5ad, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 198292, guid: b0b7d257f08064f7782a2a86afc9e5ad, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 198300, guid: b0b7d257f08064f7782a2a86afc9e5ad, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 198348, guid: b0b7d257f08064f7782a2a86afc9e5ad, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 198342, guid: b0b7d257f08064f7782a2a86afc9e5ad, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b0b7d257f08064f7782a2a86afc9e5ad, type: 2}
   m_IsPrefabParent: 0
