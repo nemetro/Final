@@ -46,7 +46,7 @@ public class PlayerAnimationMovement : MonoBehaviour
 		
 		float h = controller.LeftStickX;//Input.GetAxis("Horizontal");
 		float v = controller.LeftStickY;//Input.GetAxis("Vertical");
-		bool sneak = Input.GetButton("Sneak");
+		bool sneak = controller.LeftBumper.IsPressed;
 		
 		MovementManagement(h, v, sneak);
 		bool moving = h != 0 || v != 0;
@@ -106,7 +106,7 @@ public class PlayerAnimationMovement : MonoBehaviour
 
 
 		if (vertical != 0f) {// controls running
-			if(Input.GetKey(KeyCode.Space)) {
+			if(controller.RightBumper.IsPressed) {
 				anim.speed = 1.5f;
 				GetComponent<AudioSource>().pitch = 1.25f;
 			} else {
