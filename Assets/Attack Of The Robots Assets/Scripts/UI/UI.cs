@@ -49,8 +49,8 @@ public class UI : MonoBehaviour {
 				crossImgs.Add(tempC);
 		}
 		
-		for(int i=0; i<4; i++)
-			crossImgs[i].enabled = false;
+//		for(int i=0; i<4; i++)
+//			crossImgs[i].enabled = false;
 		
 		hints.text = "";
 	}
@@ -95,9 +95,9 @@ public class UI : MonoBehaviour {
 		
 		//vars set for 1 player	
 		Rect tempCam = new Rect(0f, 0f, 1f, 1f);
-//		Vector2 tempXMin = new Vector2(0f,0f);
-//		Vector2 tempXMax = new Vector2(1f,1f);
-//		Vector3 tempXScale = new Vector3(0.09f, 0.16f, 1f);
+		Vector2 tempXMin = new Vector2(0f,0f);
+		Vector2 tempXMax = new Vector2(1f,1f);
+		Vector3 tempXScale = new Vector3(0.09f, 0.16f, 1f);
 		
 		Vector2 tempHMin = new Vector2(0.25f,0.9f);
 		Vector2 tempHMax = new Vector2(0.75f,1f);
@@ -110,10 +110,10 @@ public class UI : MonoBehaviour {
 			print("1 Player");
 			//cam
 			cameraRects.Add(tempCam);
-//			//cross
-//			crossMins.Add(tempXMin);
-//			crossMaxs.Add(tempXMax);
-//			crossScale.Add(tempXScale);
+			//cross
+			crossMins.Add(tempXMin);
+			crossMaxs.Add(tempXMax);
+			crossScale.Add(tempXScale);
 			//health
 			healthMins.Add(tempHMin);
 			healthMaxs.Add(tempHMax);
@@ -131,19 +131,19 @@ public class UI : MonoBehaviour {
 				tempCam = new Rect(0.5f, 0f, 1f, 1f);
 				cameraRects.Add(tempCam);
 				
-//				//cross1
-//				tempXMin = new Vector2(0f,0f);
-//				tempXMax = new Vector2(0.5f,1f);
-//				tempXScale = new Vector3(0.09f, 0.08f, 1f);
-//				crossMins.Add(tempXMin);
-//				crossMaxs.Add(tempXMax);
-//				crossScale.Add(tempXScale);
-//				//cross2
-//				tempXMin = new Vector2(0.5f,0f);
-//				tempXMax = new Vector2(1f,1f);
-//				crossMins.Add(tempXMin);
-//				crossMaxs.Add(tempXMax);
-//				crossScale.Add(tempXScale);
+				//cross1
+				tempXMin = new Vector2(0f,0f);
+				tempXMax = new Vector2(0.5f,1f);
+				tempXScale = new Vector3(0.09f, 0.08f, 1f);
+				crossMins.Add(tempXMin);
+				crossMaxs.Add(tempXMax);
+				crossScale.Add(tempXScale);
+				//cross2
+				tempXMin = new Vector2(0.5f,0f);
+				tempXMax = new Vector2(1f,1f);
+				crossMins.Add(tempXMin);
+				crossMaxs.Add(tempXMax);
+				crossScale.Add(tempXScale);
 				
 				//health1
 				tempHMin = new Vector2(0f,0.9f);
@@ -176,18 +176,18 @@ public class UI : MonoBehaviour {
 				cameraRects.Add(tempCam);
 				
 				//cross1
-//				tempXMin = new Vector2(0f,0.5f);
-//				tempXMax = new Vector2(1f,1f);
-//				tempXScale = new Vector3(0.045f, 0.16f, 1f);
-//				crossMins.Add(tempXMin);
-//				crossMaxs.Add(tempXMax);
-//				crossScale.Add(tempXScale);
-//				//cross2
-//				tempXMin = new Vector2(0f,0f);
-//				tempXMax = new Vector2(1f,0.5f);
-//				crossMins.Add(tempXMin);
-//				crossMaxs.Add(tempXMax);
-//				crossScale.Add(tempXScale);
+				tempXMin = new Vector2(0f,0.5f);
+				tempXMax = new Vector2(1f,1f);
+				tempXScale = new Vector3(0.045f, 0.16f, 1f);
+				crossMins.Add(tempXMin);
+				crossMaxs.Add(tempXMax);
+				crossScale.Add(tempXScale);
+				//cross2
+				tempXMin = new Vector2(0f,0f);
+				tempXMax = new Vector2(1f,0.5f);
+				crossMins.Add(tempXMin);
+				crossMaxs.Add(tempXMax);
+				crossScale.Add(tempXScale);
 				
 				//health1
 				tempHMin = new Vector2(0.25f,0.9f);
@@ -225,27 +225,27 @@ public class UI : MonoBehaviour {
 				tempCam = new Rect(0.5f, -0.5f, 1f, 1f);
 				cameraRects.Add(tempCam);
 				
-//				//cross1
-//				tempXMin = new Vector2(0f,0f);
-//				tempXMax = new Vector2(0.5f,1f);
-//				tempXScale = new Vector3(0.09f, 0.08f, 1f);
-//				crossMins.Add(tempXMin);
-//				crossMaxs.Add(tempXMax);
-//				crossScale.Add(tempXScale);
-//				//cross2
-//				tempXMin = new Vector2(0.5f,0.5f);
-//				tempXMax = new Vector2(1f,1f);
-//				tempXScale = new Vector3(0.09f, 0.16f, 1f);
-//				crossMins.Add(tempXMin);
-//				crossMaxs.Add(tempXMax);
-//				crossScale.Add(tempXScale);
-//				//cross3
-//				tempXMin = new Vector2(0.5f,0f);
-//				tempXMax = new Vector2(1f,0.5f);
-//				tempXScale = new Vector3(0.09f, 0.16f, 1f);
-//				crossMins.Add(tempXMin);
-//				crossMaxs.Add(tempXMax);
-//				crossScale.Add(tempXScale);
+				//cross1
+				tempXMin = new Vector2(0f,0f);
+				tempXMax = new Vector2(0.5f,1f);
+				tempXScale = new Vector3(0.09f, 0.08f, 1f);
+				crossMins.Add(tempXMin);
+				crossMaxs.Add(tempXMax);
+				crossScale.Add(tempXScale);
+				//cross2
+				tempXMin = new Vector2(0.5f,0.5f);
+				tempXMax = new Vector2(1f,1f);
+				tempXScale = new Vector3(0.09f, 0.16f, 1f);
+				crossMins.Add(tempXMin);
+				crossMaxs.Add(tempXMax);
+				crossScale.Add(tempXScale);
+				//cross3
+				tempXMin = new Vector2(0.5f,0f);
+				tempXMax = new Vector2(1f,0.5f);
+				tempXScale = new Vector3(0.09f, 0.16f, 1f);
+				crossMins.Add(tempXMin);
+				crossMaxs.Add(tempXMax);
+				crossScale.Add(tempXScale);
 				
 				//health1
 				tempHMin = new Vector2(0f,0.9f);
@@ -291,27 +291,27 @@ public class UI : MonoBehaviour {
 				tempCam = new Rect(0.5f, -0.5f, 1f, 1f);
 				cameraRects.Add(tempCam);
 				
-//				//cross1
-//				tempXMin = new Vector2(0f,0.5f);
-//				tempXMax = new Vector2(1f,1f);
-//				tempXScale = new Vector3(0.045f, 0.16f, 1f);
-//				crossMins.Add(tempXMin);
-//				crossMaxs.Add(tempXMax);
-//				crossScale.Add(tempXScale);
-//				//cross2
-//				tempXMin = new Vector2(0f,0f);
-//				tempXMax = new Vector2(0.5f,0.5f);
-//				tempXScale = new Vector3(0.09f, 0.16f, 1f);
-//				crossMins.Add(tempXMin);
-//				crossMaxs.Add(tempXMax);
-//				crossScale.Add(tempXScale);
-//				//cross3
-//				tempXMin = new Vector2(0.5f,0f);
-//				tempXMax = new Vector2(1f,0.5f);
-//				tempXScale = new Vector3(0.09f, 0.16f, 1f);
-//				crossMins.Add(tempXMin);
-//				crossMaxs.Add(tempXMax);
-//				crossScale.Add(tempXScale);
+				//cross1
+				tempXMin = new Vector2(0f,0.5f);
+				tempXMax = new Vector2(1f,1f);
+				tempXScale = new Vector3(0.045f, 0.16f, 1f);
+				crossMins.Add(tempXMin);
+				crossMaxs.Add(tempXMax);
+				crossScale.Add(tempXScale);
+				//cross2
+				tempXMin = new Vector2(0f,0f);
+				tempXMax = new Vector2(0.5f,0.5f);
+				tempXScale = new Vector3(0.09f, 0.16f, 1f);
+				crossMins.Add(tempXMin);
+				crossMaxs.Add(tempXMax);
+				crossScale.Add(tempXScale);
+				//cross3
+				tempXMin = new Vector2(0.5f,0f);
+				tempXMax = new Vector2(1f,0.5f);
+				tempXScale = new Vector3(0.09f, 0.16f, 1f);
+				crossMins.Add(tempXMin);
+				crossMaxs.Add(tempXMax);
+				crossScale.Add(tempXScale);
 				
 				//health1
 				tempHMin = new Vector2(0.25f,0.9f);
@@ -356,9 +356,9 @@ public class UI : MonoBehaviour {
 			player.cam.rect = cameraRects[n];
 			
 			//cross			
-//			crossImgs[n].rectTransform.anchorMin = crossMins[n];
-//			crossImgs[n].rectTransform.anchorMax = crossMaxs[n];
-//			crossImgs[n].rectTransform.localScale = crossScale[n];
+			crossImgs[n].rectTransform.anchorMin = crossMins[n];
+			crossImgs[n].rectTransform.anchorMax = crossMaxs[n];
+			crossImgs[n].rectTransform.localScale = crossScale[n];
 			
 			//health
 			healthTxts[n].rectTransform.anchorMin = healthMins[n];
@@ -371,7 +371,7 @@ public class UI : MonoBehaviour {
 			n++;
 		}
 		for(int i=p; i<4; i++){
-//			crossImgs[i].enabled = false;
+			crossImgs[i].enabled = false;
 			healthTxts[i].text = "";
 			ammoTxts[i].text = "";
 		}
