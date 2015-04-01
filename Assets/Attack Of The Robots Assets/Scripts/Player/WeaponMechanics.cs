@@ -9,13 +9,14 @@ public class WeaponMechanics : MonoBehaviour {
 	public GameObject bulletHole;
 	public GameObject grenade;
 
+	public AudioSource gunPlayer;
 	public AudioClip gunShotSound;
 	public AudioClip dryFireSound;
 	public AudioClip reloadSound;
 	
 	public InputDevice controller;
 	public int gunDamage = 60;
-	public float timeBetweenShots = 0.75f;
+	public float timeBetweenShots = 1.2f;
 	public float reloadTime = 2.0f;
 	public int maxBulletsInClip = 6;
 	public int maxBullets = 18;
@@ -60,12 +61,12 @@ public class WeaponMechanics : MonoBehaviour {
 			crowbar.SetActive(true);
 		}
 
-		if(Input.GetKeyDown ("1")) {
+		/*if(Input.GetKeyDown ("1")) {
 			usingGun = true;
 		} 
 		if(Input.GetKeyDown("2")) {
 			usingGun = false;
-		}
+		}*/
 		
 		if (Input.GetKeyDown ("4") && numGnades > 0) {
 			GameObject createGrenade = null;
@@ -78,7 +79,7 @@ public class WeaponMechanics : MonoBehaviour {
 		}
 
 //		if(Input.GetKeyDown("q")) {
-		if(controller.Action3.WasPressed){
+		if(controller.Action4.WasPressed){
 			if(usingGun) {
 				usingGun = false;
 			} else if(!usingGun) {
@@ -90,7 +91,7 @@ public class WeaponMechanics : MonoBehaviour {
 		//TODO can probably make this modular later (class based with just a call to an attack() function.
 		//Melee weapon
 		if(usingGun == false) {
-			if(Input.GetMouseButtonDown (0)) {
+			if(controller.RightTrigger.WasPressed) {
 				crowbar.GetComponent<Animation>().Play("Take 001");
 			}
 //			if (controller.LeftTrigger.WasPressed && attackCooldown <= 0) {
@@ -108,19 +109,19 @@ public class WeaponMechanics : MonoBehaviour {
 
 		//gun
 		if(usingGun) {
-			if(controller.LeftTrigger.WasPressed && attackCooldown <= 0 && bulletsInClip > 0){
+			if(controller.RightTrigger.WasPressed && attackCooldown <= 0 && bulletsInClip > 0){
 				attackCooldown = timeBetweenShots;
 				bulletsInClip--;
-				GetComponent<AudioSource>().PlayOneShot(gunShotSound);
+				gunPlayer.PlayOneShot(gunShotSound);
 
 				FireGun();
-			} else if (controller.LeftTrigger.WasPressed && attackCooldown <= 0 && bulletsInClip <= 0){
-				GetComponent<AudioSource>().PlayOneShot(dryFireSound);
+			} else if (controller.RightTrigger.WasPressed && bulletsInClip <= 0){
+				gunPlayer.PlayOneShot(dryFireSound);
 			}
 			//TODO make this use controller
-			if(bulletsInClip < maxBulletsInClip && attackCooldown <= 0 && Input.GetKeyDown(KeyCode.T)){
+			if(bulletsInClip < maxBulletsInClip && attackCooldown <= 0 && controller.Action3.WasPressed){
 				attackCooldown = reloadTime;
-				GetComponent<AudioSource>().PlayOneShot(reloadSound);
+				gunPlayer.PlayOneShot(reloadSound);
 				bulletsInClip = maxBulletsInClip;
 			}
 		}
