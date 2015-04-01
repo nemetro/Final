@@ -13,6 +13,8 @@ GameObject:
   - 111: {fileID: 11126808}
   - 114: {fileID: 11498156}
   - 135: {fileID: 13544644}
+  - 54: {fileID: 5491140}
+  - 65: {fileID: 6536564}
   m_Layer: 0
   m_Name: Health
   m_TagString: Untagged
@@ -63,6 +65,33 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 198664}
   m_Mesh: {fileID: 4300000, guid: 636cd0f2a00f6674eacba81ce53aabc0, type: 3}
+--- !u!54 &5491140
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 198664}
+  serializedVersion: 2
+  m_Mass: 100
+  m_Drag: 0
+  m_AngularDrag: .0500000007
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!65 &6536564
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 198664}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: .602107823, y: .725972056, z: .334648669}
+  m_Center: {x: 8.47032947e-22, y: -2.98023295e-08, z: 7.1054282e-15}
 --- !u!111 &11126808
 Animation:
   m_ObjectHideFlags: 1
@@ -95,10 +124,10 @@ SphereCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 198664}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 1
+  m_Radius: 2
   m_Center: {x: 8.47032947e-22, y: -2.98023295e-08, z: 7.1054282e-15}
 --- !u!1001 &100100000
 Prefab:
