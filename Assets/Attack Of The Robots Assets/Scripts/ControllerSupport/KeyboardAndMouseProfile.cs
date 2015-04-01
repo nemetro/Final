@@ -28,26 +28,32 @@ public class KeyboardAndMouseProfile : UnityInputDeviceProfile
 			new InputControlMapping
 			{
 				Handle = "Fire - Mouse",
-				Target = InputControlType.LeftTrigger,
+				Target = InputControlType.RightTrigger,
 				Source = MouseButton0
 			},
 			new InputControlMapping
 			{
-				Handle = "Push",
-				Target = InputControlType.RightTrigger,
-				Source = MouseButton1
-			},
-			new InputControlMapping
-			{
-				Handle = "Jump",
-				Target = InputControlType.Action1,
-				Source = KeyCodeButton( KeyCode.Space )
-			},
-			new InputControlMapping
-			{
-				Handle = "Switch Bullets",
-				Target = InputControlType.Action3,
+				Handle = "Switch Weapons",
+				Target = InputControlType.Action4,
 				Source = KeyCodeButton( KeyCode.Q )
+			},
+			new InputControlMapping
+			{
+				Handle = "Reload",
+				Target = InputControlType.Action3,
+				Source = KeyCodeButton( KeyCode.R )
+			},
+			new InputControlMapping
+			{
+				Handle = "Sprint",
+				Target = InputControlType.RightBumper,
+				Source = KeyCodeButton( KeyCode.LeftShift )
+			},
+			new InputControlMapping
+			{
+				Handle = "Grenades",
+				Target = InputControlType.LeftTrigger,
+				Source = MouseButton1
 			}
 		};
 		
