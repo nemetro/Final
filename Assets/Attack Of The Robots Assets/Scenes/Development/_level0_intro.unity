@@ -2471,6 +2471,7 @@ MonoBehaviour:
   reloadTime: 2
   maxBulletsInClip: 6
   maxBullets: 18
+  maxGnades: 4
   numBullets: 18
   vertRecoilDistance: .100000001
   horzRecoilDistance: .100000001
@@ -7583,6 +7584,7 @@ MonoBehaviour:
   reloadTime: 2
   maxBulletsInClip: 6
   maxBullets: 18
+  maxGnades: 4
   numBullets: 18
   vertRecoilDistance: .100000001
   horzRecoilDistance: .100000001
@@ -9396,6 +9398,7 @@ MonoBehaviour:
   reloadTime: 2
   maxBulletsInClip: 6
   maxBullets: 18
+  maxGnades: 4
   numBullets: 18
   vertRecoilDistance: .100000001
   horzRecoilDistance: .100000001
@@ -9689,6 +9692,7 @@ MonoBehaviour:
   reloadTime: 2
   maxBulletsInClip: 6
   maxBullets: 18
+  maxGnades: 4
   numBullets: 18
   vertRecoilDistance: .100000001
   horzRecoilDistance: .100000001

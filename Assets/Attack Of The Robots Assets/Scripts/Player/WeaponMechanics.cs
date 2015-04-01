@@ -10,7 +10,7 @@ public class WeaponMechanics : MonoBehaviour {
 	public GameObject grenade;
 	public Camera playerCamera;
 
-
+	public AudioSource weapSnd;
 	public AudioClip gunShotSound;
 	public AudioClip dryFireSound;
 	public AudioClip reloadSound;
@@ -41,7 +41,6 @@ public class WeaponMechanics : MonoBehaviour {
 	private Quaternion gunStartRot;
 	private Vector3 crowbarStartLoc;
 	private Quaternion crowbarStartRot;
-	private AudioSource weapSnd;
 
 	// Use this for initialization
 	void Start () {
@@ -53,7 +52,6 @@ public class WeaponMechanics : MonoBehaviour {
 		gunStartRot = gun.transform.localRotation;
 		crowbarStartLoc = crowbar.transform.localPosition;
 		crowbarStartRot = crowbar.transform.localRotation;
-		weapSnd = GetComponent<AudioSource> ();
 	}
 	
 	void FixedUpdate () {
