@@ -150,6 +150,10 @@ public class WeaponMechanics : MonoBehaviour {
 				bulletHoleClone.GetComponent<Renderer>().enabled = false;
 			}
 
+			if(hitInfo.collider.gameObject.GetComponent<Hit>() != null) {
+				hitInfo.collider.gameObject.GetComponent<Hit>().DestroyIt();
+			}
+
 			if (hitInfo.transform.tag == "Enemy"){ //apply damage
 				print ("Hit enemy apply damage: " + gunDamage);
 				if(hitInfo.transform.name.ToLower().Contains("head")){
@@ -175,6 +179,10 @@ public class WeaponMechanics : MonoBehaviour {
 		LayerMask hittableLayer = LayerMask.GetMask ("Enemy", "Environment", "PlayArea");
 		if (Physics.Raycast (playerCamera.transform.position, playerCamera.transform.forward, out hitInfo, crowbarRange, hittableLayer)) { //if raycast hits something
 			weapSnd.PlayOneShot(crowbarHitSound);
+
+			if(hitInfo.collider.gameObject.GetComponent<Hit>() != null) {
+				hitInfo.collider.gameObject.GetComponent<Hit>().DestroyIt();
+			}
 
 			GameObject bulletHoleClone = (GameObject)Instantiate (bulletHole, hitInfo.point + hitInfo.normal * 0.001f, Quaternion.FromToRotation (Vector3.up, hitInfo.normal)); //TODO Layer mask
 			if (hitInfo.transform.tag != "Wall") {
