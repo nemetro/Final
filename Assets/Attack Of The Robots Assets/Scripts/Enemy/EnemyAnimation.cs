@@ -80,8 +80,7 @@ public class EnemyAnimation : MonoBehaviour
 			// If the angle is within the deadZone...
 			if(Mathf.Abs(angle) < deadZone)
 			{
-				// ... set the direction to be along the desired direction and set the angle to be zero.
- 				transform.LookAt(transform.position + nav.desiredVelocity);
+				transform.LookAt(transform.position + nav.desiredVelocity); // ... set the direction to be along the desired direction and set the angle to be zero.
       			angle = 0f;
     		}
 		}

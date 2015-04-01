@@ -12,56 +12,41 @@ public class EnemyAI : MonoBehaviour
 	
 	private EnemyDetectPlayer enemyDetectPlayer;						// Reference to the EnemySight script.
 	private NavMeshAgent nav;								// Reference to the nav mesh agent.
-	private Transform targetPlayer;								// Reference to the player's transform.
-	private PlayerHealth targetPlayerHealth;					// Reference to the PlayerHealth script.
-//	private GlobalLastPlayerSighting lastPlayerSighting;		// Reference to the last global sighting of the player.
 	private float chaseTimer;								// A timer for the chaseWaitTime.
 	private float patrolTimer;								// A timer for the patrolWaitTime.
 	private int wayPointIndex;								// A counter for the way point array.
-	
-	
+
 	void Awake ()
 	{
 		// Setting up the references.
 		enemyDetectPlayer = GetComponent<EnemyDetectPlayer>();
 		nav = GetComponent<NavMeshAgent>();
-		targetPlayer = GameObject.FindGameObjectWithTag(InGameTags.player).transform;
-		targetPlayerHealth = targetPlayer.GetComponent<PlayerHealth>();
-//		lastPlayerSighting = GameObject.FindGameObjectWithTag(InGameTags.gameController).GetComponent<GlobalLastPlayerSighting>();
 	}
 	
 	
-	void Update ()
-	{
+	void Update () {
 		// If the player is in sight and is alive...
-		if (enemyDetectPlayer.playerInSight && targetPlayerHealth.health > 0f) {
-			// ... shoot.
-			Shooting ();
-//		} else if (enemySight.personalLastSighting != lastPlayerSighting.resetPosition && targetPlayerHealth.health > 0f) {// If the player has been sighted and isn't dead...
-		} else if (targetPlayerHealth.health > 0f) {// If the player has been sighted and isn't dead...
-			// ... chase.
-			Chasing ();
+		if (enemyDetectPlayer.playerInSight && enemyDetectPlayer.targetPlayerHealth.health > 0f) {
+			Shooting (); // ... shoot.
+		} else if (enemyDetectPlayer.targetPlayerHealth.health > 0f) {// If the player has been sighted and isn't dead...
+			Chasing (); // ... chase.
 		} else {
-			// ... patrol.
-			Patrolling ();
+			Patrolling (); // ... patrol.
 		}
 	}
 	
 	
-	void Shooting ()
-	{
-		// Stop the enemy where it is.
-		nav.Stop();
+	void Shooting () {
+		nav.Stop(); // Stop the enemy where it is.
 	}
 	
 	
-	void Chasing ()
-	{
+	void Chasing () {
 		// Create a vector from the enemy to the last sighting of the player.
 		Vector3 sightingDeltaPos = enemyDetectPlayer.personalLastSighting - transform.position;
 		
-		// If the the last personal sighting of the player is not close...
-		if (sightingDeltaPos.sqrMagnitude > 4f) {
+
+		if (sightingDeltaPos.sqrMagnitude > 4f) { // If the the last personal sighting of the player is not close...
 			// ... set the destination for the NavMeshAgent to the last personal sighting of the player.
 			nav.destination = enemyDetectPlayer.personalLastSighting;
 		}
@@ -77,8 +62,6 @@ public class EnemyAI : MonoBehaviour
 
 			if (chaseTimer >= chaseWaitTime) { // If the timer exceeds the wait time...
 				// ... reset last global sighting, the last personal sighting and the timer.
-//				lastPlayerSighting.position = lastPlayerSighting.resetPosition;
-//				enemyDetectPlayer.personalLastSighting = lastPlayerSighting.resetPosition;
 				chaseTimer = 0f;
 			}
 		} else {
