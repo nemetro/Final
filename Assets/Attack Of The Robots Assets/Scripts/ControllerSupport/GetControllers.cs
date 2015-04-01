@@ -9,9 +9,11 @@ public class GetControllers : MonoBehaviour {
 	public InputDevice[] players = new InputDevice[4];
 	
 	public int numPlayers;
+	
 	bool assigned = false;
 	int cur_player;	
 	GameObject prompt;
+	InputDevice[] controllersAssigned = new InputDevice[4];
 
 	void Awake()
 	{
@@ -24,11 +26,23 @@ public class GetControllers : MonoBehaviour {
 	{	
 		if (numPlayers != 0 && !assigned & cur_player < numPlayers)
 		{
-			prompt.GetComponent<Text>().text = "Press button on controller for player " + cur_player;
+			if (prompt.GetComponent<Text>().text == "")
+			{
+				prompt.GetComponent<Text>().text = "Press button on controller for player " + cur_player;
+			}
 			InputDevice controller = getNextController();
 			if (controller != null)
 			{
-				players[cur_player] = controller;				
+				for (int i = 0; i < controllersAssigned.Length; i++)
+				{
+					if (controllersAssigned[i] == controller)
+					{
+						prompt.GetComponent<Text>().text = "That device has already been assigned. Please try another.";
+						return;
+					}
+				}
+				players[cur_player] = controller;
+				controllersAssigned[cur_player] = controller;			
 				cur_player++;
 				prompt.GetComponent<Text>().text = "";
 			}
@@ -53,10 +67,11 @@ public class GetControllers : MonoBehaviour {
 		if (num > InputManager.Devices.Count)
 		{
 			prompt.GetComponent<Text>().text = "Not enough devices are attached for number of players!";
-				return;
+			return;
 		}
 		else
 		{
+			prompt.GetComponent<Text>().text = "";
 			numPlayers = num;
 			assigned = false;
 			cur_player = 0;

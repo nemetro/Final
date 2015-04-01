@@ -25,6 +25,8 @@ public class AssignControllers : MonoBehaviour {
 			foreach (MouseLookController member in look)
 			{
 				member.controller = controllers[cur_player];
+				member.sensitivityX = GameObject.Find("SensitivityTracker").GetComponent<SensitivityTracker>().playerSens[cur_player];
+				member.sensitivityY = GameObject.Find("SensitivityTracker").GetComponent<SensitivityTracker>().playerSens[cur_player];
 				member.enabled = true;
 			}
 			players[cur_player].GetComponent<WeaponMechanics>().controller = controllers[cur_player];
