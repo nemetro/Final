@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using InControl;
 
 public class LaserDoorSwitchDeactivate : MonoBehaviour
 {
@@ -8,7 +9,7 @@ public class LaserDoorSwitchDeactivate : MonoBehaviour
 	private GlobalLastPlayerSighting lastPlayerSighting;		// Reference to the global last sighting of the player.
 	//private GameObject player;				// Reference to the player.
 	bool alreadyPressed;
-	
+	InputDevice controller;
 	
 	void Awake ()
 	{
@@ -27,7 +28,7 @@ public class LaserDoorSwitchDeactivate : MonoBehaviour
 		// If the colliding gameobject is the player...
 		if (other.gameObject.tag == InGameTags.player) {
 			// ... and the switch button is pressed...
-			if (Input.GetButtonDown ("Switch")) {
+			if (other.GetComponent<PlayerAnimationMovement>().controller.Action1.WasPressed) {
 				// ... deactivate the laser.
 				LaserDeactivation (other.gameObject);
 				alreadyPressed = true;
