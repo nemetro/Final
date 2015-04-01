@@ -9,17 +9,17 @@ public class HintPrompt : MonoBehaviour {
 	
 	void OnTriggerStay(Collider col)
 	{
-		if (col.gameObject.tag == "Player")
+		/*if (col.gameObject.tag == "Player")
 		{
-			onScreen.text = prompt;
-		}
+			onScreen.text = prompt.text;
+		}*/
 	}
 	
 	void OnTriggerExit(Collider col)
 	{
-		if (col.gameObject.tag == "Player")
+		/*if (col.gameObject.tag == "Player")
 		{
 			onScreen.text = "";
-		}
+		}*/
 	}
 }
