@@ -5,7 +5,12 @@ using UnityEngine.UI;
 public class HintPrompt : MonoBehaviour {
 
 	 public string prompt;
-	 public Text onScreen;
+	 Text onScreen;
+	
+	void Awake()
+	{
+		onScreen = GameObject.Find ("Hints").GetComponent<Text>();
+	}
 	
 	void OnTriggerStay(Collider col)
 	{
