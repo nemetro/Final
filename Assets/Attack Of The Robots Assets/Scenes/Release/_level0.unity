@@ -3386,6 +3386,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnSpots:
   - {fileID: 706137356}
+  - {fileID: 2074468381}
+  - {fileID: 160575211}
+  - {fileID: 1733156208}
   resetAfterDeathTime: 5
   spawnNum: 0
 --- !u!1 &422442907
@@ -12364,6 +12367,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasKey: 0
+  pickupSound: {fileID: 0}
 --- !u!114 &1360377861
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13784,6 +13788,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasKey: 0
+  pickupSound: {fileID: 0}
 --- !u!114 &1451009723
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19126,6 +19131,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasKey: 0
+  pickupSound: {fileID: 0}
 --- !u!114 &2008895002
 MonoBehaviour:
   m_ObjectHideFlags: 0

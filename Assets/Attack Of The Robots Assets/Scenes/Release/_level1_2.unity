@@ -5227,6 +5227,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasKey: 0
+  pickupSound: {fileID: 0}
 --- !u!114 &323514974
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6701,7 +6702,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnSpots:
-  - {fileID: 0}
+  - {fileID: 1422585373}
+  - {fileID: 855624288}
+  - {fileID: 1763514795}
+  - {fileID: 683540838}
   resetAfterDeathTime: 5
   spawnNum: 0
 --- !u!1001 &419283429
@@ -10133,7 +10137,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 683540838}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.13, y: 0, z: 3.36999989}
+  m_LocalPosition: {x: -1.01999998, y: 0, z: 3.36999989}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 417833297}
@@ -11789,6 +11793,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasKey: 0
+  pickupSound: {fileID: 0}
 --- !u!114 &787176258
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12709,7 +12714,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 855624288}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.05999994, y: 0, z: 5.63000011}
+  m_LocalPosition: {x: -1, y: 0, z: 5.63000011}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 417833297}
@@ -13296,6 +13301,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasKey: 0
+  pickupSound: {fileID: 0}
 --- !u!114 &886393169
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20376,7 +20382,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1422585373}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.17000008, y: 0, z: 5.63000011}
+  m_LocalPosition: {x: -3.3599999, y: 0, z: 5.63000011}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 417833297}
@@ -24756,7 +24762,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1763514795}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.17000008, y: 0, z: 3.3599999}
+  m_LocalPosition: {x: -3.70000005, y: 0, z: 3.3599999}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 417833297}
@@ -28770,6 +28776,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasKey: 0
+  pickupSound: {fileID: 0}
 --- !u!114 &2079578279
 MonoBehaviour:
   m_ObjectHideFlags: 0
