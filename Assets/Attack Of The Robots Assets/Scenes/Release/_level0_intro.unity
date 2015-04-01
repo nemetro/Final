@@ -1123,13 +1123,13 @@ Prefab:
       propertyPath: m_Name
       value: player_ethan4
       objectReference: {fileID: 0}
-    - target: {fileID: 198342, guid: b0b7d257f08064f7782a2a86afc9e5ad, type: 2}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b0b7d257f08064f7782a2a86afc9e5ad, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &656795214
+GameObject:
+  m_PrefabParentObject: {fileID: 198342, guid: b0b7d257f08064f7782a2a86afc9e5ad, type: 2}
+  m_PrefabInternal: {fileID: 656795213}
 --- !u!1001 &692470956
 Prefab:
   m_ObjectHideFlags: 0
@@ -1904,13 +1904,13 @@ Prefab:
       propertyPath: m_Name
       value: player_ethan3
       objectReference: {fileID: 0}
-    - target: {fileID: 198342, guid: b0b7d257f08064f7782a2a86afc9e5ad, type: 2}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b0b7d257f08064f7782a2a86afc9e5ad, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1174230823
+GameObject:
+  m_PrefabParentObject: {fileID: 198342, guid: b0b7d257f08064f7782a2a86afc9e5ad, type: 2}
+  m_PrefabInternal: {fileID: 1174230822}
 --- !u!1 &1250774876
 GameObject:
   m_ObjectHideFlags: 0
@@ -2235,10 +2235,18 @@ Prefab:
       propertyPath: players.Array.data[0]
       value: 
       objectReference: {fileID: 1023274136}
-    - target: {fileID: 116888, guid: d0a6ecfc15e384935a143360b5858ab9, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
+    - target: {fileID: 11403644, guid: d0a6ecfc15e384935a143360b5858ab9, type: 2}
+      propertyPath: players.Array.data[1]
+      value: 
+      objectReference: {fileID: 1816362272}
+    - target: {fileID: 11403644, guid: d0a6ecfc15e384935a143360b5858ab9, type: 2}
+      propertyPath: players.Array.data[2]
+      value: 
+      objectReference: {fileID: 1174230823}
+    - target: {fileID: 11403644, guid: d0a6ecfc15e384935a143360b5858ab9, type: 2}
+      propertyPath: players.Array.data[3]
+      value: 
+      objectReference: {fileID: 656795214}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d0a6ecfc15e384935a143360b5858ab9, type: 2}
   m_IsPrefabParent: 0
@@ -3294,13 +3302,13 @@ Prefab:
       propertyPath: m_Name
       value: player_ethan2
       objectReference: {fileID: 0}
-    - target: {fileID: 198342, guid: b0b7d257f08064f7782a2a86afc9e5ad, type: 2}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b0b7d257f08064f7782a2a86afc9e5ad, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1816362272
+GameObject:
+  m_PrefabParentObject: {fileID: 198342, guid: b0b7d257f08064f7782a2a86afc9e5ad, type: 2}
+  m_PrefabInternal: {fileID: 1816362271}
 --- !u!1001 &1826443905
 Prefab:
   m_ObjectHideFlags: 0
