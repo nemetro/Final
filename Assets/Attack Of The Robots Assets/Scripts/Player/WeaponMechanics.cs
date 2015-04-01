@@ -77,7 +77,7 @@ public class WeaponMechanics : MonoBehaviour {
 			usingGun = false;
 		}*/
 		
-		if (Input.GetKeyDown ("4") && numGnades > 0) {
+		if (controller.LeftTrigger.WasPressed && numGnades > 0) {
 			GameObject createGrenade = null;
 			print("grenade");
 			print (transform.position);

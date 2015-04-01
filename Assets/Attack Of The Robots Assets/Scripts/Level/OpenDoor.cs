@@ -36,7 +36,7 @@ public class OpenDoor : MonoBehaviour {
 	void OnTriggerStay (Collider other) 
 	{
 		if(other.gameObject.tag == "Player"){
-			if(Input.GetKeyUp(KeyCode.E))
+			if(other.GetComponent<MouseLookController>().controller.Action1.WasPressed)
 			{
 				move = true;
 			}
