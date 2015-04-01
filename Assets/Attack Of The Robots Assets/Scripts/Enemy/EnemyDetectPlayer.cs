@@ -17,6 +17,7 @@ public class EnemyDetectPlayer: MonoBehaviour{
 	private AnimatorHashIDs hash;						// Reference to the HashIDs.
 	private GameObject target;							// Reference to target gameobject
 	private int numDetectedPlayers = 0;					// Number of players in range
+	private GlobalLastPlayerSighting globalLastPlayerSighting;
 
 	void Awake () {
 		nav = GetComponent<NavMeshAgent>();
@@ -25,6 +26,7 @@ public class EnemyDetectPlayer: MonoBehaviour{
 		audio = GetComponent<AudioSource> ();
 		hash = GameObject.FindGameObjectWithTag(InGameTags.gameController).GetComponent<AnimatorHashIDs>();
 		personalLastKnownLocation = resetPosition;
+		globalLastPlayerSighting = GameObject.FindGameObjectWithTag(InGameTags.gameController).GetComponent<GlobalLastPlayerSighting>();
 	}
 
 	void Update () {
@@ -55,12 +57,13 @@ public class EnemyDetectPlayer: MonoBehaviour{
 				RaycastHit hit;
 				
 				// ... and if a raycast towards the player from the gun and the head hits something...
-				bool gunCanSeeTarget = Physics.Raycast (gun.transform.position + transform.up, direction.normalized, out hit, col.radius/2.0f);
+				bool gunCanSeeTarget = Physics.Raycast (gun.transform.position, direction.normalized, out hit, col.radius/2.0f);
 				bool headCanSeeTarget = Physics.Raycast (transform.position + transform.up, direction.normalized, out hit, col.radius/2.0f);
 	
 				if (target.gameObject.tag == InGameTags.player && gunCanSeeTarget && headCanSeeTarget) {
 					if (hit.collider.tag == InGameTags.player) { // ... and if the raycast hits the player...
 						playerInSight = true;// ... the player is in sight.
+						globalLastPlayerSighting.position = personalLastKnownLocation; //TODO make this better (should be a bool and let local enemies activate eachother)
 						audio.Play ();
 					}
 				}
@@ -82,7 +85,19 @@ public class EnemyDetectPlayer: MonoBehaviour{
 		}
 	}
 
-	//TODO TODO TODO get enemies to constantly follow player again.
+	//TELl YO FRIENDS WHERE DA PLAYER IS
+	void OnTriggerStay (Collider other){
+		if (other.tag == InGameTags.enemy && personalLastKnownLocation != resetPosition) {
+			if(other.transform.root.GetComponent<EnemyDetectPlayer>().playerInSight == false 
+			   || other.transform.root.GetComponent<EnemyDetectPlayer>().personalLastKnownLocation == resetPosition){
+
+				if(CalculatePathLength(other.transform.position) <= col.radius/1.2f){ //make sure the other robot is in range
+					other.transform.root.GetComponent<EnemyDetectPlayer>().personalLastKnownLocation = personalLastKnownLocation;
+					other.transform.root.GetComponent<EnemyDetectPlayer>().playerInSight = true;
+				}
+			}
+		}
+	}
 
 	float CalculatePathLength (Vector3 targetPosition){
 		// Create a path and set it based on a target position.
@@ -130,5 +145,10 @@ public class EnemyDetectPlayer: MonoBehaviour{
 
 	public bool CanSeeTarget(){
 		return playerInSight;
+	}
+
+	public void Stop(){
+		globalLastPlayerSighting.position = globalLastPlayerSighting.resetPosition;
+		this.enabled = false;
 	}
 }

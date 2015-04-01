@@ -12,14 +12,14 @@ public class EnemyShootingRaycast: MonoBehaviour
 	public float accuracyRadius = 1.0f;	
 
 	private Animator anim;								// Reference to the animator.
-	private AnimatorHashIDs hash;							// Reference to the HashIDs script.
+	private AnimatorHashIDs hash;						// Reference to the HashIDs script.
 	private LineRenderer laserShotLine;					// Reference to the laser shot line renderer.
 	private Light laserShotLight;						// Reference to the laser shot light.
 	private SphereCollider col;							// Reference to the sphere collider.
 	private EnemyDetectPlayer enemyDetectPlayer;
 	private bool shooting;								// A bool to say whether or not the enemy is currently shooting.
 	private float scaledDamage;							// Amount of damage that is scaled by the distance from the player.
-	
+	private bool stop;
 	
 	void Awake ()
 	{
@@ -36,11 +36,11 @@ public class EnemyShootingRaycast: MonoBehaviour
 		
 		// The scaledDamage is the difference between the maximum and the minimum damage.
 		scaledDamage = maximumDamage - minimumDamage;
+		stop = false;
 	}
 	
 	
-	void Update ()
-	{
+	void Update (){
 		// Cache the current value of the shot curve.
 		float shot = anim.GetFloat(hash.shotFloat);
 		
@@ -128,5 +128,11 @@ public class EnemyShootingRaycast: MonoBehaviour
 		
 		// Play the gun shot clip at the position of the muzzle flare.
 		AudioSource.PlayClipAtPoint(shotClip, laserShotLight.transform.position);
+	}
+
+	public void Stop(){
+		laserShotLight.enabled = false;
+		laserShotLine.enabled = false;
+		this.enabled = false;
 	}
 }

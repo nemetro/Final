@@ -30,23 +30,25 @@ public class EnemyAI : MonoBehaviour
 	}
 	
 	void Chasing () {
+		print ("chasing");
 		// Create a vector from the enemy to the last sighting of the player.
 		Vector3 sightingDeltaPos = enemyDetectPlayer.personalLastKnownLocation - transform.position;
 
 		if (sightingDeltaPos.sqrMagnitude > 4f) { // If the the last personal sighting of the player is not close...
+			print ("moving");
+			print (enemyDetectPlayer.personalLastKnownLocation);
 			// ... set the destination for the NavMeshAgent to the last personal sighting of the player.
 			nav.destination = enemyDetectPlayer.personalLastKnownLocation;
+			nav.Resume();
 		} else {
+			print ("stop");
 			nav.Stop();
 		}
-		
 
 		nav.speed = chaseSpeed;// Set the appropriate speed for the NavMeshAgent.
-		
 
 		if (nav.remainingDistance < nav.stoppingDistance) { // If near the last personal sighting...
-			chaseTimer += Time.deltaTime;// ... increment the timer.
-			
+			chaseTimer += Time.deltaTime; // ... increment the timer.
 
 			if (chaseTimer >= chaseWaitTime) { // If the timer exceeds the wait time...
 				chaseTimer = 0f;// ... reset last global sighting, the last personal sighting and the timer.
