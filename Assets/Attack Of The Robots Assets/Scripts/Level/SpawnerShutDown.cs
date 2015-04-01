@@ -6,14 +6,6 @@ public class SpawnerShutDown : MonoBehaviour {
 	
 	public List<GameObject> spawners = new List<GameObject>();
 	
-	void Start () {
-		
-	}
-	
-	void FixedUpdate () {
-		
-	}
-	
 	void OnTriggerStay (Collider other)
 	{
 		// If the colliding gameobject is the player...
