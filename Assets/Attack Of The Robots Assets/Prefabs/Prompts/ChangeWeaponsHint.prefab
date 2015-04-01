@@ -86,7 +86,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prompt: Press 'Y' or 'Q' to change weapons
-  onScreen: {fileID: 0}
+  onScreen: {fileID: 11452250, guid: d0a6ecfc15e384935a143360b5858ab9, type: 2}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
