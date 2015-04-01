@@ -34,7 +34,7 @@ public class Level : MonoBehaviour {
 			onstart = false;
 			int i = 0;
 			foreach(Player player in players){
-				print ("SET PLAYER " + i);
+//				print ("SET PLAYER " + i);
 				player.num = i;
 				i++;
 				player.health = 0;
@@ -44,7 +44,7 @@ public class Level : MonoBehaviour {
 		foreach(Player player in players){
 			if(player.health <= 0 /*|| Input.GetKeyUp(KeyCode.R)*/)
 			{
-				print ("move to " + curSpawns[player.num]);
+//				print ("move to " + curSpawns[player.num]);
 				player.GetComponent<Rigidbody>().velocity = Vector3.zero;
 				player.transform.position = curSpawns[player.num];
 				player.health = player.MAXHEALTH;

@@ -122,6 +122,12 @@ public class WeaponMechanics : MonoBehaviour {
 				attackCooldown = reloadTime;
 				weapSnd.PlayOneShot(reloadSound);
 				bulletsInClip = maxBulletsInClip;
+				if(numBullets >= maxBulletsInClip)
+					numBullets -= maxBulletsInClip;
+				else{
+					bulletsInClip = numBullets;
+					numBullets = 0;
+				}
 			}
 		}
 
@@ -190,17 +196,17 @@ public class WeaponMechanics : MonoBehaviour {
 			}
 			
 			if (hitInfo.transform.tag == "Enemy") {
-				print ("hit enemy");
+//				print ("hit enemy");
 				EnemyHealth enemyHealth = hitInfo.transform.root.GetComponent<EnemyHealth> ();
 
 				if (hitInfo.transform.name.ToLower ().Contains ("head")) {
-					print ("headshot!");
+//					print ("headshot!");
 					enemyHealth.ApplyDamage (2 * crowbarDamage);
 				} else if (hitInfo.transform.name.ToLower ().Contains ("leg") || hitInfo.transform.name.ToLower ().Contains ("arm")) {
-					print ("limbshot!");
+//					print ("limbshot!");
 					enemyHealth.ApplyDamage (crowbarDamage / 2);
 				} else {
-					print ("bodyshot!");
+//					print ("bodyshot!");
 					enemyHealth.ApplyDamage (crowbarDamage);
 				}
 				hitInfo.transform.root.GetComponent<EnemyHealth> ().ApplyForce (hitInfo.rigidbody, 4 * gun.transform.forward);
@@ -208,7 +214,7 @@ public class WeaponMechanics : MonoBehaviour {
 				print ("did not hit enemy: " + hitInfo.transform.tag);
 			}
 		} else {
-			print ("missed with crowbar");
+//			print ("missed with crowbar");
 			weapSnd.PlayOneShot(crowbarSwingSound);
 		}
 		AnimateCrowbarRecoil ();
