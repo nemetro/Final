@@ -544,6 +544,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69ce617074dd3492dab37b24cde728ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
   health: 50
   resetAfterDeathTime: 5
   deathClip: {fileID: 8300000, guid: 3e9bafbba279a48cb8e35d84767ace4c, type: 3}
@@ -2595,6 +2596,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69ce617074dd3492dab37b24cde728ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
   health: 50
   resetAfterDeathTime: 5
   deathClip: {fileID: 8300000, guid: 3e9bafbba279a48cb8e35d84767ace4c, type: 3}
@@ -10347,6 +10349,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69ce617074dd3492dab37b24cde728ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
   health: 50
   resetAfterDeathTime: 5
   deathClip: {fileID: 8300000, guid: 3e9bafbba279a48cb8e35d84767ace4c, type: 3}
@@ -25357,6 +25360,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69ce617074dd3492dab37b24cde728ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
   health: 50
   resetAfterDeathTime: 5
   deathClip: {fileID: 8300000, guid: 3e9bafbba279a48cb8e35d84767ace4c, type: 3}
