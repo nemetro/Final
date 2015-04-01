@@ -22,6 +22,12 @@ public class EnemyHealth : MonoBehaviour {
 			RagdollHelper_noah helper=transform.root.GetComponent<RagdollHelper_noah>();//GetComponent<RagdollPartScript_noah>().mainScript;
 			helper.ragdolled=true;
 
+			//disable enemy tracking
+			transform.root.GetComponent<EnemyAI>().enabled = false;
+			transform.root.GetComponent<EnemyAnimation>().enabled = false;
+			transform.root.GetComponent<EnemyDetectPlayer>().enabled = false;
+			transform.root.GetComponent<EnemyShootingRaycast>().enabled = false;
+
 			//the impact will be reapplied for the next 250ms
 			//to make the connected objects follow even though the simulated body joints
 			//might stretch
