@@ -3,11 +3,16 @@ using System.Collections;
 
 public class Healing : MonoBehaviour {
 
-	void OnCollisionEnter(Collision col)
+	void OnTriggerEnter(Collider col)
 	{
 		if (col.gameObject.tag == "Player")
 		{
-			col.gameObject.GetComponent<PlayerHealth>().health = 50f;//max health
+			if(col.gameObject.GetComponent<PlayerHealth>().player.health < col.gameObject.GetComponent<PlayerHealth>().player.MAXHEALTH)
+			{
+				col.gameObject.GetComponent<PlayerHealth>().health = col.gameObject.GetComponent<PlayerHealth>().player.MAXHEALTH;//max health
+				col.gameObject.GetComponent<PlayerHealth>().player.health = col.gameObject.GetComponent<PlayerHealth>().player.MAXHEALTH;
+				Destroy(this.gameObject);
+			}
 		}
 	}
 }

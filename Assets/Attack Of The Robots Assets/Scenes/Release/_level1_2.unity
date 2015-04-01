@@ -1916,7 +1916,7 @@ Prefab:
       objectReference: {fileID: 787176251}
     - target: {fileID: 116888, guid: d0a6ecfc15e384935a143360b5858ab9, type: 2}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d0a6ecfc15e384935a143360b5858ab9, type: 2}
@@ -6052,6 +6052,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69ce617074dd3492dab37b24cde728ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
   health: 50
   resetAfterDeathTime: 5
   deathClip: {fileID: 8300000, guid: 3e9bafbba279a48cb8e35d84767ace4c, type: 3}
@@ -13643,7 +13644,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &787176252
 Transform:
   m_ObjectHideFlags: 0
@@ -13785,6 +13786,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69ce617074dd3492dab37b24cde728ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
   health: 50
   resetAfterDeathTime: 5
   deathClip: {fileID: 8300000, guid: 3e9bafbba279a48cb8e35d84767ace4c, type: 3}
@@ -15481,6 +15483,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69ce617074dd3492dab37b24cde728ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
   health: 50
   resetAfterDeathTime: 5
   deathClip: {fileID: 8300000, guid: 3e9bafbba279a48cb8e35d84767ace4c, type: 3}
@@ -23071,7 +23074,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1381237238
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -33730,6 +33733,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69ce617074dd3492dab37b24cde728ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
   health: 50
   resetAfterDeathTime: 5
   deathClip: {fileID: 8300000, guid: 3e9bafbba279a48cb8e35d84767ace4c, type: 3}

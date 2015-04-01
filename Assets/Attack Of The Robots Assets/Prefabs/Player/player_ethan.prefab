@@ -1,17 +1,17 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &181062
+--- !u!1 &117054
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
   m_Component:
-  - 4: {fileID: 404046}
-  - 33: {fileID: 3365862}
-  - 23: {fileID: 2308714}
-  - 111: {fileID: 11198286}
-  - 65: {fileID: 6517380}
+  - 4: {fileID: 490048}
+  - 33: {fileID: 3370794}
+  - 23: {fileID: 2365174}
+  - 111: {fileID: 11109728}
+  - 65: {fileID: 6558246}
   m_Layer: 0
   m_Name: Crowbar_Animation3
   m_TagString: Untagged
@@ -664,7 +664,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &198344
 GameObject:
   m_ObjectHideFlags: 1
@@ -708,7 +708,6 @@ GameObject:
   - 124: {fileID: 12498456}
   - 114: {fileID: 11498452}
   - 82: {fileID: 8298456}
-  - 114: {fileID: 11498454}
   m_Layer: 0
   m_Name: Cam1
   m_TagString: MainCamera
@@ -1528,12 +1527,12 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &404046
+--- !u!4 &490048
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 181062}
+  m_GameObject: {fileID: 117054}
   m_LocalRotation: {x: 2.25529163e-07, y: 5.69417509e-08, z: -.707106829, w: .707106829}
   m_LocalPosition: {x: .148000002, y: 1.20000005, z: .620000005}
   m_LocalScale: {x: .25, y: .25, z: .25}
@@ -2078,11 +2077,11 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 198342}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: .0299999993, y: 1.39999998, z: 1.67999995}
+  m_LocalPosition: {x: 1.25999999, y: 1.39999998, z: 2.29999995}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 498348}
-  - {fileID: 404046}
+  - {fileID: 490048}
   - {fileID: 498300}
   - {fileID: 498292}
   - {fileID: 498372}
@@ -2846,12 +2845,12 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: .0219999999
---- !u!23 &2308714
+--- !u!23 &2365174
 MeshRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 181062}
+  m_GameObject: {fileID: 117054}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -3062,12 +3061,12 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
---- !u!33 &3365862
+--- !u!33 &3370794
 MeshFilter:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 181062}
+  m_GameObject: {fileID: 117054}
   m_Mesh: {fileID: 4300000, guid: 514797cd498fb41fdbaf3dbf4855ce53, type: 3}
 --- !u!33 &3398440
 MeshFilter:
@@ -3140,12 +3139,12 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!65 &6517380
+--- !u!65 &6558246
 BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 181062}
+  m_GameObject: {fileID: 117054}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
@@ -3333,12 +3332,12 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!111 &11198286
+--- !u!111 &11109728
 Animation:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 181062}
+  m_GameObject: {fileID: 117054}
   m_Enabled: 1
   serializedVersion: 3
   m_Animation: {fileID: 7400000, guid: 514797cd498fb41fdbaf3dbf4855ce53, type: 3}
@@ -3428,6 +3427,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69ce617074dd3492dab37b24cde728ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
   health: 50
   resetAfterDeathTime: 5
   deathClip: {fileID: 8300000, guid: 3e9bafbba279a48cb8e35d84767ace4c, type: 3}
@@ -3456,16 +3456,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gun: {fileID: 198304}
-  crowbar: {fileID: 181062}
+  crowbar: {fileID: 117054}
   bulletHole: {fileID: 165626, guid: 5df157a9a4ca142bb9a8b9ec13bec6aa, type: 2}
   grenade: {fileID: 185862, guid: 2b4e213e3ab321741bb9e4f2499c9390, type: 2}
   playerCamera: {fileID: 2098456}
-  weapSnd: {fileID: 8298456}
+  weapSnd: {fileID: 8292244, guid: 4369c958b28214340ad6ca81df48b798, type: 2}
   gunShotSound: {fileID: 8300000, guid: cff8ff28bdf004927a2a6e0eae039eaa, type: 3}
   dryFireSound: {fileID: 8300000, guid: ac3e27ed3b946440da878df8ba45b6db, type: 3}
   reloadSound: {fileID: 8300000, guid: f8743525c85944c9daacd7561edd5986, type: 3}
-  crowbarSwingSound: {fileID: 0}
-  crowbarHitSound: {fileID: 0}
+  crowbarSwingSound: {fileID: 8300000, guid: 7386687dba1554533995fce8a969ffc6, type: 3}
+  crowbarHitSound: {fileID: 8300000, guid: f1b4d192bfb9941ce88745d0de88ec72, type: 3}
   gunDamage: 60
   timeBetweenShots: .75
   timeBetweenSwings: .25
@@ -3499,36 +3499,6 @@ MonoBehaviour:
   maximumX: 0
   minimumY: -60
   maximumY: 60
---- !u!114 &11498454
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 198348}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c37c93a5bdcbc43b995dc6ef692b0afb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CrosshairTexture: {fileID: 2800000, guid: eb9844d0b66c64bf19b336355cb3f42d, type: 3}
-  position:
-    serializedVersion: 2
-    x: 0
-    y: 0
-    width: 0
-    height: 0
-  position1:
-    serializedVersion: 2
-    x: 0
-    y: 0
-    width: 0
-    height: 0
-  position2:
-    serializedVersion: 2
-    x: 0
-    y: 0
-    width: 0
-    height: 0
 --- !u!124 &12498456
 Behaviour:
   m_ObjectHideFlags: 1
