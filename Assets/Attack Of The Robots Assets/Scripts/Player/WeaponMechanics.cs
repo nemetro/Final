@@ -19,6 +19,7 @@ public class WeaponMechanics : MonoBehaviour {
 	public float reloadTime = 2.0f;
 	public int maxBulletsInClip = 6;
 	public int maxBullets = 18;
+	public int maxGnades = 4;
 	public int numBullets = 18;
 	public float vertRecoilDistance = 0.1f;
 	public float horzRecoilDistance = 0.1f;
