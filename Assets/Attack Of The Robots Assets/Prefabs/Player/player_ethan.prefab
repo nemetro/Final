@@ -3460,7 +3460,7 @@ MonoBehaviour:
   bulletHole: {fileID: 165626, guid: 5df157a9a4ca142bb9a8b9ec13bec6aa, type: 2}
   grenade: {fileID: 185862, guid: 2b4e213e3ab321741bb9e4f2499c9390, type: 2}
   playerCamera: {fileID: 2098456}
-  weapSnd: {fileID: 0}
+  weapSnd: {fileID: 8298456}
   gunShotSound: {fileID: 8300000, guid: cff8ff28bdf004927a2a6e0eae039eaa, type: 3}
   dryFireSound: {fileID: 8300000, guid: ac3e27ed3b946440da878df8ba45b6db, type: 3}
   reloadSound: {fileID: 8300000, guid: f8743525c85944c9daacd7561edd5986, type: 3}
