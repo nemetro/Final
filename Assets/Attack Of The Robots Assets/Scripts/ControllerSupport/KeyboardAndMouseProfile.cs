@@ -28,7 +28,7 @@ public class KeyboardAndMouseProfile : UnityInputDeviceProfile
 			new InputControlMapping
 			{
 				Handle = "Fire - Mouse",
-				Target = InputControlType.LeftTrigger,
+				Target = InputControlType.RightTrigger,
 				Source = MouseButton0
 			},
 			new InputControlMapping
