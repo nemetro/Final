@@ -9,7 +9,9 @@ public class Spawner : MonoBehaviour {
 	public bool spawn = false;
 	public bool on = true;
 	public float rad;
+	public int totalSpawns;
 	
+	private int count = 0;
 	private float time = 0;
 	private EnemyAI aiscript;
 	
@@ -23,11 +25,12 @@ public class Spawner : MonoBehaviour {
 		if(on == false || spawn == false)
 			return;
 		time += Time.deltaTime;
-		if(time >= spawnTime){
+		if(time >= spawnTime && count < totalSpawns){
 			GameObject robo = Instantiate(roboPref, this.transform.position, Quaternion.Euler(0,0,0)) as GameObject;
 			aiscript = robo.GetComponent<EnemyAI>();
 			aiscript.patrolWayPoints = wayPoints;
 			time = 0;
+			count++;
 		}
 	}
 	
