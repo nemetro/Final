@@ -16,6 +16,7 @@ public class AnimatorHashIDs : MonoBehaviour
 	public int aimWeightFloat;
     public int angularSpeedFloat;
 	public int openBool;
+	public int playerDist;
 	
 	
 	void Awake ()
@@ -32,5 +33,6 @@ public class AnimatorHashIDs : MonoBehaviour
 		aimWeightFloat = Animator.StringToHash("AimWeight");
         angularSpeedFloat = Animator.StringToHash("AngularSpeed");
 		openBool = Animator.StringToHash("Open");
+		playerDist = Animator.StringToHash ("PlayerDistance");
 	}
 }

@@ -8,17 +8,18 @@ public class EnemyShootingRaycast: MonoBehaviour
 	public AudioClip shotClip;							// An audio clip to play when a shot happens.
 	public float flashIntensity = 3f;					// The intensity of the light when the shot happens.
 	public float fadeSpeed = 10f;						// How fast the light will fade after the shot.
-	
+	public GameObject gun;
+	public float accuracyRadius = 1.0f;	
+
 	private Animator anim;								// Reference to the animator.
-	private AnimatorHashIDs hash;							// Reference to the HashIDs script.
+	private AnimatorHashIDs hash;						// Reference to the HashIDs script.
 	private LineRenderer laserShotLine;					// Reference to the laser shot line renderer.
 	private Light laserShotLight;						// Reference to the laser shot light.
 	private SphereCollider col;							// Reference to the sphere collider.
-	private Transform player;							// Reference to the player's transform.
-	private PlayerHealth playerHealth;				// Reference to the player's health.
+	private EnemyDetectPlayer enemyDetectPlayer;
 	private bool shooting;								// A bool to say whether or not the enemy is currently shooting.
 	private float scaledDamage;							// Amount of damage that is scaled by the distance from the player.
-	
+	private bool stop;
 	
 	void Awake ()
 	{
@@ -27,32 +28,30 @@ public class EnemyShootingRaycast: MonoBehaviour
 		laserShotLine = GetComponentInChildren<LineRenderer>();
 		laserShotLight = laserShotLine.gameObject.GetComponent<Light>();
 		col = GetComponent<SphereCollider>();
-		player = GameObject.FindGameObjectWithTag(InGameTags.player).transform;
-		playerHealth = player.gameObject.GetComponent<PlayerHealth>();
 		hash = GameObject.FindGameObjectWithTag(InGameTags.gameController).GetComponent<AnimatorHashIDs>();
-		
+		enemyDetectPlayer = GetComponent<EnemyDetectPlayer> ();
 		// The line renderer and light are off to start.
 		laserShotLine.enabled = false;
 		laserShotLight.intensity = 0f;
 		
 		// The scaledDamage is the difference between the maximum and the minimum damage.
 		scaledDamage = maximumDamage - minimumDamage;
+		stop = false;
 	}
 	
 	
-	void Update ()
-	{
+	void Update (){
 		// Cache the current value of the shot curve.
 		float shot = anim.GetFloat(hash.shotFloat);
 		
 		// If the shot curve is peaking and the enemy is not currently shooting...
-		if(shot > 0.5f && !shooting)
+		if (shot > 0.5f && !shooting) {
 			// ... shoot
-			Shoot();
+			Shoot ();
+		}
 		
 		// If the shot curve is no longer peaking...
-		if(shot < 0.5f)
-		{
+		if(shot < 0.5f)	{
 			// ... the enemy is no longer shooting and disable the line renderer.
 			shooting = false;
 			laserShotLine.enabled = false;
@@ -69,8 +68,10 @@ public class EnemyShootingRaycast: MonoBehaviour
 		float aimWeight = anim.GetFloat(hash.aimWeightFloat);
 		
 		// Set the IK position of the right hand to the player's centre.
-		anim.SetIKPosition(AvatarIKGoal.RightHand, player.position + Vector3.up * 1.5f);
-		
+		if(enemyDetectPlayer.GetTargetedPlayer() != null){
+			anim.SetIKPosition(AvatarIKGoal.RightHand, enemyDetectPlayer.GetTargetedPlayer().transform.position + Vector3.up * 1.5f);
+		}
+
 		// Set the weight of the IK compared to animation to that of the curve.
 		anim.SetIKPositionWeight(AvatarIKGoal.RightHand, aimWeight);
 	}
@@ -80,28 +81,44 @@ public class EnemyShootingRaycast: MonoBehaviour
 	{
 		// The enemy is shooting.
 		shooting = true;
-		
-		// The fractional distance from the player, 1 is next to the player, 0 is the player is at the extent of the sphere collider.
-		float fractionalDistance = (col.radius - Vector3.Distance(transform.position, player.position)) / col.radius;
-	
-		// The damage is the scaled damage, scaled by the fractional distance, plus the minimum damage.
-		float damage = scaledDamage * fractionalDistance + minimumDamage;
 
-		// The player takes damage.
-		playerHealth.TakeDamage(damage);
-		
+		RaycastHit hit;
+
+		Vector3 shootDirection = gun.transform.forward;
+
+		if(enemyDetectPlayer.GetTargetedPlayer() != null){
+			shootDirection = enemyDetectPlayer.GetTargetedPlayer ().transform.position - gun.transform.position;
+			shootDirection += Random.insideUnitSphere * Random.Range(0, accuracyRadius);
+		}
+
+		if(Physics.Raycast (gun.transform.position, shootDirection.normalized, out hit, 100f)) {
+			if(hit.collider.tag == InGameTags.player){
+				// The fractional distance from the player, 1 is next to the player, 0 is the player is at the extent of the sphere collider.
+				float fractionalDistance = (col.radius - Vector3.Distance(transform.position, enemyDetectPlayer.GetTargetedPlayer ().transform.position)) / col.radius;
+				
+				// The damage is the scaled damage, scaled by the fractional distance, plus the minimum damage.
+				float damage = scaledDamage * fractionalDistance + minimumDamage;
+				
+				// The player takes damage.
+				hit.transform.gameObject.GetComponent<PlayerHealth>().TakeDamage(damage);
+			}
+		}
+
 		// Display the shot effects.
-		ShotEffects();
+		if (hit.collider != null) {
+			ShotEffects (hit.point);
+		} else {
+			ShotEffects (gun.transform.position + gun.transform.forward * 100f);
+		}
 	}
 	
 	
-	void ShotEffects ()
-	{
+	void ShotEffects (Vector3 point) {
 		// Set the initial position of the line renderer to the position of the muzzle.
 		laserShotLine.SetPosition(0, laserShotLine.transform.position);
 		
 		// Set the end position of the player's centre of mass.
-		laserShotLine.SetPosition(1, player.position + Vector3.up * 1.5f);
+		laserShotLine.SetPosition(1, point);
 		
 		// Turn on the line renderer.
 		laserShotLine.enabled = true;
@@ -111,5 +128,11 @@ public class EnemyShootingRaycast: MonoBehaviour
 		
 		// Play the gun shot clip at the position of the muzzle flare.
 		AudioSource.PlayClipAtPoint(shotClip, laserShotLight.transform.position);
+	}
+
+	public void Stop(){
+		laserShotLight.enabled = false;
+		laserShotLine.enabled = false;
+		this.enabled = false;
 	}
 }

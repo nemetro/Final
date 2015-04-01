@@ -26,9 +26,9 @@ public class EnemyHealth : MonoBehaviour {
 			print ("robot disabled");
 			transform.root.GetComponent<EnemyAI>().enabled = false;
 			transform.root.GetComponent<EnemyAnimation>().enabled = false;
-			transform.root.GetComponent<EnemyDetectPlayer>().enabled = false;
-			transform.root.GetComponent<EnemyShootingRaycast>().enabled = false;
-
+			transform.root.GetComponent<EnemyDetectPlayer>().Stop ();
+			transform.root.GetComponent<EnemyShootingRaycast>().Stop();
+			transform.root.GetComponent<NavMeshAgent>().enabled = false;
 			//the impact will be reapplied for the next 250ms
 			//to make the connected objects follow even though the simulated body joints
 			//might stretch

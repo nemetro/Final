@@ -4,9 +4,8 @@ using System.Collections;
 public class EnemyAnimation : MonoBehaviour
 {
 	public float deadZone = 5f;					// The number of degrees for which the rotation isn't controlled by Mecanim.
-	
-	private Transform player;					// Reference to the player's transform.
-	private EnemyDetectPlayer enemySight;			// Reference to the EnemySight script.
+
+	private EnemyDetectPlayer enemyDetectPlayer;			// Reference to the EnemySight script.
 	private NavMeshAgent nav;					// Reference to the nav mesh agent.
 	private Animator anim;						// Reference to the Animator.
 	private AnimatorHashIDs hash;					// Reference to the HashIDs script.
@@ -16,8 +15,7 @@ public class EnemyAnimation : MonoBehaviour
 	void Awake ()
 	{
 		// Setting up the references.
-		player = GameObject.FindGameObjectWithTag(InGameTags.player).transform;
-		enemySight = GetComponent<EnemyDetectPlayer>();
+		enemyDetectPlayer = GetComponent<EnemyDetectPlayer>();
 		nav = GetComponent<NavMeshAgent>();
 		anim = GetComponent<Animator>();
 		hash = GameObject.FindGameObjectWithTag(InGameTags.gameController).GetComponent<AnimatorHashIDs>();
@@ -57,20 +55,19 @@ public class EnemyAnimation : MonoBehaviour
 	void NavAnimSetup ()
 	{
 		// Create the parameters to pass to the helper function.
-		float speed;
+		float speed = Vector3.Project(nav.desiredVelocity, transform.forward).magnitude;;
 		float angle;
 		
 		// If the player is in sight...
-		if(enemySight.playerInSight)
+		if(enemyDetectPlayer.playerInSight)
 		{
 			// ... the enemy should stop...
-			speed = 0f;
+//			speed = 0f;
 			
 			// ... and the angle to turn through is towards the player.
-			angle = FindAngle(transform.forward, player.position - transform.position, transform.up);
+			angle = FindAngle(transform.forward, enemyDetectPlayer.personalLastKnownLocation - transform.position, transform.up);
 		}
-		else
-		{
+		else {
 			// Otherwise the speed is a projection of desired velocity on to the forward vector...
 			speed = Vector3.Project(nav.desiredVelocity, transform.forward).magnitude;
 			
@@ -78,16 +75,14 @@ public class EnemyAnimation : MonoBehaviour
 			angle = FindAngle(transform.forward, nav.desiredVelocity, transform.up);
 			
 			// If the angle is within the deadZone...
-			if(Mathf.Abs(angle) < deadZone)
-			{
-				// ... set the direction to be along the desired direction and set the angle to be zero.
- 				transform.LookAt(transform.position + nav.desiredVelocity);
+			if(Mathf.Abs(angle) < deadZone) {
+				transform.LookAt(transform.position + nav.desiredVelocity); // ... set the direction to be along the desired direction and set the angle to be zero.
       			angle = 0f;
     		}
 		}
 		
 		// Call the Setup function of the helper class with the given parameters.
-		animSetup.Setup(speed, angle);
+		animSetup.Setup(speed, angle, Vector3.Distance(enemyDetectPlayer.personalLastKnownLocation, transform.position));
 	}
 	
 	
