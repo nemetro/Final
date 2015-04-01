@@ -13,6 +13,7 @@ GameObject:
   - 108: {fileID: 10805696}
   - 82: {fileID: 8292826}
   - 114: {fileID: 11454478}
+  - 54: {fileID: 5402934}
   m_Layer: 0
   m_Name: prop_keycard 1
   m_TagString: Keycard
@@ -94,6 +95,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 153878}
   m_Mesh: {fileID: 4300004, guid: e645b4c665b69d44786c3ad6098a3d91, type: 3}
+--- !u!54 &5402934
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 108250}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: .0500000007
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!82 &8292826
 AudioSource:
   m_ObjectHideFlags: 1

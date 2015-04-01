@@ -13,6 +13,8 @@ GameObject:
   - 111: {fileID: 11158778}
   - 114: {fileID: 11494088}
   - 135: {fileID: 13500912}
+  - 54: {fileID: 5490730}
+  - 65: {fileID: 6513046}
   m_Layer: 0
   m_Name: Ammo
   m_TagString: Untagged
@@ -63,6 +65,33 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 194206}
   m_Mesh: {fileID: 4300000, guid: 5c07fbfc021765b46bcd6299bdd3313c, type: 3}
+--- !u!54 &5490730
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 194206}
+  serializedVersion: 2
+  m_Mass: 100
+  m_Drag: 0
+  m_AngularDrag: .0500000007
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!65 &6513046
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 194206}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: .602107525, y: .725971997, z: .33464849}
+  m_Center: {x: 0, y: 2.98023295e-08, z: 0}
 --- !u!111 &11158778
 Animation:
   m_ObjectHideFlags: 1
@@ -98,7 +127,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 1
+  m_Radius: 2
   m_Center: {x: 0, y: 2.98023295e-08, z: 0}
 --- !u!1001 &100100000
 Prefab:
