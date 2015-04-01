@@ -3,10 +3,11 @@ using System.Collections;
 
 public class PlayerHealth : MonoBehaviour
 {
-    public float health = 50f;							// How much health the player has left.
+	public Player player;
+    public float health;							// How much health the player has left.
 	public float resetAfterDeathTime = 5f;				// How much time from the player dying to the level reseting.
 	public AudioClip deathClip;							// The sound effect of the player dying.
-	private Player player;
+	
 	
 	private Animator anim;								// Reference to the animator component.
 	private PlayerAnimationMovement playerMovement;			// Reference to the player movement script.
@@ -21,6 +22,7 @@ public class PlayerHealth : MonoBehaviour
 	{
 		// Setting up the references.
 		player = GetComponent<Player>();
+		health = player.MAXHEALTH;
 		anim = GetComponent<Animator>();
 		playerMovement = GetComponent<PlayerAnimationMovement>();
 //		hash = GameObject.FindGameObjectWithTag(InGameTags.gameController).GetComponent<AnimatorHashIDs>();

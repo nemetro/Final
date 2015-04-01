@@ -35,7 +35,6 @@ public class OpenDoor : MonoBehaviour {
 	
 	void OnTriggerStay (Collider other) 
 	{
-		print("Collide");
 		if(other.gameObject.tag == "Player"){
 			if(Input.GetKeyUp(KeyCode.E))
 			{

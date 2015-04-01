@@ -356,13 +356,9 @@ public class UI : MonoBehaviour {
 			player.cam.rect = cameraRects[n];
 			
 			//cross			
-			//position = (Left, PosY, PosZ)
-			//sizeDelta = (Right, Height)
-			//crossImgs[n].rectTransform.position = new Vector3(0,0,0);
-			//crossImgs[n].rectTransform.sizeDelta = new Vector2(0,0);
-			crossImgs[n].rectTransform.anchorMin = crossMins[n];
-			crossImgs[n].rectTransform.anchorMax = crossMaxs[n];
-			crossImgs[n].rectTransform.localScale = crossScale[n];
+//			crossImgs[n].rectTransform.anchorMin = crossMins[n];
+//			crossImgs[n].rectTransform.anchorMax = crossMaxs[n];
+//			crossImgs[n].rectTransform.localScale = crossScale[n];
 			
 			//health
 			healthTxts[n].rectTransform.anchorMin = healthMins[n];
