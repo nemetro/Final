@@ -59,7 +59,7 @@ public class KeyboardAndMouseProfile : UnityInputDeviceProfile
 			{
 				Handle = "Action",
 				Target = InputControlType.Action1,
-				Source = KeyCodeButton( KeyCode.Z )
+				Source = KeyCodeButton( KeyCode.E )
 			}
 		};
 		
