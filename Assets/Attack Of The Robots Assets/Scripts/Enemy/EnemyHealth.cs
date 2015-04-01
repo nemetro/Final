@@ -23,6 +23,7 @@ public class EnemyHealth : MonoBehaviour {
 			helper.ragdolled=true;
 
 			//disable enemy tracking
+			print ("robot disabled");
 			transform.root.GetComponent<EnemyAI>().enabled = false;
 			transform.root.GetComponent<EnemyAnimation>().enabled = false;
 			transform.root.GetComponent<EnemyDetectPlayer>().enabled = false;
