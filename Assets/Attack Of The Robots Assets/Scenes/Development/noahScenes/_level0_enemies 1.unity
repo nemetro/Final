@@ -14887,7 +14887,7 @@ MonoBehaviour:
   gunShotSound: {fileID: 8300000, guid: cff8ff28bdf004927a2a6e0eae039eaa, type: 3}
   dryFireSound: {fileID: 8300000, guid: ac3e27ed3b946440da878df8ba45b6db, type: 3}
   reloadSound: {fileID: 8300000, guid: f8743525c85944c9daacd7561edd5986, type: 3}
-  crowbarSwingSound: {fileID: 8300000, guid: 7386687dba1554533995fce8a969ffc6, type: 3}
+  crowbarSwingSound: {fileID: 8300000, guid: efa634c81f5a74328b424d856f56882d, type: 3}
   crowbarHitSound: {fileID: 8300000, guid: f1b4d192bfb9941ce88745d0de88ec72, type: 3}
   gunDamage: 60
   timeBetweenShots: .75
@@ -14900,7 +14900,7 @@ MonoBehaviour:
   horzRecoilDistance: .100000001
   numGnades: 3
   throwForce: 12
-  crowbarRange: 3
+  crowbarRange: 2
   bulletsInClip: 6
   crowbarDamage: 40
 --- !u!114 &1023274139
@@ -18765,7 +18765,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22412164, guid: d0a6ecfc15e384935a143360b5858ab9, type: 2}
       propertyPath: m_RootOrder
-      value: 9
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 22412164, guid: d0a6ecfc15e384935a143360b5858ab9, type: 2}
       propertyPath: m_AnchoredPosition.x
@@ -25132,7 +25132,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 433210, guid: d1624bf1c66234d25b3e6b5ef2524a7c, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 18.25
+      value: 10.0500002
       objectReference: {fileID: 0}
     - target: {fileID: 433210, guid: d1624bf1c66234d25b3e6b5ef2524a7c, type: 2}
       propertyPath: m_LocalPosition.y
@@ -25140,7 +25140,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 433210, guid: d1624bf1c66234d25b3e6b5ef2524a7c, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 14.3000002
+      value: 8.30000019
       objectReference: {fileID: 0}
     - target: {fileID: 433210, guid: d1624bf1c66234d25b3e6b5ef2524a7c, type: 2}
       propertyPath: m_LocalRotation.x
@@ -25160,7 +25160,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 433210, guid: d1624bf1c66234d25b3e6b5ef2524a7c, type: 2}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 195110, guid: d1624bf1c66234d25b3e6b5ef2524a7c, type: 2}
       propertyPath: m_Name
@@ -26530,6 +26530,10 @@ Prefab:
     - target: {fileID: 433210, guid: d1624bf1c66234d25b3e6b5ef2524a7c, type: 2}
       propertyPath: m_RootOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 13537980, guid: d1624bf1c66234d25b3e6b5ef2524a7c, type: 2}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d1624bf1c66234d25b3e6b5ef2524a7c, type: 2}
