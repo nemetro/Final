@@ -95,6 +95,15 @@ public class WeaponMechanics : MonoBehaviour {
 			}
 		}
 
+		//Open door
+		if(Input.GetKeyDown ("e")){
+			RaycastHit doorHit;
+			if(Physics.Raycast (playerCamera.transform.position, playerCamera.transform.forward, out doorHit, crowbarRange)){
+				if(doorHit.transform.tag == InGameTags.door){
+					doorHit.transform.GetComponent<OpenDoor>().ToggleTheDoor();
+				}
+			}
+		}
 		//Attacks
 		//TODO can probably make this modular later (class based with just a call to an attack() function.
 		//Melee weapon

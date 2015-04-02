@@ -3479,7 +3479,7 @@ MonoBehaviour:
   reloadSound: {fileID: 8300000, guid: f8743525c85944c9daacd7561edd5986, type: 3}
   crowbarSwingSound: {fileID: 8300000, guid: 7386687dba1554533995fce8a969ffc6, type: 3}
   crowbarHitSound: {fileID: 8300000, guid: f1b4d192bfb9941ce88745d0de88ec72, type: 3}
-  gunDamage: 60
+  gunDamage: 120
   timeBetweenShots: .75
   timeBetweenSwings: .25
   reloadTime: 2

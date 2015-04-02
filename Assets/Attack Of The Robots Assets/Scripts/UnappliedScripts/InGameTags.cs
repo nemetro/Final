@@ -12,4 +12,5 @@ public class InGameTags : MonoBehaviour
 	public const string fader = "Fader";
 	public const string enemy = "Enemy";
 	public const string footprint = "Footprint";
+	public const string door = "Door";
 }
