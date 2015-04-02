@@ -97,9 +97,12 @@ public class WeaponMechanics : MonoBehaviour {
 
 		//Open door
 		if(Input.GetKeyDown ("e")){
+			print ("open door?");
 			RaycastHit doorHit;
-			if(Physics.Raycast (playerCamera.transform.position, playerCamera.transform.forward, out doorHit, crowbarRange)){
+			if(Physics.Raycast (playerCamera.transform.position, playerCamera.transform.forward, out doorHit, 2.0f)){
+				print ("open hit");
 				if(doorHit.transform.tag == InGameTags.door){
+					print ("opening DOOOOOR");
 					doorHit.transform.GetComponent<OpenDoor>().ToggleTheDoor();
 				}
 			}

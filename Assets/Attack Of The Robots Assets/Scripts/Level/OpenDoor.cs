@@ -19,7 +19,7 @@ public class OpenDoor : MonoBehaviour {
 		if (Vector3.Distance (transform.position, moveTowardsPos) < 0.1f) {
 			transform.position = moveTowardsPos;
 		} else {
-			transform.position = Vector3.MoveTowards (transform.position, moveTowardsPos, speed * Time.fixedDeltaTime);
+			transform.position = Vector3.MoveTowards (transform.position, moveTowardsPos, speed);
 		}
 	}
 
