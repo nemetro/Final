@@ -1096,6 +1096,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 11451112, guid: 7fa48af704f3c3141acca0ba80716034, type: 2}
+      propertyPath: prompt
+      value: Press 'Y' button or 'Q' key to change weapons
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7fa48af704f3c3141acca0ba80716034, type: 2}
   m_IsPrefabParent: 0
@@ -7048,6 +7052,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 11442448, guid: e72d85cacc97f9a4d870bb3c4c4dc0ab, type: 2}
+      propertyPath: prompt
+      value: Right trigger (click) to shoot, 'X' button or 'R' key to reload.
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e72d85cacc97f9a4d870bb3c4c4dc0ab, type: 2}
   m_IsPrefabParent: 0
@@ -8879,6 +8887,10 @@ Prefab:
     - target: {fileID: 412820, guid: 336cd3d2b2221fc4fa77cfe3dc071e6a, type: 2}
       propertyPath: m_RootOrder
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 11451112, guid: 336cd3d2b2221fc4fa77cfe3dc071e6a, type: 2}
+      propertyPath: prompt
+      value: The 'E' key or 'A' button performs different actions on objects.
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 336cd3d2b2221fc4fa77cfe3dc071e6a, type: 2}
