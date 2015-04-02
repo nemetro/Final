@@ -284,6 +284,10 @@ Prefab:
       propertyPath: onScreen
       value: 
       objectReference: {fileID: 1304559626}
+    - target: {fileID: 11451112, guid: 336cd3d2b2221fc4fa77cfe3dc071e6a, type: 2}
+      propertyPath: prompt
+      value: The 'E' key or 'A' button performs different actions on objects.
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 336cd3d2b2221fc4fa77cfe3dc071e6a, type: 2}
   m_IsPrefabParent: 0
@@ -1620,6 +1624,10 @@ Prefab:
       propertyPath: onScreen
       value: 
       objectReference: {fileID: 1304559626}
+    - target: {fileID: 11419010, guid: 0ca4b2c3e8a52ab44a54fa88c8bc880e, type: 2}
+      propertyPath: prompt
+      value: Right stick (arrow keys) to walk, left stick (mouse) to look around.
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0ca4b2c3e8a52ab44a54fa88c8bc880e, type: 2}
   m_IsPrefabParent: 0
