@@ -6,13 +6,13 @@ public class LaserDoorPlayerDetection : MonoBehaviour
 	public AudioClip hurtPlayerSound;
 
     private GameObject player;								// Reference to the player.
-    private GlobalLastPlayerSighting lastPlayerSighting;		// Reference to the global last sighting of the player
+//    private GlobalLastPlayerSighting lastPlayerSighting;		// Reference to the global last sighting of the player
 
     void Awake ()
     {
 		// Setting up references.
 		player = GameObject.FindGameObjectWithTag(InGameTags.player);
-		lastPlayerSighting = GameObject.FindGameObjectWithTag(InGameTags.gameController).GetComponent<GlobalLastPlayerSighting>();
+//		lastPlayerSighting = GameObject.FindGameObjectWithTag(InGameTags.gameController).GetComponent<GlobalLastPlayerSighting>();
     }
 
 

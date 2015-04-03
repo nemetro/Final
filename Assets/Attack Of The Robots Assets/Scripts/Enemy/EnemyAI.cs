@@ -8,12 +8,13 @@ public class EnemyAI : MonoBehaviour
 	public float chaseWaitTime = 5f;						// The amount of time to wait when the last sighting is reached.
 	public float patrolWaitTime = 1f;						// The amount of time to wait when the patrol way point is reached.
 	public Transform[] patrolWayPoints;						// An array of transforms for the patrol route.
+	public bool patroling = false;							//debugging
 
 	private EnemyDetectPlayer enemyDetectPlayer;						// Reference to the EnemySight script.
 	private NavMeshAgent nav;								// Reference to the nav mesh agent.
 	private float chaseTimer;								// A timer for the chaseWaitTime.
-	private float patrolTimer;								// A timer for the patrolWaitTime.
-	private int wayPointIndex;								// A counter for the way point array.
+	public float patrolTimer;								// A timer for the patrolWaitTime.
+	public int wayPointIndex;								// A counter for the way point array.
 
 	void Awake () {
 		enemyDetectPlayer = GetComponent<EnemyDetectPlayer>();
@@ -30,18 +31,16 @@ public class EnemyAI : MonoBehaviour
 	}
 	
 	void Chasing () {
-		print ("chasing");
+		patroling = false;
 		// Create a vector from the enemy to the last sighting of the player.
 		Vector3 sightingDeltaPos = enemyDetectPlayer.personalLastKnownLocation - transform.position;
 
 		if (sightingDeltaPos.sqrMagnitude > 4f) { // If the the last personal sighting of the player is not close...
-			print ("moving");
-			print (enemyDetectPlayer.personalLastKnownLocation);
+//			print (enemyDetectPlayer.personalLastKnownLocation);
 			// ... set the destination for the NavMeshAgent to the last personal sighting of the player.
 			nav.destination = enemyDetectPlayer.personalLastKnownLocation;
 			nav.Resume();
 		} else {
-			print ("stop");
 			nav.Stop();
 		}
 
@@ -60,11 +59,13 @@ public class EnemyAI : MonoBehaviour
 
 	
 	void Patrolling (){
+		patroling = true;
 		// Set an appropriate speed for the NavMeshAgent.
 		nav.speed = patrolSpeed;
+		nav.Resume ();
 		
 		// If near the next waypoint...
-		if (nav.remainingDistance < nav.stoppingDistance) {
+		if (nav.remainingDistance < 1.0f) { //if within a meter
 			patrolTimer += Time.deltaTime; // ... increment the timer.
 			if (patrolTimer >= patrolWaitTime) { // If the timer exceeds the wait time...
 				wayPointIndex++;

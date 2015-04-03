@@ -2,44 +2,32 @@
 using System.Collections;
 
 public class OpenDoor : MonoBehaviour {
-
 	public float dist;
 	public float speed;
-	public bool open = false;
-	public GameObject door;
 	
-	private float startpos;
-	private bool move = false;
+	private Vector3 startPos;
+	private Vector3 endPos;
+	private Vector3 moveTowardsPos;
 	
 	
 	void Start(){
-		startpos = door.transform.position.y;
+		startPos = moveTowardsPos = transform.position;
+		endPos = startPos + Vector3.up * dist; 
 	}
 	
 	void FixedUpdate(){
-		if(move && !open){
-			door.transform.Translate(Vector3.up * speed);
-			if(door.transform.position.y - startpos >= dist){
-				move = false;
-				open = true;
-			}
-		}
-		else if(move && open){
-			door.transform.Translate(Vector3.down * speed);
-			if(door.transform.position.y - startpos <= 0){
-				move = false;
-				open = false;
-			}
+		if (Vector3.Distance (transform.position, moveTowardsPos) < 0.1f) {
+			transform.position = moveTowardsPos;
+		} else {
+			transform.position = Vector3.MoveTowards (transform.position, moveTowardsPos, speed);
 		}
 	}
-	
-	void OnTriggerStay (Collider other) 
-	{
-		if(other.gameObject.tag == "Player"){
-			if(other.GetComponent<MouseLookController>().controller.Action1.WasPressed)
-			{
-				move = true;
-			}
+
+	public void ToggleTheDoor(){
+		if (moveTowardsPos == startPos) {
+			moveTowardsPos = endPos;
+		} else {
+			moveTowardsPos = startPos;
 		}
 	}
 }

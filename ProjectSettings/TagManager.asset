@@ -23,6 +23,8 @@ TagManager:
   - Red_Enemy
   - Kill
   - Keycard
+  - Door
+  - Switch
   layers:
   - Default
   - TransparentFX

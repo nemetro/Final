@@ -19,7 +19,7 @@ public class EnemyShootingRaycast: MonoBehaviour
 	private EnemyDetectPlayer enemyDetectPlayer;
 	private bool shooting;								// A bool to say whether or not the enemy is currently shooting.
 	private float scaledDamage;							// Amount of damage that is scaled by the distance from the player.
-	private bool stop;
+//	private bool stop;
 	
 	void Awake ()
 	{
@@ -36,7 +36,7 @@ public class EnemyShootingRaycast: MonoBehaviour
 		
 		// The scaledDamage is the difference between the maximum and the minimum damage.
 		scaledDamage = maximumDamage - minimumDamage;
-		stop = false;
+//		stop = false;
 	}
 	
 	

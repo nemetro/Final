@@ -8,11 +8,9 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 471492}
-  - 65: {fileID: 6586682}
-  - 114: {fileID: 11461944}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: DoorElevator
-  m_TagString: Untagged
+  m_TagString: Door
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -28,9 +26,10 @@ GameObject:
   - 33: {fileID: 3347398}
   - 65: {fileID: 6527992}
   - 23: {fileID: 2394118}
-  m_Layer: 0
+  - 114: {fileID: 11417400}
+  m_Layer: 12
   m_Name: ActualDoor
-  m_TagString: Untagged
+  m_TagString: Door
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -103,24 +102,12 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!65 &6586682
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 118994}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 4, y: 4, z: 2}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &11461944
+--- !u!114 &11417400
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 118994}
+  m_GameObject: {fileID: 188484}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cfe5f760c8b944a468f3aa1029b8493e, type: 3}
@@ -128,8 +115,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dist: 3.75
   speed: .100000001
-  open: 0
-  door: {fileID: 188484}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

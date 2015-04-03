@@ -9,13 +9,13 @@ public class PlayerHealth : MonoBehaviour
 	public AudioClip deathClip;							// The sound effect of the player dying.
 	
 	
-	private Animator anim;								// Reference to the animator component.
-	private PlayerAnimationMovement playerMovement;			// Reference to the player movement script.
-	private AnimatorHashIDs hash;							// Reference to the HashIDs.
-	private SceneFadeInOut sceneFadeInOut;			// Reference to the SceneFadeInOut script.
+//	private Animator anim;								// Reference to the animator component.
+//	private PlayerAnimationMovement playerMovement;			// Reference to the player movement script.
+//	private AnimatorHashIDs hash;							// Reference to the HashIDs.
+//	private SceneFadeInOut sceneFadeInOut;			// Reference to the SceneFadeInOut script.
 	private GlobalLastPlayerSighting lastPlayerSighting;	// Reference to the LastPlayerSighting script.
 	private float timer;								// A timer for counting to the reset of the level once the player is dead.
-	private bool playerDead;							// A bool to show if the player is dead or not.
+//	private bool playerDead;							// A bool to show if the player is dead or not.
 	
 	
 	void Awake ()
@@ -23,10 +23,10 @@ public class PlayerHealth : MonoBehaviour
 		// Setting up the references.
 		player = GetComponent<Player>();
 		health = player.MAXHEALTH;
-		anim = GetComponent<Animator>();
-		playerMovement = GetComponent<PlayerAnimationMovement>();
+//		anim = GetComponent<Animator>();
+//		playerMovement = GetComponent<PlayerAnimationMovement>();
 //		hash = GameObject.FindGameObjectWithTag(InGameTags.gameController).GetComponent<AnimatorHashIDs>();
-		sceneFadeInOut = GameObject.FindGameObjectWithTag(InGameTags.fader).GetComponent<SceneFadeInOut>();
+//		sceneFadeInOut = GameObject.FindGameObjectWithTag(InGameTags.fader).GetComponent<SceneFadeInOut>();
 		lastPlayerSighting = GameObject.FindGameObjectWithTag(InGameTags.gameController).GetComponent<GlobalLastPlayerSighting>();
 	}
 	
@@ -55,11 +55,11 @@ public class PlayerHealth : MonoBehaviour
 	void PlayerDying ()
 	{
 		// The player is now dead.
-		playerDead = true;
+//		playerDead = true;
 		
 		// Set the animator's dead parameter to true also.
-		anim.SetBool(hash.deadBool, playerDead);
-		
+//		anim.SetBool(hash.deadBool, playerDead);
+//		
 		// Play the dying sound effect at the player's location.
 		AudioSource.PlayClipAtPoint(deathClip, transform.position);
 	}
@@ -68,11 +68,12 @@ public class PlayerHealth : MonoBehaviour
 	void PlayerDead ()
 	{
 		// If the player is in the dying state then reset the dead parameter.
-		if(anim.GetCurrentAnimatorStateInfo(0).nameHash == hash.dyingState)
-			anim.SetBool(hash.deadBool, false);
+//		if (anim.GetCurrentAnimatorStateInfo (0).fullPathHash == hash.dyingState) {
+//			anim.SetBool (hash.deadBool, false);
+//		}
 		
 		// Disable the movement.
-		anim.SetFloat(hash.speedFloat, 0f);
+//		anim.SetFloat(hash.speedFloat, 0f);
 //		playerMovement.enabled = false;
 		//TODO
 		// Reset the player sighting to turn off the alarms.

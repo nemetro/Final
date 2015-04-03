@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using InControl;
+using UnityEngine.UI;
 
 public class WeaponMechanics : MonoBehaviour {
 
@@ -33,28 +34,32 @@ public class WeaponMechanics : MonoBehaviour {
 	public float crowbarRange = 2f;
 	public int bulletsInClip = 6;
 	public int crowbarDamage = 40;
+	public float weaponSwitchTime = 0.05f;
 
 	private float attackCooldown;
-	private bool justAttacked;
 	private bool usingGun;
 	private Vector3 gunStartLoc;
 	private Quaternion gunStartRot;
 	private Vector3 crowbarStartLoc;
 	private Quaternion crowbarStartRot;
+	private Text onScreen;
+
+	void Awake(){
+		onScreen = GameObject.Find ("Hints").GetComponent<Text>();
+	}
 
 	// Use this for initialization
 	void Start () {
 		attackCooldown = 0;
 		usingGun = false;
-		justAttacked = false;
 		crowbar.GetComponent<Collider>().enabled = false;
 		gunStartLoc = gun.transform.localPosition;
 		gunStartRot = gun.transform.localRotation;
 		crowbarStartLoc = crowbar.transform.localPosition;
 		crowbarStartRot = crowbar.transform.localRotation;
 	}
-	
-	void FixedUpdate () {
+
+	void Update () {
 	
 		if (controller == null)
 		{
@@ -70,13 +75,6 @@ public class WeaponMechanics : MonoBehaviour {
 			crowbar.SetActive(true);
 		}
 
-	/*	if(Input.GetKeyDown ("1")) {
-			usingGun = true;
-		} 
-		if(Input.GetKeyDown("2")) {
-			usingGun = false;
-		}*/
-		
 		if (controller.LeftTrigger.WasPressed && numGnades > 0) {
 			GameObject createGrenade = null;
 			print("grenade");
@@ -87,12 +85,37 @@ public class WeaponMechanics : MonoBehaviour {
 			numGnades--;
 		}
 
-		if(controller.Action4.WasPressed){ //switch weapons
+
+		bool switchWeapons = Input.GetKeyDown (KeyCode.Q);
+		if(switchWeapons){ //switch weapons
 			if(usingGun) {
 				usingGun = false;
 			} else if(!usingGun) {
 				usingGun = true;
 			}
+		}
+
+		//Open door
+		LayerMask environmentMask = LayerMask.GetMask ("Environment");
+		RaycastHit interactableHit;
+
+		bool interactKeyDown = Input.GetKeyDown (KeyCode.E);
+
+		if (Physics.Raycast (playerCamera.transform.position, playerCamera.transform.forward, out interactableHit, 2.0f, environmentMask)) {
+			if(interactableHit.transform.tag == InGameTags.door){
+				onScreen.text = "Press 'E' To Use Door";
+				if (interactKeyDown) {
+					interactableHit.transform.GetComponent<OpenDoor> ().ToggleTheDoor ();
+				}
+			} else if (interactableHit.transform.tag == InGameTags.deactivateSwitch) { 
+				onScreen.text = "Press 'E' To Deactivate Laser Door";
+				if (interactKeyDown) {
+					GameObject player = this.gameObject;
+					interactableHit.transform.GetComponent<LaserDoorSwitchDeactivate>().TurnOffLaserDoor (player);
+				}
+			}
+		} else {
+			onScreen.text = "";
 		}
 
 		//Attacks
@@ -117,17 +140,18 @@ public class WeaponMechanics : MonoBehaviour {
 			} else if (controller.RightTrigger.WasPressed && attackCooldown <= 0 && bulletsInClip <= 0){
 				weapSnd.PlayOneShot(dryFireSound);
 			}
-			//TODO make this use controller
+			//Reload gun
 			if(bulletsInClip < maxBulletsInClip && attackCooldown <= 0 && controller.Action3.WasPressed){
 				attackCooldown = reloadTime;
 				weapSnd.PlayOneShot(reloadSound);
 				bulletsInClip = maxBulletsInClip;
-				if(numBullets >= maxBulletsInClip)
+				if(numBullets >= maxBulletsInClip){
 					numBullets -= maxBulletsInClip;
-				else{
+				} else {
 					bulletsInClip = numBullets;
 					numBullets = 0;
 				}
+				AnimateGunReload();
 			}
 		}
 
@@ -162,18 +186,20 @@ public class WeaponMechanics : MonoBehaviour {
 
 			if (hitInfo.transform.tag == "Enemy"){ //apply damage
 				print ("Hit enemy apply damage: " + gunDamage);
+				EnemyHealth enemyHealth = hitInfo.transform.root.GetComponent<EnemyHealth>();
+
 				if(hitInfo.transform.name.ToLower().Contains("head")){
 					print ("headshot!");
-					hitInfo.transform.root.GetComponent<EnemyHealth>().ApplyDamage(2*gunDamage);
+					enemyHealth.ApplyDamage(2*gunDamage);
 				} else if(hitInfo.transform.name.ToLower().Contains("leg") || hitInfo.transform.name.ToLower().Contains("arm")){
 					print ("limbshot!");
-					hitInfo.transform.root.GetComponent<EnemyHealth>().ApplyDamage(gunDamage/2);
+					enemyHealth.ApplyDamage(gunDamage/2);
 				} else {
 					print ("bodyshot!");
-					hitInfo.transform.root.GetComponent<EnemyHealth>().ApplyDamage(gunDamage);
+					enemyHealth.ApplyDamage(gunDamage);
 				}
 
-				hitInfo.transform.root.GetComponent<EnemyHealth>().ApplyForce(hitInfo.rigidbody, 4*gun.transform.forward);
+				enemyHealth.ApplyForce(hitInfo.rigidbody, 4*gun.transform.forward);
 			}
 		}
 		AnimateGunRecoil ();
@@ -214,7 +240,6 @@ public class WeaponMechanics : MonoBehaviour {
 				print ("did not hit enemy: " + hitInfo.transform.tag);
 			}
 		} else {
-//			print ("missed with crowbar");
 			weapSnd.PlayOneShot(crowbarSwingSound);
 		}
 		AnimateCrowbarRecoil ();
@@ -223,6 +248,11 @@ public class WeaponMechanics : MonoBehaviour {
 	void AnimateGunRecoil(){
 		gun.transform.localPosition = gun.transform.localPosition + new Vector3(0, vertRecoilDistance, -1*horzRecoilDistance);
 		gun.transform.localRotation = Quaternion.Euler(new Vector3(-50, 0 , 0));
+	}
+
+	void AnimateGunReload(){
+		gun.transform.localPosition = gun.transform.localPosition + new Vector3(0, -vertRecoilDistance, horzRecoilDistance);
+		gun.transform.localRotation = Quaternion.Euler(new Vector3(50, 0 , 0));
 	}
 
 	void AnimateCrowbarRecoil(){

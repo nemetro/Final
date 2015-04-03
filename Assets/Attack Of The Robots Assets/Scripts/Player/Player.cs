@@ -11,7 +11,8 @@ public class Player : MonoBehaviour {
 
 	void Start () {
 		DontDestroyOnLoad(this);
-		Screen.lockCursor = true;
+		Cursor.lockState = CursorLockMode.Locked;
+		Cursor.visible = false;
 		health = MAXHEALTH;
 		Level.players.Add(this);
 		weaponScript = this.GetComponent<WeaponMechanics>();
@@ -19,8 +20,14 @@ public class Player : MonoBehaviour {
 	
 	void Update () {
 
-		if(Input.GetKeyUp(KeyCode.BackQuote)){
-			Screen.lockCursor = !Screen.lockCursor;
+		if (Input.GetKeyUp (KeyCode.BackQuote)) {
+			if (Cursor.lockState == CursorLockMode.Locked) {
+				Cursor.lockState = CursorLockMode.None;
+			} else {
+				Cursor.lockState = CursorLockMode.Locked;
+			}
+			Cursor.visible = !Cursor.visible;
+			//Screen.lockCursor = !Screen.lockCursor;
 		}
 	}
 	void OnTriggerEnter(Collider other){
