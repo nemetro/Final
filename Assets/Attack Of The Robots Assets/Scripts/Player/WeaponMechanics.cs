@@ -146,7 +146,7 @@ public class WeaponMechanics : MonoBehaviour {
 				weapSnd.PlayOneShot(dryFireSound);
 			}
 			//Reload gun
-			if(bulletsInClip < maxBulletsInClip && attackCooldown <= 0 && controller.Action3.WasPressed){
+			if(bulletsInClip < maxBulletsInClip && numBullets != 0 && attackCooldown <= 0 && controller.Action3.WasPressed){
 				attackCooldown = reloadTime;
 				weapSnd.PlayOneShot(reloadSound);
 				bulletsInClip = maxBulletsInClip;

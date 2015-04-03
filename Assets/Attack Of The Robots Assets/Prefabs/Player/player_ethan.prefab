@@ -3480,9 +3480,9 @@ MonoBehaviour:
   crowbarSwingSound: {fileID: 8300000, guid: 7386687dba1554533995fce8a969ffc6, type: 3}
   crowbarHitSound: {fileID: 8300000, guid: f1b4d192bfb9941ce88745d0de88ec72, type: 3}
   gunDamage: 120
-  timeBetweenShots: .75
+  timeBetweenShots: .5
   timeBetweenSwings: .25
-  reloadTime: 3
+  reloadTime: 3.79999995
   maxBulletsInClip: 6
   maxBullets: 18
   maxGnades: 4
@@ -3495,6 +3495,8 @@ MonoBehaviour:
   bulletsInClip: 6
   crowbarDamage: 40
   weaponSwitchTime: .0500000007
+  gunStabilizeSpeed: 8.5
+  crowbarStabilizeSpeed: 10
 --- !u!114 &11498452
 MonoBehaviour:
   m_ObjectHideFlags: 1
