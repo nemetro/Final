@@ -8,9 +8,9 @@ public class Hit : MonoBehaviour {
 	public float hitForce = 10f;
 	
 	void OnCollisionEnter( Collision collision ) {
-		print (collision.impactForceSum.magnitude);
+		print (collision.relativeVelocity.magnitude);
 
-		if( collision.impactForceSum.magnitude > hitForce) {
+		if( collision.relativeVelocity.magnitude > hitForce) {
 		DestroyIt();
 		}
 	}

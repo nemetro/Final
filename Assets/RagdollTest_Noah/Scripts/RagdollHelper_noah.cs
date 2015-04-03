@@ -53,7 +53,7 @@ public class RagdollHelper_noah : MonoBehaviour {
 	
 	//How long do we blend when transitioning from ragdolled to animated
 	public float ragdollToMecanimBlendTime=0.5f;
-	float mecanimToGetUpTransitionTime=0.05f;
+//	float mecanimToGetUpTransitionTime=0.05f;
 	
 	//Declare a class that will hold useful information for each body part
 	public class BodyPart

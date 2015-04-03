@@ -29,9 +29,11 @@ EditorBuildSettings:
     path: Assets/Attack Of The Robots Assets/Scenes/Release/_level0.unity
   - enabled: 0
     path: Assets/Attack Of The Robots Assets/Scenes/Release/_level1.unity
-  - enabled: 1
-    path: Assets/Attack Of The Robots Assets/Scenes/Release/_level1_1.unity
-  - enabled: 1
+  - enabled: 0
+    path: Assets/Attack Of The Robots Assets/Scenes/Release/_level1_1_1.unity
+  - enabled: 0
+    path: Assets/Attack Of The Robots Assets/Scenes/Release/_level1_1_2.unity
+  - enabled: 0
     path: Assets/Attack Of The Robots Assets/Scenes/Release/_level1_2.unity
   - enabled: 1
     path: Assets/Attack Of The Robots Assets/Scenes/Release/_level00.unity

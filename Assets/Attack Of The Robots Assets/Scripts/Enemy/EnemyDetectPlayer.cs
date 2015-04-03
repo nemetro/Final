@@ -13,17 +13,17 @@ public class EnemyDetectPlayer: MonoBehaviour{
 	private SphereCollider col;							// Reference to the sphere collider trigger component.
 	private Animator anim;								// Reference to the Animator.
 	private Animator playerAnim;						// Reference to the player's animator component.	
-	private AudioSource audio;							// Reference to enemy audio source 
+	private AudioSource audioSrc;							// Reference to enemy audio source 
 	private AnimatorHashIDs hash;						// Reference to the HashIDs.
 	private GameObject target;							// Reference to target gameobject
-	private int numDetectedPlayers = 0;					// Number of players in range
+//	private int numDetectedPlayers = 0;					// Number of players in range
 	private GlobalLastPlayerSighting globalLastPlayerSighting;
 
 	void Awake () {
 		nav = GetComponent<NavMeshAgent>();
 		col = GetComponent<SphereCollider>();
 		anim = GetComponent<Animator>();
-		audio = GetComponent<AudioSource> ();
+		audioSrc = GetComponent<AudioSource> ();
 		hash = GameObject.FindGameObjectWithTag(InGameTags.gameController).GetComponent<AnimatorHashIDs>();
 		personalLastKnownLocation = resetPosition;
 		globalLastPlayerSighting = GameObject.FindGameObjectWithTag(InGameTags.gameController).GetComponent<GlobalLastPlayerSighting>();
@@ -67,7 +67,7 @@ public class EnemyDetectPlayer: MonoBehaviour{
 					if (hit.collider.tag == InGameTags.player) { // ... and if the raycast hits the player...
 						playerInSight = true;// ... the player is in sight.
 						globalLastPlayerSighting.position = personalLastKnownLocation; //TODO make this better (should be a bool and let local enemies activate eachother)
-						audio.Play ();
+						audioSrc.Play ();
 					}
 				}
 			} else {

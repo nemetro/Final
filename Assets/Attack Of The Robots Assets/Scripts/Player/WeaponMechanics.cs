@@ -37,7 +37,6 @@ public class WeaponMechanics : MonoBehaviour {
 	public float weaponSwitchTime = 0.05f;
 
 	private float attackCooldown;
-	private bool justAttacked;
 	private bool usingGun;
 	private Vector3 gunStartLoc;
 	private Quaternion gunStartRot;
@@ -53,7 +52,6 @@ public class WeaponMechanics : MonoBehaviour {
 	void Start () {
 		attackCooldown = 0;
 		usingGun = false;
-		justAttacked = false;
 		crowbar.GetComponent<Collider>().enabled = false;
 		gunStartLoc = gun.transform.localPosition;
 		gunStartRot = gun.transform.localRotation;

@@ -5,12 +5,12 @@ public class OpenDoors : MonoBehaviour {
 	//public AnimationClip openDoor;
 
 	private bool doorClosed;
-	private Animation anim;
+//	private Animation anim;
 
 	// Use this for initialization
 	void Start () {
 		doorClosed = true;
-		anim = GetComponentInParent<Animation> ();
+//		anim = GetComponentInParent<Animation> ();
 	}
 
 	public void ToggleTheDoor(){
