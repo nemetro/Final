@@ -18,24 +18,14 @@ public class LaserDoorSwitchDeactivate : MonoBehaviour
 		lastPlayerSighting = GameObject.FindGameObjectWithTag(InGameTags.gameController).GetComponent<GlobalLastPlayerSighting>();
 		alreadyPressed = false;
 	}
-	
-	
-	void OnTriggerStay (Collider other)
-	{
+
+	public void TurnOffLaserDoor(GameObject player){
 		if (alreadyPressed) {
 			return;
 		}
-		// If the colliding gameobject is the player...
-		if (other.gameObject.tag == InGameTags.player) {
-			// ... and the switch button is pressed...
-			if (other.GetComponent<PlayerAnimationMovement>().controller.Action1.WasPressed) {
-				// ... deactivate the laser.
-				LaserDeactivation (other.gameObject);
-				alreadyPressed = true;
-			}
-		}
+		LaserDeactivation (player);
+		alreadyPressed = true;
 	}
-	
 	
 	void LaserDeactivation (GameObject player)
 	{

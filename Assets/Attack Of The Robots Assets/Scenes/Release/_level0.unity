@@ -1736,13 +1736,18 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11450100, guid: d1624bf1c66234d25b3e6b5ef2524a7c, type: 2}
       propertyPath: maximumDamage
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 11450100, guid: d1624bf1c66234d25b3e6b5ef2524a7c, type: 2}
       propertyPath: minimumDamage
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 13537980, guid: d1624bf1c66234d25b3e6b5ef2524a7c, type: 2}
+      propertyPath: m_Radius
+      value: 5
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 11431696, guid: d1624bf1c66234d25b3e6b5ef2524a7c, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: d1624bf1c66234d25b3e6b5ef2524a7c, type: 2}
   m_IsPrefabParent: 0
 --- !u!1001 &384766968
@@ -1969,7 +1974,8 @@ Prefab:
       propertyPath: m_TagString
       value: Door
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 11417400, guid: 5e2fd2caf725541c493bf78b0e919cb2, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 5e2fd2caf725541c493bf78b0e919cb2, type: 2}
   m_IsPrefabParent: 0
 --- !u!1001 &499068750
@@ -3610,7 +3616,8 @@ Prefab:
       propertyPath: m_TagString
       value: Door
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 11417400, guid: 5e2fd2caf725541c493bf78b0e919cb2, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 5e2fd2caf725541c493bf78b0e919cb2, type: 2}
   m_IsPrefabParent: 0
 --- !u!4 &847249319
@@ -4930,6 +4937,14 @@ Prefab:
       propertyPath: laser
       value: 
       objectReference: {fileID: 1202145028}
+    - target: {fileID: 134980, guid: 391d703a50db1431991d88b26b7ea969, type: 2}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 134982, guid: 391d703a50db1431991d88b26b7ea969, type: 2}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 391d703a50db1431991d88b26b7ea969, type: 2}
   m_IsPrefabParent: 0

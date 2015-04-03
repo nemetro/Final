@@ -13,4 +13,5 @@ public class InGameTags : MonoBehaviour
 	public const string enemy = "Enemy";
 	public const string footprint = "Footprint";
 	public const string door = "Door";
+	public const string deactivateSwitch = "Switch";
 }

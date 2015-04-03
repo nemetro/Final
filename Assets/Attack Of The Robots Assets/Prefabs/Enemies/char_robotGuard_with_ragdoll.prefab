@@ -1987,8 +1987,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a075f3f9cd5d4a1680183ed14b5615f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maximumDamage: 10
-  minimumDamage: 5
+  maximumDamage: 5
+  minimumDamage: 2
   shotClip: {fileID: 8300000, guid: 3287b451cffc7493489235d1bf1231cc, type: 3}
   flashIntensity: 3
   fadeSpeed: 10

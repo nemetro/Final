@@ -28,7 +28,7 @@ GameObject:
   - 65: {fileID: 6580338}
   - 23: {fileID: 2348950}
   - 114: {fileID: 11493324}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: ActualDoor
   m_TagString: Door
   m_Icon: {fileID: 0}

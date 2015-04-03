@@ -5968,6 +5968,7 @@ MonoBehaviour:
   crowbarRange: 2
   bulletsInClip: 6
   crowbarDamage: 40
+  weaponSwitchTime: .0500000007
 --- !u!114 &323514970
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13702,6 +13703,7 @@ MonoBehaviour:
   crowbarRange: 2
   bulletsInClip: 6
   crowbarDamage: 40
+  weaponSwitchTime: .0500000007
 --- !u!114 &787176254
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15399,6 +15401,7 @@ MonoBehaviour:
   crowbarRange: 2
   bulletsInClip: 6
   crowbarDamage: 40
+  weaponSwitchTime: .0500000007
 --- !u!114 &886393165
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -33666,6 +33669,7 @@ MonoBehaviour:
   crowbarRange: 2
   bulletsInClip: 6
   crowbarDamage: 40
+  weaponSwitchTime: .0500000007
 --- !u!114 &2079578275
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -24,6 +24,7 @@ TagManager:
   - Kill
   - Keycard
   - Door
+  - Switch
   layers:
   - Default
   - TransparentFX

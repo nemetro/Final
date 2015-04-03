@@ -234,13 +234,9 @@ Prefab:
       propertyPath: m_RootOrder
       value: 46
       objectReference: {fileID: 0}
-    - target: {fileID: 188484, guid: 5e2fd2caf725541c493bf78b0e919cb2, type: 2}
-      propertyPath: m_TagString
-      value: Door
-      objectReference: {fileID: 0}
     - target: {fileID: 118994, guid: 5e2fd2caf725541c493bf78b0e919cb2, type: 2}
-      propertyPath: m_TagString
-      value: Door
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5e2fd2caf725541c493bf78b0e919cb2, type: 2}
@@ -249,23 +245,6 @@ Prefab:
 Transform:
   m_PrefabParentObject: {fileID: 471492, guid: 5e2fd2caf725541c493bf78b0e919cb2, type: 2}
   m_PrefabInternal: {fileID: 63782593}
---- !u!1 &63782595
-GameObject:
-  m_PrefabParentObject: {fileID: 188484, guid: 5e2fd2caf725541c493bf78b0e919cb2, type: 2}
-  m_PrefabInternal: {fileID: 63782593}
---- !u!114 &63782596
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 63782595}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cfe5f760c8b944a468f3aa1029b8493e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dist: 3.75
-  speed: .100000001
 --- !u!1001 &80619143
 Prefab:
   m_ObjectHideFlags: 0
@@ -283,7 +262,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 412820, guid: 336cd3d2b2221fc4fa77cfe3dc071e6a, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 60.9099998
+      value: 63.3300018
       objectReference: {fileID: 0}
     - target: {fileID: 412820, guid: 336cd3d2b2221fc4fa77cfe3dc071e6a, type: 2}
       propertyPath: m_LocalRotation.x
@@ -312,6 +291,10 @@ Prefab:
     - target: {fileID: 11451112, guid: 336cd3d2b2221fc4fa77cfe3dc071e6a, type: 2}
       propertyPath: prompt
       value: The 'E' key or 'A' button performs different actions on objects.
+      objectReference: {fileID: 0}
+    - target: {fileID: 196810, guid: 336cd3d2b2221fc4fa77cfe3dc071e6a, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 336cd3d2b2221fc4fa77cfe3dc071e6a, type: 2}
@@ -1611,7 +1594,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 440180, guid: 0ca4b2c3e8a52ab44a54fa88c8bc880e, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 19.1000004
+      value: 12.5
       objectReference: {fileID: 0}
     - target: {fileID: 440180, guid: 0ca4b2c3e8a52ab44a54fa88c8bc880e, type: 2}
       propertyPath: m_LocalRotation.x
@@ -1631,7 +1614,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 440180, guid: 0ca4b2c3e8a52ab44a54fa88c8bc880e, type: 2}
       propertyPath: m_RootOrder
-      value: 13
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 440180, guid: 0ca4b2c3e8a52ab44a54fa88c8bc880e, type: 2}
       propertyPath: m_LocalScale.z
@@ -1651,9 +1634,10 @@ Prefab:
       objectReference: {fileID: 1304559626}
     - target: {fileID: 11419010, guid: 0ca4b2c3e8a52ab44a54fa88c8bc880e, type: 2}
       propertyPath: prompt
-      value: Right stick (arrow keys) to walk, left stick (mouse) to look around.
+      value: '''WASD'' keys for movement. Mouse to look around.'
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2323234, guid: 0ca4b2c3e8a52ab44a54fa88c8bc880e, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 0ca4b2c3e8a52ab44a54fa88c8bc880e, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &913517625

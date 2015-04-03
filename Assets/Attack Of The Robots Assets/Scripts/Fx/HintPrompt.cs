@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public class HintPrompt : MonoBehaviour {
 
 	 public string prompt;
-	 Text onScreen;
+	Text onScreen;
 	
 	void Awake()
 	{
