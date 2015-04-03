@@ -86,7 +86,7 @@ public class WeaponMechanics : MonoBehaviour {
 		}
 
 
-		bool switchWeapons = Input.GetKeyDown (KeyCode.Q);
+		bool switchWeapons = controller.Action4.WasPressed;
 		if(switchWeapons){ //switch weapons
 			if(usingGun) {
 				usingGun = false;
@@ -99,7 +99,7 @@ public class WeaponMechanics : MonoBehaviour {
 		LayerMask environmentMask = LayerMask.GetMask ("Environment");
 		RaycastHit interactableHit;
 
-		bool interactKeyDown = Input.GetKeyDown (KeyCode.E);
+		bool interactKeyDown = controller.Action1.WasPressed;
 
 		if (Physics.Raycast (playerCamera.transform.position, playerCamera.transform.forward, out interactableHit, 2.0f, environmentMask)) {
 			if(interactableHit.transform.tag == InGameTags.door){
