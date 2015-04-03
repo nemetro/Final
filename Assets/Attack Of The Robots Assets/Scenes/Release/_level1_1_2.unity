@@ -86,7 +86,7 @@ NavMeshSettings:
     minRegionArea: 2
     cellSize: .166666672
     manualCellSize: 0
-  m_NavMeshData: {fileID: 23800000, guid: 9dfe2c48a3a304986bd232cfbecfff7b, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: 670337eb65d5c4d6ebe7ffda2bc61467, type: 2}
 --- !u!1 &1731252
 GameObject:
   m_ObjectHideFlags: 0
@@ -460,6 +460,7 @@ MonoBehaviour:
   crowbarRange: 2
   bulletsInClip: 6
   crowbarDamage: 40
+  weaponSwitchTime: .0500000007
 --- !u!114 &12733310
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2520,6 +2521,7 @@ MonoBehaviour:
   crowbarRange: 2
   bulletsInClip: 6
   crowbarDamage: 40
+  weaponSwitchTime: .0500000007
 --- !u!114 &94014685
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7666,23 +7668,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5e2fd2caf725541c493bf78b0e919cb2, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &362630103
-GameObject:
-  m_PrefabParentObject: {fileID: 188484, guid: 5e2fd2caf725541c493bf78b0e919cb2, type: 2}
-  m_PrefabInternal: {fileID: 362630102}
---- !u!114 &362630104
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 362630103}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cfe5f760c8b944a468f3aa1029b8493e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dist: 3
-  speed: .100000001
 --- !u!1001 &363321473
 Prefab:
   m_ObjectHideFlags: 0
@@ -10302,6 +10287,7 @@ MonoBehaviour:
   crowbarRange: 2
   bulletsInClip: 6
   crowbarDamage: 40
+  weaponSwitchTime: .0500000007
 --- !u!114 &515017258
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25317,6 +25303,7 @@ MonoBehaviour:
   crowbarRange: 2
   bulletsInClip: 6
   crowbarDamage: 40
+  weaponSwitchTime: .0500000007
 --- !u!114 &1308490720
 MonoBehaviour:
   m_ObjectHideFlags: 0
