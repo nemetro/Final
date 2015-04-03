@@ -3402,7 +3402,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shoutingClip: {fileID: 8300000, guid: dd0bd780709074465b7e0e568335000b, type: 3}
-  stepInPaintClip: {fileID: 0}
+  stepInPaintClip: {fileID: 8300000, guid: efa634c81f5a74328b424d856f56882d, type: 3}
   turnSmoothing: 15
   speedDampTime: .100000001
   moveSidewaysSpeed: 3
@@ -3480,9 +3480,9 @@ MonoBehaviour:
   crowbarSwingSound: {fileID: 8300000, guid: 7386687dba1554533995fce8a969ffc6, type: 3}
   crowbarHitSound: {fileID: 8300000, guid: f1b4d192bfb9941ce88745d0de88ec72, type: 3}
   gunDamage: 120
-  timeBetweenShots: .75
+  timeBetweenShots: .5
   timeBetweenSwings: .25
-  reloadTime: 2
+  reloadTime: 3.79999995
   maxBulletsInClip: 6
   maxBullets: 18
   maxGnades: 4
@@ -3494,6 +3494,9 @@ MonoBehaviour:
   crowbarRange: 2
   bulletsInClip: 6
   crowbarDamage: 40
+  weaponSwitchTime: .0500000007
+  gunStabilizeSpeed: 8.5
+  crowbarStabilizeSpeed: 10
 --- !u!114 &11498452
 MonoBehaviour:
   m_ObjectHideFlags: 1

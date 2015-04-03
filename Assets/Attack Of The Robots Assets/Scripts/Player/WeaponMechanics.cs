@@ -35,8 +35,11 @@ public class WeaponMechanics : MonoBehaviour {
 	public int bulletsInClip = 6;
 	public int crowbarDamage = 40;
 	public float weaponSwitchTime = 0.05f;
+	public float gunStabilizeSpeed = 10f;
+	public float crowbarStabilizeSpeed = 10f;
 
 	private float attackCooldown;
+	private float meleeAttackCooldown;
 	private bool usingGun;
 	private Vector3 gunStartLoc;
 	private Quaternion gunStartRot;
@@ -51,6 +54,7 @@ public class WeaponMechanics : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		attackCooldown = 0;
+		meleeAttackCooldown = 0;
 		usingGun = false;
 		crowbar.GetComponent<Collider>().enabled = false;
 		gunStartLoc = gun.transform.localPosition;
@@ -66,6 +70,7 @@ public class WeaponMechanics : MonoBehaviour {
 			controller = InputManager.Devices[0];
 		}
 		attackCooldown -= Time.deltaTime;
+		meleeAttackCooldown -= Time.deltaTime;
 
 		if(usingGun) {
 			crowbar.SetActive(false);
@@ -122,9 +127,9 @@ public class WeaponMechanics : MonoBehaviour {
 		//TODO can probably make this modular later (class based with just a call to an attack() function.
 		//Melee weapon
 		if(!usingGun) {
-			if(controller.RightTrigger.WasPressed && attackCooldown <= 0){
+			if(controller.RightTrigger.WasPressed && meleeAttackCooldown <= 0){
 				print ("attack with crowbar");
-				attackCooldown = timeBetweenSwings;
+				meleeAttackCooldown = timeBetweenSwings;
 				SwingCrowbar();
 			}
 		}
@@ -141,7 +146,7 @@ public class WeaponMechanics : MonoBehaviour {
 				weapSnd.PlayOneShot(dryFireSound);
 			}
 			//Reload gun
-			if(bulletsInClip < maxBulletsInClip && attackCooldown <= 0 && controller.Action3.WasPressed){
+			if(bulletsInClip < maxBulletsInClip && numBullets != 0 && attackCooldown <= 0 && controller.Action3.WasPressed){
 				attackCooldown = reloadTime;
 				weapSnd.PlayOneShot(reloadSound);
 				bulletsInClip = maxBulletsInClip;
@@ -154,21 +159,23 @@ public class WeaponMechanics : MonoBehaviour {
 				AnimateGunReload();
 			}
 		}
+	}
 
+	void FixedUpdate(){
 		if (gun.transform.localPosition != gunStartLoc) {
-			gun.transform.localPosition = Vector3.Lerp(gun.transform.localPosition, gunStartLoc, 5 * Time.fixedDeltaTime); 
+			gun.transform.localPosition = Vector3.Lerp(gun.transform.localPosition, gunStartLoc, gunStabilizeSpeed * Time.fixedDeltaTime); 
 		}
 		
 		if (gun.transform.localRotation != gunStartRot) {
-			gun.transform.localRotation = Quaternion.Lerp(gun.transform.localRotation, gunStartRot, 5 * Time.fixedDeltaTime);
+			gun.transform.localRotation = Quaternion.Lerp(gun.transform.localRotation, gunStartRot, gunStabilizeSpeed * Time.fixedDeltaTime);
 		}
-
+		
 		if (crowbar.transform.localPosition != crowbarStartLoc) {
-			crowbar.transform.localPosition = Vector3.Lerp(crowbar.transform.localPosition, crowbarStartLoc, 5 * Time.fixedDeltaTime); 
+			crowbar.transform.localPosition = Vector3.Lerp(crowbar.transform.localPosition, crowbarStartLoc, crowbarStabilizeSpeed * Time.fixedDeltaTime); 
 		}
 		
 		if (crowbar.transform.localRotation != crowbarStartRot) {
-			crowbar.transform.localRotation = Quaternion.Lerp(crowbar.transform.localRotation, crowbarStartRot, 5 * Time.fixedDeltaTime);
+			crowbar.transform.localRotation = Quaternion.Lerp(crowbar.transform.localRotation, crowbarStartRot, crowbarStabilizeSpeed * Time.fixedDeltaTime);
 		}
 	}
 
