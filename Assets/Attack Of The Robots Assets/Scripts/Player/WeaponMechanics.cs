@@ -112,7 +112,8 @@ public class WeaponMechanics : MonoBehaviour {
 			} else if (interactableHit.transform.tag == InGameTags.deactivateSwitch) { 
 				onScreen.text = "Press 'E' To Deactivate Laser Door";
 				if (interactKeyDown) {
-					interactableHit.transform.GetComponent<OpenDoor> ().ToggleTheDoor ();
+					GameObject player = this.gameObject;
+					interactableHit.transform.GetComponent<LaserDoorSwitchDeactivate>().TurnOffLaserDoor (player);
 				}
 			}
 		} else {

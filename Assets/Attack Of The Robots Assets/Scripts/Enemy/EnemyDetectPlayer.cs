@@ -51,14 +51,17 @@ public class EnemyDetectPlayer: MonoBehaviour{
 			// Create a vector from the enemy to the player and store the angle between it and forward.
 			Vector3 direction = target.transform.position - transform.position;
 			float angle = Vector3.Angle(direction, transform.forward);
-			
+			print("angle: " + angle);
+			print ("fieldOfView: " + fieldOfViewAngle * 0.5f);
 			// If the angle between forward and where the player is, is less than half the angle of view...
 			if (angle < fieldOfViewAngle * 0.5f) {
+				print ("accepted");
 				RaycastHit hit;
 				
 				// ... and if a raycast towards the player from the gun and the head hits something...
-				bool gunCanSeeTarget = Physics.Raycast (gun.transform.position, direction.normalized, out hit, col.radius/2.0f);
-				bool headCanSeeTarget = Physics.Raycast (transform.position + transform.up, direction.normalized, out hit, col.radius/2.0f);
+				LayerMask physicalLayers = LayerMask.GetMask("Environment", "Default", "PlayArea");
+				bool gunCanSeeTarget = Physics.Raycast (gun.transform.position, direction.normalized, out hit, col.radius/2.0f, physicalLayers);
+				bool headCanSeeTarget = Physics.Raycast (transform.position + transform.up, direction.normalized, out hit, col.radius/2.0f, physicalLayers);
 	
 				if (target.gameObject.tag == InGameTags.player && gunCanSeeTarget && headCanSeeTarget) {
 					if (hit.collider.tag == InGameTags.player) { // ... and if the raycast hits the player...
@@ -67,6 +70,8 @@ public class EnemyDetectPlayer: MonoBehaviour{
 						audio.Play ();
 					}
 				}
+			} else {
+				print ("declined");
 			}
 		}
 	}
@@ -84,8 +89,7 @@ public class EnemyDetectPlayer: MonoBehaviour{
 			target = null;
 		}
 	}
-
-	//TELl YO FRIENDS WHERE DA PLAYER IS
+	
 	void OnTriggerStay (Collider other){
 		if (other.tag == InGameTags.enemy && personalLastKnownLocation != resetPosition) {
 			if(other.transform.root.GetComponent<EnemyDetectPlayer>().playerInSight == false 
