@@ -28,7 +28,7 @@ public class GetControllers : MonoBehaviour {
 		{
 			if (prompt.GetComponent<Text>().text == "")
 			{
-				prompt.GetComponent<Text>().text = "Press button on controller for player " + cur_player;
+				prompt.GetComponent<Text>().text = "Press 'X' button or 'Q' key  on controller for player " + cur_player;
 			}
 			InputDevice controller = getNextController();
 			if (controller != null)
