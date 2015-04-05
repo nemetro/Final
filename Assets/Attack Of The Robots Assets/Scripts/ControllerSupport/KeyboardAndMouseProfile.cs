@@ -60,6 +60,12 @@ public class KeyboardAndMouseProfile : UnityInputDeviceProfile
 				Handle = "Action",
 				Target = InputControlType.Action1,
 				Source = KeyCodeButton( KeyCode.E )
+			},
+			new InputControlMapping
+			{
+				Handle = "Pause",
+				Target = InputControlType.Menu,
+				Source = KeyCodeButton( KeyCode.P )
 			}
 		};
 		

@@ -2218,7 +2218,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22412164, guid: d0a6ecfc15e384935a143360b5858ab9, type: 2}
       propertyPath: m_RootOrder
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 22412164, guid: d0a6ecfc15e384935a143360b5858ab9, type: 2}
       propertyPath: m_AnchoredPosition.x
@@ -2279,6 +2279,21 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d0a6ecfc15e384935a143360b5858ab9, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1313560168
+GameObject:
+  m_PrefabParentObject: {fileID: 116888, guid: d0a6ecfc15e384935a143360b5858ab9, type: 2}
+  m_PrefabInternal: {fileID: 1313560167}
+--- !u!114 &1313560169
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1313560168}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1058018eb211acd4480e114aa57aff33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1330118084
 GameObject:
   m_ObjectHideFlags: 0
