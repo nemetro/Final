@@ -28,7 +28,7 @@ public class GetControllers : MonoBehaviour {
 		{
 			if (prompt.GetComponent<Text>().text == "")
 			{
-				prompt.GetComponent<Text>().text = "Press button on controller for player " + cur_player;
+				prompt.GetComponent<Text>().text = "Press 'X' button or 'Q' key  on controller for player " + cur_player;
 			}
 			InputDevice controller = getNextController();
 			if (controller != null)
@@ -72,6 +72,11 @@ public class GetControllers : MonoBehaviour {
 		else
 		{
 			prompt.GetComponent<Text>().text = "";
+			//clear controllersassigned array
+			for (int i = 0; i < controllersAssigned.Length; i++)
+			{
+				controllersAssigned[i] = null;
+			}
 			numPlayers = num;
 			assigned = false;
 			cur_player = 0;
