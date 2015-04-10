@@ -81,21 +81,7 @@ public class PlayerAnimationMovement : MonoBehaviour
 		walkingOnPaint = false;
 	}
 	
-	
-	void Update ()
-	{
-		// Cache the attention attracting input.
-		bool shout = Input.GetButtonDown("Attract");
-		
-		// Set the animator shouting parameter.
-		anim.SetBool(hash.shoutingBool, shout);
-		
-		AudioManagement(shout);
-	}
-	
-	
-	void MovementManagement (float horizontal, float vertical, bool sneaking)
-	{
+	void MovementManagement (float horizontal, float vertical, bool sneaking) {
 		// Set the sneaking parameter to the sneak input.
 		anim.SetBool(hash.sneakingBool, sneaking);
 
