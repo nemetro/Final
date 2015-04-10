@@ -13,11 +13,21 @@ public class SensitivityTracker : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	public void setSens() 
+	void Update() 
 	{
 		for (int i = 0; i < playerSens.Length; i++)
 		{
-			playerSens[i] = GameObject.Find("P" + (i + 1) + "Slider").GetComponent<Slider>().value;
+			GameObject slider = GameObject.Find("P" + (i + 1) + "Slider");
+			if (slider != null)
+			{
+				playerSens[i] = slider.GetComponent<Slider>().value;
+				
+			}
+		}
+		GameObject assign = GameObject.Find("AssignConts");
+		if (assign != null)
+		{
+			GameObject.Find("AssignConts").GetComponent<AssignControllers>().setSens(this.gameObject);
 		}
 	}
 }
