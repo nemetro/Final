@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using InControl;
 using UnityEngine.UI;
@@ -19,7 +19,7 @@ public class WeaponMechanics : MonoBehaviour {
 	public AudioClip crowbarHitSound;
 	
 	public InputDevice controller;
-	public int gunDamage = 60;
+	public float gunDamage = 60;
 	public float timeBetweenShots = 1.2f;
 	public float timeBetweenSwings = 0.25f;
 	public float reloadTime = 2.0f;
@@ -61,14 +61,14 @@ public class WeaponMechanics : MonoBehaviour {
 		gunStartRot = gun.transform.localRotation;
 		crowbarStartLoc = crowbar.transform.localPosition;
 		crowbarStartRot = crowbar.transform.localRotation;
-	}
 
-	void Update () {
-	
 		if (controller == null)
 		{
 			controller = InputManager.Devices[0];
 		}
+	}
+
+	void Update () {
 		attackCooldown -= Time.deltaTime;
 		meleeAttackCooldown -= Time.deltaTime;
 
@@ -197,13 +197,13 @@ public class WeaponMechanics : MonoBehaviour {
 
 				if(hitInfo.transform.name.ToLower().Contains("head")){
 					print ("headshot!");
-					enemyHealth.ApplyDamage(2*gunDamage);
+					enemyHealth.BulletDamage(2*gunDamage);
 				} else if(hitInfo.transform.name.ToLower().Contains("leg") || hitInfo.transform.name.ToLower().Contains("arm")){
 					print ("limbshot!");
-					enemyHealth.ApplyDamage(gunDamage/2);
+					enemyHealth.BulletDamage(gunDamage/2);
 				} else {
 					print ("bodyshot!");
-					enemyHealth.ApplyDamage(gunDamage);
+					enemyHealth.BulletDamage(gunDamage);
 				}
 
 				enemyHealth.ApplyForce(hitInfo.rigidbody, 4*gun.transform.forward);
@@ -234,13 +234,13 @@ public class WeaponMechanics : MonoBehaviour {
 
 				if (hitInfo.transform.name.ToLower ().Contains ("head")) {
 //					print ("headshot!");
-					enemyHealth.ApplyDamage (2 * crowbarDamage);
+					enemyHealth.BulletDamage (2 * crowbarDamage);
 				} else if (hitInfo.transform.name.ToLower ().Contains ("leg") || hitInfo.transform.name.ToLower ().Contains ("arm")) {
 //					print ("limbshot!");
-					enemyHealth.ApplyDamage (crowbarDamage / 2);
+					enemyHealth.BulletDamage (crowbarDamage / 2);
 				} else {
 //					print ("bodyshot!");
-					enemyHealth.ApplyDamage (crowbarDamage);
+					enemyHealth.BulletDamage (crowbarDamage);
 				}
 				hitInfo.transform.root.GetComponent<EnemyHealth> ().ApplyForce (hitInfo.rigidbody, 4 * gun.transform.forward);
 			} else {

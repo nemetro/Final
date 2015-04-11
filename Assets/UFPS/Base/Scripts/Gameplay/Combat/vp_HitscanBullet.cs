@@ -162,9 +162,9 @@ public class vp_HitscanBullet : MonoBehaviour
 			}
 
 			// do damage on the target
-			if(m_Source != null)
-				hit.collider.SendMessageUpwards(DamageMethodName, new vp_DamageInfo(Damage, m_Source, vp_DamageInfo.DamageType.Bullet), SendMessageOptions.DontRequireReceiver);
-			else
+//			if(m_Source != null)
+//				hit.collider.SendMessageUpwards(DamageMethodName, new vp_DamageInfo(Damage, m_Source, vp_DamageInfo.DamageType.Bullet), SendMessageOptions.DontRequireReceiver);
+//			else
 				hit.collider.SendMessageUpwards(DamageMethodName, Damage, SendMessageOptions.DontRequireReceiver);
 
 			// prevent adding decals to objects based on layer

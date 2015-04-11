@@ -5,7 +5,7 @@ public class EnemyHealth : MonoBehaviour {
 	public GameObject splatter;
 
 	private bool dead = false;
-	public int health = 100;
+	public float health = 1f; //100%
 	private Rigidbody impactTarget;
 	private Vector3 impact;
 	private float impactEndTime = 0;
@@ -43,7 +43,8 @@ public class EnemyHealth : MonoBehaviour {
 		}
 	}
 
-	public void ApplyDamage(int damage){
+	public void BulletDamage(float damage){
+		print ("enemy shot!");
 		health -= damage;
 	}
 
