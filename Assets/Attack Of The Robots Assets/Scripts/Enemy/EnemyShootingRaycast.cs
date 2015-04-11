@@ -19,8 +19,8 @@ public class EnemyShootingRaycast: MonoBehaviour
 	private EnemyDetectPlayer enemyDetectPlayer;
 	private bool shooting;								// A bool to say whether or not the enemy is currently shooting.
 	private float scaledDamage;							// Amount of damage that is scaled by the distance from the player.
-//	private bool stop;
-	
+	private vp_Shooter m_Shooter;
+
 	void Awake ()
 	{
 		// Setting up the references.
@@ -36,6 +36,7 @@ public class EnemyShootingRaycast: MonoBehaviour
 		
 		// The scaledDamage is the difference between the maximum and the minimum damage.
 		scaledDamage = maximumDamage - minimumDamage;
+		m_Shooter = GetComponentInChildren<vp_Shooter> ();
 //		stop = false;
 	}
 	
@@ -47,7 +48,7 @@ public class EnemyShootingRaycast: MonoBehaviour
 		// If the shot curve is peaking and the enemy is not currently shooting...
 		if (shot > 0.5f && !shooting) {
 			// ... shoot
-			Shoot ();
+			m_Shooter.TryFire();
 		}
 		
 		// If the shot curve is no longer peaking...
@@ -76,59 +77,59 @@ public class EnemyShootingRaycast: MonoBehaviour
 		anim.SetIKPositionWeight(AvatarIKGoal.RightHand, aimWeight);
 	}
 	
-	
-	void Shoot ()
-	{
-		// The enemy is shooting.
-		shooting = true;
-
-		RaycastHit hit;
-
-		Vector3 shootDirection = gun.transform.forward;
-
-		if(enemyDetectPlayer.GetTargetedPlayer() != null){
-			shootDirection = enemyDetectPlayer.GetTargetedPlayer ().transform.position - gun.transform.position;
-			shootDirection += Random.insideUnitSphere * Random.Range(0, accuracyRadius);
-		}
-
-		if(Physics.Raycast (gun.transform.position, shootDirection.normalized, out hit, 100f)) {
-			if(hit.collider.tag == InGameTags.player){
-				// The fractional distance from the player, 1 is next to the player, 0 is the player is at the extent of the sphere collider.
-				float fractionalDistance = (col.radius - Vector3.Distance(transform.position, enemyDetectPlayer.GetTargetedPlayer ().transform.position)) / col.radius;
-				
-				// The damage is the scaled damage, scaled by the fractional distance, plus the minimum damage.
-				float damage = scaledDamage * fractionalDistance + minimumDamage;
-				
-				// The player takes damage.
-				hit.transform.gameObject.SendMessage("Damage", damage);//, SendMessageOptions.DontRequireReceiver);
-			}
-		}
-
-		// Display the shot effects.
-		if (hit.collider != null) {
-			ShotEffects (hit.point);
-		} else {
-			ShotEffects (gun.transform.position + gun.transform.forward * 100f);
-		}
-	}
-	
-	
-	void ShotEffects (Vector3 point) {
-		// Set the initial position of the line renderer to the position of the muzzle.
-		laserShotLine.SetPosition(0, laserShotLine.transform.position);
-		
-		// Set the end position of the player's centre of mass.
-		laserShotLine.SetPosition(1, point);
-		
-		// Turn on the line renderer.
-		laserShotLine.enabled = true;
-		
-		// Make the light flash.
-		laserShotLight.intensity = flashIntensity;
-		
-		// Play the gun shot clip at the position of the muzzle flare.
-		AudioSource.PlayClipAtPoint(shotClip, laserShotLight.transform.position);
-	}
+//	
+//	void Shoot ()
+//	{
+//		// The enemy is shooting.
+//		shooting = true;
+//
+//		RaycastHit hit;
+//
+//		Vector3 shootDirection = gun.transform.forward;
+//
+//		if(enemyDetectPlayer.GetTargetedPlayer() != null){
+//			shootDirection = enemyDetectPlayer.GetTargetedPlayer ().transform.position - gun.transform.position;
+//			shootDirection += Random.insideUnitSphere * Random.Range(0, accuracyRadius);
+//		}
+//
+//		if(Physics.Raycast (gun.transform.position, shootDirection.normalized, out hit, 100f)) {
+//			if(hit.collider.tag == InGameTags.player){
+//				// The fractional distance from the player, 1 is next to the player, 0 is the player is at the extent of the sphere collider.
+//				float fractionalDistance = (col.radius - Vector3.Distance(transform.position, enemyDetectPlayer.GetTargetedPlayer ().transform.position)) / col.radius;
+//				
+//				// The damage is the scaled damage, scaled by the fractional distance, plus the minimum damage.
+//				float damage = scaledDamage * fractionalDistance + minimumDamage;
+//				
+//				// The player takes damage.
+//				hit.transform.gameObject.SendMessage("Damage", damage);//, SendMessageOptions.DontRequireReceiver);
+//			}
+//		}
+//
+//		// Display the shot effects.
+//		if (hit.collider != null) {
+//			ShotEffects (hit.point);
+//		} else {
+//			ShotEffects (gun.transform.position + gun.transform.forward * 100f);
+//		}
+//	}
+//	
+//	
+//	void ShotEffects (Vector3 point) {
+//		// Set the initial position of the line renderer to the position of the muzzle.
+//		laserShotLine.SetPosition(0, laserShotLine.transform.position);
+//		
+//		// Set the end position of the player's centre of mass.
+//		laserShotLine.SetPosition(1, point);
+//		
+//		// Turn on the line renderer.
+//		laserShotLine.enabled = true;
+//		
+//		// Make the light flash.
+//		laserShotLight.intensity = flashIntensity;
+//		
+//		// Play the gun shot clip at the position of the muzzle flare.
+//		AudioSource.PlayClipAtPoint(shotClip, laserShotLight.transform.position);
+//	}
 
 	public void Stop(){
 		laserShotLight.enabled = false;
