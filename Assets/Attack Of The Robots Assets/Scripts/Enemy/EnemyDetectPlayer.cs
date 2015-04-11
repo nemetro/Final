@@ -20,10 +20,10 @@ public class EnemyDetectPlayer: MonoBehaviour{
 	private GlobalLastPlayerSighting globalLastPlayerSighting;
 
 	void Awake () {
-		nav = GetComponent<NavMeshAgent>();
-		col = GetComponent<SphereCollider>();
-		anim = GetComponent<Animator>();
-		audioSrc = GetComponent<AudioSource> ();
+		nav = transform.parent.GetComponent<NavMeshAgent>();
+		col = transform.parent.GetComponent<SphereCollider>();
+		anim = transform.parent.GetComponent<Animator>();
+		audioSrc = transform.parent.GetComponent<AudioSource> ();
 		hash = GameObject.FindGameObjectWithTag(InGameTags.gameController).GetComponent<AnimatorHashIDs>();
 		personalLastKnownLocation = resetPosition;
 		globalLastPlayerSighting = GameObject.FindGameObjectWithTag(InGameTags.gameController).GetComponent<GlobalLastPlayerSighting>();
@@ -51,11 +51,8 @@ public class EnemyDetectPlayer: MonoBehaviour{
 			// Create a vector from the enemy to the player and store the angle between it and forward.
 			Vector3 direction = target.transform.position - transform.position;
 			float angle = Vector3.Angle(direction, transform.forward);
-			print("angle: " + angle);
-			print ("fieldOfView: " + fieldOfViewAngle * 0.5f);
 			// If the angle between forward and where the player is, is less than half the angle of view...
 			if (angle < fieldOfViewAngle * 0.5f) {
-				print ("accepted");
 				RaycastHit hit;
 				
 				// ... and if a raycast towards the player from the gun and the head hits something...
@@ -70,15 +67,13 @@ public class EnemyDetectPlayer: MonoBehaviour{
 						audioSrc.Play ();
 					}
 				}
-			} else {
-				print ("declined");
 			}
 		}
 	}
 
 //TODO probably can do some neat things with linked lists to keep track of players
 	void OnTriggerEnter (Collider other){
-		if (other.gameObject.tag == InGameTags.player && other.gameObject.GetComponent<PlayerHealth>().health > 0 && target == null) {// If the player enters the trigger zone
+		if (other.gameObject.tag == InGameTags.player && other.gameObject.GetComponent<vp_FPPlayerDamageHandler>().CurrentHealth > 0 && target == null) {// If the player enters the trigger zone
 			target = other.gameObject;
 			personalLastKnownLocation = target.transform.position;
 		}
@@ -92,12 +87,11 @@ public class EnemyDetectPlayer: MonoBehaviour{
 	
 	void OnTriggerStay (Collider other){
 		if (other.tag == InGameTags.enemy && personalLastKnownLocation != resetPosition) {
-			if(other.transform.root.GetComponent<EnemyDetectPlayer>().playerInSight == false 
-			   || other.transform.root.GetComponent<EnemyDetectPlayer>().personalLastKnownLocation == resetPosition){
-
+			EnemyDetectPlayer otherEnemyDetectPlayer = other.transform.root.GetComponentInChildren<EnemyDetectPlayer>();
+			if(otherEnemyDetectPlayer.playerInSight == false || otherEnemyDetectPlayer.personalLastKnownLocation == resetPosition){
 				if(CalculatePathLength(other.transform.position) <= col.radius/1.2f){ //make sure the other robot is in range
-					other.transform.root.GetComponent<EnemyDetectPlayer>().personalLastKnownLocation = personalLastKnownLocation;
-					other.transform.root.GetComponent<EnemyDetectPlayer>().playerInSight = true;
+					otherEnemyDetectPlayer.personalLastKnownLocation = personalLastKnownLocation;
+					otherEnemyDetectPlayer.playerInSight = true;
 				}
 			}
 		}
@@ -140,7 +134,7 @@ public class EnemyDetectPlayer: MonoBehaviour{
 	}
 
 	float GetTargetPlayerHeath(){
-		return target.GetComponent<PlayerHealth> ().health;
+		return target.GetComponent<vp_FPPlayerDamageHandler> ().CurrentHealth;
 	}
 
 	public bool HasValidTarget(){

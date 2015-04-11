@@ -29,7 +29,7 @@ public class EnemyShootingRaycast: MonoBehaviour
 		laserShotLight = laserShotLine.gameObject.GetComponent<Light>();
 		col = GetComponent<SphereCollider>();
 		hash = GameObject.FindGameObjectWithTag(InGameTags.gameController).GetComponent<AnimatorHashIDs>();
-		enemyDetectPlayer = GetComponent<EnemyDetectPlayer> ();
+		enemyDetectPlayer = GetComponentInChildren<EnemyDetectPlayer> ();
 		// The line renderer and light are off to start.
 		laserShotLine.enabled = false;
 		laserShotLight.intensity = 0f;
@@ -100,7 +100,7 @@ public class EnemyShootingRaycast: MonoBehaviour
 				float damage = scaledDamage * fractionalDistance + minimumDamage;
 				
 				// The player takes damage.
-				hit.transform.gameObject.GetComponent<PlayerHealth>().TakeDamage(damage);
+				hit.transform.gameObject.SendMessage("Damage", damage);//, SendMessageOptions.DontRequireReceiver);
 			}
 		}
 

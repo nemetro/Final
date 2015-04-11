@@ -15,7 +15,7 @@ public class EnemyAnimation : MonoBehaviour
 	void Awake ()
 	{
 		// Setting up the references.
-		enemyDetectPlayer = GetComponent<EnemyDetectPlayer>();
+		enemyDetectPlayer = GetComponentInChildren<EnemyDetectPlayer>();
 		nav = GetComponent<NavMeshAgent>();
 		anim = GetComponent<Animator>();
 		hash = GameObject.FindGameObjectWithTag(InGameTags.gameController).GetComponent<AnimatorHashIDs>();
