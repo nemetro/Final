@@ -7,7 +7,7 @@ public class PlayerInteraction : MonoBehaviour {
 	public InputDevice controller;
 	public Camera playerCamera;
 
-	private Text onScreen;
+	private Text onScreenHints;
 
 
 	// Use this for initialization
@@ -21,7 +21,11 @@ public class PlayerInteraction : MonoBehaviour {
 	}
 
 	void Awake(){
-		onScreen = GameObject.Find ("Hints").GetComponent<Text>();
+		if (GameObject.Find ("Hints") != null) {
+			onScreenHints = GameObject.Find ("Hints").GetComponent<Text> ();
+		} else {
+			onScreenHints = null;
+		}
 	}
 	
 	// Update is called once per frame
@@ -34,19 +38,25 @@ public class PlayerInteraction : MonoBehaviour {
 		
 		if (Physics.Raycast (playerCamera.transform.position, playerCamera.transform.forward, out interactableHit, 2.0f, environmentMask)) {
 			if(interactableHit.transform.tag == InGameTags.door){
-				onScreen.text = "Press 'E' To Use Door";
+				if(onScreenHints != null){
+					onScreenHints.text = "Press 'E' To Use Door";
+				}
 				if (interactKeyDown) {
 					interactableHit.transform.GetComponent<OpenDoor> ().ToggleTheDoor ();
 				}
 			} else if (interactableHit.transform.tag == InGameTags.deactivateSwitch) { 
-				onScreen.text = "Press 'E' To Deactivate Laser Door";
+				if(onScreenHints != null){
+					onScreenHints.text = "Press 'E' To Use Door";
+				}
 				if (interactKeyDown) {
 					GameObject player = this.gameObject;
 					interactableHit.transform.GetComponent<LaserDoorSwitchDeactivate>().TurnOffLaserDoor (player);
 				}
 			}
 		} else {
-			onScreen.text = "";
+			if(onScreenHints != null){
+				onScreenHints.text = "Press 'E' To Use Door";
+			}
 		}
 	}
 }
