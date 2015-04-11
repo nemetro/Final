@@ -17,7 +17,7 @@ public class EnemyAI : MonoBehaviour
 	public int wayPointIndex;								// A counter for the way point array.
 
 	void Awake () {
-		enemyDetectPlayer = GetComponent<EnemyDetectPlayer>();
+		enemyDetectPlayer = GetComponentInChildren<EnemyDetectPlayer>();
 		nav = GetComponent<NavMeshAgent>();
 	}
 	

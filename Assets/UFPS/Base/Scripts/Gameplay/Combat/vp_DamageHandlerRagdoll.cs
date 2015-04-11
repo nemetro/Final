@@ -313,7 +313,7 @@ public class vp_DamageHandlerRagdoll : vp_DamageHandler
 		print ("robot disabled");
 		transform.root.GetComponent<EnemyAI>().enabled = false;
 		transform.root.GetComponent<EnemyAnimation>().enabled = false;
-		transform.root.GetComponent<EnemyDetectPlayer>().Stop ();
+		transform.root.GetComponentInChildren<EnemyDetectPlayer>().Stop ();
 		transform.root.GetComponent<EnemyShootingRaycast>().Stop();
 		transform.root.GetComponent<NavMeshAgent>().enabled = false;
 
