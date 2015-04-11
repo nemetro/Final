@@ -61,14 +61,14 @@ public class WeaponMechanics : MonoBehaviour {
 		gunStartRot = gun.transform.localRotation;
 		crowbarStartLoc = crowbar.transform.localPosition;
 		crowbarStartRot = crowbar.transform.localRotation;
-	}
 
-	void Update () {
-	
 		if (controller == null)
 		{
 			controller = InputManager.Devices[0];
 		}
+	}
+
+	void Update () {
 		attackCooldown -= Time.deltaTime;
 		meleeAttackCooldown -= Time.deltaTime;
 

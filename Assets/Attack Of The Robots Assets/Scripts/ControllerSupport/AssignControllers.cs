@@ -9,17 +9,14 @@ public class AssignControllers : MonoBehaviour {
 	public GameObject[] players;
 	int numPlayers;
 
-	void Start()
-	{
-		if (GameObject.Find("PlayerAssign") == null)
-		{
+	void Start() {
+		if (GameObject.Find("PlayerAssign") == null) {
 			GameObject.Find("SensitivityTracker").SetActive(false);
 			return;
 		}
 		controllers = GameObject.Find("PlayerAssign").GetComponent<GetControllers>().players;
 		numPlayers = GameObject.Find("PlayerAssign").GetComponent<GetControllers>().numPlayers;
-		for (int cur_player = 0; cur_player < numPlayers; cur_player++)
-		{
+		for (int cur_player = 0; cur_player < numPlayers; cur_player++) {
 			players[cur_player].gameObject.SetActive(true);
 			players[cur_player].GetComponent<PlayerAnimationMovement>().controller = controllers[cur_player];
 			MouseLookController[] look = players[cur_player].GetComponentsInChildren<MouseLookController>();
@@ -38,8 +35,7 @@ public class AssignControllers : MonoBehaviour {
 		GameObject.Find("SensitivityTracker").SetActive(false);
 	}
 	
-	public void setSens(GameObject sens)
-	{
+	public void setSens(GameObject sens) {
 		//print ("a");
 		for (int cur_player = 0; cur_player < numPlayers; cur_player++)
 		{
