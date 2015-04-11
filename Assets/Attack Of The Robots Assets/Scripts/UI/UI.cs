@@ -7,6 +7,8 @@ public class UI : MonoBehaviour {
 
 	public enum split {horizontal, vertical};
 	public split splitSetting = split.horizontal;
+	public float energyCooldown;
+	public int cooldownTracker;
 
 	private bool init = false;
 	private int MaxHealth;
@@ -32,6 +34,8 @@ public class UI : MonoBehaviour {
 	void Start () {
 		DontDestroyOnLoad(this);
 		init = false;
+		energyCooldown = 1f;
+		cooldownTracker = 1;
 		
 		for(int i=0; i<4; i++){
 			Text tempH = transform.Find("Health"+i.ToString()).gameObject.GetComponent<Text>();
@@ -63,12 +67,20 @@ public class UI : MonoBehaviour {
 			MaxHealth = Level.players[0].MAXHEALTH;
 		}
 		
+		energyCooldown -= Time.deltaTime;
+		
 		foreach(Player player in Level.players){
 			
 			string newhealth = "";//"Player " + (p+1).ToString() + ": ";
 						
 			for(int i = 0; i<player.health; i++){
 				newhealth += '-';
+			}
+					
+			if (energyCooldown <= 0) {
+				//add a tick to the UI
+				cooldownTracker++;
+				energyCooldown = 1f;
 			}
 			
 			healthTxts[p].text = newhealth;
