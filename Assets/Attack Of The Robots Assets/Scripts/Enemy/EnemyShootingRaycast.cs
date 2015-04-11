@@ -49,7 +49,6 @@ public class EnemyShootingRaycast: MonoBehaviour
 		if (shot > 0.5f && !shooting) {
 			// ... shoot
 			m_Shooter.TryFire();
-			ShotEffects(gun.transform.position + gun.transform.forward * 15);
 		}
 		
 		// If the shot curve is no longer peaking...
