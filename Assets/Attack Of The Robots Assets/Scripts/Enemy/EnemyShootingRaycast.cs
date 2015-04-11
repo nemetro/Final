@@ -49,6 +49,7 @@ public class EnemyShootingRaycast: MonoBehaviour
 		if (shot > 0.5f && !shooting) {
 			// ... shoot
 			m_Shooter.TryFire();
+			ShotEffects(gun.transform.position + gun.transform.forward * 15);
 		}
 		
 		// If the shot curve is no longer peaking...
@@ -114,22 +115,22 @@ public class EnemyShootingRaycast: MonoBehaviour
 //	}
 //	
 //	
-//	void ShotEffects (Vector3 point) {
-//		// Set the initial position of the line renderer to the position of the muzzle.
-//		laserShotLine.SetPosition(0, laserShotLine.transform.position);
-//		
-//		// Set the end position of the player's centre of mass.
-//		laserShotLine.SetPosition(1, point);
-//		
-//		// Turn on the line renderer.
-//		laserShotLine.enabled = true;
-//		
-//		// Make the light flash.
-//		laserShotLight.intensity = flashIntensity;
-//		
-//		// Play the gun shot clip at the position of the muzzle flare.
-//		AudioSource.PlayClipAtPoint(shotClip, laserShotLight.transform.position);
-//	}
+	void ShotEffects (Vector3 point) {
+		// Set the initial position of the line renderer to the position of the muzzle.
+		laserShotLine.SetPosition(0, laserShotLine.transform.position);
+		
+		// Set the end position of the player's centre of mass.
+		laserShotLine.SetPosition(1, point);
+		
+		// Turn on the line renderer.
+		laserShotLine.enabled = true;
+		
+		// Make the light flash.
+		laserShotLight.intensity = flashIntensity;
+		
+		// Play the gun shot clip at the position of the muzzle flare.
+		AudioSource.PlayClipAtPoint(shotClip, laserShotLight.transform.position);
+	}
 
 	public void Stop(){
 		laserShotLight.enabled = false;
