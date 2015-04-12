@@ -3,9 +3,9 @@ using System.Collections;
 using UnityEngine.UI;
 
 public class SensitivityTracker : MonoBehaviour {
-
+	
 	public float[] playerSens;
-
+	
 	// Use this for initialization
 	void Start () 
 	{
@@ -13,7 +13,7 @@ public class SensitivityTracker : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update() 
+	public void UpdateSensitivites() 
 	{
 		for (int i = 0; i < playerSens.Length; i++)
 		{
@@ -21,7 +21,6 @@ public class SensitivityTracker : MonoBehaviour {
 			if (slider != null)
 			{
 				playerSens[i] = slider.GetComponent<Slider>().value;
-				
 			}
 		}
 		GameObject assign = GameObject.Find("AssignConts");
