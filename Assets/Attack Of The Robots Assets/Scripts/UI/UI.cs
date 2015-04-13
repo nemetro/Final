@@ -75,7 +75,9 @@ public class UI : MonoBehaviour {
 
 			if(player.health < MaxHealth/3)
 				healthTxts[p].color = Color.red;
-			else healthTxts[p].color = Color.white;
+			else if (player.health < 2 * MaxHealth/3)
+				healthTxts[p].color = Color.yellow;
+			else healthTxts[p].color = Color.green;
 			
 			string newammo = player.weaponScript.numGnades + " \n" 
 								+ player.weaponScript.bulletsInClip.ToString() 

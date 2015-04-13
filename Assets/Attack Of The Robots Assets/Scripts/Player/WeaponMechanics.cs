@@ -149,12 +149,10 @@ public class WeaponMechanics : MonoBehaviour {
 			if(bulletsInClip < maxBulletsInClip && numBullets != 0 && attackCooldown <= 0 && controller.Action3.WasPressed){
 				attackCooldown = reloadTime;
 				weapSnd.PlayOneShot(reloadSound);
-				bulletsInClip = maxBulletsInClip;
-				if(numBullets >= maxBulletsInClip){
-					numBullets -= maxBulletsInClip;
-				} else {
-					bulletsInClip = numBullets;
-					numBullets = 0;
+				while (bulletsInClip != maxBulletsInClip && numBullets != 0)
+				{
+					bulletsInClip++;
+					numBullets--;
 				}
 				AnimateGunReload();
 			}
