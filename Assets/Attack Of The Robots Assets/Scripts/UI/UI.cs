@@ -5,17 +5,12 @@ using System.Collections.Generic;
 
 public class UI : MonoBehaviour {
 
-	public enum split {horizontal, vertical};
-	public split splitSetting = split.horizontal;
-
 	private bool init = false;
 	private int MaxHealth;
 	
 	private List<Text> healthTxts = new List<Text>();
 	private List<Text> ammoTxts = new List<Text>();
 	private List<RawImage> crossImgs = new List<RawImage>();
-	
-	private List<Rect> cameraRects = new List<Rect>();
 	
 	private List<Vector2> crossMins = new List<Vector2>();
 	private List<Vector2> crossMaxs = new List<Vector2>();
@@ -26,6 +21,10 @@ public class UI : MonoBehaviour {
 	
 	private List<Vector2> ammoMins = new List<Vector2>();
 	private List<Vector2> ammoMaxs = new List<Vector2>();
+	
+//	private List<GameObject> ones = new List<GameObject>();
+//	private List<GameObject> twos = new List<GameObject>();
+//	private List<GameObject> threes = new List<GameObject>();
 	
 	public Text hints;
 
@@ -59,13 +58,13 @@ public class UI : MonoBehaviour {
 	void Update () {
 		int p=0;
 		
-		if(init == false){
+		/*if(init == false){
 			MaxHealth = Level.players[0].MAXHEALTH;
-		}
+		}*/
 		
 		foreach(Player player in Level.players){
 			
-			string newhealth = "";//"Player " + (p+1).ToString() + ": ";
+			/*string newhealth = "";//"Player " + (p+1).ToString() + ": ";
 						
 			for(int i = 0; i<player.health; i++){
 				newhealth += '-';
@@ -85,7 +84,7 @@ public class UI : MonoBehaviour {
 								+ player.weaponScript.numBullets.ToString() + " ";
 			
 			ammoTxts[p].text = newammo;
-			
+			*/
 			p++;
 		}
 		
@@ -110,8 +109,6 @@ public class UI : MonoBehaviour {
 		switch(p){
 		case 1:
 			print("1 Player");
-			//cam
-			cameraRects.Add(tempCam);
 			//cross
 			crossMins.Add(tempXMin);
 			crossMaxs.Add(tempXMax);
@@ -125,14 +122,7 @@ public class UI : MonoBehaviour {
 			break;
 		case 2:
 			print("2 Players");
-			if(splitSetting == split.vertical){
-				//cam1
-				tempCam = new Rect(-0.5f, 0f, 1f, 1f);
-				cameraRects.Add(tempCam);
-				//cam2
-				tempCam = new Rect(0.5f, 0f, 1f, 1f);
-				cameraRects.Add(tempCam);
-				
+			if(ScreenConstants.splitSetting == ScreenConstants.split.vertical){
 				//cross1
 				tempXMin = new Vector2(0f,0f);
 				tempXMax = new Vector2(0.5f,1f);
@@ -170,13 +160,6 @@ public class UI : MonoBehaviour {
 			}
 			//horizontal split
 			else{
-				//cam1
-				tempCam = new Rect(0f, 0.5f, 1f, 1f);
-				cameraRects.Add(tempCam);
-				//cam2
-				tempCam = new Rect(0f, -0.5f, 1f, 1f);
-				cameraRects.Add(tempCam);
-				
 				//cross1
 				tempXMin = new Vector2(0f,0.5f);
 				tempXMax = new Vector2(1f,1f);
@@ -216,17 +199,7 @@ public class UI : MonoBehaviour {
 			break;
 		case 3:
 			print("3 Players");
-			if(splitSetting == split.vertical){
-				//cam1
-				tempCam = new Rect(-0.5f, 0f, 1f, 1f);
-				cameraRects.Add(tempCam);
-				//cam2
-				tempCam = new Rect(0.5f, 0.5f, 1f, 1f);
-				cameraRects.Add(tempCam);
-				//cam3
-				tempCam = new Rect(0.5f, -0.5f, 1f, 1f);
-				cameraRects.Add(tempCam);
-				
+			if(ScreenConstants.splitSetting == ScreenConstants.split.vertical){
 				//cross1
 				tempXMin = new Vector2(0f,0f);
 				tempXMax = new Vector2(0.5f,1f);
@@ -283,16 +256,6 @@ public class UI : MonoBehaviour {
 			}
 			//horizontal split
 			else{
-				//cam1
-				tempCam = new Rect(0f, 0.5f, 1f, 1f);
-				cameraRects.Add(tempCam);
-				//cam2
-				tempCam = new Rect(-0.5f, -0.5f, 1f, 1f);
-				cameraRects.Add(tempCam);
-				//cam3
-				tempCam = new Rect(0.5f, -0.5f, 1f, 1f);
-				cameraRects.Add(tempCam);
-				
 				//cross1
 				tempXMin = new Vector2(0f,0.5f);
 				tempXMax = new Vector2(1f,1f);
@@ -353,30 +316,30 @@ public class UI : MonoBehaviour {
 			break;
 		}
 		int n = 0;
-		foreach(Player player in Level.players){
-			//cam
-			player.cam.rect = cameraRects[n];
-			
-			//cross			
-			crossImgs[n].rectTransform.anchorMin = crossMins[n];
-			crossImgs[n].rectTransform.anchorMax = crossMaxs[n];
-			crossImgs[n].rectTransform.localScale = crossScale[n];
-			
-			//health
-			healthTxts[n].rectTransform.anchorMin = healthMins[n];
-			healthTxts[n].rectTransform.anchorMax = healthMaxs[n];
-			
-			//ammo
-			ammoTxts[n].rectTransform.anchorMin = ammoMins[n];
-			ammoTxts[n].rectTransform.anchorMax = ammoMaxs[n];
-			
-			n++;
-		}
-		for(int i=p; i<4; i++){
-			crossImgs[i].enabled = false;
-			healthTxts[i].text = "";
-			ammoTxts[i].text = "";
-		}
+//		foreach(Player player in Level.players){
+//			//cam
+//			player.cam.rect = cameraRects[n];
+//			
+//			//cross			
+//			crossImgs[n].rectTransform.anchorMin = crossMins[n];
+//			crossImgs[n].rectTransform.anchorMax = crossMaxs[n];
+//			crossImgs[n].rectTransform.localScale = crossScale[n];
+//			
+//			//health
+//			healthTxts[n].rectTransform.anchorMin = healthMins[n];
+//			healthTxts[n].rectTransform.anchorMax = healthMaxs[n];
+//			
+//			//ammo
+//			ammoTxts[n].rectTransform.anchorMin = ammoMins[n];
+//			ammoTxts[n].rectTransform.anchorMax = ammoMaxs[n];
+//			
+//			n++;
+//		}
+//		for(int i=p; i<4; i++){
+//			crossImgs[i].enabled = false;
+//			healthTxts[i].text = "";
+//			ammoTxts[i].text = "";
+//		}
 		
 		init = true;
 	}

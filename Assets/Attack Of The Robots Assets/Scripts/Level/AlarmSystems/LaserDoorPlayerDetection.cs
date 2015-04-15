@@ -23,7 +23,8 @@ public class LaserDoorPlayerDetection : MonoBehaviour
 			// ... and if the colliding gameobject is the player...
 			if (other.gameObject == player){
 				// ... set the last global sighting of the player to the colliding object's position.
-				player.GetComponent<PlayerHealth>().TakeDamage(120);
+				//TODO
+//				player.GetComponent<PlayerHealth>().TakeDamage(120);
 //				lastPlayerSighting.position = other.transform.position; //turn on the alarm
 				GetComponent<AudioSource>().PlayOneShot (hurtPlayerSound);
 			}

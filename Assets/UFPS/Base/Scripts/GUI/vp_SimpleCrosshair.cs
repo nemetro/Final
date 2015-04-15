@@ -21,6 +21,8 @@ public class vp_SimpleCrosshair : MonoBehaviour
 	public bool HideOnFirstPersonZoom = true;
 	public bool HideOnDeath = true;
 	
+	private int playerNum = -1;
+	
 	protected vp_FPPlayerEventHandler m_Player = null;
 	
 	
@@ -63,7 +65,9 @@ public class vp_SimpleCrosshair : MonoBehaviour
 	/// </summary>
 	void OnGUI()
 	{
-
+		if(playerNum == -1)
+			playerNum = this.GetComponent<Player>().num;
+			
 		if (m_ImageCrosshair == null)
 			return;
 
@@ -74,9 +78,9 @@ public class vp_SimpleCrosshair : MonoBehaviour
 			return;
 
 		GUI.color = new Color(1, 1, 1, 0.8f);
-		GUI.DrawTexture(new Rect((Screen.width * 0.5f) - (m_ImageCrosshair.width * 0.5f),
-			(Screen.height * 0.5f) - (m_ImageCrosshair.height * 0.5f), m_ImageCrosshair.width,
-			m_ImageCrosshair.height), m_ImageCrosshair);
+		
+		GUI.DrawTexture(ScreenConstants.currentCross[playerNum], m_ImageCrosshair);
+		
 		GUI.color = Color.white;
 	
 	}
