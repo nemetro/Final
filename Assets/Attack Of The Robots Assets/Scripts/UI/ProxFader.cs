@@ -17,7 +17,6 @@ public class ProxFader : MonoBehaviour {
 
 	void Start () {
 		enemyMask = LayerMask.GetMask("Enemy");
-		print ("Start");
 		gui.color = new Color(255f, 255f, 255f, 0f);
 		gui.texture = PainTexture;
 		
@@ -34,10 +33,8 @@ public class ProxFader : MonoBehaviour {
 			Collider[] enemies = Physics.OverlapSphere (this.transform.position, radius, enemyMask);
 			foreach (Collider enemy in enemies) {
 				if(enemy.transform.root.GetComponent<vp_DamageHandlerRagdoll>().CurrentHealth > 0){
-					//					print((enemy.transform.position - this.transform.position).sqrMagnitude);
 					
 					float tempAlpha = scale*(radius*radius - ((enemy.transform.position - this.transform.position).sqrMagnitude));
-					print(tempAlpha);
 					if(tempAlpha > alpha)
 						alpha = tempAlpha;
 				}
