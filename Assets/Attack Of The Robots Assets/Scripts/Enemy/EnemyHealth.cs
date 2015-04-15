@@ -23,12 +23,14 @@ public class EnemyHealth : MonoBehaviour {
 			helper.ragdolled=true;
 
 			//disable enemy tracking
+			//print ("asdf");
 			print ("robot disabled");
 			transform.root.GetComponent<EnemyAI>().enabled = false;
 			transform.root.GetComponent<EnemyAnimation>().enabled = false;
 			transform.root.GetComponent<EnemyDetectPlayer>().Stop ();
 			transform.root.GetComponent<EnemyShootingRaycast>().Stop();
 			transform.root.GetComponent<NavMeshAgent>().enabled = false;
+
 			//the impact will be reapplied for the next 250ms
 			//to make the connected objects follow even though the simulated body joints
 			//might stretch
@@ -40,6 +42,7 @@ public class EnemyHealth : MonoBehaviour {
 		if (dead && Time.time<impactEndTime)
 		{
 			impactTarget.AddForce(impact,ForceMode.VelocityChange);
+
 		}
 	}
 

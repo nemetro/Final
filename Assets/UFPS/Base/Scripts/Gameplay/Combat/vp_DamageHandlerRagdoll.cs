@@ -332,6 +332,14 @@ public class vp_DamageHandlerRagdoll : vp_DamageHandler
 //		transform.root.GetComponent<EnemyShootingRaycast>().Stop();
 //		transform.root.GetComponent<NavMeshAgent>().enabled = false;
 
+		/*
+		gameObject.layer = 0;
+		foreach(Transform child in transform) {
+			if(child.gameObject.layer == LayerMask.NameToLayer("Enemy")) {
+				child.gameObject.layer = 0;
+			}
+		}*/
+
 //		if (!enabled || !vp_Utility.IsActive(gameObject))
 //			return;
 //
