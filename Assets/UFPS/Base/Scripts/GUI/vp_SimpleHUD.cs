@@ -13,14 +13,24 @@
 
 
 using UnityEngine;
+using UnityEngine.UI;
 using System.Collections.Generic;
 
 public class vp_SimpleHUD : MonoBehaviour
 {
 
 	public bool ShowHUD = true;
-
+	private int playerNum = -1;
 	protected vp_FPPlayerEventHandler m_Player = null;
+	
+	//Troy's
+	public bool dynamic = true;
+	public Canvas health = null;
+	public Canvas ammo = null;
+	private Text healthTxt = null;
+	private Text clipTxt = null;
+	private Text totalTxt = null;
+	private RawImage icon = null;
 
 	// gui
 	public Font BigFont;
@@ -66,69 +76,76 @@ public class vp_SimpleHUD : MonoBehaviour
 
 	// ---- styles ---
 
-	protected static GUIStyle m_MessageStyle = null;
-	public GUIStyle MessageStyle
-	{
-		get
+		protected static GUIStyle m_MessageStyle = null;
+		public GUIStyle MessageStyle
 		{
-			if (m_MessageStyle == null)
+			get
 			{
-				m_MessageStyle = new GUIStyle("Label");
-				m_MessageStyle.alignment = TextAnchor.MiddleCenter;
-				m_MessageStyle.font = MessageFont;
+				if (m_MessageStyle == null)
+				{
+					m_MessageStyle = new GUIStyle("Label");
+					m_MessageStyle.alignment = TextAnchor.MiddleCenter;
+					m_MessageStyle.font = MessageFont;
+				}
+				return m_MessageStyle;
 			}
-			return m_MessageStyle;
 		}
-	}
-
-	protected GUIStyle m_HealthStyle = null;
-	public GUIStyle HealthStyle
-	{
-		get
+	
+		protected GUIStyle m_HealthStyle = null;
+		public GUIStyle HealthStyle
 		{
-			if (m_HealthStyle == null)
+			get
 			{
-				m_HealthStyle = new GUIStyle("Label");
-				m_HealthStyle.font = BigFont;
-				m_HealthStyle.alignment = TextAnchor.MiddleRight;
-				m_HealthStyle.fontSize = 28;
-				m_HealthStyle.wordWrap = false;
+				if (m_HealthStyle == null)
+				{
+					m_HealthStyle = new GUIStyle("Label");
+					m_HealthStyle.font = BigFont;
+					m_HealthStyle.alignment = TextAnchor.MiddleRight;
+					m_HealthStyle.fontSize = 28;
+					m_HealthStyle.wordWrap = false;
+				}
+				return m_HealthStyle;
 			}
-			return m_HealthStyle;
 		}
-	}
-	protected GUIStyle m_AmmoStyle = null;
-	public GUIStyle AmmoStyle
-	{
-		get
+		protected GUIStyle m_AmmoStyle = null;
+		public GUIStyle AmmoStyle
 		{
-			if (m_AmmoStyle == null)
+			get
 			{
-				m_AmmoStyle = new GUIStyle("Label");
-				m_AmmoStyle.font = BigFont;
-				m_AmmoStyle.alignment = TextAnchor.MiddleRight;
-				m_AmmoStyle.fontSize = 28;
-				m_AmmoStyle.wordWrap = false;
+				if (m_AmmoStyle == null)
+				{
+					m_AmmoStyle = new GUIStyle("Label");
+					m_AmmoStyle.font = BigFont;
+					m_AmmoStyle.alignment = TextAnchor.MiddleRight;
+					m_AmmoStyle.fontSize = 28;
+					m_AmmoStyle.wordWrap = false;
+				}
+				return m_AmmoStyle;
 			}
-			return m_AmmoStyle;
 		}
-	}
-
-	protected GUIStyle m_AmmoStyleSmall = null;
-	public GUIStyle AmmoStyleSmall
-	{
-		get
+	
+		protected GUIStyle m_AmmoStyleSmall = null;
+		public GUIStyle AmmoStyleSmall
 		{
-			if (m_AmmoStyleSmall == null)
+			get
 			{
-				m_AmmoStyleSmall = new GUIStyle("Label");
-				m_AmmoStyleSmall.font = SmallFont;
-				m_AmmoStyleSmall.alignment = TextAnchor.UpperLeft;
-				m_AmmoStyleSmall.fontSize = 15;
-				m_AmmoStyleSmall.wordWrap = false;
+				if (m_AmmoStyleSmall == null)
+				{
+					m_AmmoStyleSmall = new GUIStyle("Label");
+					m_AmmoStyleSmall.font = SmallFont;
+					m_AmmoStyleSmall.alignment = TextAnchor.UpperLeft;
+					m_AmmoStyleSmall.fontSize = 15;
+					m_AmmoStyleSmall.wordWrap = false;
+				}
+				return m_AmmoStyleSmall;
 			}
-			return m_AmmoStyleSmall;
 		}
+		
+	void Start(){
+		healthTxt = health.transform.Find("Value").gameObject.GetComponent<Text>();	
+		clipTxt = ammo.transform.Find("Clip").gameObject.GetComponent<Text>();	
+		totalTxt = ammo.transform.Find("Total").gameObject.GetComponent<Text>();
+		icon = ammo.transform.Find("Icon").gameObject.GetComponent<RawImage>();
 	}
 
 
@@ -137,7 +154,7 @@ public class vp_SimpleHUD : MonoBehaviour
 	/// </summary>
 	protected virtual void Awake()
 	{
-
+	
 		m_Player = transform.GetComponent<vp_FPPlayerEventHandler>();
 		m_Audio = m_Player.transform.GetComponent<AudioSource>();
 
@@ -193,7 +210,23 @@ public class vp_SimpleHUD : MonoBehaviour
 	/// </summary>
 	void Update()
 	{
-
+		if(playerNum == -1){
+		
+			playerNum = this.GetComponent<Player>().num;
+			
+//			health.pixelRect = new Rect(ScreenConstants.currentHealths[playerNum].x, ScreenConstants.currentHealths[playerNum].y, 
+//			                            ScreenConstants.currentHealths[playerNum].z, ScreenConstants.currentHealths[playerNum].w);
+//			health.GetComponent<RectTransform>().anchorMin = new Vector2(ScreenConstants.currentHealths[playerNum].x, ScreenConstants.currentHealths[playerNum].y, 
+//			                                                ScreenConstants.currentHealths[playerNum].z, ScreenConstants.currentHealths[playerNum].w);;
+//			ammo.pixelRect.xMin = ScreenConstants.currentAmmos[playerNum].x;
+//			ammo.pixelRect.xMax = ScreenConstants.currentAmmos[playerNum].z;
+//			ammo.pixelRect.yMin = ScreenConstants.currentAmmos[playerNum].y;
+//			ammo.pixelRect.yMax = ScreenConstants.currentAmmos[playerNum].w;
+			
+		}
+			
+		
+			
 		// update smooth movement values for sliding in and out of screen
 		m_CurrentAmmoOffset = Mathf.SmoothStep(m_CurrentAmmoOffset, m_TargetAmmoOffset, Time.deltaTime * 10);
 		m_CurrentHealthOffset = Mathf.SmoothStep(m_CurrentHealthOffset, m_TargetHealthOffset, Time.deltaTime * 10);
@@ -238,57 +271,155 @@ public class vp_SimpleHUD : MonoBehaviour
 	/// </summary>
 	protected virtual void OnGUI()
 	{
-
-		if (!ShowHUD)
-			return;
-		
-		DrawHealth();
-
-		DrawAmmo();
-
-		DrawText();
+		if (!ShowHUD || playerNum == -1 || dynamic)
+			return;	
+		switch(Level.players.Count){
+		case 1:
+			DrawHealthOne();
+			DrawAmmoOne();
+			break;
+		case 2:
+			switch(playerNum){
+			case 0:
+				DrawHealthOne();
+				DrawAmmoOne();
+				break;
+			case 1:
+				DrawHealthOne();
+				DrawAmmoOne();
+				break;
+			default:
+				print ("OOPS");
+				break;
+			}
+			break;
+		default:
+			print ("OOPS");
+			break;
+		}
+		//TODO?
+//		DrawText();
 
 	}
-
 
 	/// <summary>
 	/// displays a simple 'Health' HUD
 	/// </summary>
-	void DrawHealth()
+	void DrawHealthOne()
 	{
-
-		DrawLabel("", new Vector2(m_CurrentHealthOffset, Screen.height - 68), new Vector2(80 + m_HealthWidth, 52), AmmoStyle, Color.white, m_TranspBlack, null);	// background
+		//background
+		DrawLabel("", new Vector2(m_CurrentHealthOffset, Screen.height - 68),
+		          new Vector2(80 + m_HealthWidth, 52), 
+		          AmmoStyle, 
+		          Color.white, 
+		          m_TranspBlack, 
+		          null);	// background
+		
+		//icon
 		if (HealthIcon != null)
-			DrawLabel("", new Vector2(m_CurrentHealthOffset + 10, Screen.height - 58), new Vector2(32, 32), AmmoStyle, Color.white, HealthColor, HealthIcon);			// icon
-		DrawLabel(FormattedHealth, new Vector2(m_CurrentHealthOffset - 18 - (45 - m_HealthWidth), Screen.height - BigFontOffset), new Vector2(110, 60), HealthStyle, HealthColor, Color.clear, null);	// value
-		DrawLabel("%", new Vector2(m_CurrentHealthOffset + 50 + m_HealthWidth, Screen.height - SmallFontOffset), new Vector2(110, 60), AmmoStyleSmall, HealthColor, Color.clear, null);	// percentage mark
+			DrawLabel("", new Vector2(m_CurrentHealthOffset + 10, Screen.height - 58), 
+			          new Vector2(32, 32), 
+			          AmmoStyle, 
+			          Color.white, 
+			          HealthColor, 
+			          HealthIcon);	// icon
+		//value
+		DrawLabel(FormattedHealth, 
+		          new Vector2(m_CurrentHealthOffset - 18 - (45 - m_HealthWidth), Screen.height - BigFontOffset),
+		          new Vector2(110, 60),
+		          HealthStyle, 
+		          HealthColor, 
+		          Color.clear, 
+		          null);	// value
+		DrawLabel("%", new Vector2(m_CurrentHealthOffset + 50 + m_HealthWidth, Screen.height - SmallFontOffset), 
+		          new Vector2(110, 60), 
+		          AmmoStyleSmall, 
+		          HealthColor, 
+		          Color.clear, 
+		          null);	// percentage mark
 		GUI.color = Color.white;
-
+		
 	}
-
+	
 	
 	/// <summary>
 	/// displays a simple 'Ammo' HUD
 	/// </summary>
-	void DrawAmmo()
+	void DrawAmmoOne()
 	{
-
+		
 		if ((m_Player.CurrentWeaponType.Get() == (int)vp_Weapon.Type.Thrown))
 		{
-			DrawLabel("", new Vector2(m_CurrentAmmoOffset + Screen.width - 93 - (AmmoStyle.CalcSize(new GUIContent(m_Player.CurrentWeaponAmmoCount.Get().ToString())).x), Screen.height - 68), new Vector2(200, 52), AmmoStyle, AmmoColor, m_TranspBlack, null);	// background
+			//background
+			DrawLabel("", new Vector2(m_CurrentAmmoOffset + Screen.width - 93 - 
+			                          (AmmoStyle.CalcSize(new GUIContent(
+				m_Player.CurrentWeaponAmmoCount.Get().ToString())).x), Screen.height - 68), 
+			          new Vector2(200, 52), 
+			          AmmoStyle, 
+			          AmmoColor, 
+			          m_TranspBlack, 
+			          null);	// background
+			//icon
 			if (m_Player.CurrentAmmoIcon.Get() != null)
-				DrawLabel("", new Vector2(m_CurrentAmmoOffset + Screen.width - 83 - (AmmoStyle.CalcSize(new GUIContent(m_Player.CurrentWeaponAmmoCount.Get().ToString())).x), Screen.height - 58), new Vector2(32, 32), AmmoStyle, Color.white, AmmoColor, m_Player.CurrentAmmoIcon.Get());	// icon
-			DrawLabel((m_Player.CurrentWeaponAmmoCount.Get() + m_Player.CurrentWeaponClipCount.Get()).ToString(), new Vector2(m_CurrentAmmoOffset + Screen.width - 145, Screen.height - BigFontOffset), new Vector2(110, 60), AmmoStyle, AmmoColor, Color.clear, null);		// value
+				DrawLabel("", new Vector2(m_CurrentAmmoOffset + Screen.width - 83 - 
+				                          (AmmoStyle.CalcSize(new GUIContent(
+					m_Player.CurrentWeaponAmmoCount.Get().ToString())).x), Screen.height - 58), 
+				          new Vector2(32, 32), 
+				          AmmoStyle, 
+				          Color.white, 
+				          AmmoColor, 
+				          m_Player.CurrentAmmoIcon.Get());	// icon
+			//value			  
+			DrawLabel((m_Player.CurrentWeaponAmmoCount.Get() + m_Player.CurrentWeaponClipCount.Get()).ToString(),
+			          new Vector2(m_CurrentAmmoOffset + Screen.width - 145, 
+			            Screen.height - BigFontOffset), 
+			          new Vector2(110, 60), 
+			          AmmoStyle, 
+			          AmmoColor, 
+			          Color.clear, 
+			          null);		// value
 		}
 		else
 		{
-			DrawLabel("", new Vector2(m_CurrentAmmoOffset + Screen.width - 115 - (AmmoStyle.CalcSize(new GUIContent(m_Player.CurrentWeaponAmmoCount.Get().ToString())).x), Screen.height - 68), new Vector2(200, 52), AmmoStyle, AmmoColor, m_TranspBlack, null);	// background
+			//background
+			DrawLabel("", new Vector2(m_CurrentAmmoOffset + Screen.width - 115 - 
+			                          (AmmoStyle.CalcSize(new GUIContent(
+				m_Player.CurrentWeaponAmmoCount.Get().ToString())).x), 
+			                          Screen.height - 68), 
+			          new Vector2(200, 52), 
+			          AmmoStyle, 
+			          AmmoColor, 
+			          m_TranspBlack, 
+			          null);	// background
+			//icon  
 			if (m_Player.CurrentAmmoIcon.Get() != null)
-				DrawLabel("", new Vector2(m_CurrentAmmoOffset + Screen.width - 105 - (AmmoStyle.CalcSize(new GUIContent(m_Player.CurrentWeaponAmmoCount.Get().ToString())).x), Screen.height - 58), new Vector2(32, 32), AmmoStyle, Color.white, AmmoColor, m_Player.CurrentAmmoIcon.Get());	// icon
-			DrawLabel(m_Player.CurrentWeaponAmmoCount.Get().ToString(), new Vector2(m_CurrentAmmoOffset + Screen.width - 177, Screen.height - BigFontOffset), new Vector2(110, 60), AmmoStyle, AmmoColor, Color.clear, null);		// value
-			DrawLabel("/ " + m_Player.CurrentWeaponClipCount.Get().ToString(), new Vector2((m_CurrentAmmoOffset + Screen.width - 60), Screen.height - SmallFontOffset), new Vector2(110, 60), AmmoStyleSmall, AmmoColor, Color.clear, null);		// total ammo count
+				DrawLabel("", new Vector2(m_CurrentAmmoOffset + Screen.width - 105 - 
+				                          (AmmoStyle.CalcSize(new GUIContent(
+					m_Player.CurrentWeaponAmmoCount.Get().ToString())).x), 
+				                          Screen.height - 58), 
+				          new Vector2(32, 32), 
+				          AmmoStyle, 
+				          Color.white,
+				          AmmoColor, 
+				          m_Player.CurrentAmmoIcon.Get());	// icon
+			//value			  
+			DrawLabel(m_Player.CurrentWeaponAmmoCount.Get().ToString(), 
+			          new Vector2(m_CurrentAmmoOffset + Screen.width - 177, Screen.height - BigFontOffset), 
+			          new Vector2(110, 60), 
+			          AmmoStyle, 
+			          AmmoColor, 
+			          Color.clear, 
+			          null);		// value
+			//total ammo count
+			DrawLabel("/ " + m_Player.CurrentWeaponClipCount.Get().ToString(), 
+			          new Vector2((m_CurrentAmmoOffset + Screen.width - 60), Screen.height - SmallFontOffset), 
+			          new Vector2(110, 60), 
+			          AmmoStyleSmall, 
+			          AmmoColor, 
+			          Color.clear, 
+			          null);		// total ammo count
 		}
-
+		
 	}
 
 

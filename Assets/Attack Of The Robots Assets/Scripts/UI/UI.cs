@@ -22,6 +22,10 @@ public class UI : MonoBehaviour {
 	private List<Vector2> ammoMins = new List<Vector2>();
 	private List<Vector2> ammoMaxs = new List<Vector2>();
 	
+//	private List<GameObject> ones = new List<GameObject>();
+//	private List<GameObject> twos = new List<GameObject>();
+//	private List<GameObject> threes = new List<GameObject>();
+	
 	public Text hints;
 
 	void Start () {

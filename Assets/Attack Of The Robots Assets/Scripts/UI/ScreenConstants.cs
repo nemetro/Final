@@ -22,11 +22,22 @@ public class ScreenConstants : MonoBehaviour {
 	private List<Rect> twoVertCross = new List<Rect>();
 	private List<Rect> twoHorCross = new List<Rect>();
 	
+//HEALTH
+	private List<Vector4> oneHealth = new List<Vector4>();
+	private List<Vector4> twoHorHealth = new List<Vector4>();
+	
+//AMMO
+	private List<Vector4> oneAmmo = new List<Vector4>();
+	private List<Vector4> twoHorAmmo = new List<Vector4>();
+	
+	
 //STATIC
 	public static split splitSetting = split.horizontal;
 	public static List<Rect> currentCams = null;
 	public static List<Vector4> currentFaders = null;
 	public static List<Rect> currentCross = null;
+	public static List<Vector4> currentHealths = null;
+	public static List<Vector4> currentAmmos = null;
 
 	private int set = 0;
 	
@@ -67,7 +78,7 @@ public class ScreenConstants : MonoBehaviour {
 		
 	//CROSSHAIRS
 		oneCross.Add(new Rect((Screen.width * 0.5f) - (crosshair.width * 0.5f),
-		                         (Screen.height * 0.25f) - (crosshair.height * 0.5f), 
+		                         (Screen.height * 0.5f) - (crosshair.height * 0.5f), 
 		                         crosshair.width, crosshair.height));
 		                         
 		twoHorCross.Add(new Rect((Screen.width * 0.5f) - (crosshair.width * 0.5f),
@@ -84,6 +95,20 @@ public class ScreenConstants : MonoBehaviour {
 		                          (Screen.height * 0.5f) - (crosshair.height * 0.5f), 
 		                          crosshair.width, crosshair.height));
 		//TODO
+		
+	//HEALTH
+		oneHealth.Add(new Vector4(0f, 0.05f, 0.15f, 0.15f));
+		
+		twoHorHealth.Add(new Vector4(0f, 0.55f, 0.15f, 0.65f));
+		twoHorHealth.Add(new Vector4(0f, 0.05f, 0.15f, 0.15f));
+		//TODO
+		
+	//AMMO
+		oneAmmo.Add(new Vector4(0f, 0.05f, 0.15f, 0.15f));
+		
+		twoHorAmmo.Add(new Vector4(0f, 0.55f, 0.15f, 0.65f));
+		twoHorAmmo.Add(new Vector4(0f, 0.05f, 0.15f, 0.15f));
+		//TODO
 	}
 	
 	void Update()
@@ -96,12 +121,16 @@ public class ScreenConstants : MonoBehaviour {
 			currentCams = oneCam;
 			currentFaders = oneFader;
 			currentCross = oneCross;
+			currentHealths = oneHealth;
+			currentAmmos = oneAmmo;
 			break;
 		case 2:
 			if(splitSetting == split.horizontal){
 				currentCams = twoHorCam;
 				currentFaders = twoHorFader;
 				currentCross = twoHorCross;
+				currentHealths = twoHorHealth;
+				currentAmmos = twoHorAmmo;
 			}
 			else{
 				currentCams = twoVertCam;
