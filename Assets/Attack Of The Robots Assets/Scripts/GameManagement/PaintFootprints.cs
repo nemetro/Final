@@ -1,13 +1,13 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
-public class paintFootprints : MonoBehaviour {
+public class PaintFootprints : MonoBehaviour {
 	public bool walkingOnPaint;
 	public bool moving;
-	public int paintSteps = 0;
 	public GameObject footprint;
-	
-	private int maxNumPaintSteps = 20;
+	public int maxNumPaintSteps = 10;
+
+	private int paintSteps = 0;
 	private Vector3 currLoc;
 	private Vector3 prevLoc;
 	private float stepTimer = 0.2f;
