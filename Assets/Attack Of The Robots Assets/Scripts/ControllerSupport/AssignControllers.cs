@@ -13,7 +13,7 @@ public class AssignControllers : MonoBehaviour {
 	{
 		if (GameObject.Find("PlayerAssign") == null)
 		{
-			GameObject.Find("SensitivityTracker").SetActive(false);
+			//GameObject.Find("SensitivityTracker").SetActive(false);
 			return;
 		}
 		controllers = GameObject.Find("PlayerAssign").GetComponent<GetControllers>().players;
@@ -32,6 +32,9 @@ public class AssignControllers : MonoBehaviour {
 			}
 			players[cur_player].GetComponent<WeaponMechanics>().controller = controllers[cur_player];*/
 			//	players[cur_player].GetComponentInChildren<Player_Raycast>().controller = controllers[cur_player];
+			vp_FPInput look = players[cur_player].GetComponent<vp_FPInput>();
+			look.MouseLookSensitivity.x = GameObject.Find("SensitivityTracker").GetComponent<SensitivityTracker>().playerSens[cur_player];
+			look.MouseLookSensitivity.y = GameObject.Find("SensitivityTracker").GetComponent<SensitivityTracker>().playerSens[cur_player];
 			players[cur_player].GetComponent<vp_FPInput>().controller = controllers[cur_player];
 			players[cur_player].gameObject.SetActive(true);
 			print (cur_player + " assigned controller" + controllers[cur_player].Name);
@@ -41,16 +44,12 @@ public class AssignControllers : MonoBehaviour {
 	
 	public void setSens(GameObject sens)
 	{
-		//print ("a");
 		for (int cur_player = 0; cur_player < numPlayers; cur_player++)
 		{
-			players[cur_player].gameObject.SetActive(true);
-			MouseLookController[] look = players[cur_player].GetComponentsInChildren<MouseLookController>();
-			foreach (MouseLookController member in look)
-			{
-				member.sensitivityX = sens.GetComponent<SensitivityTracker>().playerSens[cur_player];
-				member.sensitivityY = sens.GetComponent<SensitivityTracker>().playerSens[cur_player];
-			}
+			//players[cur_player].gameObject.SetActive(true);
+			vp_FPInput look = players[cur_player].GetComponent<vp_FPInput>();
+			look.MouseLookSensitivity.x = sens.GetComponent<SensitivityTracker>().playerSens[cur_player];
+			look.MouseLookSensitivity.y = sens.GetComponent<SensitivityTracker>().playerSens[cur_player];
 		}
 	}
 }

@@ -46,7 +46,7 @@ public class KeyboardAndMouseProfile : UnityInputDeviceProfile
 			new InputControlMapping
 			{
 				Handle = "Sprint",
-				Target = InputControlType.RightBumper,
+				Target = InputControlType.LeftStickButton,
 				Source = KeyCodeButton( KeyCode.LeftShift )
 			},
 			new InputControlMapping
@@ -70,7 +70,7 @@ public class KeyboardAndMouseProfile : UnityInputDeviceProfile
 			new InputControlMapping
 			{
 				Handle = "Crouch",
-				Target = InputControlType.LeftStickButton,
+				Target = InputControlType.RightStickButton,
 				Source = KeyCodeButton( KeyCode.LeftControl )
 			},
 			new InputControlMapping

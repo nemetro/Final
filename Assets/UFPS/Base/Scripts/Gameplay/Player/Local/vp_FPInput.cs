@@ -18,6 +18,7 @@ public class vp_FPInput : vp_Component
 {
 	//integration with InControl instead of using fp input
 	public InputDevice controller;
+	public bool paused = false;
 
 	// mouse look
 	public Vector2 MouseLookSensitivity = new Vector2(5.0f, 5.0f);
@@ -265,8 +266,8 @@ public class vp_FPInput : vp_Component
 
 		// if mouse cursor is visible, an extra click is needed
 		// before we can attack
-		if (!vp_Utility.LockCursor)
-			return;
+		/*if (!vp_Utility.LockCursor)
+			return;*/
 
 		if (controller.RightTrigger.IsPressed)
 			FPPlayer.Attack.TryStart();
@@ -332,8 +333,20 @@ public class vp_FPInput : vp_Component
 	protected virtual void UpdatePause()
 	{
 
-		/*if (controller.MenuWasPressed)
-			FPPlayer.Pause.Set(!FPPlayer.Pause.Get());*/
+		if (controller.MenuWasPressed && !paused)
+		{
+			FPPlayer.Pause.Set(!FPPlayer.Pause.Get());
+			GameObject.Find("Level").GetComponent<PauseGame>().pause();
+			MouseCursorForced = true;
+			paused = true;
+		}
+		else if (controller.MenuWasPressed && paused)
+		{
+			FPPlayer.Pause.Set(!FPPlayer.Pause.Get());
+			GameObject.Find("Level").GetComponent<PauseGame>().unpause();
+			MouseCursorForced = false;
+			paused = false;
+		}
 
 	}
 
