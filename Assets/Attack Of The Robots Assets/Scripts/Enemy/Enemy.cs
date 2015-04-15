@@ -12,6 +12,7 @@ public class Enemy : MonoBehaviour {
 	public EnemyShootingRaycast enemyShootingRaycast;
 	public NavMeshAgent nav;
 	public RagdollHelper_noah ragHelper;
+	public EnemyDestroy enemyDestroy;
 
 	private Renderer enemyMeshRenderer;
 	private Renderer gunMeshRenderer;
@@ -26,6 +27,7 @@ public class Enemy : MonoBehaviour {
 		nav = GetComponentInChildren<NavMeshAgent> ();
 		enemyMeshRenderer = GetComponentInChildren<SkinnedMeshRenderer> ();
 		gunMeshRenderer = GetComponentInChildren<MeshRenderer> ();
+		enemyDestroy = GetComponentInChildren<EnemyDestroy> ();
 	}
 
 	void Start(){
@@ -37,6 +39,7 @@ public class Enemy : MonoBehaviour {
 		enemyAI.enabled = false;
 		enemyAnim.enabled = false;
 		enemyHealth.enabled = false;
+		enemyDestroy.enabled = true;
 		nav.enabled = false;
 
 		enemyDetectPlayer.Stop ();
