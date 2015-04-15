@@ -4,66 +4,17 @@ using System.Collections;
 public class SetCamera : MonoBehaviour {
 	
 	private Camera[]cams = null;
-	private Player player = null;
+	private int playerNum = -1;
 	
 	void Start () {
-		
-		cams = this.GetComponentsInChildren<Camera>();
-		
-		player = this.GetComponentInParent<Player>();
-		
-		if(cams == null)
-			print ("NULL");	
+		cams = this.GetComponentsInChildren<Camera>();		
 	}
 	
 	void Update () {
+		if(playerNum == -1)
+			playerNum = this.GetComponentInParent<Player>().num;
 		foreach(Camera cam in cams){
-		if(ScreenConstants.splitSetting == ScreenConstants.split.horizontal){
-			switch(Level.players.Count){
-			case 1:
-				cam.rect = ScreenConstants.oneCam[player.num];
-
-				break;
-			case 2:
-				print (ScreenConstants.twoHorCam.Count);
-				cam.rect = ScreenConstants.twoHorCam[player.num];
-				break;
-//			case 3:
-//				fpsCam.rect = ScreenConstants.threeHorCam[player.num];
-//				weaponCam.rect = ScreenConstants.
-//				break;
-//			case 4:
-//				fpsCam.rect = ScreenConstants.fourCam[player.num];
-//				weaponCam.rect = ScreenConstants.
-//				break;
-//			default: 
-//				print ("OOPS");
-//				break;
-			}
+			cam.rect = ScreenConstants.currentCams[playerNum];
 		}
-//		else{
-//			switch(Level.players.Count){
-//			case 1:
-//				fpsCam.rect = ScreenConstants.oneCam[player.num];
-//				weaponCam.rect = ScreenConstants.
-//				break;
-//			case 2:
-//				fpsCam.rect = ScreenConstants.twoVertCam[player.num];
-//				weaponCam.rect = ScreenConstants.
-//				break;
-//			case 3:
-//				fpsCam.rect = ScreenConstants.threeVertCam[player.num];
-//				weaponCam.rect = ScreenConstants.
-//				break;
-//			case 4:
-//				fpsCam.rect = ScreenConstants.fourCam[player.num];
-//				weaponCam.rect = ScreenConstants.
-//				break;
-//			default: 
-//				print ("OOPS");
-//				break;
-//			}
-//		}
-	}
 	}
 }

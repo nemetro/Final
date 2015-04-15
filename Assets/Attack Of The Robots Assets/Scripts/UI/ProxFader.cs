@@ -9,9 +9,11 @@ public class ProxFader : MonoBehaviour {
 	public float scanInterval = 0.1f;
 	public RawImage gui;
 	
+	private int playerNum = -1;
 	private float scanTimer = 0;
 	private LayerMask enemyMask;
 	private float scale;
+	private bool set = false;
 	
 	public Texture PainTexture = null;
 
@@ -24,6 +26,10 @@ public class ProxFader : MonoBehaviour {
 	}
 	
 	void Update (){
+	
+		if(playerNum == -1)
+			playerNum = this.GetComponent<Player>().num;
+		
 		scanTimer += Time.deltaTime;
 		
 		if (scanTimer >= scanInterval) {
@@ -49,5 +55,15 @@ public class ProxFader : MonoBehaviour {
 			}
 			scanTimer = 0;
 		}
+		
+		if(set) return;
+		
+		set = true;
+		
+		gui.rectTransform.anchorMin = new Vector2(ScreenConstants.currentFaders[playerNum].x, 
+		                                         ScreenConstants.currentFaders[playerNum].y);
+		gui.rectTransform.anchorMax = new Vector2(ScreenConstants.currentFaders[playerNum].z, 
+		                                         ScreenConstants.currentFaders[playerNum].w);
+		
 	}
 }
