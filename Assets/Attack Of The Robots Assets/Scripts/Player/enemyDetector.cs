@@ -49,8 +49,6 @@ public class enemyDetector : MonoBehaviour {
 				}
 			}
 
-			print ("what the fuck: " + angleRatio);
-
 			if(angleRatio != -1) {
 				float ratioScale = Mathf.Pow (angleRatio, 3);
 
@@ -59,7 +57,6 @@ public class enemyDetector : MonoBehaviour {
 				if(Physics.Raycast (transform.position, transform.forward, out hit, 100f) && hit.collider.gameObject.tag == InGameTags.enemy){
 					ratioScale = 1.0f;
 				}
-				print(ratioScale);
 				beeper.pitch = minPitch + pitchModifier*ratioScale;
 				beeper.volume = minVol + volumeModifier*ratioScale;
 			} else {

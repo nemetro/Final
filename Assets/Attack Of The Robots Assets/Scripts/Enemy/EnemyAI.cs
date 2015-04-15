@@ -21,7 +21,7 @@ public class EnemyAI : MonoBehaviour
 	
 	
 	void Update () {
-		if (enemy.enemyDetectPlayer.HasValidTarget()) {// If enemy is aware of the player but not in sight
+		if (enemy.enemyDetectPlayer.HasValidTarget() || enemy.enemyDetectPlayer.alwaysPlayerAware) {// If enemy is aware of the player but not in sight
 			Chasing ();
 		} else { //enemy has not found the player
 			Patrolling (); 
@@ -33,14 +33,18 @@ public class EnemyAI : MonoBehaviour
 		// Create a vector from the enemy to the last sighting of the player.
 		Vector3 sightingDeltaPos = enemy.enemyDetectPlayer.personalLastKnownLocation - transform.position;
 
-		if (sightingDeltaPos.sqrMagnitude > 4f) { // If the the last personal sighting of the player is not close...
+	//	if (sightingDeltaPos.sqrMagnitude > 4f) { // If the the last personal sighting of the player is not close...
 //			print (enemyDetectPlayer.personalLastKnownLocation);
 			// ... set the destination for the NavMeshAgent to the last personal sighting of the player.
-			enemy.nav.destination = enemy.enemyDetectPlayer.personalLastKnownLocation;
+			if(enemy.enemyDetectPlayer.alwaysPlayerAware){
+				enemy.nav.destination = GameObject.FindGameObjectWithTag(InGameTags.player).transform.position;
+			} else {
+				enemy.nav.destination = enemy.enemyDetectPlayer.personalLastKnownLocation;
+			}
 			enemy.nav.Resume();
-		} else {
-			enemy.nav.Stop();
-		}
+	//	} else {
+	//		enemy.nav.Stop();
+//		}
 
 		enemy.nav.speed = chaseSpeed;// Set the appropriate speed for the NavMeshAgent.
 
