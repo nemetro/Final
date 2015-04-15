@@ -20,7 +20,7 @@ public class EnemyDetectPlayer: MonoBehaviour{
 
 	void Awake () {
 		enemy = transform.parent.GetComponent<Enemy> ();
-		col = transform.parent.GetComponent<SphereCollider>();
+		col = transform.GetComponent<SphereCollider>();
 		anim = transform.parent.GetComponent<Animator>();
 		audioSrc = transform.parent.GetComponent<AudioSource> ();
 		hash = GameObject.FindGameObjectWithTag(InGameTags.gameController).GetComponent<AnimatorHashIDs>();
