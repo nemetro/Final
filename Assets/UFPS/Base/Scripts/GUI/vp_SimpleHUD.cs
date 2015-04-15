@@ -142,6 +142,7 @@ public class vp_SimpleHUD : MonoBehaviour
 		}
 		
 	void Start(){
+		if(!dynamic) return;
 		healthTxt = health.transform.Find("Value").gameObject.GetComponent<Text>();	
 		clipTxt = ammo.transform.Find("Clip").gameObject.GetComponent<Text>();	
 		totalTxt = ammo.transform.Find("Total").gameObject.GetComponent<Text>();
@@ -211,7 +212,6 @@ public class vp_SimpleHUD : MonoBehaviour
 	void Update()
 	{
 		if(playerNum == -1){
-		
 			playerNum = this.GetComponent<Player>().num;
 			
 //			health.pixelRect = new Rect(ScreenConstants.currentHealths[playerNum].x, ScreenConstants.currentHealths[playerNum].y, 
