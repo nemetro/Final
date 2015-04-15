@@ -8,15 +8,18 @@ public class EnemyDetectPlayer: MonoBehaviour{
 	public bool playerInSight;							// Whether or not the player is currently sighted.
 	public GameObject gun;								// reference to enemy's gun
 	public Vector3 personalLastKnownLocation;
+	public bool alwaysPlayerAware = false;
 
 	public Enemy enemy;
 	private SphereCollider col;							// Reference to the sphere collider trigger component.
 	private Animator anim;								// Reference to the Animator.
 	private Animator playerAnim;						// Reference to the player's animator component.	
-	private AudioSource audioSrc;							// Reference to enemy audio source 
+	private AudioSource audioSrc;						// Reference to enemy audio source 
 	private AnimatorHashIDs hash;						// Reference to the HashIDs.
 	private GameObject target;							// Reference to target gameobject
 	private GlobalLastPlayerSighting globalLastPlayerSighting;
+
+	public GameObject permanentTarget;
 
 	void Awake () {
 		enemy = transform.parent.GetComponent<Enemy> ();
@@ -129,6 +132,10 @@ public class EnemyDetectPlayer: MonoBehaviour{
 	}
 
 	public GameObject GetTargetedPlayer(){
+		if (permanentTarget != null) {
+			return permanentTarget;
+		}
+
 		return target;
 	}
 
@@ -137,11 +144,11 @@ public class EnemyDetectPlayer: MonoBehaviour{
 	}
 
 	public bool HasValidTarget(){
-		return personalLastKnownLocation != resetPosition;
+		return personalLastKnownLocation != resetPosition || permanentTarget != null;
 	}
 
 	public bool CanSeeTarget(){
-		return playerInSight;
+		return playerInSight || alwaysPlayerAware;
 	}
 
 	public void Stop(){

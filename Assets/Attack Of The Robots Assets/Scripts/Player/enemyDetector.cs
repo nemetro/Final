@@ -17,12 +17,14 @@ public class enemyDetector : MonoBehaviour {
 	private float pitchModifier;
 	private float volumeModifier;
 	// Use this for initialization
+
+	LayerMask physicalLayers;
 	void Start () {
 		enemyMask = LayerMask.GetMask("Enemy");
 		beeper = GetComponent<AudioSource> ();
 		pitchModifier = maxPitch - minPitch;
 		volumeModifier = maxVol - minVol;
-
+		physicalLayers = LayerMask.GetMask("Environment", "Default", "PlayArea", "Enemy");
 	}
 
 	// Update is called once per frame
@@ -39,7 +41,6 @@ public class enemyDetector : MonoBehaviour {
 			float angleRatio = -1;
 			foreach (Collider enemy in enemies) {
 				if(enemy.transform.root.GetComponent<EnemyHealth>().health > 0) {
-
 					float distAngle = Vector3.Angle(this.transform.forward, (enemy.transform.position-this.transform.position)); 
 
 					if(distAngle < angleThreshhold) {
@@ -49,8 +50,15 @@ public class enemyDetector : MonoBehaviour {
 			}
 
 			if(angleRatio != -1) {
-				beeper.pitch = minPitch + pitchModifier * angleRatio;
-				beeper.volume = minVol + volumeModifier * angleRatio;
+				float ratioScale = Mathf.Pow (angleRatio, 3);
+
+				RaycastHit hit;
+				//if aimed directly at enemy then ratioScale should be 1.0f
+				if(Physics.Raycast (transform.position, transform.forward, out hit, 100f) && hit.collider.gameObject.tag == InGameTags.enemy){
+					ratioScale = 1.0f;
+				}
+				beeper.pitch = minPitch + pitchModifier*ratioScale;
+				beeper.volume = minVol + volumeModifier*ratioScale;
 			} else {
 				beeper.volume = minVol;
 				beeper.pitch = minPitch;
