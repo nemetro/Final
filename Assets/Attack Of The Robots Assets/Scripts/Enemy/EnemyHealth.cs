@@ -50,7 +50,7 @@ public class EnemyHealth : MonoBehaviour {
 	}
 
 	public void BulletDamage(float damage){
-		print ("enemy shot with damage: " + damage);
+//		print ("enemy shot with damage: " + damage);
 		health -= damage;
 
 		if(health <= 0f && !dead){
