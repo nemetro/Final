@@ -16,6 +16,7 @@ public class PaintSplatter : MonoBehaviour {
 
 	void OnTriggerStay(Collider other) {
 		if(other.tag == "Enemy" && other.transform.root.GetComponent<EnemyHealth>().health > 0) {
+			print (other.name);
 			other.transform.root.GetComponent<PaintFootprints>().walkingOnPaint = true;
 		} else if(other.tag == "Player") {
 			other.gameObject.GetComponent<PaintFootprints>().walkingOnPaint = true;
