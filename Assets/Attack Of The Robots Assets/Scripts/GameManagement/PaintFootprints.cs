@@ -4,10 +4,10 @@ using System.Collections;
 public class PaintFootprints : MonoBehaviour {
 	public bool walkingOnPaint;
 	public bool moving;
+	public int paintSteps = 0;
 	public GameObject footprint;
-	public int maxNumPaintSteps = 10;
-
-	private int paintSteps = 0;
+	
+	private int maxNumPaintSteps = 20;
 	private Vector3 currLoc;
 	private Vector3 prevLoc;
 	private float stepTimer = 0.2f;

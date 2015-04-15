@@ -15,12 +15,10 @@ public class PaintSplatter : MonoBehaviour {
 	}
 
 	void OnTriggerStay(Collider other) {
-		if(other.tag == "Player" || other.tag == "Enemy") {
-			if(other.tag == "Enemy") {
-				other.transform.root.GetComponent<paintFootprints>().walkingOnPaint = true;
-			} else {
-				other.gameObject.GetComponent<paintFootprints>().walkingOnPaint = true;
-			}
+		if(other.tag == "Enemy" && other.transform.root.GetComponent<EnemyHealth>().health > 0) {
+			other.transform.root.GetComponent<PaintFootprints>().walkingOnPaint = true;
+		} else if(other.tag == "Player") {
+			other.gameObject.GetComponent<PaintFootprints>().walkingOnPaint = true;
 		}
 	}
 }
