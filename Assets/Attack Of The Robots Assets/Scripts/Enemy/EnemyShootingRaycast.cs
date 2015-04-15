@@ -15,27 +15,26 @@ public class EnemyShootingRaycast: MonoBehaviour
 	private AnimatorHashIDs hash;						// Reference to the HashIDs script.
 	private LineRenderer laserShotLine;					// Reference to the laser shot line renderer.
 	private Light laserShotLight;						// Reference to the laser shot light.
-	private SphereCollider col;							// Reference to the sphere collider.
-	private EnemyDetectPlayer enemyDetectPlayer;
+//	private SphereCollider col;							// Reference to the sphere collider.
+	private Enemy enemy;
 	private bool shooting;								// A bool to say whether or not the enemy is currently shooting.
-	private float scaledDamage;							// Amount of damage that is scaled by the distance from the player.
+//	private float scaledDamage;							// Amount of damage that is scaled by the distance from the player.
 	private vp_Shooter m_Shooter;
 
-	void Awake ()
-	{
+	void Awake () {
 		// Setting up the references.
+		enemy = GetComponent<Enemy>();
 		anim = GetComponent<Animator>();
 		laserShotLine = GetComponentInChildren<LineRenderer>();
 		laserShotLight = laserShotLine.gameObject.GetComponent<Light>();
-		col = GetComponent<SphereCollider>();
+//		col = GetComponent<SphereCollider>();
 		hash = GameObject.FindGameObjectWithTag(InGameTags.gameController).GetComponent<AnimatorHashIDs>();
-		enemyDetectPlayer = GetComponentInChildren<EnemyDetectPlayer> ();
 		// The line renderer and light are off to start.
 		laserShotLine.enabled = false;
 		laserShotLight.intensity = 0f;
 		
 		// The scaledDamage is the difference between the maximum and the minimum damage.
-		scaledDamage = maximumDamage - minimumDamage;
+//		scaledDamage = maximumDamage - minimumDamage;
 		m_Shooter = GetComponentInChildren<vp_Shooter> ();
 //		stop = false;
 	}
@@ -69,8 +68,8 @@ public class EnemyShootingRaycast: MonoBehaviour
 		float aimWeight = anim.GetFloat(hash.aimWeightFloat);
 		
 		// Set the IK position of the right hand to the player's centre.
-		if(enemyDetectPlayer.GetTargetedPlayer() != null){
-			anim.SetIKPosition(AvatarIKGoal.RightHand, enemyDetectPlayer.GetTargetedPlayer().transform.position + Vector3.up * 1.5f);
+		if(enemy.enemyDetectPlayer.GetTargetedPlayer() != null){
+			anim.SetIKPosition(AvatarIKGoal.RightHand, enemy.enemyDetectPlayer.GetTargetedPlayer().transform.position + Vector3.up * 1.5f);
 		}
 
 		// Set the weight of the IK compared to animation to that of the curve.

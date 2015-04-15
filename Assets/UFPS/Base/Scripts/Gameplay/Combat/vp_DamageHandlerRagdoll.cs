@@ -21,6 +21,13 @@ using System.Collections.Generic;
 
 public class vp_DamageHandlerRagdoll : vp_DamageHandler
 {
+	private Enemy enemy;
+
+	protected void Awake(){
+		base.Awake ();
+		enemy = GetComponent<Enemy> ();
+	}
+
 //
 //	// health and death
 //	public float MaxHealth = 1.0f;						// initial health of the object instance, to be reset on respawn
@@ -206,6 +213,12 @@ public class vp_DamageHandlerRagdoll : vp_DamageHandler
 //	{
 //		Damage(new vp_DamageInfo(damage, null));
 //	}
+
+	public override void Damage(vp_DamageInfo damageInfo){
+		enemy.MakeEnemyVisible ();
+		base.Damage (damageInfo);
+	}
+
 //	public virtual void Damage(vp_DamageInfo damageInfo)
 //	{
 //
@@ -305,17 +318,19 @@ public class vp_DamageHandlerRagdoll : vp_DamageHandler
 	public virtual void Die()
 	{
 
-		//Ragdoll effect
-		RagdollHelper_noah helper=transform.root.GetComponent<RagdollHelper_noah>();//GetComponent<RagdollPartScript_noah>().mainScript;
-		helper.ragdolled=true;
-		
-		//disable enemy tracking
-		print ("robot disabled");
-		transform.root.GetComponent<EnemyAI>().enabled = false;
-		transform.root.GetComponent<EnemyAnimation>().enabled = false;
-		transform.root.GetComponentInChildren<EnemyDetectPlayer>().Stop ();
-		transform.root.GetComponent<EnemyShootingRaycast>().Stop();
-		transform.root.GetComponent<NavMeshAgent>().enabled = false;
+		enemy.Disable ();
+
+//		//Ragdoll effect
+//		RagdollHelper_noah helper=transform.root.GetComponent<RagdollHelper_noah>();//GetComponent<RagdollPartScript_noah>().mainScript;
+//		helper.ragdolled=true;
+//		
+//		//disable enemy tracking
+//		print ("robot disabled");
+//		transform.root.GetComponent<EnemyAI>().enabled = false;
+//		transform.root.GetComponent<EnemyAnimation>().enabled = false;
+//		transform.root.GetComponentInChildren<EnemyDetectPlayer>().Stop ();
+//		transform.root.GetComponent<EnemyShootingRaycast>().Stop();
+//		transform.root.GetComponent<NavMeshAgent>().enabled = false;
 
 //		if (!enabled || !vp_Utility.IsActive(gameObject))
 //			return;

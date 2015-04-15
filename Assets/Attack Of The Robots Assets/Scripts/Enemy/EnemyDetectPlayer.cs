@@ -9,18 +9,17 @@ public class EnemyDetectPlayer: MonoBehaviour{
 	public GameObject gun;								// reference to enemy's gun
 	public Vector3 personalLastKnownLocation;
 
-	private NavMeshAgent nav;							// Reference to the NavMeshAgent component.
+	public Enemy enemy;
 	private SphereCollider col;							// Reference to the sphere collider trigger component.
 	private Animator anim;								// Reference to the Animator.
 	private Animator playerAnim;						// Reference to the player's animator component.	
 	private AudioSource audioSrc;							// Reference to enemy audio source 
 	private AnimatorHashIDs hash;						// Reference to the HashIDs.
 	private GameObject target;							// Reference to target gameobject
-//	private int numDetectedPlayers = 0;					// Number of players in range
 	private GlobalLastPlayerSighting globalLastPlayerSighting;
 
 	void Awake () {
-		nav = transform.parent.GetComponent<NavMeshAgent>();
+		enemy = transform.parent.GetComponent<Enemy> ();
 		col = transform.parent.GetComponent<SphereCollider>();
 		anim = transform.parent.GetComponent<Animator>();
 		audioSrc = transform.parent.GetComponent<AudioSource> ();
@@ -100,8 +99,8 @@ public class EnemyDetectPlayer: MonoBehaviour{
 	float CalculatePathLength (Vector3 targetPosition){
 		// Create a path and set it based on a target position.
 		NavMeshPath path = new NavMeshPath();
-		if (nav.enabled) {
-			nav.CalculatePath (targetPosition, path);
+		if (enemy.nav.enabled) {
+			enemy.nav.CalculatePath (targetPosition, path);
 		}
 		
 		// Create an array of points which is the length of the number of corners in the path + 2.
