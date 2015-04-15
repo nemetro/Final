@@ -3,29 +3,28 @@ using System.Collections;
 
 public class EnemyAnimation : MonoBehaviour
 {
-	public float deadZone = 5f;					// The number of degrees for which the rotation isn't controlled by Mecanim.
+	public float deadZone = 5f;				// The number of degrees for which the rotation isn't controlled by Mecanim.
 
-	private EnemyDetectPlayer enemyDetectPlayer;			// Reference to the EnemySight script.
-	private NavMeshAgent nav;					// Reference to the nav mesh agent.
-	private Animator anim;						// Reference to the Animator.
-	private AnimatorHashIDs hash;					// Reference to the HashIDs script.
+	private Enemy enemy;					// Reference to the Enemy script.
+	private Animator anim;					// Reference to the Animator.
+	private AnimatorHashIDs hash;			// Reference to the HashIDs script.
 	private AnimatorSetup animSetup;		// An instance of the AnimatorSetup helper class.
-
 
 	void Awake ()
 	{
 		// Setting up the references.
-		enemyDetectPlayer = GetComponentInChildren<EnemyDetectPlayer>();
-		nav = GetComponent<NavMeshAgent>();
+		enemy = GetComponent<Enemy> ();
 		anim = GetComponent<Animator>();
 		hash = GameObject.FindGameObjectWithTag(InGameTags.gameController).GetComponent<AnimatorHashIDs>();
-		
-		// Making sure the rotation is controlled by Mecanim.
-		nav.updateRotation = false;
-		
+
 		// Creating an instance of the AnimatorSetup class and calling it's constructor.
 		animSetup = new AnimatorSetup(anim, hash);
-		
+	}
+
+	void Start(){
+		// Making sure the rotation is controlled by Mecanim.
+		enemy.nav.updateRotation = false;
+
 		// Set the weights for the shooting and gun layers to 1.
 		anim.SetLayerWeight(1, 1f);
 		anim.SetLayerWeight(2, 1f);
@@ -45,7 +44,7 @@ public class EnemyAnimation : MonoBehaviour
 	void OnAnimatorMove()
     {
 		// Set the NavMeshAgent's velocity to the change in position since the last frame, by the time it took for the last frame.
-        nav.velocity = anim.deltaPosition / Time.deltaTime;
+        enemy.nav.velocity = anim.deltaPosition / Time.deltaTime;
 		
 		// The gameobject's rotation is driven by the animation's rotation.
 		transform.rotation = anim.rootRotation;
@@ -55,34 +54,34 @@ public class EnemyAnimation : MonoBehaviour
 	void NavAnimSetup ()
 	{
 		// Create the parameters to pass to the helper function.
-		float speed = Vector3.Project(nav.desiredVelocity, transform.forward).magnitude;;
+		float speed = Vector3.Project(enemy.nav.desiredVelocity, transform.forward).magnitude;;
 		float angle;
 		
 		// If the player is in sight...
-		if(enemyDetectPlayer.playerInSight)
+		if(enemy.enemyDetectPlayer.playerInSight)
 		{
 			// ... the enemy should stop...
 //			speed = 0f;
 			
 			// ... and the angle to turn through is towards the player.
-			angle = FindAngle(transform.forward, enemyDetectPlayer.personalLastKnownLocation - transform.position, transform.up);
+			angle = FindAngle(transform.forward, enemy.enemyDetectPlayer.personalLastKnownLocation - transform.position, transform.up);
 		}
 		else {
 			// Otherwise the speed is a projection of desired velocity on to the forward vector...
-			speed = Vector3.Project(nav.desiredVelocity, transform.forward).magnitude;
+			speed = Vector3.Project(enemy.nav.desiredVelocity, transform.forward).magnitude;
 			
 			// ... and the angle is the angle between forward and the desired velocity.
-			angle = FindAngle(transform.forward, nav.desiredVelocity, transform.up);
+			angle = FindAngle(transform.forward, enemy.nav.desiredVelocity, transform.up);
 			
 			// If the angle is within the deadZone...
 			if(Mathf.Abs(angle) < deadZone) {
-				transform.LookAt(transform.position + nav.desiredVelocity); // ... set the direction to be along the desired direction and set the angle to be zero.
+				transform.LookAt(transform.position + enemy.nav.desiredVelocity); // ... set the direction to be along the desired direction and set the angle to be zero.
       			angle = 0f;
     		}
 		}
 		
 		// Call the Setup function of the helper class with the given parameters.
-		animSetup.Setup(speed, angle, Vector3.Distance(enemyDetectPlayer.personalLastKnownLocation, transform.position));
+		animSetup.Setup(speed, angle, Vector3.Distance(enemy.enemyDetectPlayer.personalLastKnownLocation, transform.position));
 	}
 	
 	
