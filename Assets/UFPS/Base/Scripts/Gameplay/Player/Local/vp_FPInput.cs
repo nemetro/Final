@@ -12,9 +12,12 @@
 
 using UnityEngine;
 using System.Collections.Generic;
+using InControl;
 
 public class vp_FPInput : vp_Component
 {
+	//integration with InControl instead of using fp input
+	public InputDevice controller;
 
 	// mouse look
 	public Vector2 MouseLookSensitivity = new Vector2(5.0f, 5.0f);
@@ -89,6 +92,10 @@ public class vp_FPInput : vp_Component
 	/// </summary>
 	protected override void Update()
 	{
+		if (controller == null)
+		{
+			controller = InputManager.Devices[0];
+		}
 
 		// manage input for GUI
 		UpdateCursorLock();
@@ -130,7 +137,7 @@ public class vp_FPInput : vp_Component
 	protected virtual void InputInteract()
 	{
 
-		if (vp_Input.GetButtonDown("Interact"))
+		if (controller.Action2.WasPressed)
 			FPPlayer.Interact.TryStart();
 		else
 			FPPlayer.Interact.TryStop();
@@ -148,7 +155,7 @@ public class vp_FPInput : vp_Component
 		// to the input from both Ultimate FPS and from Unity, and might
 		// require some tweaking in order not to feel laggy
 
-		FPPlayer.InputMoveVector.Set(new Vector2(vp_Input.GetAxisRaw("Horizontal"), vp_Input.GetAxisRaw("Vertical")));
+		FPPlayer.InputMoveVector.Set(new Vector2(controller.LeftStickX, controller.LeftStickY));
 
 	}
 
@@ -163,7 +170,7 @@ public class vp_FPInput : vp_Component
 	protected virtual void InputRun()
 	{
 
-		if (vp_Input.GetButton("Run"))
+		if (controller.LeftStickButton.IsPressed)
 			FPPlayer.Run.TryStart();
 		else
 			FPPlayer.Run.TryStop();
@@ -185,7 +192,7 @@ public class vp_FPInput : vp_Component
 		// succeeds and where it is hooked up, search the project
 		// for 'CanStart_Jump'
 
-		if (vp_Input.GetButton("Jump"))
+		if (controller.Action1.IsPressed)
 			FPPlayer.Jump.TryStart();
 		else
 			FPPlayer.Jump.Stop();
@@ -210,7 +217,7 @@ public class vp_FPInput : vp_Component
 		// updated when needed. this is important because changing its
 		// height every frame will make trigger detection break!
 
-		if (vp_Input.GetButton("Crouch"))
+		if (controller.RightStickButton.IsPressed)
 			FPPlayer.Crouch.TryStart();
 		else
 			FPPlayer.Crouch.TryStop();
@@ -229,7 +236,7 @@ public class vp_FPInput : vp_Component
 	{
 
 		// zoom / ADS
-		if (vp_Input.GetButton("Zoom"))
+		if (controller.LeftTrigger.IsPressed)
 			FPPlayer.Zoom.TryStart();
 		else
 			FPPlayer.Zoom.TryStop();
@@ -261,7 +268,7 @@ public class vp_FPInput : vp_Component
 		if (!vp_Utility.LockCursor)
 			return;
 
-		if (vp_Input.GetButton("Attack"))
+		if (controller.RightTrigger.IsPressed)
 			FPPlayer.Attack.TryStart();
 		else
 			FPPlayer.Attack.TryStop();
@@ -277,7 +284,7 @@ public class vp_FPInput : vp_Component
 	protected virtual void InputReload()
 	{
 
-		if (vp_Input.GetButtonDown("Reload"))
+		if (controller.Action3.WasPressed)
 			FPPlayer.Reload.TryStart();
 
 	}
@@ -295,7 +302,7 @@ public class vp_FPInput : vp_Component
 		if (vp_Input.GetButtonDown("SetPrevWeapon"))
 			FPPlayer.SetPrevWeapon.Try();
 
-		if (vp_Input.GetButtonDown("SetNextWeapon"))
+		if (controller.Action4.WasPressed)
 			FPPlayer.SetNextWeapon.Try();
 
 		// --- switch to weapon 1-10 by direct button press ---
@@ -325,8 +332,8 @@ public class vp_FPInput : vp_Component
 	protected virtual void UpdatePause()
 	{
 
-		if (vp_Input.GetButtonDown("Pause"))
-			FPPlayer.Pause.Set(!FPPlayer.Pause.Get());
+		/*if (controller.MenuWasPressed)
+			FPPlayer.Pause.Set(!FPPlayer.Pause.Get());*/
 
 	}
 
@@ -424,8 +431,8 @@ public class vp_FPInput : vp_Component
 
 		// --- fetch mouse input ---
 
-		m_MouseLookSmoothMove.x = vp_Input.GetAxisRaw("Mouse X") * Time.timeScale;
-		m_MouseLookSmoothMove.y = vp_Input.GetAxisRaw("Mouse Y") * Time.timeScale;
+		m_MouseLookSmoothMove.x = controller.RightStickX * Time.timeScale;
+		m_MouseLookSmoothMove.y = controller.RightStickY * Time.timeScale;
 
 		// --- mouse smoothing ---
 
@@ -489,8 +496,8 @@ public class vp_FPInput : vp_Component
 		if (MouseCursorBlocksMouseLook && !vp_Utility.LockCursor)
 			return Vector2.zero;
 
-		m_MouseLookRawMove.x = vp_Input.GetAxisRaw("Mouse X");
-		m_MouseLookRawMove.y = vp_Input.GetAxisRaw("Mouse Y");
+		m_MouseLookRawMove.x = controller.RightStickX;
+		m_MouseLookRawMove.y = controller.RightStickY;
 
 		return m_MouseLookRawMove;
 
@@ -520,7 +527,7 @@ public class vp_FPInput : vp_Component
 	{
 		get
 		{
-			return vp_Input.GetAxisRaw("Vertical");
+			return controller.RightStickY;
 		}
 	}
 

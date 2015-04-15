@@ -57,15 +57,27 @@ public class KeyboardAndMouseProfile : UnityInputDeviceProfile
 			},
 			new InputControlMapping
 			{
-				Handle = "Action",
+				Handle = "Jump",
 				Target = InputControlType.Action1,
-				Source = KeyCodeButton( KeyCode.E )
+				Source = KeyCodeButton( KeyCode.Space )
 			},
 			new InputControlMapping
 			{
 				Handle = "Pause",
 				Target = InputControlType.Menu,
 				Source = KeyCodeButton( KeyCode.P )
+			},
+			new InputControlMapping
+			{
+				Handle = "Crouch",
+				Target = InputControlType.LeftStickButton,
+				Source = KeyCodeButton( KeyCode.LeftControl )
+			},
+			new InputControlMapping
+			{
+				Handle = "Interact",
+				Target = InputControlType.Action2,
+				Source = KeyCodeButton( KeyCode.F )
 			}
 		};
 		
