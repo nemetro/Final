@@ -3,6 +3,7 @@ using System.Collections;
 
 public class EnemyHealth : MonoBehaviour {
 	public GameObject splatter;
+	public string player_shot;
 
 	private bool dead = false;
 	public float health = 1.0f; //100 health points
@@ -11,7 +12,7 @@ public class EnemyHealth : MonoBehaviour {
 	private float impactEndTime = 0;
 	private Enemy enemy;
 	private EnemySpawnManager spawnManager;
-
+	
 	void Awake(){
 		enemy = GetComponent<Enemy> ();
 		spawnManager = GameObject.FindGameObjectWithTag ("GameController").GetComponent<EnemySpawnManager> ();
@@ -61,6 +62,8 @@ public class EnemyHealth : MonoBehaviour {
 			
 			enemy.Disable();
 			
+			GameObject.Find(player_shot).GetComponent<ScoreTrack>().numKills++;//increases kill count of player who did killing
+			
 			//the impact will be reapplied for the next 250ms
 			//to make the connected objects follow even though the simulated body joints
 			//might stretch
@@ -79,5 +82,10 @@ public class EnemyHealth : MonoBehaviour {
 		
 		//impact direction
 		impact = force;
+	}
+	
+	public void changeOrigin(string player)
+	{
+		player_shot = player;
 	}
 }
