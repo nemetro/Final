@@ -17,7 +17,7 @@ using InControl;
 public class vp_FPInput : vp_Component
 {
 	//integration with InControl instead of using fp input
-	public InputDevice controller = InputManager.Devices[0];
+	public InputDevice controller;
 	public bool paused = false;
 
 	// mouse look
