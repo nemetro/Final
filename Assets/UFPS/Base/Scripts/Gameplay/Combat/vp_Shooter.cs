@@ -309,7 +309,7 @@ public class vp_Shooter : vp_Component
 
 			// TIP: uncomment this to debug-draw bullet paths and points of impact
 			//DrawProjectileDebugInfo(v);
-	
+
 			p.SendMessage("SetSource", (ProjectileSourceIsRoot ? Root : Transform), SendMessageOptions.DontRequireReceiver);
 			p.transform.localScale = new Vector3(ProjectileScale, ProjectileScale, ProjectileScale);	// preset defined scale
 

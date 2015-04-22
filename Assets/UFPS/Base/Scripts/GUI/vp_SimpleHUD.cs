@@ -24,7 +24,7 @@ public class vp_SimpleHUD : MonoBehaviour
 	protected vp_FPPlayerEventHandler m_Player = null;
 	
 	//Troy's
-	public bool dynamic = true;
+	public bool dynamic = false;
 	public Canvas health = null;
 	public Canvas ammo = null;
 	private Text healthTxt = null;
