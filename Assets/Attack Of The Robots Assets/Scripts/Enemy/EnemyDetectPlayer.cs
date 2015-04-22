@@ -47,6 +47,9 @@ public class EnemyDetectPlayer: MonoBehaviour{
 
 	void FixedUpdate (){
 		if (target != null && CalculatePathLength(target.transform.position) <= col.radius) {
+			if(Vector3.Distance(transform.position, target.transform.position) < 3f) {
+				enemy.nav.Stop ();
+			}
 			//since the player is within range update the last known position
 			personalLastKnownLocation = target.transform.position;
 
