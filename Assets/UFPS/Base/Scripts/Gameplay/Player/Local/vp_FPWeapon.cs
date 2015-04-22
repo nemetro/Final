@@ -1219,10 +1219,15 @@ public class vp_FPWeapon : vp_Weapon
 		{
 			if (vp_Utility.IsActive(gameObject))
 			{
-				if(isWielding)
-					m_WeaponModel.GetComponent<Animation>().CrossFade(AnimationWield.name);
-				else
+				if(isWielding){
+					Animation animWeaponM = m_WeaponModel.GetComponent<Animation>();
+					if(animWeaponM != null){
+						animWeaponM.CrossFade(AnimationWield.name);
+					}
+				}
+				else{
 					m_WeaponModel.GetComponent<Animation>().CrossFade(AnimationUnWield.name);
+				}
 			}
 		}
 
