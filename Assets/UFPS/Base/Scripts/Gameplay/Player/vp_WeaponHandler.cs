@@ -130,8 +130,7 @@ public class vp_WeaponHandler : MonoBehaviour
 		vp_FPCamera camera = transform.GetComponentInChildren<vp_FPCamera>();
 		if (camera != null)
 		{
-			//changing this line so that it uses the FPCamera transform rather than the Camera.main
-			camWeapons = GetWeaponList(camera.transform);
+			camWeapons = GetWeaponList(Camera.main.transform);
 			if ((camWeapons != null) && (camWeapons.Count > 0))
 				m_WeaponLists.Add(camWeapons);
 

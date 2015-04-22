@@ -8,24 +8,13 @@ public class AssignControllers : MonoBehaviour {
 	InputDevice[] controllers;
 	public GameObject[] players;
 	int numPlayers;
-
+	
 	void Awake()
 	{
-
-		//TODO Noah's Bullshit Trying to Get this to work
-		controllers = GetComponent<GetControllers> ().players;
-		players[0].GetComponentInChildren<vp_FPInput>().controller = InputManager.Devices[0];
-
-		return;
-		//TODO done
-
-		print ("number of devices: " + InputManager.Devices.Count);
-
-		if (GameObject.Find ("PlayerAssign") == null) {
-			Debug.LogError("PlayerAssignment tag not found");
+		if (GameObject.Find("PlayerAssign") == null)
+		{
+			//GameObject.Find("SensitivityTracker").SetActive(false);
 			return;
-		} else {
-			print ("assigning controllers to player");
 		}
 		controllers = GameObject.Find("PlayerAssign").GetComponent<GetControllers>().players;
 		numPlayers = GameObject.Find("PlayerAssign").GetComponent<GetControllers>().numPlayers;
@@ -46,7 +35,7 @@ public class AssignControllers : MonoBehaviour {
 			vp_FPInput look = players[cur_player].GetComponent<vp_FPInput>();
 			look.MouseLookSensitivity.x = GameObject.Find("SensitivityTracker").GetComponent<SensitivityTracker>().playerSens[cur_player];
 			look.MouseLookSensitivity.y = GameObject.Find("SensitivityTracker").GetComponent<SensitivityTracker>().playerSens[cur_player];
-			players[cur_player].GetComponentInChildren<vp_FPInput>().controller = controllers[cur_player];
+			players[cur_player].GetComponent<vp_FPInput>().controller = controllers[cur_player];
 			players[cur_player].gameObject.SetActive(true);
 			print (cur_player + " assigned controller" + controllers[cur_player].Name);
 		}
