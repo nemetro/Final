@@ -309,8 +309,6 @@ public class vp_Shooter : vp_Component
 
 			// TIP: uncomment this to debug-draw bullet paths and points of impact
 			//DrawProjectileDebugInfo(v);
-	
-			ProjectilePrefab.tag = this.gameObject.transform.parent.parent.parent.gameObject.name;
 
 			p.SendMessage("SetSource", (ProjectileSourceIsRoot ? Root : Transform), SendMessageOptions.DontRequireReceiver);
 			p.transform.localScale = new Vector3(ProjectileScale, ProjectileScale, ProjectileScale);	// preset defined scale
