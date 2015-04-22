@@ -166,9 +166,6 @@ public class vp_HitscanBullet : MonoBehaviour
 //			else
 				hit.collider.SendMessageUpwards(DamageMethodName, Damage, SendMessageOptions.DontRequireReceiver);
 				
-				//sends bullets origin
-				hit.collider.SendMessageUpwards("changeOrigin", m_Transform.tag, SendMessageOptions.DontRequireReceiver);
-
 			// prevent adding decals to objects based on layer
 			if ((m_Renderer != null) && NoDecalOnTheseLayers.Length > 0)
 			{
