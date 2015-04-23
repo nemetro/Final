@@ -12,7 +12,6 @@ public class SensitivityTracker : MonoBehaviour {
 		DontDestroyOnLoad(this);
 	}
 	
-	// Update is called once per frame
 	public void UpdateSensitivites() 
 	{
 		for (int i = 0; i < playerSens.Length; i++)
