@@ -37,15 +37,13 @@ public class AssignControllers : MonoBehaviour {
 			look.MouseLookSensitivity.y = GameObject.Find("SensitivityTracker").GetComponent<SensitivityTracker>().playerSens[cur_player];
 			players[cur_player].GetComponent<vp_FPInput>().controller = controllers[cur_player];
 			players[cur_player].gameObject.SetActive(true);
-			print (cur_player + " assigned controller" + controllers[cur_player].Name);
+//			print (cur_player + " assigned controller" + controllers[cur_player].Name);
 		}
 		//GameObject.Find("SensitivityTracker").SetActive(false);
 	}
 	
 	public void setSens(GameObject sens)
-	{
-		print (numPlayers);
-		
+	{		
 		for (int cur_player = 0; cur_player < numPlayers; cur_player++)
 		{
 			//players[cur_player].gameObject.SetActive(true);
