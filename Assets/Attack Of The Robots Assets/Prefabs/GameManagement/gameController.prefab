@@ -251,7 +251,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxNumEnemies: 10
-  enemyPrefab: {fileID: 0}
+  enemyPrefab: {fileID: 195110, guid: d1624bf1c66234d25b3e6b5ef2524a7c, type: 2}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
