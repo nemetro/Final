@@ -20,7 +20,6 @@ public class SensitivityTracker : MonoBehaviour {
 			if (slider != null)
 			{
 				playerSens[i] = slider.GetComponent<Slider>().value;
-				print (playerSens[i]);
 			}
 		}
 		GameObject assign = GameObject.Find("AssignConts");
