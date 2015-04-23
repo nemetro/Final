@@ -33,7 +33,7 @@ public class Spawner : MonoBehaviour {
 			time = 0f;
 			count++;
 			
-			if(count >= totalSpawns)
+			if(count >= totalSpawns && totalSpawns != 0)
 				on = false;
 		}
 	}

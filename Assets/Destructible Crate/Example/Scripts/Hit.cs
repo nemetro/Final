@@ -11,7 +11,7 @@ public class Hit : MonoBehaviour {
 		print (collision.relativeVelocity.magnitude);
 
 		if( collision.relativeVelocity.magnitude > hitForce) {
-		DestroyIt();
+			DestroyIt();
 		}
 	}
 	
