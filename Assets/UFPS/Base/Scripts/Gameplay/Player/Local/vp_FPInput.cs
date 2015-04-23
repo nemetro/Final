@@ -21,7 +21,7 @@ public class vp_FPInput : vp_Component
 	public bool paused = false;
 
 	// mouse look
-	public Vector2 MouseLookSensitivity = new Vector2(5.0f, 5.0f);
+	public Vector2 MouseLookSensitivity = new Vector2(5, 5);
 	public int MouseLookSmoothSteps = 10;				// allowed range: 1-20
 	public float MouseLookSmoothWeight = 0.5f;			// allowed range: 0.0f - 1.0f
 	public bool MouseLookAcceleration = false;
@@ -241,6 +241,7 @@ public class vp_FPInput : vp_Component
 			FPPlayer.Zoom.TryStart();
 		else
 			FPPlayer.Zoom.TryStop();
+			GameObject.Find("SensitivityTracker").GetComponent<SensitivityTracker>().UpdateSensitivites();
 
 		// toggle 3rd person mode
 		if (vp_Input.GetButtonDown("Toggle3rdPerson"))
