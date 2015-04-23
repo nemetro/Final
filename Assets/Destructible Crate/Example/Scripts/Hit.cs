@@ -8,10 +8,10 @@ public class Hit : MonoBehaviour {
 	public float hitForce = 10f;
 	
 	void OnCollisionEnter( Collision collision ) {
-		print (collision.relativeVelocity.magnitude);
+//		print (collision.relativeVelocity.magnitude);
 
 		if( collision.relativeVelocity.magnitude > hitForce) {
-			DestroyIt();
+		DestroyIt();
 		}
 	}
 	
@@ -19,6 +19,7 @@ public class Hit : MonoBehaviour {
 		if(DestroyedObject) {
 			Instantiate(DestroyedObject, transform.position, transform.rotation);
 		}
+		
 		Destroy(gameObject);
 
 	}
