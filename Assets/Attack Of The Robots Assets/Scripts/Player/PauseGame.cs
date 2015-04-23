@@ -20,7 +20,6 @@ public class PauseGame : MonoBehaviour {
 	
 	public void pause () 
 	{
-		controller = InputManager.ActiveDevice;	
 		pauseMenu.gameObject.SetActive(true);
 	}
 	

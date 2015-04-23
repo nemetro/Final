@@ -443,9 +443,10 @@ public class vp_FPInput : vp_Component
 		m_LastMouseLookFrame = Time.frameCount;
 
 		// --- fetch mouse input ---
-
-		m_MouseLookSmoothMove.x = controller.RightStickX * Time.timeScale;
-		m_MouseLookSmoothMove.y = controller.RightStickY * Time.timeScale;
+		if (controller != null) {
+			m_MouseLookSmoothMove.x = controller.RightStickX * Time.timeScale;
+			m_MouseLookSmoothMove.y = controller.RightStickY * Time.timeScale;
+		}
 
 		// --- mouse smoothing ---
 
@@ -509,8 +510,10 @@ public class vp_FPInput : vp_Component
 		if (MouseCursorBlocksMouseLook && !vp_Utility.LockCursor)
 			return Vector2.zero;
 
-		m_MouseLookRawMove.x = controller.RightStickX;
-		m_MouseLookRawMove.y = controller.RightStickY;
+		if (controller != null) {
+			m_MouseLookRawMove.x = controller.RightStickX;
+			m_MouseLookRawMove.y = controller.RightStickY;
+		}
 
 		return m_MouseLookRawMove;
 
