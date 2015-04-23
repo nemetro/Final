@@ -1,12 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class ScoreTrack : MonoBehaviour {
 
-	public int numKills, timesKilled, longestLife;
+	public int numKills, longestLife;
 	
 	private float cur_life;
-	private bool alive;
 	
 	void Update()
 	{
@@ -15,14 +15,9 @@ public class ScoreTrack : MonoBehaviour {
 	
 	public void Die()
 	{
-		if (cur_life > longestLife)
-		{
-			longestLife = (int)cur_life;
-		}
-		cur_life = 0;
-		timesKilled++;
-		print (timesKilled);
-		print (longestLife);
+		longestLife = (int)cur_life;
+		GameObject.Find("NumKills").GetComponent<Text>().text = "Number of Kills: " + numKills;
+		GameObject.Find("TimeSurvived").GetComponent<Text>().text = "Time Survived: " + longestLife; 
 	}
 	
 }
