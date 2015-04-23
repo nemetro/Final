@@ -14,6 +14,7 @@ GameObject:
   - 199: {fileID: 19965626}
   - 65: {fileID: 6525352}
   - 114: {fileID: 11415524}
+  - 114: {fileID: 11407028}
   m_Layer: 0
   m_Name: GreenPaintSplatter
   m_TagString: Paint
@@ -76,6 +77,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 10, y: .69887346, z: 10}
   m_Center: {x: 0, y: .324436694, z: 0}
+--- !u!114 &11407028
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 165626}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: baf37ca92b916426cadd9a8446745cac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifetime: 30
 --- !u!114 &11415524
 MonoBehaviour:
   m_ObjectHideFlags: 1
