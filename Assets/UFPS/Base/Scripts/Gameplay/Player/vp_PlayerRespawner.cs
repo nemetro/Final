@@ -77,9 +77,10 @@ public class vp_PlayerRespawner : vp_Respawner
 		if (Player == null)
 			return;
 
-		Player.Position.Set(Placement.Position);
-		Player.Rotation.Set(Placement.Rotation.eulerAngles);
-		Player.Stop.Send();
+		Application.LoadLevel (0);
+	//	Player.Position.Set(Placement.Position);
+	//	Player.Rotation.Set(Placement.Rotation.eulerAngles);
+	//	Player.Stop.Send();
 		
 	}
 

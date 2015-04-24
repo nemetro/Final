@@ -289,12 +289,6 @@ public class vp_Respawner : MonoBehaviour
 		vp_Utility.Activate(gameObject);
 		SpawnFX();
 
-		// in multiplayer, send a message to the network system if we're the master / host
-		if (vp_Gameplay.isMultiplayer && vp_Gameplay.isMaster)
-		{
-			vp_GlobalEvent<Transform, vp_Placement>.Send("TransmitRespawn", transform.root, Placement);
-		}
-
 		SendMessage("Reset");		// will trigger on vp_Respawners + vp_DamageHandlers
 
 		// reset placement to start position for next respawn since it may
