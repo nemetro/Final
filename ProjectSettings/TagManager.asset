@@ -19,16 +19,15 @@ TagManager:
   - Keycard
   - Door
   - Switch
-  - Gun
   - Triggerer
   - Grass
   - Stone
   - PlayerSpawn
   - EnemySpawn
-  - Player1
-  - Player2
-  - Player3
-  - Player4
+  - Player
+  - RainSplashManager
+  - MoodBoxManager
+  - RainBoxManager
   layers:
   - Default
   - TransparentFX
@@ -38,22 +37,22 @@ TagManager:
   - UI
   - 
   - 
-  - PlayArea
-  - Extents
+  - IgnoreBullets
+  - Pickup
   - Player
   - Enemy
   - Environment
   - MovableObject
-  - 
-  - RemotePlayer
-  - IgnoreBullets
-  - Enemy
   - Pickup
   - Trigger
   - MovingPlatform
   - Debris
-  - LocalPlayer
   - Weapon
+  - 
+  - 
+  - 
+  - 
+  - 
   - 
   - 
   - 

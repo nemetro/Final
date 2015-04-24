@@ -40,7 +40,9 @@ public class enemyDetector : MonoBehaviour {
 
 			float angleRatio = -1;
 			foreach (Collider enemy in enemies) {
-				if(enemy.transform.root.GetComponent<EnemyHealth>().health > 0) {
+				if(enemy.transform.root.GetComponent<EnemyHealth>() == null){
+					continue;
+				} else if(enemy.transform.root.GetComponent<EnemyHealth>().health > 0) {
 					float distAngle = Vector3.Angle(this.transform.forward, (enemy.transform.position-this.transform.position)); 
 
 					if(distAngle < angleThreshhold) {

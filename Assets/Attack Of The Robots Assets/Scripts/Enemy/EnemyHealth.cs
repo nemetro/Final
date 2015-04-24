@@ -42,13 +42,13 @@ public class EnemyHealth : MonoBehaviour {
 	}
 
 	// Update is called once per frame
-	void Update () {
-		//Check if we need to apply an impact
-		if (dead && Time.time<impactEndTime)
-		{
-			impactTarget.AddForce(impact,ForceMode.VelocityChange);
-		}
-	}
+//	void Update () {
+//		//Check if we need to apply an impact
+//		if (dead && Time.time<impactEndTime)
+//		{
+//			impactTarget.AddForce(impact,ForceMode.VelocityChange);
+//		}
+//	}
 
 	public void BulletDamage(float damage){
 //		print ("enemy shot with damage: " + damage);
@@ -59,8 +59,10 @@ public class EnemyHealth : MonoBehaviour {
 			if(Physics.Raycast(transform.position, Vector3.down, out hitInfo)){ //if raycast hits something
 				Instantiate(splatter, hitInfo.point + hitInfo.normal * 0.001f, Quaternion.FromToRotation(Vector3.up, hitInfo.normal)); //TODO Layer mask
 			}
-			
-			enemy.Disable();
+
+			if(enemy != null){
+				enemy.Disable();
+			}
 			
 			GameObject.FindGameObjectWithTag(InGameTags.player).GetComponent<ScoreTrack>().numKills++;//increases kill count of player who did killing
 			

@@ -40,7 +40,9 @@ public class ProxFader : MonoBehaviour {
 			
 			Collider[] enemies = Physics.OverlapSphere (this.transform.position, radius, enemyMask);
 			foreach (Collider enemy in enemies) {
-				if(enemy.transform.root.GetComponent<EnemyHealth>().health > 0){
+				if(enemy.transform.root.GetComponent<EnemyHealth>() == null){
+					continue;
+				} else if(enemy.transform.root.GetComponent<EnemyHealth>().health > 0){
 					
 					float tempAlpha = scale*(radius*radius - ((enemy.transform.position - this.transform.position).sqrMagnitude));
 					if(tempAlpha > alpha)
