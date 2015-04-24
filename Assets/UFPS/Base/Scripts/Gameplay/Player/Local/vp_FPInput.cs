@@ -241,7 +241,7 @@ public class vp_FPInput : vp_Component
 			FPPlayer.Zoom.TryStart();
 		else
 			FPPlayer.Zoom.TryStop();
-			GameObject.Find("SensitivityTracker").GetComponent<SensitivityTracker>().UpdateSensitivites();
+//			GameObject.Find("SensitivityTracker").GetComponent<SensitivityTracker>().UpdateSensitivites();
 
 		// toggle 3rd person mode
 		if (vp_Input.GetButtonDown("Toggle3rdPerson"))
