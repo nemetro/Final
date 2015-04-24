@@ -6,7 +6,7 @@ public class Player : MonoBehaviour {
 	public int num;
 
 	void Start () {
-		DontDestroyOnLoad(this);
+		//DontDestroyOnLoad(this);
 		Cursor.lockState = CursorLockMode.Locked;
 		Cursor.visible = false;
 		Level.players.Add(this);

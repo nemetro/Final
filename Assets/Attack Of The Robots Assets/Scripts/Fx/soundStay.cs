@@ -6,7 +6,7 @@ public class soundStay : MonoBehaviour {
 	// Use this for initialization
 	void Start () 
 	{
-		DontDestroyOnLoad(this);
+		//DontDestroyOnLoad(this);
 	}
 
 }

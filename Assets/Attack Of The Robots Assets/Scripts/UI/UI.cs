@@ -29,7 +29,7 @@ public class UI : MonoBehaviour {
 	public Text hints;
 
 	void Start () {
-		DontDestroyOnLoad(this);
+		//DontDestroyOnLoad(this);
 		init = false;
 		
 		for(int i=0; i<4; i++){

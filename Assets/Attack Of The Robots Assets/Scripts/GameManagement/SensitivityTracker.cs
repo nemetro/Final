@@ -9,7 +9,7 @@ public class SensitivityTracker : MonoBehaviour {
 	// Use this for initialization
 	void Start () 
 	{
-		DontDestroyOnLoad(this);
+		//DontDestroyOnLoad(this);
 	}
 	
 	public void UpdateSensitivites() 

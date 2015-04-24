@@ -24,11 +24,15 @@
 /////////////////////////////////////////////////////////////////////////////////
 
 using UnityEngine;
+using UnityEngine.UI;
 using System.Collections.Generic;
 
 public class vp_PainHUD : MonoBehaviour
 {
-
+	//troys
+	public Text scoreUI;
+	public int score = 0;
+	
 	/// <summary>
 	/// describes an object that recently inflicted damage on the
 	/// player. used to track direction and fade out arrows
@@ -342,15 +346,19 @@ public class vp_PainHUD : MonoBehaviour
 	/// </summary>
 	void OnStop_Dead()
 	{
-
+				
 		m_PainColor.a = 0.0f;
 
 		for (int v = m_Inflictors.Count - 1; v > -1; v--)
 		{
 			m_Inflictors[v].DamageTime = 0.0f;
 		}
-
+		
+		scoreUI.text = "0";
+		Application.LoadLevel(0);
 	}
+	
+	
 
 
 }

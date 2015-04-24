@@ -17,7 +17,7 @@ public class GetControllers : MonoBehaviour {
 
 	void Awake()
 	{
-		DontDestroyOnLoad(this);
+		//DontDestroyOnLoad(this);
 		prompt = GameObject.Find("UserPrompt");
 	}
 

@@ -124,33 +124,37 @@ public class ScreenConstants : MonoBehaviour {
 			currentHealths = oneHealth;
 			currentAmmos = oneAmmo;
 			break;
-		case 2:
-			if(splitSetting == split.horizontal){
-				currentCams = twoHorCam;
-				currentFaders = twoHorFader;
-				currentCross = twoHorCross;
-				currentHealths = twoHorHealth;
-				currentAmmos = twoHorAmmo;
-			}
-			else{
-				currentCams = twoVertCam;
-				currentFaders = twoVertFader;
-				currentCross = twoVertCross;
-			}
-			break;
-		case 3:
-			if(splitSetting == split.horizontal){
-				currentCams = threeHorCam;
-			}
-			else{
-				currentCams = threeVertCam;
-			}
-			break;
-		case 4:
-			currentCams = fourCam;
-			break;
+//		case 2:
+//			if(splitSetting == split.horizontal){
+//				currentCams = twoHorCam;
+//				currentFaders = twoHorFader;
+//				currentCross = twoHorCross;
+//				currentHealths = twoHorHealth;
+//				currentAmmos = twoHorAmmo;
+//			}
+//			else{
+//				currentCams = twoVertCam;
+//				currentFaders = twoVertFader;
+//				currentCross = twoVertCross;
+//			}
+//			break;
+//		case 3:
+//			if(splitSetting == split.horizontal){
+//				currentCams = threeHorCam;
+//			}
+//			else{
+//				currentCams = threeVertCam;
+//			}
+//			break;
+//		case 4:
+//			currentCams = fourCam;
+//			break;
 		default:
-			print ("OOPS");
+			currentCams = oneCam;
+			currentFaders = oneFader;
+			currentCross = oneCross;
+			currentHealths = oneHealth;
+			currentAmmos = oneAmmo;
 			break;
 		}
 	}
