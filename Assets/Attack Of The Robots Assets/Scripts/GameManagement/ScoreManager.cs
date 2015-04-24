@@ -4,7 +4,7 @@ using System.Collections;
 public class ScoreManager : MonoBehaviour {
 	private static ScoreManager instance = null;
 
-	private static int currentScore = 0;
+	public static int currentScore = 0;
 	private static ArrayList scores;
 
 	public static ScoreManager Instance {
