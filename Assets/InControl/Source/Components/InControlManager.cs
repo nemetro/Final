@@ -43,10 +43,10 @@ namespace InControl
 				}
 			}
 
-			if (dontDestroyOnLoad)
+			/*if (dontDestroyOnLoad)
 			{
 				DontDestroyOnLoad( this );
-			}
+			}*/
 		}
 
 

@@ -241,7 +241,7 @@ public class vp_FPInput : vp_Component
 			FPPlayer.Zoom.TryStart();
 		else
 			FPPlayer.Zoom.TryStop();
-			GameObject.Find("SensitivityTracker").GetComponent<SensitivityTracker>().UpdateSensitivites();
+//			GameObject.Find("SensitivityTracker").GetComponent<SensitivityTracker>().UpdateSensitivites();
 
 		// toggle 3rd person mode
 		if (vp_Input.GetButtonDown("Toggle3rdPerson"))
@@ -337,14 +337,14 @@ public class vp_FPInput : vp_Component
 		if (controller.MenuWasPressed && !paused)
 		{
 			FPPlayer.Pause.Set(!FPPlayer.Pause.Get());
-			GameObject.Find("Level").GetComponent<PauseGame>().pause();
+//			GameObject.Find("Level").GetComponent<PauseGame>().pause();
 			MouseCursorForced = true;
 			paused = true;
 		}
 		else if (controller.MenuWasPressed && paused)
 		{
 			FPPlayer.Pause.Set(!FPPlayer.Pause.Get());
-			GameObject.Find("Level").GetComponent<PauseGame>().unpause();
+//			GameObject.Find("Level").GetComponent<PauseGame>().unpause();
 			MouseCursorForced = false;
 			paused = false;
 		}

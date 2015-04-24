@@ -246,7 +246,7 @@ public class vp_Timer : MonoBehaviour
 		{
 			m_MainObject = new GameObject("Timers");
 			m_MainObject.AddComponent<vp_Timer>();
-			UnityEngine.Object.DontDestroyOnLoad(m_MainObject);
+			//UnityEngine.Object.DontDestroyOnLoad(m_MainObject);
 
 #if (UNITY_EDITOR && !DEBUG)
 				m_MainObject.gameObject.hideFlags = HideFlags.HideInHierarchy;

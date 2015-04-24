@@ -346,7 +346,7 @@ public class vp_PainHUD : MonoBehaviour
 	/// </summary>
 	void OnStop_Dead()
 	{
-
+				
 		m_PainColor.a = 0.0f;
 
 		for (int v = m_Inflictors.Count - 1; v > -1; v--)
@@ -355,7 +355,7 @@ public class vp_PainHUD : MonoBehaviour
 		}
 		
 		scoreUI.text = "0";
-		
+		Application.LoadLevel(0);
 	}
 	
 	
