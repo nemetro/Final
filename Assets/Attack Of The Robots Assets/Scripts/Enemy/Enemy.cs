@@ -14,9 +14,10 @@ public class Enemy : MonoBehaviour {
 	public RagdollHelper_noah ragHelper;
 	public EnemyDestroy enemyDestroy;
 
+	//set via inspector
 	public Material cloakedMaterial;
 
-	//grab these from transform
+	//grab these from the robot settings
 	private Material robotBodyMat;
 	private Material scifiGunMat;
 
