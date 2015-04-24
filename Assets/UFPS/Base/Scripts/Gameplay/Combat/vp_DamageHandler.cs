@@ -328,11 +328,11 @@ public class vp_DamageHandler : MonoBehaviour
 		{
 			vp_Utility.Destroy(gameObject);
 		}
-		else
+		/*else
 		{
 			RemoveBulletHoles();
 			vp_Utility.Activate(gameObject, false);
-		}
+		}*/
 
 		m_InstaKill = false;
 

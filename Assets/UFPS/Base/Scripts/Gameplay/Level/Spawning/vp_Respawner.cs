@@ -15,6 +15,7 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using System;
+using InControl;
 
 [System.Serializable]
 public class vp_Respawner : MonoBehaviour
@@ -282,21 +283,21 @@ public class vp_Respawner : MonoBehaviour
 	/// </summary>
 	public virtual void Respawn()
 	{
-
+	
 		LastRespawnTime = Time.time;
-
+/*		
 		// reactivate and reset
 		vp_Utility.Activate(gameObject);
 		SpawnFX();
-
+		
 		// in multiplayer, send a message to the network system if we're the master / host
 		if (vp_Gameplay.isMultiplayer && vp_Gameplay.isMaster)
 		{
 			vp_GlobalEvent<Transform, vp_Placement>.Send("TransmitRespawn", transform.root, Placement);
 		}
-
+		
 		SendMessage("Reset");		// will trigger on vp_Respawners + vp_DamageHandlers
-
+		
 		// reset placement to start position for next respawn since it may
 		// have been adjusted by obstruction logic during respawn
 		Placement.Position = m_InitialPosition;
@@ -304,6 +305,8 @@ public class vp_Respawner : MonoBehaviour
 		// NOTE: this should end up affecting mainly items and powerups since
 		// players typically use vp_SpawnPoints to fetch a new Placement
 		// every time
+		
+		GameObject.Find("DeathScreen").SetActive(false);*/
 
 	}
 	
