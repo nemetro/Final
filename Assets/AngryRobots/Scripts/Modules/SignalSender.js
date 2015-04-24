@@ -8,10 +8,10 @@ class ReceiverItem {
 	
 	public function SendWithDelay (sender : MonoBehaviour) {
 		yield WaitForSeconds (delay);
-		if (receiver)
-			receiver.SendMessage (action);
-		else
-			Debug.LogWarning ("No receiver of signal \""+action+"\" on object "+sender.name+" ("+sender.GetType().Name+")", sender);
+//		if (receiver)
+			receiver.SendMessage (action, SendMessageOptions.DontRequireReceiver);
+//		else
+//			Debug.LogWarning ("No receiver of signal \""+action+"\" on object "+sender.name+" ("+sender.GetType().Name+")", sender);
 	}
 }
 

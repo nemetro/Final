@@ -17,6 +17,9 @@ public class Enemy : MonoBehaviour {
 	private Renderer enemyMeshRenderer;
 	private Renderer gunMeshRenderer;
 
+	public Material enemyMatNormal;
+	public Material enemyMatCloaked;
+
 	void Awake () {
 		enemyAI = GetComponentInChildren<EnemyAI> ();
 		enemyAnim = GetComponentInChildren<EnemyAnimation> ();
@@ -28,11 +31,6 @@ public class Enemy : MonoBehaviour {
 		enemyMeshRenderer = GetComponentInChildren<SkinnedMeshRenderer> ();
 		gunMeshRenderer = GetComponentInChildren<MeshRenderer> ();
 		enemyDestroy = GetComponentInChildren<EnemyDestroy> ();
-	}
-
-	void Start(){
-		enemyMeshRenderer.enabled = false;
-		gunMeshRenderer.enabled = false;
 	}
 
 	public void Disable(){
@@ -49,7 +47,7 @@ public class Enemy : MonoBehaviour {
 	}
 
 	public void MakeEnemyVisible(){
-		enemyMeshRenderer.enabled = true;
-		gunMeshRenderer.enabled = true;
+		enemyMeshRenderer.material = enemyMatNormal;
+		gunMeshRenderer.enabled = enemyMatNormal;
 	}
 }

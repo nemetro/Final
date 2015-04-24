@@ -2052,6 +2052,8 @@ MonoBehaviour:
   nav: {fileID: 0}
   ragHelper: {fileID: 0}
   enemyDestroy: {fileID: 0}
+  enemyMatNormal: {fileID: 2100000, guid: baff1f4726b6b85418ebb43554ca1c98, type: 2}
+  enemyMatCloaked: {fileID: 2100000, guid: 3af3b46f1ac16fc42aded02a3a2629c4, type: 2}
 --- !u!114 &11416652
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2077,10 +2079,10 @@ MonoBehaviour:
   m_ProjectileSpawnPoint: {fileID: 0}
   ProjectilePrefab: {fileID: 100000, guid: 131d622a54b7c5b49805ed30b64653f7, type: 2}
   ProjectileScale: .5
-  ProjectileFiringRate: .100000001
+  ProjectileFiringRate: .5
   ProjectileSpawnDelay: 0
-  ProjectileCount: 1
-  ProjectileSpread: 0
+  ProjectileCount: 3
+  ProjectileSpread: 9
   ProjectileSourceIsRoot: 1
   MuzzleFlashPosition: {x: 0, y: .0500000007, z: .200000003}
   MuzzleFlashScale: {x: 1, y: 1, z: 1}
@@ -2096,7 +2098,7 @@ MonoBehaviour:
   ShellEjectDelay: 0
   ShellEjectSpin: 0
   m_ShellEjectSpawnPoint: {fileID: 0}
-  SoundFire: {fileID: 8300000, guid: 3287b451cffc7493489235d1bf1231cc, type: 3}
+  SoundFire: {fileID: 8300000, guid: c812ed08e6bddbc4e889ad452441cc8d, type: 3}
   SoundFireDelay: 0
   SoundFirePitch: {x: 1, y: 1}
   FirePosition: {x: 0, y: 0, z: 0}
@@ -2408,7 +2410,7 @@ SkinnedMeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: baff1f4726b6b85418ebb43554ca1c98, type: 2}
+  - {fileID: 2100000, guid: e118a1a70154c411aa81f41300082192, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
