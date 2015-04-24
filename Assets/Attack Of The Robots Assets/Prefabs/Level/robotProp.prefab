@@ -386,7 +386,7 @@ GameObject:
   - 137: {fileID: 13759060}
   m_Layer: 12
   m_Name: char_robotGuard_body
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -461,7 +461,7 @@ GameObject:
   - 4: {fileID: 456476}
   m_Layer: 12
   m_Name: char_robotGuard_skeleton
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

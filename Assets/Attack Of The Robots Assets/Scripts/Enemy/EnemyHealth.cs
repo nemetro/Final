@@ -62,14 +62,14 @@ public class EnemyHealth : MonoBehaviour {
 			
 			enemy.Disable();
 			
-			GameObject.FindGameObjectWithTag(InGameTags.player).GetComponent<ScoreTrack>().numKills++;//increases kill count of player who did killing
-			
 			//the impact will be reapplied for the next 250ms
 			//to make the connected objects follow even though the simulated body joints
 			//might stretch
 			impactEndTime=Time.time+0.25f;
 			spawnManager.EnemyDied();
 			dead = true;
+			
+//			GameObject.FindGameObjectWithTag(InGameTags.player).GetComponent<ScoreTrack>().numKills++;//increases kill count of player who did killing
 		}
 	}
 
