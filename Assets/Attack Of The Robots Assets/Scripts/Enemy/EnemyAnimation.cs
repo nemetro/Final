@@ -54,17 +54,17 @@ public class EnemyAnimation : MonoBehaviour
 	void NavAnimSetup ()
 	{
 		// Create the parameters to pass to the helper function.
-		float speed = Vector3.Project(enemy.nav.desiredVelocity, transform.forward).magnitude;;
+		float speed = Vector3.Project(enemy.nav.desiredVelocity, transform.forward).magnitude;
 		float angle;
 		
 		// If the player is in sight...
 		if(enemy.enemyDetectPlayer.playerInSight)
 		{
-			// ... the enemy should stop...
-//			speed = 0f;
+			// ... the enemy should slow down...
+			speed = speed/3;
 			
 			// ... and the angle to turn through is towards the player.
-			angle = FindAngle(transform.forward, enemy.enemyDetectPlayer.personalLastKnownLocation - transform.position, transform.up);
+			angle = FindAngle(transform.forward, enemy.nav.nextPosition - transform.position, transform.up);
 		}
 		else {
 			// Otherwise the speed is a projection of desired velocity on to the forward vector...

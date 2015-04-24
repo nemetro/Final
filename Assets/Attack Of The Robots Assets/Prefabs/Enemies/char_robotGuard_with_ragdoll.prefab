@@ -2205,7 +2205,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13285f7847023461492538ef371b5451, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deadZone: 5
+  deadZone: 10
 --- !u!114 &11496638
 MonoBehaviour:
   m_ObjectHideFlags: 1
