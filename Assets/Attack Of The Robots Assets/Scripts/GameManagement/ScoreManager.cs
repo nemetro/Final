@@ -1,9 +1,12 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class ScoreManager : MonoBehaviour {
 	private static ScoreManager instance = null;
 
+	public static Text scoreUI;
+	public int score = 0;
 	public static int currentScore = 0;
 	private static ArrayList scores;
 
@@ -33,5 +36,6 @@ public class ScoreManager : MonoBehaviour {
 
 	public static void AddPoints(int points){
 		currentScore += points;
+		GameObject.Find("Score").GetComponent<Text>().text = currentScore.ToString();
 	}
 }

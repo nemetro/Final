@@ -75,6 +75,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5bcef61ea0c141fcb65ea6ac0b5014d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pickupSound: {fileID: 8300000, guid: 6c8b6bda4bfb5440eabc563a7abab699, type: 3}
+  restoreHPPercent: .25
 --- !u!135 &13512806
 SphereCollider:
   m_ObjectHideFlags: 1

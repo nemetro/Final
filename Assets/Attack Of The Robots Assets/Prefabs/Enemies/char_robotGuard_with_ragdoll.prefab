@@ -2113,7 +2113,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   patrolSpeed: 2
-  chaseSpeed: 5
+  chaseSpeed: 10
   chaseWaitTime: 5
   patrolWaitTime: 1
   patrolWayPoints: []
@@ -2191,7 +2191,7 @@ MonoBehaviour:
   playerInSight: 0
   gun: {fileID: 177758}
   personalLastKnownLocation: {x: 0, y: 0, z: 0}
-  alwaysPlayerAware: 0
+  alwaysPlayerAware: 1
   enemy: {fileID: 0}
   permanentTarget: {fileID: 0}
 --- !u!114 &11492638

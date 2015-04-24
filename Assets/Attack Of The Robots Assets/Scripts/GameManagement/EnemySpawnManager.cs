@@ -5,8 +5,7 @@ using System.Collections;
 public class EnemySpawnManager : MonoBehaviour {
 	public int maxNumEnemies = 10;
 	public GameObject enemyPrefab;
-	public Text scoreUI;
-	public int score = 0;
+	public int pointsForKillingEnemy = 100;
 
 
 	private GameObject[] spawners;
@@ -36,7 +35,6 @@ public class EnemySpawnManager : MonoBehaviour {
 
 	public void EnemyDied(){
 		currentNumEnemies--;
-		score += 100;
-		scoreUI.text = score.ToString();
+		ScoreManager.AddPoints (pointsForKillingEnemy);
 	}
 }

@@ -9,7 +9,7 @@ public class GlobalLastPlayerSighting : MonoBehaviour
 	public float lightLowIntensity = 0f;								// The directional light's intensity when the alarms are on.
 	public float fadeSpeed = 7f;										// How fast the light fades between low and high intensity.
 	public float musicFadeSpeed = 1f;									// The speed at which the 
-	
+	public bool alwaysPlayerAware = false;
 	
 	private AlarmRedLight alarm;										// Reference to the AlarmLight script.
 	private Light mainLight;											// Reference to the main light.
@@ -44,6 +44,10 @@ public class GlobalLastPlayerSighting : MonoBehaviour
 	
 	void Update ()
 	{
+		if (alwaysPlayerAware) {
+			position = GameObject.FindGameObjectWithTag(InGameTags.player).transform.position;
+		}
+
 		// Switch the alarms and fade the music.
 		SwitchAlarms();
 		MusicFading();

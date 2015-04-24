@@ -239,6 +239,7 @@ MonoBehaviour:
   lightLowIntensity: 0
   fadeSpeed: 7
   musicFadeSpeed: 1
+  alwaysPlayerAware: 1
 --- !u!114 &11475954
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -252,8 +253,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxNumEnemies: 10
   enemyPrefab: {fileID: 195110, guid: d1624bf1c66234d25b3e6b5ef2524a7c, type: 2}
-  scoreUI: {fileID: 0}
-  score: 0
+  pointsForKillingEnemy: 100
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
