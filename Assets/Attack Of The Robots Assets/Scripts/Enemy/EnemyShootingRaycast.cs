@@ -20,6 +20,7 @@ public class EnemyShootingRaycast: MonoBehaviour
 	private bool shooting;								// A bool to say whether or not the enemy is currently shooting.
 //	private float scaledDamage;							// Amount of damage that is scaled by the distance from the player.
 	private vp_Shooter m_Shooter;
+	private GameObject player;
 
 	void Awake () {
 		// Setting up the references.
@@ -32,6 +33,7 @@ public class EnemyShootingRaycast: MonoBehaviour
 		// The line renderer and light are off to start.
 		laserShotLine.enabled = false;
 		laserShotLight.intensity = 0f;
+		player = GameObject.FindGameObjectWithTag (InGameTags.player);
 		
 		// The scaledDamage is the difference between the maximum and the minimum damage.
 //		scaledDamage = maximumDamage - minimumDamage;
@@ -68,8 +70,8 @@ public class EnemyShootingRaycast: MonoBehaviour
 		float aimWeight = anim.GetFloat(hash.aimWeightFloat);
 		
 		// Set the IK position of the right hand to the player's centre.
-		if(enemy.enemyDetectPlayer.GetTargetedPlayer() != null){
-			anim.SetIKPosition(AvatarIKGoal.RightHand, enemy.enemyDetectPlayer.GetTargetedPlayer().transform.position + Vector3.up * 1.5f);
+		if(enemy.enemyDetectPlayer.playerInSight){
+			anim.SetIKPosition(AvatarIKGoal.RightHand, player.transform.position + Vector3.up * 1.5f);
 		}
 
 		// Set the weight of the IK compared to animation to that of the curve.

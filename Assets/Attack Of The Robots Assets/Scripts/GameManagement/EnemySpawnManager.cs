@@ -22,8 +22,8 @@ public class EnemySpawnManager : MonoBehaviour {
 	void FixedUpdate () {
 		if (currentNumEnemies < maxNumEnemies) {
 			GameObject enemyClone = (GameObject) Instantiate (enemyPrefab, spawners[spawnerIndex++].transform.position, enemyPrefab.transform.rotation);
-			enemyClone.GetComponent<Enemy>().enemyDetectPlayer.alwaysPlayerAware = true;
-			enemyClone.GetComponent<Enemy>().enemyDetectPlayer.permanentTarget = player;
+//			enemyClone.GetComponent<Enemy>().enemyDetectPlayer.alwaysPlayerAware = true;
+//			enemyClone.GetComponent<Enemy>().enemyDetectPlayer.permanentTarget = player;
 
 			currentNumEnemies++;
 

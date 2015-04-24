@@ -3,11 +3,13 @@ using System.Collections;
 
 public class PointBall : MonoBehaviour {
 	PointBallSpawnManager pointBallSpawnManager;
+	EnemySpawnManager enemySpawnManager;
 	public AudioClip pickupSound;
 	public float restoreHPPercent = 0.25f;
 
 	void Start(){
 		pointBallSpawnManager = GameObject.FindGameObjectWithTag (InGameTags.gameController).GetComponent<PointBallSpawnManager> ();
+		enemySpawnManager = GameObject.FindGameObjectWithTag (InGameTags.gameController).GetComponent<EnemySpawnManager> ();
 	}
 
 
@@ -30,6 +32,9 @@ public class PointBall : MonoBehaviour {
 
 			//let the manager know the ball was picked up 
 			pointBallSpawnManager.BallCollected();
+
+			//add another enemy to the scene
+			enemySpawnManager.maxNumEnemies++;
 
 			//destroy the ball
 			GameObject.Destroy(this.gameObject);

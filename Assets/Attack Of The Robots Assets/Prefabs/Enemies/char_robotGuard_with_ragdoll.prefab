@@ -753,7 +753,7 @@ GameObject:
   - 114: {fileID: 11490826}
   m_Layer: 2
   m_Name: PlayerDetectTrigger
-  m_TagString: Untagged
+  m_TagString: Triggerer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1091,7 +1091,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 195110}
   m_LocalRotation: {x: 0, y: .999700665, z: 0, w: .0244672708}
-  m_LocalPosition: {x: 20.8999996, y: 0, z: 40.2999992}
+  m_LocalPosition: {x: 27.3902569, y: -1.03311199e-16, z: 39.8954163}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 404562}
@@ -1993,7 +1993,7 @@ Animator:
   m_GameObject: {fileID: 195110}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: d2c7cdbded19443fe9f93094b24680c8, type: 3}
-  m_Controller: {fileID: 9100000, guid: 38162e728a89f4c0b88978598fcba72e, type: 2}
+  m_Controller: {fileID: 9100000, guid: e0a359fb3db5e1148988c2351b12361b, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
@@ -2081,7 +2081,7 @@ MonoBehaviour:
   ProjectileFiringRate: .100000001
   ProjectileSpawnDelay: 0
   ProjectileCount: 3
-  ProjectileSpread: 30
+  ProjectileSpread: 15
   ProjectileSourceIsRoot: 1
   MuzzleFlashPosition: {x: 0, y: .0500000007, z: .200000003}
   MuzzleFlashScale: {x: 1, y: 1, z: 1}
@@ -2189,11 +2189,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fieldOfViewAngle: 110
   playerInSight: 0
-  gun: {fileID: 177758}
-  personalLastKnownLocation: {x: 0, y: 0, z: 0}
-  alwaysPlayerAware: 1
-  enemy: {fileID: 0}
-  permanentTarget: {fileID: 0}
+  personalLastSighting: {x: 0, y: 0, z: 0}
 --- !u!114 &11492638
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2205,7 +2201,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13285f7847023461492538ef371b5451, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deadZone: 10
+  deadZone: 5
 --- !u!114 &11496638
 MonoBehaviour:
   m_ObjectHideFlags: 1
