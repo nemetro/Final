@@ -19,16 +19,13 @@ TagManager:
   - Keycard
   - Door
   - Switch
-  - Gun
   - Triggerer
   - Grass
   - Stone
   - PlayerSpawn
   - EnemySpawn
-  - Player1
-  - Player2
-  - Player3
-  - Player4
+  - Player
+  - PointBall
   layers:
   - Default
   - TransparentFX
