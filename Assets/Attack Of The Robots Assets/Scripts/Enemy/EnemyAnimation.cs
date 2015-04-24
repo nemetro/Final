@@ -3,28 +3,33 @@ using System.Collections;
 
 public class EnemyAnimation : MonoBehaviour
 {
-	public float deadZone = 5f;				// The number of degrees for which the rotation isn't controlled by Mecanim.
-
-	private Enemy enemy;					// Reference to the Enemy script.
-	private Animator anim;					// Reference to the Animator.
-	private AnimatorHashIDs hash;			// Reference to the HashIDs script.
-	private AnimatorSetup animSetup;		// An instance of the AnimatorSetup helper class.
-
+	public float deadZone = 5f;             // The number of degrees for which the rotation isn't controlled by Mecanim.
+	
+	
+	private Transform player;               // Reference to the player's transform.
+	private EnemyDetectPlayer enemySight;          // Reference to the EnemySight script.
+	private NavMeshAgent nav;               // Reference to the nav mesh agent.
+	private Animator anim;                  // Reference to the Animator.
+	private AnimatorHashIDs hash;                   // Reference to the HashIDs script.
+	private AnimatorSetup animSetup;        // An instance of the AnimatorSetup helper class.
+	private Enemy enemy;
+	
 	void Awake ()
 	{
-		// Setting up the references.
+
 		enemy = GetComponent<Enemy> ();
+		// Setting up the references.
+		player = GameObject.FindGameObjectWithTag(InGameTags.player).transform;
+		nav = GetComponent<NavMeshAgent>();
 		anim = GetComponent<Animator>();
 		hash = GameObject.FindGameObjectWithTag(InGameTags.gameController).GetComponent<AnimatorHashIDs>();
-
+		
+		// Making sure the rotation is controlled by Mecanim.
+		nav.updateRotation = false;
+		
 		// Creating an instance of the AnimatorSetup class and calling it's constructor.
 		animSetup = new AnimatorSetup(anim, hash);
-	}
-
-	void Start(){
-		// Making sure the rotation is controlled by Mecanim.
-		enemy.nav.updateRotation = false;
-
+		
 		// Set the weights for the shooting and gun layers to 1.
 		anim.SetLayerWeight(1, 1f);
 		anim.SetLayerWeight(2, 1f);
@@ -41,47 +46,54 @@ public class EnemyAnimation : MonoBehaviour
 	}
 	
 	
-	void OnAnimatorMove()
-    {
+	void OnAnimatorMove ()
+	{
 		// Set the NavMeshAgent's velocity to the change in position since the last frame, by the time it took for the last frame.
-        enemy.nav.velocity = anim.deltaPosition / Time.deltaTime;
+		nav.velocity = anim.deltaPosition / Time.deltaTime;
 		
 		// The gameobject's rotation is driven by the animation's rotation.
 		transform.rotation = anim.rootRotation;
-    }
+	}
 	
 	
 	void NavAnimSetup ()
 	{
 		// Create the parameters to pass to the helper function.
-		float speed = Vector3.Project(enemy.nav.desiredVelocity, transform.forward).magnitude;;
+		float speed;
 		float angle;
 		
 		// If the player is in sight...
 		if(enemy.enemyDetectPlayer.playerInSight)
 		{
-			// ... the enemy should stop...
-//			speed = 0f;
+			// ... the enemy should slow...
+			if((player.position-transform.position).sqrMagnitude > 9) {
+				speed = 0.2f;
+			} else {
+				speed = 0f;
+			}
 			
 			// ... and the angle to turn through is towards the player.
-			angle = FindAngle(transform.forward, enemy.enemyDetectPlayer.personalLastKnownLocation - transform.position, transform.up);
+			angle = FindAngle(transform.forward, player.position - transform.position, transform.up);
 		}
-		else {
+		else
+		{
 			// Otherwise the speed is a projection of desired velocity on to the forward vector...
-			speed = Vector3.Project(enemy.nav.desiredVelocity, transform.forward).magnitude;
+			speed = Vector3.Project(nav.desiredVelocity, transform.forward).magnitude;
 			
 			// ... and the angle is the angle between forward and the desired velocity.
-			angle = FindAngle(transform.forward, enemy.nav.desiredVelocity, transform.up);
+			angle = FindAngle(transform.forward, nav.desiredVelocity, transform.up);
 			
 			// If the angle is within the deadZone...
-			if(Mathf.Abs(angle) < deadZone) {
-				transform.LookAt(transform.position + enemy.nav.desiredVelocity); // ... set the direction to be along the desired direction and set the angle to be zero.
-      			angle = 0f;
-    		}
+			if(Mathf.Abs(angle) < deadZone)
+			{
+				// ... set the direction to be along the desired direction and set the angle to be zero.
+				transform.LookAt(transform.position + nav.desiredVelocity);
+				angle = 0f;
+			}
 		}
 		
 		// Call the Setup function of the helper class with the given parameters.
-		animSetup.Setup(speed, angle, Vector3.Distance(enemy.enemyDetectPlayer.personalLastKnownLocation, transform.position));
+		animSetup.Setup(speed, angle);
 	}
 	
 	
@@ -103,7 +115,7 @@ public class EnemyAnimation : MonoBehaviour
 		
 		// We need to convert the angle we've found from degrees to radians.
 		angle *= Mathf.Deg2Rad;
-
+		
 		return angle;
 	}
 }

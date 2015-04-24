@@ -14,8 +14,17 @@ public class Enemy : MonoBehaviour {
 	public RagdollHelper_noah ragHelper;
 	public EnemyDestroy enemyDestroy;
 
+	//set via inspector
+	public Material cloakedMaterial;
+
+	//grab these from the robot settings
+	private Material robotBodyMat;
+	private Material scifiGunMat;
+
 	private Renderer enemyMeshRenderer;
 	private Renderer gunMeshRenderer;
+
+
 
 	void Awake () {
 		enemyAI = GetComponentInChildren<EnemyAI> ();
@@ -28,11 +37,14 @@ public class Enemy : MonoBehaviour {
 		enemyMeshRenderer = GetComponentInChildren<SkinnedMeshRenderer> ();
 		gunMeshRenderer = GetComponentInChildren<MeshRenderer> ();
 		enemyDestroy = GetComponentInChildren<EnemyDestroy> ();
+
+		robotBodyMat = enemyMeshRenderer.material;
+		scifiGunMat = gunMeshRenderer.material;
 	}
 
 	void Start(){
-		enemyMeshRenderer.enabled = false;
-		gunMeshRenderer.enabled = false;
+		enemyMeshRenderer.material = cloakedMaterial;
+		gunMeshRenderer.material = cloakedMaterial;
 	}
 
 	public void Disable(){
@@ -49,7 +61,7 @@ public class Enemy : MonoBehaviour {
 	}
 
 	public void MakeEnemyVisible(){
-		enemyMeshRenderer.enabled = true;
-		gunMeshRenderer.enabled = true;
+		enemyMeshRenderer.material = robotBodyMat;
+		gunMeshRenderer.material = scifiGunMat;
 	}
 }

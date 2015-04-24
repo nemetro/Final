@@ -5,8 +5,7 @@ using System.Collections;
 public class EnemySpawnManager : MonoBehaviour {
 	public int maxNumEnemies = 10;
 	public GameObject enemyPrefab;
-	public Text scoreUI;
-	public int score = 0;
+	public int pointsForKillingEnemy = 100;
 
 
 	private GameObject[] spawners;
@@ -23,8 +22,8 @@ public class EnemySpawnManager : MonoBehaviour {
 	void FixedUpdate () {
 		if (currentNumEnemies < maxNumEnemies) {
 			GameObject enemyClone = (GameObject) Instantiate (enemyPrefab, spawners[spawnerIndex++].transform.position, enemyPrefab.transform.rotation);
-			enemyClone.GetComponent<Enemy>().enemyDetectPlayer.alwaysPlayerAware = true;
-			enemyClone.GetComponent<Enemy>().enemyDetectPlayer.permanentTarget = player;
+//			enemyClone.GetComponent<Enemy>().enemyDetectPlayer.alwaysPlayerAware = true;
+//			enemyClone.GetComponent<Enemy>().enemyDetectPlayer.permanentTarget = player;
 
 			currentNumEnemies++;
 
@@ -36,7 +35,6 @@ public class EnemySpawnManager : MonoBehaviour {
 
 	public void EnemyDied(){
 		currentNumEnemies--;
-		score += 100;
-		scoreUI.text = score.ToString();
+		ScoreManager.AddPoints (pointsForKillingEnemy);
 	}
 }
