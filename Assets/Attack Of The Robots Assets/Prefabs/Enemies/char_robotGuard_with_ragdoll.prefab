@@ -2080,8 +2080,8 @@ MonoBehaviour:
   ProjectileScale: .5
   ProjectileFiringRate: .100000001
   ProjectileSpawnDelay: 0
-  ProjectileCount: 1
-  ProjectileSpread: 0
+  ProjectileCount: 3
+  ProjectileSpread: 30
   ProjectileSourceIsRoot: 1
   MuzzleFlashPosition: {x: 0, y: .0500000007, z: .200000003}
   MuzzleFlashScale: {x: 1, y: 1, z: 1}
@@ -2097,7 +2097,7 @@ MonoBehaviour:
   ShellEjectDelay: 0
   ShellEjectSpin: 0
   m_ShellEjectSpawnPoint: {fileID: 0}
-  SoundFire: {fileID: 8300000, guid: 3287b451cffc7493489235d1bf1231cc, type: 3}
+  SoundFire: {fileID: 8300000, guid: c812ed08e6bddbc4e889ad452441cc8d, type: 3}
   SoundFireDelay: 0
   SoundFirePitch: {x: 1, y: 1}
   FirePosition: {x: 0, y: 0, z: 0}
