@@ -229,8 +229,6 @@ GameObject:
   - 114: {fileID: 11400004}
   - 82: {fileID: 8299652}
   - 114: {fileID: 11449812}
-  - 114: {fileID: 11433380}
-  - 114: {fileID: 11488846}
   - 114: {fileID: 11415862}
   m_Layer: 10
   m_Name: FPSCamera
@@ -4264,7 +4262,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_ItemRecords:
     itemList: 108
-    helpbox: 144
+    helpbox: 122
   m_ItemCaps:
     itemList: 88
     helpbox: 111
@@ -4320,6 +4318,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7026e7c6d0992824eb4c0e9d743c77d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scoreUI: {fileID: 0}
+  score: 0
   PainTexture: {fileID: 2800000, guid: 951c50251d3e1204ba87f7588536656f, type: 3}
   DeathTexture: {fileID: 2800000, guid: 4af1605bed6aa1143989a48a669dc524, type: 3}
   ArrowTexture: {fileID: 2800000, guid: 30569dfd33283364f8247678f8ac7e8c, type: 3}
@@ -4378,22 +4378,22 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100120}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2c2c8a92e1429a24ea763ec42ec37a89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_SpawnMode: 1
+  m_SpawnMode: 0
   SpawnPointTag: 
-  m_ObstructionSolver: 1
-  ObstructionRadius: 1
+  m_ObstructionSolver: 0
+  ObstructionRadius: .100000001
   MinRespawnTime: 3
   MaxRespawnTime: 3
   LastRespawnTime: 0
   SpawnOnAwake: 0
   SpawnSound: {fileID: 8300000, guid: c6ffb5ccbd00a114494143e33e747a05, type: 3}
   SpawnFXPrefabs: []
-  helpbox: 155
+  helpbox: 133
 --- !u!114 &11400034
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4672,7 +4672,7 @@ MonoBehaviour:
   CameraFreezeDelay: 2.5
   VelocityMultiplier: 30
   HeadBone: {fileID: 100152}
-  helpbox: 84
+  helpbox: 62
 --- !u!114 &11400050
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5508,18 +5508,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   num: 0
---- !u!114 &11433380
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100028}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 25dc8f30a3e21497f90ce8fac144cf5f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerCamera: {fileID: 0}
 --- !u!114 &11445596
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5553,18 +5541,6 @@ MonoBehaviour:
   minPitch: .800000012
   maxVol: 1.5
   minVol: 0
---- !u!114 &11488846
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100028}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 25dc8f30a3e21497f90ce8fac144cf5f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerCamera: {fileID: 0}
 --- !u!135 &13500000
 SphereCollider:
   m_ObjectHideFlags: 1
