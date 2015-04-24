@@ -2052,6 +2052,7 @@ MonoBehaviour:
   nav: {fileID: 0}
   ragHelper: {fileID: 0}
   enemyDestroy: {fileID: 0}
+  cloakedMaterial: {fileID: 2100000, guid: 88ae902ff4f378644bc7615332fc4d5e, type: 2}
 --- !u!114 &11416652
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2148,7 +2149,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9008574bde61f4f988ecf2f9d37087c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  destroyTimer: 10
+  destroyTimer: 5
 --- !u!114 &11471720
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2219,7 +2220,7 @@ MonoBehaviour:
   walkingOnPaint: 0
   moving: 0
   footprint: {fileID: 165626, guid: dcc694c63e05c40f7aa26fbec08f7fd3, type: 2}
-  maxNumPaintSteps: 10
+  maxNumPaintSteps: 5
 --- !u!120 &12051700
 LineRenderer:
   m_ObjectHideFlags: 1
